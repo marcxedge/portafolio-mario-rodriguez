@@ -3,6 +3,7 @@
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+  initLanguage();
   initYear();
   initTheme();
   initNavbar();
@@ -17,6 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initSmoothAnchors();
 });
+
+/* Language toggle (ES / EN) */
+function initLanguage() {
+  const btn = document.getElementById('langToggle');
+  const lang = window.I18N.getStoredLang();
+  window.I18N.apply(lang);
+
+  btn?.addEventListener('click', () => {
+    const current = document.documentElement.lang === 'en' ? 'en' : 'es';
+    const next = current === 'es' ? 'en' : 'es';
+    window.I18N.apply(next);
+  });
+}
 
 /* Footer year */
 function initYear() {
@@ -197,17 +211,26 @@ function initLangBars() {
   bars.forEach(b => observer.observe(b));
 }
 
-/* Typing effect for hero role words */
+/* Typing effect for hero role words (restarts on language change) */
+let typedGeneration = 0;
+
 function initTypedText() {
   const el = document.getElementById('typed');
   if (!el) return;
 
-  const words = ['Mobile.', 'Flutter.', 'React Native.', 'Edge AI.', 'Multiplataforma.'];
+  document.addEventListener('i18n:changed', (e) => startTyping(el, e.detail.lang));
+  startTyping(el, document.documentElement.lang === 'en' ? 'en' : 'es');
+}
+
+function startTyping(el, lang) {
+  const generation = ++typedGeneration;
+  const words = window.I18N.get(lang, 'hero.typedWords') || ['Mobile.'];
   let wordIndex = 0;
   let charIndex = 0;
   let deleting = false;
 
   const tick = () => {
+    if (generation !== typedGeneration) return;
     const current = words[wordIndex];
 
     if (!deleting) {

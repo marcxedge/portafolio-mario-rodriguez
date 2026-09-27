@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mario Rodríguez Cedeño · Desarrollador Mobile & Edge AI</title>
-<meta name="description" content="Portafolio de Mario Antonio Rodríguez Cedeño — Ingeniero en Sistemas Informáticos especializado en Flutter, React Native, Android, iOS, Edge AI y Machine Learning.">
+<title data-i18n="meta.title">Mario Rodríguez Cedeño · Desarrollador Mobile & Edge AI</title>
+<meta name="description" data-i18n-attr="content:meta.description" content="Portafolio de Mario Antonio Rodríguez Cedeño — Ingeniero en Sistemas Informáticos especializado en Flutter, React Native, Android, iOS, Edge AI y Machine Learning.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,23 +30,26 @@
     </a>
 
     <nav class="nav-links" id="navLinks">
-      <a href="#inicio" class="nav-link active" data-nav>Inicio</a>
-      <a href="#sobre-mi" class="nav-link" data-nav>Sobre mí</a>
-      <a href="#experiencia" class="nav-link" data-nav>Experiencia</a>
-      <a href="#habilidades" class="nav-link" data-nav>Habilidades</a>
-      <a href="#proyecto" class="nav-link" data-nav>Proyecto</a>
-      <a href="#certificaciones" class="nav-link" data-nav>Certificaciones</a>
-      <a href="#voluntariado" class="nav-link" data-nav>Voluntariado</a>
-      <a href="#contacto" class="nav-link" data-nav>Contacto</a>
+      <a href="#inicio" class="nav-link active" data-nav data-i18n="nav.home">Inicio</a>
+      <a href="#sobre-mi" class="nav-link" data-nav data-i18n="nav.about">Sobre mí</a>
+      <a href="#experiencia" class="nav-link" data-nav data-i18n="nav.experience">Experiencia</a>
+      <a href="#habilidades" class="nav-link" data-nav data-i18n="nav.skills">Habilidades</a>
+      <a href="#proyecto" class="nav-link" data-nav data-i18n="nav.project">Proyecto</a>
+      <a href="#certificaciones" class="nav-link" data-nav data-i18n="nav.certifications">Certificaciones</a>
+      <a href="#voluntariado" class="nav-link" data-nav data-i18n="nav.volunteering">Voluntariado</a>
+      <a href="#contacto" class="nav-link" data-nav data-i18n="nav.contact">Contacto</a>
     </nav>
 
     <div class="nav-actions">
-      <button class="icon-btn" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">
+      <button class="icon-btn" id="langToggle" aria-label="Change language" title="Change language">
+        <span id="langToggleLabel">EN</span>
+      </button>
+      <button class="icon-btn" id="themeToggle" data-i18n-attr="aria-label:a11y.toggleTheme;title:a11y.toggleTheme" aria-label="Cambiar tema" title="Cambiar tema">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="assets/CV_Mario_Rodriguez.pdf" class="btn btn-primary btn-sm" download>Descargar CV</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <a href="assets/CV_Mario_Rodriguez.pdf" id="cvDownload" class="btn btn-primary btn-sm" data-i18n="nav.downloadCV" download>Descargar CV</a>
+      <button class="menu-toggle" id="menuToggle" data-i18n-attr="aria-label:a11y.openMenu" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -65,12 +68,12 @@
 
     <div class="container hero-inner">
       <div class="hero-text" data-reveal>
-        <p class="eyebrow">Ingeniero en Sistemas Informáticos</p>
+        <p class="eyebrow" data-i18n="hero.eyebrow">Ingeniero en Sistemas Informáticos</p>
         <h1 class="hero-title">
-          Hola, soy <span class="text-gradient">Mario Rodríguez</span><br>
-          Desarrollador <span class="typed" id="typed"></span>
+          <span data-i18n="hero.greeting">Hola, soy</span> <span class="text-gradient">Mario Rodríguez</span><br>
+          <span data-i18n="hero.role">Desarrollador</span> <span class="typed" id="typed"></span>
         </h1>
-        <p class="hero-desc">
+        <p class="hero-desc" data-i18n="hero.description">
           Especializado en el diseño, desarrollo y despliegue de aplicaciones móviles nativas y
           multiplataforma. Apasionado por la integración de hardware, Edge AI y la optimización
           de modelos de Machine Learning para crear soluciones con impacto real.
@@ -78,12 +81,12 @@
 
         <div class="hero-badge">
           <span class="dot"></span>
-          Disponible para trabajar · hasta 30h/semana (estancia por estudios) · Valencia, España
+          <span data-i18n="hero.badge">Disponible para trabajar · hasta 30h/semana (estancia por estudios) · Valencia, España</span>
         </div>
 
         <div class="hero-cta">
-          <a href="#contacto" class="btn btn-primary">Hablemos <span aria-hidden="true">→</span></a>
-          <a href="#experiencia" class="btn btn-ghost">Ver experiencia</a>
+          <a href="#contacto" class="btn btn-primary"><span data-i18n="hero.ctaPrimary">Hablemos</span> <span aria-hidden="true">→</span></a>
+          <a href="#experiencia" class="btn btn-ghost" data-i18n="hero.ctaSecondary">Ver experiencia</a>
         </div>
 
         <div class="hero-social">
@@ -102,7 +105,7 @@
       <div class="hero-visual" data-reveal>
         <div class="photo-frame">
           <div class="photo-ring"></div>
-          <img src="assets/img/profile.jpg" alt="Foto de Mario Antonio Rodríguez Cedeño" class="photo">
+          <img src="assets/img/profile.jpg" alt="Foto de Mario Antonio Rodríguez Cedeño" data-i18n-attr="alt:hero.photoAlt" class="photo">
           <div class="photo-chip chip-flutter">Flutter</div>
           <div class="photo-chip chip-ai">Edge AI</div>
           <div class="photo-chip chip-android">Android</div>
@@ -110,7 +113,7 @@
       </div>
     </div>
 
-    <a href="#sobre-mi" class="scroll-cue" aria-label="Desplazarse hacia abajo">
+    <a href="#sobre-mi" class="scroll-cue" data-i18n-attr="aria-label:a11y.scrollDown" aria-label="Desplazarse hacia abajo">
       <span></span>
     </a>
   </section>
@@ -118,11 +121,11 @@
   <!-- ===== SOBRE MI / STATS ===== -->
   <section class="section" id="sobre-mi">
     <div class="container">
-      <p class="section-tag" data-reveal>Sobre mí</p>
-      <h2 class="section-title" data-reveal>Perfil profesional</h2>
+      <p class="section-tag" data-reveal data-i18n="about.tag">Sobre mí</p>
+      <h2 class="section-title" data-reveal data-i18n="about.title">Perfil profesional</h2>
 
       <div class="about-grid">
-        <p class="about-text" data-reveal>
+        <p class="about-text" data-reveal data-i18n-html="about.text">
           Ingeniero en Sistemas Informáticos con sólida experiencia en el diseño, desarrollo y
           despliegue de <strong>aplicaciones móviles nativas y multiplataforma</strong>.
           Especializado en la integración de hardware, <strong>Edge AI</strong> y optimización de
@@ -135,19 +138,19 @@
         <div class="stats" data-reveal>
           <div class="stat-card">
             <span class="stat-num" data-count="4">0</span>
-            <span class="stat-label">Años de experiencia</span>
+            <span class="stat-label" data-i18n="about.statYears">Años de experiencia</span>
           </div>
           <div class="stat-card">
             <span class="stat-num" data-count="7">0</span>
-            <span class="stat-label">Certificaciones</span>
+            <span class="stat-label" data-i18n="about.statCerts">Certificaciones</span>
           </div>
           <div class="stat-card">
             <span class="stat-num" data-count="2">0</span>
-            <span class="stat-label">Plataformas SDK (DJI)</span>
+            <span class="stat-label" data-i18n="about.statSdk">Plataformas SDK (DJI)</span>
           </div>
           <div class="stat-card">
             <span class="stat-num" data-count="3">0</span>
-            <span class="stat-label">Empresas / roles</span>
+            <span class="stat-label" data-i18n="about.statCompanies">Empresas / roles</span>
           </div>
         </div>
       </div>
@@ -155,23 +158,23 @@
       <div class="values-grid">
         <div class="value-card" data-reveal>
           <div class="value-icon">📱</div>
-          <h3>Apps móviles</h3>
-          <p>Desarrollo de aplicaciones nativas y multiplataforma end-to-end.</p>
+          <h3 data-i18n="about.value1Title">Apps móviles</h3>
+          <p data-i18n="about.value1Text">Desarrollo de aplicaciones nativas y multiplataforma end-to-end.</p>
         </div>
         <div class="value-card" data-reveal>
           <div class="value-icon">🛰️</div>
-          <h3>Hardware & SDKs</h3>
-          <p>Integración avanzada de SDKs (DJI, sensores, dispositivos IoT).</p>
+          <h3 data-i18n="about.value2Title">Hardware & SDKs</h3>
+          <p data-i18n="about.value2Text">Integración avanzada de SDKs (DJI, sensores, dispositivos IoT).</p>
         </div>
         <div class="value-card" data-reveal>
           <div class="value-icon">🧠</div>
-          <h3>Edge AI & ML</h3>
-          <p>Machine Learning y despliegue de modelos en dispositivos móviles.</p>
+          <h3 data-i18n="about.value3Title">Edge AI & ML</h3>
+          <p data-i18n="about.value3Text">Machine Learning y despliegue de modelos en dispositivos móviles.</p>
         </div>
         <div class="value-card" data-reveal>
           <div class="value-icon">🚀</div>
-          <h3>Despliegue</h3>
-          <p>Arquitectura y publicación en Google Play y App Store.</p>
+          <h3 data-i18n="about.value4Title">Despliegue</h3>
+          <p data-i18n="about.value4Text">Arquitectura y publicación en Google Play y App Store.</p>
         </div>
       </div>
     </div>
@@ -180,8 +183,8 @@
   <!-- ===== EXPERIENCIA ===== -->
   <section class="section section-alt" id="experiencia">
     <div class="container">
-      <p class="section-tag" data-reveal>Trayectoria</p>
-      <h2 class="section-title" data-reveal>Experiencia profesional</h2>
+      <p class="section-tag" data-reveal data-i18n="experience.tag">Trayectoria</p>
+      <h2 class="section-title" data-reveal data-i18n="experience.title">Experiencia profesional</h2>
 
       <div class="timeline">
         <div class="timeline-item" data-reveal>
@@ -192,15 +195,15 @@
                 <img src="assets/img/logo-altura.png" alt="Logo de Altura S.A.">
               </div>
               <div>
-                <span class="timeline-date">Mar 2025 — Sep 2026</span>
-                <h3>Líder IDS-Mobile</h3>
-                <p class="timeline-company">Altura S.A. · Manta, Manabí, Ecuador</p>
+                <span class="timeline-date" data-i18n="experience.job1Date">Mar 2025 — Sep 2026</span>
+                <h3 data-i18n="experience.job1Title">Líder IDS-Mobile</h3>
+                <p class="timeline-company" data-i18n="experience.job1Company">Altura S.A. · Manta, Manabí, Ecuador</p>
               </div>
             </div>
             <ul>
-              <li>Liderazgo técnico en la arquitectura y desarrollo end-to-end de apps móviles.</li>
-              <li>Integración avanzada de SDKs de DJI para control y automatización de drones.</li>
-              <li>Implementación de soluciones de Edge AI y despliegue de modelos de ML (reconocimiento facial y OCR) en tiempo real.</li>
+              <li data-i18n="experience.job1Bullet1">Liderazgo técnico en la arquitectura y desarrollo end-to-end de apps móviles.</li>
+              <li data-i18n="experience.job1Bullet2">Integración avanzada de SDKs de DJI para control y automatización de drones.</li>
+              <li data-i18n="experience.job1Bullet3">Implementación de soluciones de Edge AI y despliegue de modelos de ML (reconocimiento facial y OCR) en tiempo real.</li>
             </ul>
           </div>
         </div>
@@ -213,14 +216,14 @@
                 <img src="assets/img/logo-altura.png" alt="Logo de Altura S.A.">
               </div>
               <div>
-                <span class="timeline-date">Abr 2024 — Sep 2026</span>
-                <h3>Desarrollador Mobile</h3>
-                <p class="timeline-company">Altura S.A. · Manta, Manabí, Ecuador</p>
+                <span class="timeline-date" data-i18n="experience.job2Date">Abr 2024 — Sep 2026</span>
+                <h3 data-i18n="experience.job2Title">Desarrollador Mobile</h3>
+                <p class="timeline-company" data-i18n="experience.job2Company">Altura S.A. · Manta, Manabí, Ecuador</p>
               </div>
             </div>
             <ul>
-              <li>Desarrollo y mantenimiento de apps nativas (Android/iOS) y multiplataforma.</li>
-              <li>Gestión de despliegues y lanzamientos (code signing, aprovisionamiento) en Google Play Console y App Store Connect.</li>
+              <li data-i18n="experience.job2Bullet1">Desarrollo y mantenimiento de apps nativas (Android/iOS) y multiplataforma.</li>
+              <li data-i18n="experience.job2Bullet2">Gestión de despliegues y lanzamientos (code signing, aprovisionamiento) en Google Play Console y App Store Connect.</li>
             </ul>
           </div>
         </div>
@@ -233,13 +236,13 @@
                 <img src="assets/img/logo-pardux.png" alt="Logo de Pardux">
               </div>
               <div>
-                <span class="timeline-date">Abr 2023 — Mar 2024</span>
-                <h3>Frontend Developer</h3>
-                <p class="timeline-company">Pardux · Quito, Pichincha, Ecuador</p>
+                <span class="timeline-date" data-i18n="experience.job3Date">Abr 2023 — Mar 2024</span>
+                <h3 data-i18n="experience.job3Title">Frontend Developer</h3>
+                <p class="timeline-company" data-i18n="experience.job3Company">Pardux · Quito, Pichincha, Ecuador</p>
               </div>
             </div>
             <ul>
-              <li>Maquetación y mantenimiento de interfaces de usuario (UI) para aplicaciones web responsivas y escalables.</li>
+              <li data-i18n="experience.job3Bullet1">Maquetación y mantenimiento de interfaces de usuario (UI) para aplicaciones web responsivas y escalables.</li>
             </ul>
           </div>
         </div>
@@ -252,13 +255,13 @@
                 <img src="assets/img/logo-altura.png" alt="Logo de Altura S.A.">
               </div>
               <div>
-                <span class="timeline-date">Oct 2020 — Nov 2022</span>
-                <h3>Especialista I+D</h3>
-                <p class="timeline-company">Altura S.A. · Manta, Manabí, Ecuador</p>
+                <span class="timeline-date" data-i18n="experience.job4Date">Oct 2020 — Nov 2022</span>
+                <h3 data-i18n="experience.job4Title">Especialista I+D</h3>
+                <p class="timeline-company" data-i18n="experience.job4Company">Altura S.A. · Manta, Manabí, Ecuador</p>
               </div>
             </div>
             <ul>
-              <li>Investigación e implementación de nuevas tecnologías, arquitecturas y metodologías para el desarrollo de apps.</li>
+              <li data-i18n="experience.job4Bullet1">Investigación e implementación de nuevas tecnologías, arquitecturas y metodologías para el desarrollo de apps.</li>
             </ul>
           </div>
         </div>
@@ -269,12 +272,12 @@
   <!-- ===== HABILIDADES ===== -->
   <section class="section" id="habilidades">
     <div class="container">
-      <p class="section-tag" data-reveal>Stack</p>
-      <h2 class="section-title" data-reveal>Competencias técnicas</h2>
+      <p class="section-tag" data-reveal data-i18n="skills.tag">Stack</p>
+      <h2 class="section-title" data-reveal data-i18n="skills.title">Competencias técnicas</h2>
 
       <div class="skills-grid">
         <div class="skill-card" data-reveal>
-          <h3><span class="skill-emoji">📱</span> Desarrollo Mobile</h3>
+          <h3><span class="skill-emoji">📱</span> <span data-i18n="skills.mobileTitle">Desarrollo Mobile</span></h3>
           <div class="tags">
             <span class="tag">Flutter (Dart)</span>
             <span class="tag">React Native</span>
@@ -284,17 +287,17 @@
         </div>
 
         <div class="skill-card" data-reveal>
-          <h3><span class="skill-emoji">🧠</span> IA & Integración</h3>
+          <h3><span class="skill-emoji">🧠</span> <span data-i18n="skills.aiTitle">IA & Integración</span></h3>
           <div class="tags">
-            <span class="tag">Machine Learning Móvil</span>
+            <span class="tag" data-i18n="skills.mlMobile">Machine Learning Móvil</span>
             <span class="tag">TFLite</span>
             <span class="tag">ONNX</span>
-            <span class="tag">SDK DJI (Drones)</span>
+            <span class="tag" data-i18n="skills.djiSdk">SDK DJI (Drones)</span>
           </div>
         </div>
 
         <div class="skill-card" data-reveal>
-          <h3><span class="skill-emoji">🌐</span> Frontend Web</h3>
+          <h3><span class="skill-emoji">🌐</span> <span data-i18n="skills.frontendTitle">Frontend Web</span></h3>
           <div class="tags">
             <span class="tag">HTML5</span>
             <span class="tag">CSS</span>
@@ -306,7 +309,7 @@
         </div>
 
         <div class="skill-card" data-reveal>
-          <h3><span class="skill-emoji">🗄️</span> Backend & BD</h3>
+          <h3><span class="skill-emoji">🗄️</span> <span data-i18n="skills.backendTitle">Backend & BD</span></h3>
           <div class="tags">
             <span class="tag">Java</span>
             <span class="tag">PHP</span>
@@ -317,7 +320,7 @@
         </div>
 
         <div class="skill-card" data-reveal>
-          <h3><span class="skill-emoji">🔁</span> Metodologías</h3>
+          <h3><span class="skill-emoji">🔁</span> <span data-i18n="skills.methodsTitle">Metodologías</span></h3>
           <div class="tags">
             <span class="tag">Scrum</span>
             <span class="tag">Kanban</span>
@@ -325,7 +328,7 @@
         </div>
 
         <div class="skill-card" data-reveal>
-          <h3><span class="skill-emoji">🛠️</span> Herramientas</h3>
+          <h3><span class="skill-emoji">🛠️</span> <span data-i18n="skills.toolsTitle">Herramientas</span></h3>
           <div class="tags">
             <span class="tag">Git</span>
             <span class="tag">VS Code</span>
@@ -338,34 +341,34 @@
 
       <div class="skills-bottom">
         <div class="soft-skills" data-reveal>
-          <h3>Competencias blandas</h3>
+          <h3 data-i18n="skills.softTitle">Competencias blandas</h3>
           <div class="tags">
-            <span class="tag tag-outline">Liderazgo</span>
-            <span class="tag tag-outline">Resolución de problemas</span>
-            <span class="tag tag-outline">Aprendizaje continuo</span>
-            <span class="tag tag-outline">Proactividad</span>
+            <span class="tag tag-outline" data-i18n="skills.soft1">Liderazgo</span>
+            <span class="tag tag-outline" data-i18n="skills.soft2">Resolución de problemas</span>
+            <span class="tag tag-outline" data-i18n="skills.soft3">Aprendizaje continuo</span>
+            <span class="tag tag-outline" data-i18n="skills.soft4">Proactividad</span>
           </div>
         </div>
 
         <div class="languages" data-reveal>
-          <h3>Idiomas</h3>
+          <h3 data-i18n="skills.langTitle">Idiomas</h3>
           <div class="lang-row">
-            <span class="lang-name">Español</span>
+            <span class="lang-name" data-i18n="skills.langSpanish">Español</span>
             <div class="lang-bar"><div class="lang-fill" style="--fill:100%"></div></div>
-            <span class="lang-level">Nativo</span>
+            <span class="lang-level" data-i18n="skills.langNative">Nativo</span>
           </div>
           <div class="lang-row">
-            <span class="lang-name">Inglés — Escrito</span>
+            <span class="lang-name" data-i18n="skills.langEnWritten">Inglés — Escrito</span>
             <div class="lang-bar"><div class="lang-fill" style="--fill:60%"></div></div>
             <span class="lang-level">B1</span>
           </div>
           <div class="lang-row">
-            <span class="lang-name">Inglés — Hablado</span>
+            <span class="lang-name" data-i18n="skills.langEnSpoken">Inglés — Hablado</span>
             <div class="lang-bar"><div class="lang-fill" style="--fill:60%"></div></div>
             <span class="lang-level">B1</span>
           </div>
           <div class="lang-row">
-            <span class="lang-name">Inglés — Interpretado</span>
+            <span class="lang-name" data-i18n="skills.langEnComprehension">Inglés — Interpretado</span>
             <div class="lang-bar"><div class="lang-fill" style="--fill:60%"></div></div>
             <span class="lang-level">B1</span>
           </div>
@@ -377,8 +380,8 @@
   <!-- ===== FORMACION ===== -->
   <section class="section section-alt" id="formacion">
     <div class="container">
-      <p class="section-tag" data-reveal>Academia</p>
-      <h2 class="section-title" data-reveal>Formación académica</h2>
+      <p class="section-tag" data-reveal data-i18n="education.tag">Academia</p>
+      <h2 class="section-title" data-reveal data-i18n="education.title">Formación académica</h2>
 
       <div class="edu-grid">
         <div class="edu-card" data-reveal>
@@ -386,9 +389,9 @@
             <img src="assets/img/logo-uv.png" alt="Escudo de la Universitat de València">
           </div>
           <div class="edu-body">
-            <span class="edu-date">Sep 2026 — Presente</span>
-            <h3>Máster Universitario en Tecnologías Web, Computación en la Nube y Aplicaciones Móviles</h3>
-            <p>Universitat de València · Valencia, España</p>
+            <span class="edu-date" data-i18n="education.masterDate">Sep 2026 — Presente</span>
+            <h3 data-i18n="education.masterTitle">Máster Universitario en Tecnologías Web, Computación en la Nube y Aplicaciones Móviles</h3>
+            <p data-i18n="education.masterPlace">Universitat de València · Valencia, España</p>
           </div>
         </div>
         <div class="edu-card" data-reveal>
@@ -396,9 +399,9 @@
             <img src="assets/img/logo-utm.png" alt="Escudo de la Universidad Técnica de Manabí">
           </div>
           <div class="edu-body">
-            <span class="edu-date">Oct 2015 — Ago 2023</span>
-            <h3>Ingeniería en Sistemas Informáticos</h3>
-            <p>Universidad Técnica de Manabí · Portoviejo, Ecuador</p>
+            <span class="edu-date" data-i18n="education.degreeDate">Oct 2015 — Ago 2023</span>
+            <h3 data-i18n="education.degreeTitle">Ingeniería en Sistemas Informáticos</h3>
+            <p data-i18n="education.degreePlace">Universidad Técnica de Manabí · Portoviejo, Ecuador</p>
           </div>
         </div>
       </div>
@@ -408,36 +411,36 @@
   <!-- ===== PROYECTO DESTACADO ===== -->
   <section class="section" id="proyecto">
     <div class="container">
-      <p class="section-tag" data-reveal>Proyecto de titulación</p>
-      <h2 class="section-title" data-reveal>Comunicación aumentada para inclusión auditiva</h2>
+      <p class="section-tag" data-reveal data-i18n="project.tag">Proyecto de titulación</p>
+      <h2 class="section-title" data-reveal data-i18n="project.title">Comunicación aumentada para inclusión auditiva</h2>
 
       <div class="project-card" data-reveal>
         <div class="project-glow" aria-hidden="true"></div>
         <div class="project-content">
           <div class="project-meta">
-            <span class="timeline-date">Jul 2022 — Ago 2023</span>
+            <span class="timeline-date" data-i18n="project.date">Jul 2022 — Ago 2023</span>
             <span class="project-org">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/></svg>
-              Asociado con Universidad Técnica de Manabí
+              <span data-i18n="project.affiliation">Asociado con Universidad Técnica de Manabí</span>
             </span>
           </div>
-          <h3>App móvil colaborativa de comunicación aumentada para inclusión auditiva</h3>
-          <p>
+          <h3 data-i18n="project.cardTitle">App móvil colaborativa de comunicación aumentada para inclusión auditiva</h3>
+          <p data-i18n="project.description">
             Proyecto de titulación enfocado en accesibilidad: una aplicación que traduce texto a
             lenguaje de señas mediante la generación de imágenes y gestos en tiempo real, apoyada
             en un modelo de Machine Learning personalizado.
           </p>
           <ul class="project-points">
-            <li><strong>Android SDK (Java)</strong> y <strong>Firebase Cloud</strong> como base técnica.</li>
-            <li>Modelo de <strong>Machine Learning personalizado</strong> entrenado para el caso de uso.</li>
-            <li>Transcripción automática de texto a lenguaje de señas mediante generación de imágenes y gestos en tiempo real.</li>
+            <li data-i18n-html="project.point1"><strong>Android SDK (Java)</strong> y <strong>Firebase Cloud</strong> como base técnica.</li>
+            <li data-i18n-html="project.point2">Modelo de <strong>Machine Learning personalizado</strong> entrenado para el caso de uso.</li>
+            <li data-i18n="project.point3">Transcripción automática de texto a lenguaje de señas mediante generación de imágenes y gestos en tiempo real.</li>
           </ul>
           <div class="tags">
             <span class="tag">Android</span>
             <span class="tag">Java</span>
             <span class="tag">Firebase</span>
             <span class="tag">Machine Learning</span>
-            <span class="tag">Accesibilidad</span>
+            <span class="tag" data-i18n="project.tagAccessibility">Accesibilidad</span>
           </div>
         </div>
       </div>
@@ -447,44 +450,44 @@
   <!-- ===== CERTIFICACIONES ===== -->
   <section class="section section-alt" id="certificaciones">
     <div class="container">
-      <p class="section-tag" data-reveal>Credenciales</p>
-      <h2 class="section-title" data-reveal>Certificaciones</h2>
+      <p class="section-tag" data-reveal data-i18n="certifications.tag">Credenciales</p>
+      <h2 class="section-title" data-reveal data-i18n="certifications.title">Certificaciones</h2>
 
       <div class="cert-grid">
         <div class="cert-card" data-reveal>
           <div class="cert-icon cert-icon-platzi"><img src="assets/img/logo-platzi.png" alt="Logo de Platzi"></div>
-          <h3>Curso de Flutter</h3>
-          <p>Platzi · feb 2023</p>
+          <h3 data-i18n="certifications.cert1Title">Curso de Flutter</h3>
+          <p data-i18n="certifications.cert1Meta">Platzi · feb 2023</p>
         </div>
         <div class="cert-card" data-reveal>
           <div class="cert-icon cert-icon-platzi"><img src="assets/img/logo-platzi.png" alt="Logo de Platzi"></div>
-          <h3>Bases Técnicas de Android</h3>
-          <p>Platzi · mar 2023</p>
+          <h3 data-i18n="certifications.cert2Title">Bases Técnicas de Android</h3>
+          <p data-i18n="certifications.cert2Meta">Platzi · mar 2023</p>
         </div>
         <div class="cert-card" data-reveal>
           <div class="cert-icon cert-icon-platzi"><img src="assets/img/logo-platzi.png" alt="Logo de Platzi"></div>
-          <h3>Diseño de Interfaces con Android Studio</h3>
-          <p>Platzi · mar 2023</p>
+          <h3 data-i18n="certifications.cert3Title">Diseño de Interfaces con Android Studio</h3>
+          <p data-i18n="certifications.cert3Meta">Platzi · mar 2023</p>
         </div>
         <div class="cert-card" data-reveal>
           <div class="cert-icon cert-icon-android"><img src="assets/img/logo-android.png" alt="Logo de Android"></div>
-          <h3>Android Enterprise Associate</h3>
-          <p>Android · sep 2024</p>
+          <h3 data-i18n="certifications.cert4Title">Android Enterprise Associate</h3>
+          <p data-i18n="certifications.cert4Meta">Android · sep 2024</p>
         </div>
         <div class="cert-card" data-reveal>
           <div class="cert-icon cert-icon-android"><img src="assets/img/logo-android.png" alt="Logo de Android"></div>
-          <h3>Android Enterprise Professional</h3>
-          <p>Android · dic 2024</p>
+          <h3 data-i18n="certifications.cert5Title">Android Enterprise Professional</h3>
+          <p data-i18n="certifications.cert5Meta">Android · dic 2024</p>
         </div>
         <div class="cert-card" data-reveal>
           <div class="cert-icon cert-icon-samsung"><img src="assets/img/logo-samsung.png" alt="Logo de Samsung"></div>
-          <h3>Samsung Knox Associate</h3>
-          <p>Samsung · ago 2024</p>
+          <h3 data-i18n="certifications.cert6Title">Samsung Knox Associate</h3>
+          <p data-i18n="certifications.cert6Meta">Samsung · ago 2024</p>
         </div>
         <div class="cert-card" data-reveal>
           <div class="cert-icon cert-icon-samsung"><img src="assets/img/logo-samsung.png" alt="Logo de Samsung"></div>
-          <h3>Samsung Knox Professional</h3>
-          <p>Samsung · sep 2024</p>
+          <h3 data-i18n="certifications.cert7Title">Samsung Knox Professional</h3>
+          <p data-i18n="certifications.cert7Meta">Samsung · sep 2024</p>
         </div>
       </div>
     </div>
@@ -493,17 +496,17 @@
   <!-- ===== VOLUNTARIADO ===== -->
   <section class="section" id="voluntariado">
     <div class="container">
-      <p class="section-tag" data-reveal>Compromiso social</p>
-      <h2 class="section-title" data-reveal>Voluntariado</h2>
+      <p class="section-tag" data-reveal data-i18n="volunteering.tag">Compromiso social</p>
+      <h2 class="section-title" data-reveal data-i18n="volunteering.title">Voluntariado</h2>
 
       <div class="volunteer-card" data-reveal>
         <div class="volunteer-logo">
           <img src="assets/img/logo-jci.png" alt="Logo de JCI Ecuador">
         </div>
         <div class="volunteer-content">
-          <h3>Aspirante</h3>
+          <h3 data-i18n="volunteering.role">Aspirante</h3>
           <p class="volunteer-org">JCI Ecuador</p>
-          <span class="timeline-date">May 2022 — Oct 2023 · 1 año 6 meses</span>
+          <span class="timeline-date" data-i18n="volunteering.date">May 2022 — Oct 2023 · 1 año 6 meses</span>
         </div>
       </div>
     </div>
@@ -512,9 +515,9 @@
   <!-- ===== CONTACTO ===== -->
   <section class="section contact-section" id="contacto">
     <div class="container">
-      <p class="section-tag" data-reveal>Contacto</p>
-      <h2 class="section-title" data-reveal>¿Hablamos de tu próximo proyecto?</h2>
-      <p class="contact-desc" data-reveal>
+      <p class="section-tag" data-reveal data-i18n="contact.tag">Contacto</p>
+      <h2 class="section-title" data-reveal data-i18n="contact.title">¿Hablamos de tu próximo proyecto?</h2>
+      <p class="contact-desc" data-reveal data-i18n="contact.description">
         Disponible para trabajar hasta 30h/semana en Valencia (estancia por estudios) o en remoto.
         Escríbeme y con gusto conversamos.
       </p>
@@ -525,7 +528,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
           </div>
           <div>
-            <span class="contact-label">Email</span>
+            <span class="contact-label" data-i18n="contact.emailLabel">Email</span>
             <span class="contact-value">marior8488@gmail.com</span>
           </div>
         </a>
@@ -545,8 +548,8 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <div>
-            <span class="contact-label">Ubicación</span>
-            <span class="contact-value">Burjassot, Valencia (España)</span>
+            <span class="contact-label" data-i18n="contact.locationLabel">Ubicación</span>
+            <span class="contact-value" data-i18n="contact.locationValue">Burjassot, Valencia (España)</span>
           </div>
         </div>
       </div>
@@ -557,15 +560,16 @@
 
 <footer class="footer">
   <div class="container footer-inner">
-    <p>© <span id="year"></span> Mario Antonio Rodríguez Cedeño. Todos los derechos reservados.</p>
-    <p class="footer-made">Diseñado y construido con HTML, CSS y JavaScript.</p>
+    <p>© <span id="year"></span> Mario Antonio Rodríguez Cedeño. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
+    <p class="footer-made" data-i18n="footer.madeWith">Diseñado y construido con HTML, CSS y JavaScript.</p>
   </div>
 </footer>
 
-<button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+<button class="back-to-top" id="backToTop" data-i18n-attr="aria-label:a11y.backToTop" aria-label="Volver arriba">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

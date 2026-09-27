@@ -147,6 +147,8 @@ img { max-width: 100%; display: block; }
 }
 .icon-btn:hover { border-color: var(--accent); transform: rotate(15deg); }
 .icon-btn svg { width: 18px; height: 18px; position: absolute; transition: opacity 0.25s, transform 0.4s; }
+#langToggle { font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.02em; }
+#langToggle:hover { transform: scale(1.08); }
 .icon-sun { opacity: 1; }
 .icon-moon { opacity: 0; transform: rotate(-90deg); }
 :root[data-theme="light"] .icon-sun { opacity: 0; transform: rotate(90deg); }
