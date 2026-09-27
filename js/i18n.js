@@ -10,7 +10,7 @@ const I18N_TRANSLATIONS = {
     },
     nav: {
       home: 'Inicio', about: 'Sobre mí', experience: 'Experiencia', skills: 'Habilidades',
-      project: 'Proyecto', certifications: 'Certificaciones', volunteering: 'Voluntariado',
+      project: 'Proyectos', certifications: 'Certificaciones', volunteering: 'Voluntariado',
       contact: 'Contacto', downloadCV: 'Descargar CV'
     },
     a11y: {
@@ -104,7 +104,7 @@ const I18N_TRANSLATIONS = {
     },
     nav: {
       home: 'Home', about: 'About', experience: 'Experience', skills: 'Skills',
-      project: 'Project', certifications: 'Certifications', volunteering: 'Volunteering',
+      project: 'Projects', certifications: 'Certifications', volunteering: 'Volunteering',
       contact: 'Contact', downloadCV: 'Download CV'
     },
     a11y: {
