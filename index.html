@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mario Rodríguez Cedeño · Desarrollador Mobile & Edge AI</title>
+<meta name="description" content="Portafolio de Mario Antonio Rodríguez Cedeño — Ingeniero en Sistemas Informáticos especializado en Flutter, React Native, Android, iOS, Edge AI y Machine Learning.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Progress bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Custom cursor glow (desktop) -->
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<!-- ===== NAV ===== -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner container">
+    <a href="#inicio" class="brand">
+      <span class="brand-mark">MR</span>
+      <span class="brand-text">Mario Rodríguez</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#inicio" class="nav-link active" data-nav>Inicio</a>
+      <a href="#sobre-mi" class="nav-link" data-nav>Sobre mí</a>
+      <a href="#experiencia" class="nav-link" data-nav>Experiencia</a>
+      <a href="#habilidades" class="nav-link" data-nav>Habilidades</a>
+      <a href="#proyecto" class="nav-link" data-nav>Proyecto</a>
+      <a href="#certificaciones" class="nav-link" data-nav>Certificaciones</a>
+      <a href="#voluntariado" class="nav-link" data-nav>Voluntariado</a>
+      <a href="#contacto" class="nav-link" data-nav>Contacto</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="assets/CV_Mario_Rodriguez.pdf" class="btn btn-primary btn-sm" download>Descargar CV</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="grid-overlay"></div>
+    </div>
+
+    <div class="container hero-inner">
+      <div class="hero-text" data-reveal>
+        <p class="eyebrow">Ingeniero en Sistemas Informáticos</p>
+        <h1 class="hero-title">
+          Hola, soy <span class="text-gradient">Mario Rodríguez</span><br>
+          Desarrollador <span class="typed" id="typed"></span>
+        </h1>
+        <p class="hero-desc">
+          Especializado en el diseño, desarrollo y despliegue de aplicaciones móviles nativas y
+          multiplataforma. Apasionado por la integración de hardware, Edge AI y la optimización
+          de modelos de Machine Learning para crear soluciones con impacto real.
+        </p>
+
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Disponible para trabajar · hasta 30h/semana (estancia por estudios) · Valencia, España
+        </div>
+
+        <div class="hero-cta">
+          <a href="#contacto" class="btn btn-primary">Hablemos <span aria-hidden="true">→</span></a>
+          <a href="#experiencia" class="btn btn-ghost">Ver experiencia</a>
+        </div>
+
+        <div class="hero-social">
+          <a href="mailto:marior8488@gmail.com" aria-label="Email" title="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/mario-rodríguez-cedeño/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+          </a>
+          <a href="https://github.com/mightycoan" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.46-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .28.18.61.69.5A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual" data-reveal>
+        <div class="photo-frame">
+          <div class="photo-ring"></div>
+          <img src="assets/img/profile.jpg" alt="Foto de Mario Antonio Rodríguez Cedeño" class="photo">
+          <div class="photo-chip chip-flutter">Flutter</div>
+          <div class="photo-chip chip-ai">Edge AI</div>
+          <div class="photo-chip chip-android">Android</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#sobre-mi" class="scroll-cue" aria-label="Desplazarse hacia abajo">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ===== SOBRE MI / STATS ===== -->
+  <section class="section" id="sobre-mi">
+    <div class="container">
+      <p class="section-tag" data-reveal>Sobre mí</p>
+      <h2 class="section-title" data-reveal>Perfil profesional</h2>
+
+      <div class="about-grid">
+        <p class="about-text" data-reveal>
+          Ingeniero en Sistemas Informáticos con sólida experiencia en el diseño, desarrollo y
+          despliegue de <strong>aplicaciones móviles nativas y multiplataforma</strong>.
+          Especializado en la integración de hardware, <strong>Edge AI</strong> y optimización de
+          modelos de <strong>Machine Learning</strong>. Apasionado por la innovación tecnológica y
+          la creación de soluciones que aporten valor real a los usuarios y al negocio.
+          <br><br>
+          Originario de Ecuador, actualmente cursando una maestría en Burjassot (Valencia, España).
+        </p>
+
+        <div class="stats" data-reveal>
+          <div class="stat-card">
+            <span class="stat-num" data-count="4">0</span>
+            <span class="stat-label">Años de experiencia</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" data-count="7">0</span>
+            <span class="stat-label">Certificaciones</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" data-count="2">0</span>
+            <span class="stat-label">Plataformas SDK (DJI)</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" data-count="3">0</span>
+            <span class="stat-label">Empresas / roles</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card" data-reveal>
+          <div class="value-icon">📱</div>
+          <h3>Apps móviles</h3>
+          <p>Desarrollo de aplicaciones nativas y multiplataforma end-to-end.</p>
+        </div>
+        <div class="value-card" data-reveal>
+          <div class="value-icon">🛰️</div>
+          <h3>Hardware & SDKs</h3>
+          <p>Integración avanzada de SDKs (DJI, sensores, dispositivos IoT).</p>
+        </div>
+        <div class="value-card" data-reveal>
+          <div class="value-icon">🧠</div>
+          <h3>Edge AI & ML</h3>
+          <p>Machine Learning y despliegue de modelos en dispositivos móviles.</p>
+        </div>
+        <div class="value-card" data-reveal>
+          <div class="value-icon">🚀</div>
+          <h3>Despliegue</h3>
+          <p>Arquitectura y publicación en Google Play y App Store.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCIA ===== -->
+  <section class="section section-alt" id="experiencia">
+    <div class="container">
+      <p class="section-tag" data-reveal>Trayectoria</p>
+      <h2 class="section-title" data-reveal>Experiencia profesional</h2>
+
+      <div class="timeline">
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-head">
+              <div class="company-logo">
+                <img src="assets/img/logo-altura.png" alt="Logo de Altura S.A.">
+              </div>
+              <div>
+                <span class="timeline-date">Mar 2025 — Sep 2026</span>
+                <h3>Líder IDS-Mobile</h3>
+                <p class="timeline-company">Altura S.A. · Manta, Manabí, Ecuador</p>
+              </div>
+            </div>
+            <ul>
+              <li>Liderazgo técnico en la arquitectura y desarrollo end-to-end de apps móviles.</li>
+              <li>Integración avanzada de SDKs de DJI para control y automatización de drones.</li>
+              <li>Implementación de soluciones de Edge AI y despliegue de modelos de ML (reconocimiento facial y OCR) en tiempo real.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-head">
+              <div class="company-logo">
+                <img src="assets/img/logo-altura.png" alt="Logo de Altura S.A.">
+              </div>
+              <div>
+                <span class="timeline-date">Abr 2024 — Sep 2026</span>
+                <h3>Desarrollador Mobile</h3>
+                <p class="timeline-company">Altura S.A. · Manta, Manabí, Ecuador</p>
+              </div>
+            </div>
+            <ul>
+              <li>Desarrollo y mantenimiento de apps nativas (Android/iOS) y multiplataforma.</li>
+              <li>Gestión de despliegues y lanzamientos (code signing, aprovisionamiento) en Google Play Console y App Store Connect.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-head">
+              <div class="company-logo company-logo-pardux">
+                <img src="assets/img/logo-pardux.png" alt="Logo de Pardux">
+              </div>
+              <div>
+                <span class="timeline-date">Abr 2023 — Mar 2024</span>
+                <h3>Frontend Developer</h3>
+                <p class="timeline-company">Pardux · Quito, Pichincha, Ecuador</p>
+              </div>
+            </div>
+            <ul>
+              <li>Maquetación y mantenimiento de interfaces de usuario (UI) para aplicaciones web responsivas y escalables.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-head">
+              <div class="company-logo">
+                <img src="assets/img/logo-altura.png" alt="Logo de Altura S.A.">
+              </div>
+              <div>
+                <span class="timeline-date">Oct 2020 — Nov 2022</span>
+                <h3>Especialista I+D</h3>
+                <p class="timeline-company">Altura S.A. · Manta, Manabí, Ecuador</p>
+              </div>
+            </div>
+            <ul>
+              <li>Investigación e implementación de nuevas tecnologías, arquitecturas y metodologías para el desarrollo de apps.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HABILIDADES ===== -->
+  <section class="section" id="habilidades">
+    <div class="container">
+      <p class="section-tag" data-reveal>Stack</p>
+      <h2 class="section-title" data-reveal>Competencias técnicas</h2>
+
+      <div class="skills-grid">
+        <div class="skill-card" data-reveal>
+          <h3><span class="skill-emoji">📱</span> Desarrollo Mobile</h3>
+          <div class="tags">
+            <span class="tag">Flutter (Dart)</span>
+            <span class="tag">React Native</span>
+            <span class="tag">Android SDK (Java/Kotlin)</span>
+            <span class="tag">iOS SDK (Swift)</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal>
+          <h3><span class="skill-emoji">🧠</span> IA & Integración</h3>
+          <div class="tags">
+            <span class="tag">Machine Learning Móvil</span>
+            <span class="tag">TFLite</span>
+            <span class="tag">ONNX</span>
+            <span class="tag">SDK DJI (Drones)</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal>
+          <h3><span class="skill-emoji">🌐</span> Frontend Web</h3>
+          <div class="tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">React</span>
+            <span class="tag">jQuery</span>
+            <span class="tag">XML</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal>
+          <h3><span class="skill-emoji">🗄️</span> Backend & BD</h3>
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">PHP</span>
+            <span class="tag">Twig</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">SQLite</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal>
+          <h3><span class="skill-emoji">🔁</span> Metodologías</h3>
+          <div class="tags">
+            <span class="tag">Scrum</span>
+            <span class="tag">Kanban</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal>
+          <h3><span class="skill-emoji">🛠️</span> Herramientas</h3>
+          <div class="tags">
+            <span class="tag">Git</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">Android Studio</span>
+            <span class="tag">XCode</span>
+            <span class="tag">NetBeans</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-bottom">
+        <div class="soft-skills" data-reveal>
+          <h3>Competencias blandas</h3>
+          <div class="tags">
+            <span class="tag tag-outline">Liderazgo</span>
+            <span class="tag tag-outline">Resolución de problemas</span>
+            <span class="tag tag-outline">Aprendizaje continuo</span>
+            <span class="tag tag-outline">Proactividad</span>
+          </div>
+        </div>
+
+        <div class="languages" data-reveal>
+          <h3>Idiomas</h3>
+          <div class="lang-row">
+            <span class="lang-name">Español</span>
+            <div class="lang-bar"><div class="lang-fill" style="--fill:100%"></div></div>
+            <span class="lang-level">Nativo</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name">Inglés — Escrito</span>
+            <div class="lang-bar"><div class="lang-fill" style="--fill:60%"></div></div>
+            <span class="lang-level">B1</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name">Inglés — Hablado</span>
+            <div class="lang-bar"><div class="lang-fill" style="--fill:60%"></div></div>
+            <span class="lang-level">B1</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name">Inglés — Interpretado</span>
+            <div class="lang-bar"><div class="lang-fill" style="--fill:60%"></div></div>
+            <span class="lang-level">B1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FORMACION ===== -->
+  <section class="section section-alt" id="formacion">
+    <div class="container">
+      <p class="section-tag" data-reveal>Academia</p>
+      <h2 class="section-title" data-reveal>Formación académica</h2>
+
+      <div class="edu-grid">
+        <div class="edu-card" data-reveal>
+          <div class="edu-logo">
+            <img src="assets/img/logo-uv.png" alt="Escudo de la Universitat de València">
+          </div>
+          <div class="edu-body">
+            <span class="edu-date">Sep 2026 — Presente</span>
+            <h3>Máster Universitario en Tecnologías Web, Computación en la Nube y Aplicaciones Móviles</h3>
+            <p>Universitat de València · Valencia, España</p>
+          </div>
+        </div>
+        <div class="edu-card" data-reveal>
+          <div class="edu-logo edu-logo-utm">
+            <img src="assets/img/logo-utm.png" alt="Escudo de la Universidad Técnica de Manabí">
+          </div>
+          <div class="edu-body">
+            <span class="edu-date">Oct 2015 — Ago 2023</span>
+            <h3>Ingeniería en Sistemas Informáticos</h3>
+            <p>Universidad Técnica de Manabí · Portoviejo, Ecuador</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROYECTO DESTACADO ===== -->
+  <section class="section" id="proyecto">
+    <div class="container">
+      <p class="section-tag" data-reveal>Proyecto de titulación</p>
+      <h2 class="section-title" data-reveal>Comunicación aumentada para inclusión auditiva</h2>
+
+      <div class="project-card" data-reveal>
+        <div class="project-glow" aria-hidden="true"></div>
+        <div class="project-content">
+          <div class="project-meta">
+            <span class="timeline-date">Jul 2022 — Ago 2023</span>
+            <span class="project-org">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/></svg>
+              Asociado con Universidad Técnica de Manabí
+            </span>
+          </div>
+          <h3>App móvil colaborativa de comunicación aumentada para inclusión auditiva</h3>
+          <p>
+            Proyecto de titulación enfocado en accesibilidad: una aplicación que traduce texto a
+            lenguaje de señas mediante la generación de imágenes y gestos en tiempo real, apoyada
+            en un modelo de Machine Learning personalizado.
+          </p>
+          <ul class="project-points">
+            <li><strong>Android SDK (Java)</strong> y <strong>Firebase Cloud</strong> como base técnica.</li>
+            <li>Modelo de <strong>Machine Learning personalizado</strong> entrenado para el caso de uso.</li>
+            <li>Transcripción automática de texto a lenguaje de señas mediante generación de imágenes y gestos en tiempo real.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Android</span>
+            <span class="tag">Java</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Accesibilidad</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICACIONES ===== -->
+  <section class="section section-alt" id="certificaciones">
+    <div class="container">
+      <p class="section-tag" data-reveal>Credenciales</p>
+      <h2 class="section-title" data-reveal>Certificaciones</h2>
+
+      <div class="cert-grid">
+        <div class="cert-card" data-reveal>
+          <div class="cert-icon cert-icon-platzi"><img src="assets/img/logo-platzi.png" alt="Logo de Platzi"></div>
+          <h3>Curso de Flutter</h3>
+          <p>Platzi · feb 2023</p>
+        </div>
+        <div class="cert-card" data-reveal>
+          <div class="cert-icon cert-icon-platzi"><img src="assets/img/logo-platzi.png" alt="Logo de Platzi"></div>
+          <h3>Bases Técnicas de Android</h3>
+          <p>Platzi · mar 2023</p>
+        </div>
+        <div class="cert-card" data-reveal>
+          <div class="cert-icon cert-icon-platzi"><img src="assets/img/logo-platzi.png" alt="Logo de Platzi"></div>
+          <h3>Diseño de Interfaces con Android Studio</h3>
+          <p>Platzi · mar 2023</p>
+        </div>
+        <div class="cert-card" data-reveal>
+          <div class="cert-icon cert-icon-android"><img src="assets/img/logo-android.png" alt="Logo de Android"></div>
+          <h3>Android Enterprise Associate</h3>
+          <p>Android · sep 2024</p>
+        </div>
+        <div class="cert-card" data-reveal>
+          <div class="cert-icon cert-icon-android"><img src="assets/img/logo-android.png" alt="Logo de Android"></div>
+          <h3>Android Enterprise Professional</h3>
+          <p>Android · dic 2024</p>
+        </div>
+        <div class="cert-card" data-reveal>
+          <div class="cert-icon cert-icon-samsung"><img src="assets/img/logo-samsung.png" alt="Logo de Samsung"></div>
+          <h3>Samsung Knox Associate</h3>
+          <p>Samsung · ago 2024</p>
+        </div>
+        <div class="cert-card" data-reveal>
+          <div class="cert-icon cert-icon-samsung"><img src="assets/img/logo-samsung.png" alt="Logo de Samsung"></div>
+          <h3>Samsung Knox Professional</h3>
+          <p>Samsung · sep 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VOLUNTARIADO ===== -->
+  <section class="section" id="voluntariado">
+    <div class="container">
+      <p class="section-tag" data-reveal>Compromiso social</p>
+      <h2 class="section-title" data-reveal>Voluntariado</h2>
+
+      <div class="volunteer-card" data-reveal>
+        <div class="volunteer-logo">
+          <img src="assets/img/logo-jci.png" alt="Logo de JCI Ecuador">
+        </div>
+        <div class="volunteer-content">
+          <h3>Aspirante</h3>
+          <p class="volunteer-org">JCI Ecuador</p>
+          <span class="timeline-date">May 2022 — Oct 2023 · 1 año 6 meses</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section class="section contact-section" id="contacto">
+    <div class="container">
+      <p class="section-tag" data-reveal>Contacto</p>
+      <h2 class="section-title" data-reveal>¿Hablamos de tu próximo proyecto?</h2>
+      <p class="contact-desc" data-reveal>
+        Disponible para trabajar hasta 30h/semana en Valencia (estancia por estudios) o en remoto.
+        Escríbeme y con gusto conversamos.
+      </p>
+
+      <div class="contact-grid">
+        <a href="mailto:marior8488@gmail.com" class="contact-card" data-reveal>
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          </div>
+          <div>
+            <span class="contact-label">Email</span>
+            <span class="contact-value">marior8488@gmail.com</span>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/mario-rodríguez-cedeño/" target="_blank" rel="noopener" class="contact-card" data-reveal>
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+          </div>
+          <div>
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">mario-rodríguez-cedeño</span>
+          </div>
+        </a>
+
+        <div class="contact-card" data-reveal>
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <span class="contact-label">Ubicación</span>
+            <span class="contact-value">Burjassot, Valencia (España)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> Mario Antonio Rodríguez Cedeño. Todos los derechos reservados.</p>
+    <p class="footer-made">Diseñado y construido con HTML, CSS y JavaScript.</p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>
