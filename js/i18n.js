@@ -207,6 +207,27 @@ function i18nGetStoredLang() {
   return 'es';
 }
 
+function i18nGetUrlLang() {
+  try {
+    const value = new URLSearchParams(window.location.search).get('lang');
+    if (value === 'es' || value === 'en') return value;
+  } catch { /* ignore */ }
+  return null;
+}
+
+function i18nGetInitialLang() {
+  return i18nGetUrlLang() || i18nGetStoredLang();
+}
+
+function i18nSyncUrl(lang) {
+  try {
+    const url = new URL(window.location.href);
+    if (url.searchParams.get('lang') === lang) return;
+    url.searchParams.set('lang', lang);
+    window.history.replaceState(window.history.state, '', url);
+  } catch { /* ignore */ }
+}
+
 function i18nApply(lang) {
   document.documentElement.lang = lang;
 
@@ -242,8 +263,9 @@ function i18nApply(lang) {
   }
 
   try { localStorage.setItem(I18N_STORAGE_KEY, lang); } catch { /* ignore */ }
+  i18nSyncUrl(lang);
 
   document.dispatchEvent(new CustomEvent('i18n:changed', { detail: { lang } }));
 }
 
-window.I18N = { apply: i18nApply, get: i18nGet, getStoredLang: i18nGetStoredLang };
+window.I18N = { apply: i18nApply, get: i18nGet, getStoredLang: i18nGetStoredLang, getInitialLang: i18nGetInitialLang };

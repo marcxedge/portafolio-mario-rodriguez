@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* Language toggle (ES / EN) */
 function initLanguage() {
   const btn = document.getElementById('langToggle');
-  const lang = window.I18N.getStoredLang();
+  const lang = window.I18N.getInitialLang();
   window.I18N.apply(lang);
 
   btn?.addEventListener('click', () => {
