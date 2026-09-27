@@ -93,7 +93,7 @@ const I18N_TRANSLATIONS = {
       emailLabel: 'Email', locationLabel: 'Ubicación', locationValue: 'Burjassot, Valencia (España)'
     },
     footer: {
-      rights: 'Todos los derechos reservados.', madeWith: 'Diseñado y construido con HTML, CSS y JavaScript.'
+      rights: 'Todos los derechos reservados.'
     }
   },
 
@@ -187,7 +187,7 @@ const I18N_TRANSLATIONS = {
       emailLabel: 'Email', locationLabel: 'Location', locationValue: 'Burjassot, Valencia (Spain)'
     },
     footer: {
-      rights: 'All rights reserved.', madeWith: 'Designed and built with HTML, CSS and JavaScript.'
+      rights: 'All rights reserved.'
     }
   }
 };
