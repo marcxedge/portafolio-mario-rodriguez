@@ -47,7 +47,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -55,7 +55,7 @@ body {
 }
 
 h1, h2, h3, .brand-text {
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-family: 'Roboto', sans-serif;
   letter-spacing: -0.02em;
 }
 
@@ -473,7 +473,7 @@ img { max-width: 100%; display: block; }
 .stat-card:hover { transform: translateY(-4px); border-color: var(--accent); }
 .stat-num {
   display: block;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
