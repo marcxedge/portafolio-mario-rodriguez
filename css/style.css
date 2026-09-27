@@ -933,7 +933,6 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 760px) {
   .brand-text { display: none; }
-  .btn-sm { display: none; }
   .values-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
   .cert-grid { grid-template-columns: 1fr; }
@@ -941,6 +940,13 @@ img { max-width: 100%; display: block; }
   .project-card { padding: 30px 22px; }
   .lang-row { grid-template-columns: 100px 1fr 36px; gap: 8px; }
   .volunteer-card { flex-direction: column; align-items: flex-start; text-align: left; }
+}
+
+@media (max-width: 400px) {
+  .nav-actions { gap: 6px; }
+  .btn-sm { padding: 8px 12px; font-size: 0.78rem; }
+  .icon-btn { width: 36px; height: 36px; }
+  .menu-toggle { width: 36px; height: 36px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
