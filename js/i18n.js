@@ -109,6 +109,14 @@ const I18N_TRANSLATIONS = {
       tag: 'Compromiso social', title: 'Voluntariado', role: 'Aspirante',
       date: 'May 2022 — Oct 2023 · 1 año 6 meses'
     },
+    hobbies: {
+      tag: 'Fuera del código', title: 'Vida más allá de la pantalla',
+      intro: 'Cuando no estoy programando, me encontrarás entrenando, jugando o siguiendo el fútbol, metido de lleno en algún videojuego, o —sobre todo— compartiendo tiempo de calidad con mi familia y amigos. Soy una persona muy sociable, y creo que esas conexiones importan tanto como cualquier línea de código.',
+      gymTitle: 'Gimnasio', gymText: 'Entrenar con constancia me mantiene enfocado, disciplinado y con la energía a tope para cada reto.',
+      footballTitle: 'Fútbol', footballText: 'Jugarlo y disfrutarlo como hincha; una pasión de toda la vida.',
+      gamingTitle: 'Videojuegos', gamingText: 'Mi forma favorita de desconectar y ejercitar la estrategia y la creatividad.',
+      familyTitle: 'Familia y amigos', familyText: 'Tiempo de calidad con la gente que quiero — lo que más valoro.'
+    },
     contact: {
       tag: 'Contacto', title: '¿Hablamos de tu próximo proyecto?',
       description: 'Disponible para trabajar hasta 30h/semana en Valencia (estancia por estudios) o en remoto. Escríbeme y con gusto conversamos.',
@@ -224,6 +232,14 @@ const I18N_TRANSLATIONS = {
     volunteering: {
       tag: 'Social Commitment', title: 'Volunteering', role: 'Aspirant',
       date: 'May 2022 — Oct 2023 · 1 yr 6 mos'
+    },
+    hobbies: {
+      tag: 'Beyond the code', title: 'Life beyond the screen',
+      intro: "When I'm not coding, you'll find me training, playing or following football, deep into a video game, or — most of all — spending quality time with my family and friends. I'm a very sociable person, and I believe those connections matter just as much as any line of code.",
+      gymTitle: 'Gym', gymText: 'Training consistently keeps me focused, disciplined, and full of energy for every challenge.',
+      footballTitle: 'Football', footballText: 'Playing it and following it as a fan — a lifelong passion.',
+      gamingTitle: 'Video games', gamingText: 'My favorite way to unwind and exercise strategy and creativity.',
+      familyTitle: 'Family & friends', familyText: 'Quality time with the people I love — what I value most.'
     },
     contact: {
       tag: 'Contact', title: "Shall we talk about your next project?",
