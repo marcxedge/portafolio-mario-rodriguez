@@ -655,6 +655,32 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
 
+<!-- ===== GALLERY LIGHTBOX ===== -->
+<div class="gallery-modal" id="galleryModal" aria-hidden="true">
+  <div class="gallery-modal-backdrop" id="galleryModalBackdrop"></div>
+  <div class="gallery-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="galleryModalTitle">
+    <button class="gallery-modal-close" id="galleryModalClose" data-i18n-attr="aria-label:a11y.closeModal" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="gallery-modal-image">
+      <img id="galleryModalImg" src="" alt="">
+    </div>
+    <div class="gallery-modal-info">
+      <span class="gallery-modal-index" id="galleryModalIndex"></span>
+      <h3 id="galleryModalTitle"></h3>
+      <p id="galleryModalDesc"></p>
+      <div class="gallery-modal-nav">
+        <button class="gallery-nav" id="galleryModalPrev" data-i18n-attr="aria-label:a11y.galleryPrev" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="gallery-nav" id="galleryModalNext" data-i18n-attr="aria-label:a11y.galleryNext" aria-label="Siguiente">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>

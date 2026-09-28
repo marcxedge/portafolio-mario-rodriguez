@@ -16,7 +16,8 @@ const I18N_TRANSLATIONS = {
     a11y: {
       toggleTheme: 'Cambiar tema', scrollDown: 'Desplazarse hacia abajo', openMenu: 'Abrir menú',
       backToTop: 'Volver arriba', changeLanguage: 'Cambiar idioma',
-      galleryPrev: 'Ver capturas anteriores', galleryNext: 'Ver capturas siguientes'
+      galleryPrev: 'Ver capturas anteriores', galleryNext: 'Ver capturas siguientes',
+      closeModal: 'Cerrar'
     },
     hero: {
       eyebrow: 'Ingeniero en Sistemas Informáticos', greeting: 'Hola, soy', role: 'Desarrollador',
@@ -130,7 +131,8 @@ const I18N_TRANSLATIONS = {
     a11y: {
       toggleTheme: 'Switch theme', scrollDown: 'Scroll down', openMenu: 'Open menu',
       backToTop: 'Back to top', changeLanguage: 'Change language',
-      galleryPrev: 'View previous screenshots', galleryNext: 'View next screenshots'
+      galleryPrev: 'View previous screenshots', galleryNext: 'View next screenshots',
+      closeModal: 'Close'
     },
     hero: {
       eyebrow: 'Computer Systems Engineer', greeting: "Hi, I'm", role: 'Developer',

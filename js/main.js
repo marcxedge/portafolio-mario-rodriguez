@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initSmoothAnchors();
   initGalleryScroll();
+  initGalleryModal();
 });
 
 /* Project screenshots carousel — left/right arrow navigation */
@@ -30,6 +31,61 @@ function initGalleryScroll() {
   const step = () => track.clientWidth * 0.7;
   prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
   next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+}
+
+/* Project screenshots lightbox — image left, title/description right, with prev/next */
+function initGalleryModal() {
+  const items = Array.from(document.querySelectorAll('.gallery-item'));
+  const modal = document.getElementById('galleryModal');
+  if (!items.length || !modal) return;
+
+  const imgEl = document.getElementById('galleryModalImg');
+  const titleEl = document.getElementById('galleryModalTitle');
+  const descEl = document.getElementById('galleryModalDesc');
+  const indexEl = document.getElementById('galleryModalIndex');
+  const closeBtn = document.getElementById('galleryModalClose');
+  const backdrop = document.getElementById('galleryModalBackdrop');
+  const prevBtn = document.getElementById('galleryModalPrev');
+  const nextBtn = document.getElementById('galleryModalNext');
+
+  let current = 0;
+
+  const render = (i) => {
+    current = (i + items.length) % items.length;
+    const item = items[current];
+    const img = item.querySelector('img');
+    imgEl.src = img.src;
+    imgEl.alt = img.alt;
+    titleEl.textContent = item.querySelector('h4').textContent;
+    descEl.textContent = item.querySelector('p').textContent;
+    indexEl.textContent = `${String(current + 1).padStart(2, '0')} / ${String(items.length).padStart(2, '0')}`;
+  };
+
+  const open = (i) => {
+    render(i);
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const close = () => {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  items.forEach((item, i) => item.addEventListener('click', () => open(i)));
+  closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', close);
+  prevBtn.addEventListener('click', () => render(current - 1));
+  nextBtn.addEventListener('click', () => render(current + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') render(current - 1);
+    if (e.key === 'ArrowRight') render(current + 1);
+  });
 }
 
 /* Language toggle (ES / EN) */
