@@ -111,9 +111,9 @@ const I18N_TRANSLATIONS = {
     },
     hobbies: {
       tag: 'Fuera del código', title: 'Vida más allá de la pantalla',
-      intro: 'Cuando no estoy programando, me encontrarás entrenando, jugando o siguiendo el fútbol, metido de lleno en algún videojuego, o —sobre todo— compartiendo tiempo de calidad con mi familia y amigos. Soy una persona muy sociable, y creo que esas conexiones importan tanto como cualquier línea de código.',
+      intro: 'Cuando no estoy programando, me encontrarás entrenando, jugando o siguiendo el deporte —sobre todo fútbol—, metido de lleno en algún videojuego, o —por encima de todo— compartiendo tiempo de calidad con mi familia y amigos. Soy una persona muy sociable, y creo que esas conexiones importan tanto como cualquier línea de código.',
       gymTitle: 'Gimnasio', gymText: 'Entrenar con constancia me mantiene enfocado, disciplinado y con la energía a tope para cada reto.',
-      footballTitle: 'Fútbol', footballText: 'Jugarlo y disfrutarlo como hincha; una pasión de toda la vida.',
+      footballTitle: 'Fútbol y deportes', footballText: 'El deporte me apasiona en general, sobre todo el fútbol: lo disfruto tanto jugándolo como siguiéndolo como hincha.',
       gamingTitle: 'Videojuegos', gamingText: 'Mi forma favorita de desconectar y ejercitar la estrategia y la creatividad.',
       familyTitle: 'Familia y amigos', familyText: 'Tiempo de calidad con la gente que quiero — lo que más valoro.'
     },
@@ -235,9 +235,9 @@ const I18N_TRANSLATIONS = {
     },
     hobbies: {
       tag: 'Beyond the code', title: 'Life beyond the screen',
-      intro: "When I'm not coding, you'll find me training, playing or following football, deep into a video game, or — most of all — spending quality time with my family and friends. I'm a very sociable person, and I believe those connections matter just as much as any line of code.",
+      intro: "When I'm not coding, you'll find me training, playing or following sports — football above all —, deep into a video game, or — above everything — spending quality time with my family and friends. I'm a very sociable person, and I believe those connections matter just as much as any line of code.",
       gymTitle: 'Gym', gymText: 'Training consistently keeps me focused, disciplined, and full of energy for every challenge.',
-      footballTitle: 'Football', footballText: 'Playing it and following it as a fan — a lifelong passion.',
+      footballTitle: 'Football & sports', footballText: "I'm passionate about sports in general, football above all: I enjoy both playing it and following it as a fan.",
       gamingTitle: 'Video games', gamingText: 'My favorite way to unwind and exercise strategy and creativity.',
       familyTitle: 'Family & friends', familyText: 'Quality time with the people I love — what I value most.'
     },
