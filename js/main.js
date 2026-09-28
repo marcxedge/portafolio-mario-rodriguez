@@ -29,8 +29,18 @@ function initGalleryScroll() {
   if (!track || !prev || !next) return;
 
   const step = () => track.clientWidth * 0.7;
-  prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
-  next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  const maxScroll = () => track.scrollWidth - track.clientWidth;
+  const atStart = () => track.scrollLeft <= 4;
+  const atEnd = () => track.scrollLeft >= maxScroll() - 4;
+
+  prev.addEventListener('click', () => {
+    if (atStart()) track.scrollTo({ left: maxScroll(), behavior: 'smooth' });
+    else track.scrollBy({ left: -step(), behavior: 'smooth' });
+  });
+  next.addEventListener('click', () => {
+    if (atEnd()) track.scrollTo({ left: 0, behavior: 'smooth' });
+    else track.scrollBy({ left: step(), behavior: 'smooth' });
+  });
 }
 
 /* Project screenshots lightbox — image left, title/description right, with prev/next */
