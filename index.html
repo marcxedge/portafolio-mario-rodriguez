@@ -406,130 +406,250 @@
   <!-- ===== PROYECTO DESTACADO ===== -->
   <section class="section" id="proyecto">
     <div class="container">
-      <p class="section-tag" data-reveal data-i18n="project.tag">Proyecto de titulación</p>
-      <h2 class="section-title" data-reveal data-i18n="project.title">Comunicación aumentada para inclusión auditiva</h2>
+      <p class="section-tag" data-reveal data-i18n="projectsSection.tag">Proyectos</p>
+      <h2 class="section-title" data-reveal data-i18n="projectsSection.title">Proyectos destacados</h2>
 
-      <div class="project-card" data-reveal>
-        <div class="project-glow" aria-hidden="true"></div>
-        <div class="project-content">
-          <div class="project-meta">
-            <span class="timeline-date" data-i18n="project.date">Jul 2022 — Ago 2023</span>
-            <span class="project-org">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/></svg>
-              <span data-i18n="project.affiliation">Asociado con Universidad Técnica de Manabí</span>
-            </span>
+      <!-- ===== PROYECTO 1: Comunicación aumentada ===== -->
+      <div class="project-entry">
+        <div class="project-card" data-reveal>
+          <div class="project-glow" aria-hidden="true"></div>
+          <div class="project-content">
+            <span class="project-kicker" data-i18n="project1.tag">Proyecto de titulación</span>
+            <div class="project-meta">
+              <span class="timeline-date" data-i18n="project1.date">Jul 2022 — Ago 2023</span>
+              <span class="project-org">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/></svg>
+                <span data-i18n="project1.affiliation">Asociado con Universidad Técnica de Manabí</span>
+              </span>
+            </div>
+            <h3 data-i18n="project1.cardTitle">App Móvil Colaborativa de Comunicación Aumentada para Inclusión Auditiva</h3>
+            <p data-i18n="project1.description">
+              Proyecto de titulación enfocado en accesibilidad: una aplicación que traduce texto a
+              lenguaje de señas mediante la generación de imágenes y gestos en tiempo real, apoyada
+              en un modelo de Machine Learning personalizado.
+            </p>
+            <ul class="project-points">
+              <li data-i18n-html="project1.point1"><strong>Android SDK (Java)</strong> y <strong>Firebase Cloud</strong> como base técnica.</li>
+              <li data-i18n-html="project1.point2">Modelo de <strong>Machine Learning personalizado</strong> entrenado para el caso de uso.</li>
+              <li data-i18n="project1.point3">Transcripción automática de texto a lenguaje de señas mediante generación de imágenes y gestos en tiempo real.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Android</span>
+              <span class="tag">Java</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag" data-i18n="project1.tagAccessibility">Accesibilidad</span>
+            </div>
           </div>
-          <h3 data-i18n="project.cardTitle">App Móvil Colaborativa de Comunicación Aumentada para Inclusión Auditiva</h3>
-          <p data-i18n="project.description">
-            Proyecto de titulación enfocado en accesibilidad: una aplicación que traduce texto a
-            lenguaje de señas mediante la generación de imágenes y gestos en tiempo real, apoyada
-            en un modelo de Machine Learning personalizado.
-          </p>
-          <ul class="project-points">
-            <li data-i18n-html="project.point1"><strong>Android SDK (Java)</strong> y <strong>Firebase Cloud</strong> como base técnica.</li>
-            <li data-i18n-html="project.point2">Modelo de <strong>Machine Learning personalizado</strong> entrenado para el caso de uso.</li>
-            <li data-i18n="project.point3">Transcripción automática de texto a lenguaje de señas mediante generación de imágenes y gestos en tiempo real.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Android</span>
-            <span class="tag">Java</span>
-            <span class="tag">Firebase</span>
-            <span class="tag">Machine Learning</span>
-            <span class="tag" data-i18n="project.tagAccessibility">Accesibilidad</span>
+        </div>
+
+        <h3 class="project-gallery-title" data-reveal data-i18n="project1.galleryTitle">Capturas de la aplicación</h3>
+        <div class="project-gallery-wrap" data-reveal>
+          <button class="gallery-nav gallery-prev" data-i18n-attr="aria-label:a11y.galleryPrev" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="project-gallery">
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">01</span>
+                <img src="assets/img/project/01-inicio.png" alt="Pantalla de inicio de la app" loading="lazy">
+              </div>
+              <h4 data-i18n="project1.shot1Title">Pantalla de inicio</h4>
+              <p data-i18n="project1.shot1Desc">Punto de entrada de la app: desde aquí se accede al asistente de reconocimiento de señas y voz, al diccionario visual del abecedario, y se puede cambiar el idioma principal.</p>
+            </div>
+
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">02</span>
+                <img src="assets/img/project/02-diccionario.png" alt="Listado del diccionario visual" loading="lazy">
+              </div>
+              <h4 data-i18n="project1.shot2Title">Diccionario visual</h4>
+              <p data-i18n="project1.shot2Desc">Listado alfabético navegable donde el usuario elige una letra para consultar de inmediato su gesto correspondiente en Lenguaje de Señas.</p>
+            </div>
+
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">03</span>
+                <img src="assets/img/project/03-detalle-letra.png" alt="Detalle del gesto de una letra" loading="lazy">
+              </div>
+              <h4 data-i18n="project1.shot3Title">Detalle de gesto por letra</h4>
+              <p data-i18n="project1.shot3Desc">Al seleccionar una letra del diccionario, la app despliega la ilustración exacta del gesto en Lenguaje de Señas, pensada como material de aprendizaje rápido.</p>
+            </div>
+
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">04</span>
+                <img src="assets/img/project/04-asistente.png" alt="Pantalla principal del asistente" loading="lazy">
+              </div>
+              <h4 data-i18n="project1.shot4Title">Asistente de comunicación</h4>
+              <p data-i18n="project1.shot4Desc">Pantalla principal del asistente: el usuario puede escribir su propio texto, o iniciar el reconocimiento de voz o de señas, con control de entonación y velocidad.</p>
+            </div>
+
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">05</span>
+                <img src="assets/img/project/06-redaccion-mensaje.png" alt="Redacción del mensaje en el asistente" loading="lazy">
+              </div>
+              <h4 data-i18n="project1.shot5Title">Conversión a Lenguaje de Señas</h4>
+              <p data-i18n="project1.shot5Desc">Un texto puede transformarse al instante en su representación gráfica en Lenguaje de Señas, mostrando la secuencia completa de gestos a comunicar.</p>
+            </div>
+
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">06</span>
+                <img src="assets/img/project/05-conversion-senas.png" alt="Conversión de texto a lenguaje de señas" loading="lazy">
+              </div>
+              <h4 data-i18n="project1.shot6Title">Redacción del mensaje</h4>
+              <p data-i18n="project1.shot6Desc">El usuario escribe libremente el mensaje que desea comunicar; ese texto es la base tanto para la síntesis de voz como para su conversión a señas.</p>
+            </div>
+
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">07</span>
+                <img src="assets/img/project/07-menu-opciones.png" alt="Menú de selección de modo de entrada" loading="lazy">
+              </div>
+              <h4 data-i18n="project1.shot7Title">Selector de modo de entrada</h4>
+              <p data-i18n="project1.shot7Desc">Menú de acceso rápido para alternar entre reconocimiento de voz y reconocimiento de señas por cámara, según la necesidad del usuario.</p>
+            </div>
+
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">08</span>
+                <img src="assets/img/project/08-reconocimiento-voz.png" alt="Reconocimiento de voz en funcionamiento" loading="lazy">
+              </div>
+              <h4 data-i18n="project1.shot8Title">Reconocimiento de voz</h4>
+              <p data-i18n="project1.shot8Desc">Integración con los servicios de voz de Google: el habla del usuario se transcribe automáticamente a texto dentro de la conversación.</p>
+            </div>
+
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">09</span>
+                <img src="assets/img/project/09-reconocimiento-senas.png" alt="Reconocimiento de señas por cámara" loading="lazy">
+              </div>
+              <h4 data-i18n="project1.shot9Title">Reconocimiento de señas por cámara</h4>
+              <p data-i18n="project1.shot9Desc">Modelo de Machine Learning personalizado que detecta en tiempo real los puntos clave de la mano para reconocer cada seña y componer el mensaje letra por letra.</p>
+            </div>
           </div>
+          <button class="gallery-nav gallery-next" data-i18n-attr="aria-label:a11y.galleryNext" aria-label="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
       </div>
 
-      <h3 class="project-gallery-title" data-reveal data-i18n="project.galleryTitle">Capturas de la aplicación</h3>
-      <div class="project-gallery-wrap" data-reveal>
-        <button class="gallery-nav gallery-prev" id="galleryPrev" data-i18n-attr="aria-label:a11y.galleryPrev" aria-label="Anterior">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <div class="project-gallery" id="projectGallery">
-        <div class="gallery-item">
-          <div class="gallery-shot">
-            <span class="gallery-index">01</span>
-            <img src="assets/img/project/01-inicio.png" alt="Pantalla de inicio de la app" loading="lazy">
+      <!-- ===== PROYECTO 2: Lift.xto ===== -->
+      <div class="project-entry">
+        <div class="project-card" data-reveal>
+          <div class="project-glow" aria-hidden="true"></div>
+          <div class="project-content">
+            <span class="project-kicker" data-i18n="project2.tag">Proyecto personal</span>
+            <div class="project-meta">
+              <span class="timeline-date" data-i18n="project2.date">Abr 2026 — Sep 2026</span>
+              <span class="project-org">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.46-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .28.18.61.69.5A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+                <span data-i18n="project2.affiliation">Proyecto personal, publicado en GitHub</span>
+              </span>
+            </div>
+            <h3 data-i18n="project2.cardTitle">Lift.xto — App Flutter de Seguimiento de Gimnasio con Sobrecarga Progresiva</h3>
+            <p data-i18n="project2.description">
+              App Flutter multiplataforma para el seguimiento de entrenamiento de gimnasio
+              con sobrecarga progresiva, peso corporal e IMC. Toda la información se guarda
+              100% local con SQLite (sin backend ni conexión a internet). Arquitectura en
+              capas (Repository + Observer) con inyección de dependencias, validación de
+              datos centralizada y hardening de seguridad en la build de Android.
+            </p>
+            <ul class="project-points">
+              <li data-i18n-html="project2.point1"><strong>Flutter/Dart</strong> con <strong>SQLite local</strong> (sqflite) — sin backend, 100% offline.</li>
+              <li data-i18n-html="project2.point2">Arquitectura <strong>Repository + Observer</strong> (ChangeNotifier + provider) que sincroniza el estado entre pantallas en tiempo real.</li>
+              <li data-i18n="project2.point3">Validación de datos centralizada, manejo de errores con feedback visible, y build de Android endurecida (backups deshabilitados, minificación/ofuscación en release).</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Flutter</span>
+              <span class="tag">Dart</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">Provider</span>
+              <span class="tag">Material 3</span>
+              <span class="tag">Android</span>
+            </div>
+            <a class="cert-link" href="https://github.com/marcxedge/lift_xto" target="_blank" rel="noopener">
+              <span data-i18n="project2.repoLink">Ver repositorio</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+            </a>
           </div>
-          <h4 data-i18n="project.shot1Title">Pantalla de inicio</h4>
-          <p data-i18n="project.shot1Desc">Punto de entrada de la app: desde aquí se accede al asistente de reconocimiento de señas y voz, al diccionario visual del abecedario, y se puede cambiar el idioma principal.</p>
         </div>
 
-        <div class="gallery-item">
-          <div class="gallery-shot">
-            <span class="gallery-index">02</span>
-            <img src="assets/img/project/02-diccionario.png" alt="Listado del diccionario visual" loading="lazy">
-          </div>
-          <h4 data-i18n="project.shot2Title">Diccionario visual</h4>
-          <p data-i18n="project.shot2Desc">Listado alfabético navegable donde el usuario elige una letra para consultar de inmediato su gesto correspondiente en Lenguaje de Señas.</p>
-        </div>
+        <h3 class="project-gallery-title" data-reveal data-i18n="project2.galleryTitle">Capturas de la aplicación</h3>
+        <div class="project-gallery-wrap" data-reveal>
+          <button class="gallery-nav gallery-prev" data-i18n-attr="aria-label:a11y.galleryPrev" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="project-gallery">
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">01</span>
+                <img src="assets/img/lift-xto/rutina_semanal.png" alt="Rutina semanal de Lift.xto" loading="lazy">
+              </div>
+              <h4 data-i18n="project2.shot1Title">Rutina semanal</h4>
+              <p data-i18n="project2.shot1Desc">Vista principal con los 7 días de la semana, el día actual destacado y la cantidad de ejercicios cargados en cada uno.</p>
+            </div>
 
-        <div class="gallery-item">
-          <div class="gallery-shot">
-            <span class="gallery-index">03</span>
-            <img src="assets/img/project/03-detalle-letra.png" alt="Detalle del gesto de una letra" loading="lazy">
-          </div>
-          <h4 data-i18n="project.shot3Title">Detalle de gesto por letra</h4>
-          <p data-i18n="project.shot3Desc">Al seleccionar una letra del diccionario, la app despliega la ilustración exacta del gesto en Lenguaje de Señas, pensada como material de aprendizaje rápido.</p>
-        </div>
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">02</span>
+                <img src="assets/img/lift-xto/dia_ejercicios.png" alt="Ejercicios del día en Lift.xto" loading="lazy">
+              </div>
+              <h4 data-i18n="project2.shot2Title">Ejercicios del día</h4>
+              <p data-i18n="project2.shot2Desc">Listado de ejercicios de un día puntual, con series/repeticiones objetivo y grupos musculares detectados automáticamente por nombre.</p>
+            </div>
 
-        <div class="gallery-item">
-          <div class="gallery-shot">
-            <span class="gallery-index">04</span>
-            <img src="assets/img/project/04-asistente.png" alt="Pantalla principal del asistente" loading="lazy">
-          </div>
-          <h4 data-i18n="project.shot4Title">Asistente de comunicación</h4>
-          <p data-i18n="project.shot4Desc">Pantalla principal del asistente: el usuario puede escribir su propio texto, o iniciar el reconocimiento de voz o de señas, con control de entonación y velocidad.</p>
-        </div>
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">03</span>
+                <img src="assets/img/lift-xto/detalle_ejercicio.png" alt="Detalle y progresión de un ejercicio" loading="lazy">
+              </div>
+              <h4 data-i18n="project2.shot3Title">Detalle y progresión</h4>
+              <p data-i18n="project2.shot3Desc">Historial de sesiones, récord personal (PR) y gráfico de evolución del peso levantado a lo largo del tiempo para ese ejercicio.</p>
+            </div>
 
-        <div class="gallery-item">
-          <div class="gallery-shot">
-            <span class="gallery-index">05</span>
-            <img src="assets/img/project/06-redaccion-mensaje.png" alt="Redacción del mensaje en el asistente" loading="lazy">
-          </div>
-          <h4 data-i18n="project.shot5Title">Conversión a Lenguaje de Señas</h4>
-          <p data-i18n="project.shot5Desc">Un texto puede transformarse al instante en su representación gráfica en Lenguaje de Señas, mostrando la secuencia completa de gestos a comunicar.</p>
-        </div>
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">04</span>
+                <img src="assets/img/lift-xto/progreso_prs.png" alt="Resumen de progreso y récords personales" loading="lazy">
+              </div>
+              <h4 data-i18n="project2.shot4Title">Resumen de progreso</h4>
+              <p data-i18n="project2.shot4Desc">Vista consolidada de récords personales por ejercicio, actualizada al instante gracias a la arquitectura reactiva (Repository + Observer) — sin necesidad de recargar la app.</p>
+            </div>
 
-        <div class="gallery-item">
-          <div class="gallery-shot">
-            <span class="gallery-index">06</span>
-            <img src="assets/img/project/05-conversion-senas.png" alt="Conversión de texto a lenguaje de señas" loading="lazy">
-          </div>
-          <h4 data-i18n="project.shot6Title">Redacción del mensaje</h4>
-          <p data-i18n="project.shot6Desc">El usuario escribe libremente el mensaje que desea comunicar; ese texto es la base tanto para la síntesis de voz como para su conversión a señas.</p>
-        </div>
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">05</span>
+                <img src="assets/img/lift-xto/peso_corporal.png" alt="Registro de peso corporal" loading="lazy">
+              </div>
+              <h4 data-i18n="project2.shot5Title">Peso corporal</h4>
+              <p data-i18n="project2.shot5Desc">Registro histórico de peso corporal con gráfico de evolución y cambio total desde el primer registro.</p>
+            </div>
 
-        <div class="gallery-item">
-          <div class="gallery-shot">
-            <span class="gallery-index">07</span>
-            <img src="assets/img/project/07-menu-opciones.png" alt="Menú de selección de modo de entrada" loading="lazy">
-          </div>
-          <h4 data-i18n="project.shot7Title">Selector de modo de entrada</h4>
-          <p data-i18n="project.shot7Desc">Menú de acceso rápido para alternar entre reconocimiento de voz y reconocimiento de señas por cámara, según la necesidad del usuario.</p>
-        </div>
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">06</span>
+                <img src="assets/img/lift-xto/imc.png" alt="Calculadora de IMC" loading="lazy">
+              </div>
+              <h4 data-i18n="project2.shot6Title">Calculadora de IMC</h4>
+              <p data-i18n="project2.shot6Desc">Cálculo automático del Índice de Masa Corporal con categoría (bajo peso / normal / sobrepeso / obesidad) y rango de peso saludable recomendado.</p>
+            </div>
 
-        <div class="gallery-item">
-          <div class="gallery-shot">
-            <span class="gallery-index">08</span>
-            <img src="assets/img/project/08-reconocimiento-voz.png" alt="Reconocimiento de voz en funcionamiento" loading="lazy">
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">07</span>
+                <img src="assets/img/lift-xto/tema_claro.png" alt="Tema claro y oscuro de Lift.xto" loading="lazy">
+              </div>
+              <h4 data-i18n="project2.shot7Title">Tema claro / oscuro</h4>
+              <p data-i18n="project2.shot7Desc">Interfaz Material 3 con paleta azul marino, adaptable a tema claro, oscuro o según el sistema, persistente entre sesiones.</p>
+            </div>
           </div>
-          <h4 data-i18n="project.shot8Title">Reconocimiento de voz</h4>
-          <p data-i18n="project.shot8Desc">Integración con los servicios de voz de Google: el habla del usuario se transcribe automáticamente a texto dentro de la conversación.</p>
+          <button class="gallery-nav gallery-next" data-i18n-attr="aria-label:a11y.galleryNext" aria-label="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
-
-        <div class="gallery-item">
-          <div class="gallery-shot">
-            <span class="gallery-index">09</span>
-            <img src="assets/img/project/09-reconocimiento-senas.png" alt="Reconocimiento de señas por cámara" loading="lazy">
-          </div>
-          <h4 data-i18n="project.shot9Title">Reconocimiento de señas por cámara</h4>
-          <p data-i18n="project.shot9Desc">Modelo de Machine Learning personalizado que detecta en tiempo real los puntos clave de la mano para reconocer cada seña y componer el mensaje letra por letra.</p>
-        </div>
-        </div>
-        <button class="gallery-nav gallery-next" id="galleryNext" data-i18n-attr="aria-label:a11y.galleryNext" aria-label="Siguiente">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
       </div>
     </div>
   </section>

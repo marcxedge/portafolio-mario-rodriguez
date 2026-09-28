@@ -65,8 +65,11 @@ const I18N_TRANSLATIONS = {
       degreeDate: 'Oct 2015 — Ago 2023', degreeTitle: 'Ingeniería en Sistemas Informáticos',
       degreePlace: 'Universidad Técnica de Manabí · Portoviejo, Ecuador'
     },
-    project: {
-      tag: 'Proyecto de titulación', title: 'Comunicación aumentada para inclusión auditiva',
+    projectsSection: {
+      tag: 'Proyectos', title: 'Proyectos destacados'
+    },
+    project1: {
+      tag: 'Proyecto de titulación',
       date: 'Jul 2022 — Ago 2023', affiliation: 'Asociado con Universidad Técnica de Manabí',
       cardTitle: 'App Móvil Colaborativa de Comunicación Aumentada para Inclusión Auditiva',
       description: 'Proyecto de titulación enfocado en accesibilidad: una aplicación que traduce texto a lenguaje de señas mediante la generación de imágenes y gestos en tiempo real, apoyada en un modelo de Machine Learning personalizado.',
@@ -93,6 +96,31 @@ const I18N_TRANSLATIONS = {
       shot8Desc: 'Integración con los servicios de voz de Google: el habla del usuario se transcribe automáticamente a texto dentro de la conversación.',
       shot9Title: 'Reconocimiento de señas por cámara',
       shot9Desc: 'Modelo de Machine Learning personalizado que detecta en tiempo real los puntos clave de la mano para reconocer cada seña y componer el mensaje letra por letra.'
+    },
+    project2: {
+      tag: 'Proyecto personal',
+      date: 'Abr 2026 — Sep 2026', affiliation: 'Proyecto personal, publicado en GitHub',
+      cardTitle: 'Lift.xto — App Flutter de Seguimiento de Gimnasio con Sobrecarga Progresiva',
+      description: 'App Flutter multiplataforma para el seguimiento de entrenamiento de gimnasio con sobrecarga progresiva, peso corporal e IMC. Toda la información se guarda 100% local con SQLite (sin backend ni conexión a internet). Arquitectura en capas (Repository + Observer) con inyección de dependencias, validación de datos centralizada y hardening de seguridad en la build de Android.',
+      point1: '<strong>Flutter/Dart</strong> con <strong>SQLite local</strong> (sqflite) — sin backend, 100% offline.',
+      point2: 'Arquitectura <strong>Repository + Observer</strong> (ChangeNotifier + provider) que sincroniza el estado entre pantallas en tiempo real.',
+      point3: 'Validación de datos centralizada, manejo de errores con feedback visible, y build de Android endurecida (backups deshabilitados, minificación/ofuscación en release).',
+      repoLink: 'Ver repositorio',
+      galleryTitle: 'Capturas de la aplicación',
+      shot1Title: 'Rutina semanal',
+      shot1Desc: 'Vista principal con los 7 días de la semana, el día actual destacado y la cantidad de ejercicios cargados en cada uno.',
+      shot2Title: 'Ejercicios del día',
+      shot2Desc: 'Listado de ejercicios de un día puntual, con series/repeticiones objetivo y grupos musculares detectados automáticamente por nombre.',
+      shot3Title: 'Detalle y progresión',
+      shot3Desc: 'Historial de sesiones, récord personal (PR) y gráfico de evolución del peso levantado a lo largo del tiempo para ese ejercicio.',
+      shot4Title: 'Resumen de progreso',
+      shot4Desc: 'Vista consolidada de récords personales por ejercicio, actualizada al instante gracias a la arquitectura reactiva (Repository + Observer) — sin necesidad de recargar la app.',
+      shot5Title: 'Peso corporal',
+      shot5Desc: 'Registro histórico de peso corporal con gráfico de evolución y cambio total desde el primer registro.',
+      shot6Title: 'Calculadora de IMC',
+      shot6Desc: 'Cálculo automático del Índice de Masa Corporal con categoría (bajo peso / normal / sobrepeso / obesidad) y rango de peso saludable recomendado.',
+      shot7Title: 'Tema claro / oscuro',
+      shot7Desc: 'Interfaz Material 3 con paleta azul marino, adaptable a tema claro, oscuro o según el sistema, persistente entre sesiones.'
     },
     certifications: {
       tag: 'Credenciales', title: 'Certificaciones',
@@ -189,8 +217,11 @@ const I18N_TRANSLATIONS = {
       degreeDate: 'Oct 2015 — Aug 2023', degreeTitle: 'Computer Systems Engineering',
       degreePlace: 'Universidad Técnica de Manabí · Portoviejo, Ecuador'
     },
-    project: {
-      tag: 'Thesis Project', title: 'Augmented communication for hearing inclusion',
+    projectsSection: {
+      tag: 'Projects', title: 'Featured projects'
+    },
+    project1: {
+      tag: 'Thesis Project',
       date: 'Jul 2022 — Aug 2023', affiliation: 'Associated with Universidad Técnica de Manabí',
       cardTitle: 'Collaborative Mobile App for Augmented Communication for Hearing Inclusion',
       description: 'Thesis project focused on accessibility: an application that translates text into sign language through real-time image and gesture generation, powered by a custom Machine Learning model.',
@@ -217,6 +248,31 @@ const I18N_TRANSLATIONS = {
       shot8Desc: "Integrated with Google's voice services: the user's speech is automatically transcribed into text within the conversation.",
       shot9Title: 'Camera-based sign recognition',
       shot9Desc: "A custom Machine Learning model detects the hand's key points in real time to recognize each sign and build the message letter by letter."
+    },
+    project2: {
+      tag: 'Personal project',
+      date: 'Apr 2026 — Sep 2026', affiliation: 'Personal project, published on GitHub',
+      cardTitle: 'Lift.xto — Flutter Gym Tracking App with Progressive Overload',
+      description: 'Cross-platform Flutter app for tracking gym workouts with progressive overload, body weight, and BMI. All data is stored 100% locally with SQLite (no backend, no internet connection). Layered architecture (Repository + Observer) with dependency injection, centralized input validation, and Android security hardening in the release build.',
+      point1: '<strong>Flutter/Dart</strong> with <strong>local SQLite</strong> (sqflite) — fully offline, no backend.',
+      point2: '<strong>Repository + Observer</strong> architecture (ChangeNotifier + provider) keeping every screen\'s state in sync in real time.',
+      point3: 'Centralized input validation, visible error feedback, and hardened Android release build (backups disabled, minification/obfuscation enabled).',
+      repoLink: 'View repository',
+      galleryTitle: 'App screenshots',
+      shot1Title: 'Weekly routine',
+      shot1Desc: "Main view with all 7 days of the week, today highlighted, and the exercise count loaded for each day.",
+      shot2Title: "Day's exercises",
+      shot2Desc: 'Exercise list for a given day, with target sets/reps and muscle groups auto-detected from the exercise name.',
+      shot3Title: 'Exercise detail & progression',
+      shot3Desc: 'Session history, personal record (PR), and a chart showing the weight progression over time for that exercise.',
+      shot4Title: 'Progress summary',
+      shot4Desc: 'Consolidated view of personal records per exercise, updated instantly thanks to the reactive Repository + Observer architecture — no app restart needed.',
+      shot5Title: 'Body weight tracking',
+      shot5Desc: 'Historical body weight log with an evolution chart and total change since the first entry.',
+      shot6Title: 'BMI calculator',
+      shot6Desc: 'Automatic Body Mass Index calculation with result category (underweight / normal / overweight / obese) and recommended healthy weight range.',
+      shot7Title: 'Light / dark theme',
+      shot7Desc: 'Material 3 interface with a navy palette, adaptable to light, dark, or system theme, persisted across sessions.'
     },
     certifications: {
       tag: 'Credentials', title: 'Certifications',

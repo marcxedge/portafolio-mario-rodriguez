@@ -713,6 +713,18 @@ img { max-width: 100%; display: block; }
 .edu-card p { color: var(--text-mute); font-size: 0.88rem; }
 
 /* ===== Project ===== */
+.project-entry { margin-bottom: 80px; }
+.project-entry:last-child { margin-bottom: 0; }
+.project-kicker {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 5px 13px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
 .project-card {
   position: relative;
   background: var(--surface);

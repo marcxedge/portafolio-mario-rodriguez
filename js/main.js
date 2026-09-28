@@ -21,33 +21,35 @@ document.addEventListener('DOMContentLoaded', () => {
   initGalleryModal();
 });
 
-/* Project screenshots carousel — left/right arrow navigation */
+/* Project screenshots carousels — left/right arrow navigation (one per project) */
 function initGalleryScroll() {
-  const track = document.getElementById('projectGallery');
-  const prev = document.getElementById('galleryPrev');
-  const next = document.getElementById('galleryNext');
-  if (!track || !prev || !next) return;
+  document.querySelectorAll('.project-gallery-wrap').forEach((wrap) => {
+    const track = wrap.querySelector('.project-gallery');
+    const prev = wrap.querySelector('.gallery-prev');
+    const next = wrap.querySelector('.gallery-next');
+    if (!track || !prev || !next) return;
 
-  const step = () => track.clientWidth * 0.7;
-  const maxScroll = () => track.scrollWidth - track.clientWidth;
-  const atStart = () => track.scrollLeft <= 4;
-  const atEnd = () => track.scrollLeft >= maxScroll() - 4;
+    const step = () => track.clientWidth * 0.7;
+    const maxScroll = () => track.scrollWidth - track.clientWidth;
+    const atStart = () => track.scrollLeft <= 4;
+    const atEnd = () => track.scrollLeft >= maxScroll() - 4;
 
-  prev.addEventListener('click', () => {
-    if (atStart()) track.scrollTo({ left: maxScroll(), behavior: 'smooth' });
-    else track.scrollBy({ left: -step(), behavior: 'smooth' });
-  });
-  next.addEventListener('click', () => {
-    if (atEnd()) track.scrollTo({ left: 0, behavior: 'smooth' });
-    else track.scrollBy({ left: step(), behavior: 'smooth' });
+    prev.addEventListener('click', () => {
+      if (atStart()) track.scrollTo({ left: maxScroll(), behavior: 'smooth' });
+      else track.scrollBy({ left: -step(), behavior: 'smooth' });
+    });
+    next.addEventListener('click', () => {
+      if (atEnd()) track.scrollTo({ left: 0, behavior: 'smooth' });
+      else track.scrollBy({ left: step(), behavior: 'smooth' });
+    });
   });
 }
 
 /* Project screenshots lightbox — image left, title/description right, with prev/next */
 function initGalleryModal() {
-  const items = Array.from(document.querySelectorAll('.gallery-item'));
+  const allItems = Array.from(document.querySelectorAll('.gallery-item'));
   const modal = document.getElementById('galleryModal');
-  if (!items.length || !modal) return;
+  if (!allItems.length || !modal) return;
 
   const imgEl = document.getElementById('galleryModalImg');
   const titleEl = document.getElementById('galleryModalTitle');
@@ -58,6 +60,7 @@ function initGalleryModal() {
   const prevBtn = document.getElementById('galleryModalPrev');
   const nextBtn = document.getElementById('galleryModalNext');
 
+  let items = allItems;
   let current = 0;
 
   const render = (i) => {
@@ -71,8 +74,10 @@ function initGalleryModal() {
     indexEl.textContent = `${String(current + 1).padStart(2, '0')} / ${String(items.length).padStart(2, '0')}`;
   };
 
-  const open = (i) => {
-    render(i);
+  const open = (item) => {
+    const gallery = item.closest('.project-gallery');
+    items = gallery ? Array.from(gallery.querySelectorAll('.gallery-item')) : allItems;
+    render(items.indexOf(item));
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -84,7 +89,7 @@ function initGalleryModal() {
     document.body.style.overflow = '';
   };
 
-  items.forEach((item, i) => item.addEventListener('click', () => open(i)));
+  allItems.forEach((item) => item.addEventListener('click', () => open(item)));
   closeBtn.addEventListener('click', close);
   backdrop.addEventListener('click', close);
   prevBtn.addEventListener('click', () => render(current - 1));
