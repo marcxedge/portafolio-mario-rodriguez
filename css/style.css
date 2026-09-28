@@ -443,7 +443,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* ===== Sections ===== */
-.section { padding: 110px 0; position: relative; }
+.section { padding: 80px 0; position: relative; }
 .section-alt { background: var(--bg-alt); }
 .section-tag {
   color: var(--accent);
@@ -1122,7 +1122,7 @@ img { max-width: 100%; display: block; }
   .values-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
   .cert-grid { grid-template-columns: 1fr; }
-  .section { padding: 80px 0; }
+  .section { padding: 56px 0; }
   .project-card { padding: 30px 22px; }
   .gallery-item { flex-basis: 112px; width: 112px; }
   .gallery-nav { width: 34px; height: 34px; }
