@@ -100,8 +100,8 @@ const I18N_TRANSLATIONS = {
     project2: {
       tag: 'Proyecto personal',
       date: 'Abr 2026 — Presente', affiliation: 'Proyecto personal, publicado en GitHub',
-      cardTitle: 'Lift.xto — App Flutter de Seguimiento de Gimnasio con Sobrecarga Progresiva',
-      description: 'App Flutter multiplataforma para el seguimiento de entrenamiento de gimnasio con sobrecarga progresiva, peso corporal e IMC. Toda la información se guarda 100% local con SQLite (sin backend ni conexión a internet). Arquitectura en capas (Repository + Observer) con inyección de dependencias, validación de datos centralizada y hardening de seguridad en la build de Android.',
+      cardTitle: 'Lift.xto — App Móvil de Seguimiento de Gimnasio con Sobrecarga Progresiva',
+      description: 'App Móvil multiplataforma para el seguimiento de entrenamiento de gimnasio con sobrecarga progresiva, peso corporal e IMC. Toda la información se guarda 100% local con SQLite (sin backend ni conexión a internet). Arquitectura en capas (Repository + Observer) con inyección de dependencias, validación de datos centralizada y hardening de seguridad en la build de Android.',
       point1: '<strong>Flutter/Dart</strong> con <strong>SQLite local</strong> (sqflite) — sin backend, 100% offline.',
       point2: 'Arquitectura <strong>Repository + Observer</strong> (ChangeNotifier + provider) que sincroniza el estado entre pantallas en tiempo real.',
       point3: 'Validación de datos centralizada, manejo de errores con feedback visible, y build de Android endurecida (backups deshabilitados, minificación/ofuscación en release).',
