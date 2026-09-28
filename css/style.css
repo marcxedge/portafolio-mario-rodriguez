@@ -883,6 +883,9 @@ img { max-width: 100%; display: block; }
   gap: 18px;
 }
 .cert-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
