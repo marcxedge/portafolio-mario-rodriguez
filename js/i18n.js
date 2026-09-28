@@ -252,8 +252,8 @@ const I18N_TRANSLATIONS = {
     project2: {
       tag: 'Personal project',
       date: 'Apr 2026 — Present', affiliation: 'Personal project, published on GitHub',
-      cardTitle: 'Lift.xto — Flutter Gym Tracking App with Progressive Overload',
-      description: 'Cross-platform Flutter app for tracking gym workouts with progressive overload, body weight, and BMI. All data is stored 100% locally with SQLite (no backend, no internet connection). Layered architecture (Repository + Observer) with dependency injection, centralized input validation, and Android security hardening in the release build.',
+      cardTitle: 'Lift.xto — Mobile Gym Tracking App with Progressive Overload',
+      description: 'Cross-platform mobile app for tracking gym workouts with progressive overload, body weight, and BMI. All data is stored 100% locally with SQLite (no backend, no internet connection). Layered architecture (Repository + Observer) with dependency injection, centralized input validation, and Android security hardening in the release build.',
       point1: '<strong>Flutter/Dart</strong> with <strong>local SQLite</strong> (sqflite) — fully offline, no backend.',
       point2: '<strong>Repository + Observer</strong> architecture (ChangeNotifier + provider) keeping every screen\'s state in sync in real time.',
       point3: 'Centralized input validation, visible error feedback, and hardened Android release build (backups disabled, minification/obfuscation enabled).',
