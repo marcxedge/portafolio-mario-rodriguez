@@ -775,11 +775,15 @@ img { max-width: 100%; display: block; }
 .project-points strong { color: var(--text); }
 
 .project-gallery-title {
+  position: relative;
+  z-index: 1;
   font-size: 1.2rem;
   font-weight: 700;
-  margin: 56px 0 24px;
+  margin: 40px 0 24px;
 }
 .project-gallery-wrap {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 12px;
