@@ -419,7 +419,7 @@
               <span data-i18n="project.affiliation">Asociado con Universidad Técnica de Manabí</span>
             </span>
           </div>
-          <h3 data-i18n="project.cardTitle">App móvil colaborativa de comunicación aumentada para inclusión auditiva</h3>
+          <h3 data-i18n="project.cardTitle">App Móvil Colaborativa de Comunicación Aumentada para Inclusión Auditiva</h3>
           <p data-i18n="project.description">
             Proyecto de titulación enfocado en accesibilidad: una aplicación que traduce texto a
             lenguaje de señas mediante la generación de imágenes y gestos en tiempo real, apoyada
@@ -441,8 +441,12 @@
       </div>
 
       <h3 class="project-gallery-title" data-reveal data-i18n="project.galleryTitle">Capturas de la aplicación</h3>
-      <div class="project-gallery">
-        <div class="gallery-item" data-reveal>
+      <div class="project-gallery-wrap" data-reveal>
+        <button class="gallery-nav gallery-prev" id="galleryPrev" data-i18n-attr="aria-label:a11y.galleryPrev" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="project-gallery" id="projectGallery">
+        <div class="gallery-item">
           <div class="gallery-shot">
             <span class="gallery-index">01</span>
             <img src="assets/img/project/01-inicio.png" alt="Pantalla de inicio de la app" loading="lazy">
@@ -451,7 +455,7 @@
           <p data-i18n="project.shot1Desc">Punto de entrada de la app: desde aquí se accede al asistente de reconocimiento de señas y voz, al diccionario visual del abecedario, y se puede cambiar el idioma principal.</p>
         </div>
 
-        <div class="gallery-item" data-reveal>
+        <div class="gallery-item">
           <div class="gallery-shot">
             <span class="gallery-index">02</span>
             <img src="assets/img/project/02-diccionario.png" alt="Listado del diccionario visual" loading="lazy">
@@ -460,7 +464,7 @@
           <p data-i18n="project.shot2Desc">Listado alfabético navegable donde el usuario elige una letra para consultar de inmediato su gesto correspondiente en Lenguaje de Señas.</p>
         </div>
 
-        <div class="gallery-item" data-reveal>
+        <div class="gallery-item">
           <div class="gallery-shot">
             <span class="gallery-index">03</span>
             <img src="assets/img/project/03-detalle-letra.png" alt="Detalle del gesto de una letra" loading="lazy">
@@ -469,7 +473,7 @@
           <p data-i18n="project.shot3Desc">Al seleccionar una letra del diccionario, la app despliega la ilustración exacta del gesto en Lenguaje de Señas, pensada como material de aprendizaje rápido.</p>
         </div>
 
-        <div class="gallery-item" data-reveal>
+        <div class="gallery-item">
           <div class="gallery-shot">
             <span class="gallery-index">04</span>
             <img src="assets/img/project/04-asistente.png" alt="Pantalla principal del asistente" loading="lazy">
@@ -478,7 +482,7 @@
           <p data-i18n="project.shot4Desc">Pantalla principal del asistente: el usuario puede escribir su propio texto, o iniciar el reconocimiento de voz o de señas, con control de entonación y velocidad.</p>
         </div>
 
-        <div class="gallery-item" data-reveal>
+        <div class="gallery-item">
           <div class="gallery-shot">
             <span class="gallery-index">05</span>
             <img src="assets/img/project/05-conversion-senas.png" alt="Conversión de texto a lenguaje de señas" loading="lazy">
@@ -487,7 +491,7 @@
           <p data-i18n="project.shot5Desc">Un texto puede transformarse al instante en su representación gráfica en Lenguaje de Señas, mostrando la secuencia completa de gestos a comunicar.</p>
         </div>
 
-        <div class="gallery-item" data-reveal>
+        <div class="gallery-item">
           <div class="gallery-shot">
             <span class="gallery-index">06</span>
             <img src="assets/img/project/06-redaccion-mensaje.png" alt="Redacción del mensaje en el asistente" loading="lazy">
@@ -496,7 +500,7 @@
           <p data-i18n="project.shot6Desc">El usuario escribe libremente el mensaje que desea comunicar; ese texto es la base tanto para la síntesis de voz como para su conversión a señas.</p>
         </div>
 
-        <div class="gallery-item" data-reveal>
+        <div class="gallery-item">
           <div class="gallery-shot">
             <span class="gallery-index">07</span>
             <img src="assets/img/project/07-menu-opciones.png" alt="Menú de selección de modo de entrada" loading="lazy">
@@ -505,7 +509,7 @@
           <p data-i18n="project.shot7Desc">Menú de acceso rápido para alternar entre reconocimiento de voz y reconocimiento de señas por cámara, según la necesidad del usuario.</p>
         </div>
 
-        <div class="gallery-item" data-reveal>
+        <div class="gallery-item">
           <div class="gallery-shot">
             <span class="gallery-index">08</span>
             <img src="assets/img/project/08-reconocimiento-voz.png" alt="Reconocimiento de voz en funcionamiento" loading="lazy">
@@ -514,7 +518,7 @@
           <p data-i18n="project.shot8Desc">Integración con los servicios de voz de Google: el habla del usuario se transcribe automáticamente a texto dentro de la conversación.</p>
         </div>
 
-        <div class="gallery-item" data-reveal>
+        <div class="gallery-item">
           <div class="gallery-shot">
             <span class="gallery-index">09</span>
             <img src="assets/img/project/09-reconocimiento-senas.png" alt="Reconocimiento de señas por cámara" loading="lazy">
@@ -522,6 +526,10 @@
           <h4 data-i18n="project.shot9Title">Reconocimiento de señas por cámara</h4>
           <p data-i18n="project.shot9Desc">Modelo de Machine Learning personalizado que detecta en tiempo real los puntos clave de la mano para reconocer cada seña y componer el mensaje letra por letra.</p>
         </div>
+        </div>
+        <button class="gallery-nav gallery-next" id="galleryNext" data-i18n-attr="aria-label:a11y.galleryNext" aria-label="Siguiente">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
       </div>
     </div>
   </section>

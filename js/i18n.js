@@ -15,7 +15,8 @@ const I18N_TRANSLATIONS = {
     },
     a11y: {
       toggleTheme: 'Cambiar tema', scrollDown: 'Desplazarse hacia abajo', openMenu: 'Abrir menú',
-      backToTop: 'Volver arriba', changeLanguage: 'Cambiar idioma'
+      backToTop: 'Volver arriba', changeLanguage: 'Cambiar idioma',
+      galleryPrev: 'Ver capturas anteriores', galleryNext: 'Ver capturas siguientes'
     },
     hero: {
       eyebrow: 'Ingeniero en Sistemas Informáticos', greeting: 'Hola, soy', role: 'Desarrollador',
@@ -66,7 +67,7 @@ const I18N_TRANSLATIONS = {
     project: {
       tag: 'Proyecto de titulación', title: 'Comunicación aumentada para inclusión auditiva',
       date: 'Jul 2022 — Ago 2023', affiliation: 'Asociado con Universidad Técnica de Manabí',
-      cardTitle: 'App móvil colaborativa de comunicación aumentada para inclusión auditiva',
+      cardTitle: 'App Móvil Colaborativa de Comunicación Aumentada para Inclusión Auditiva',
       description: 'Proyecto de titulación enfocado en accesibilidad: una aplicación que traduce texto a lenguaje de señas mediante la generación de imágenes y gestos en tiempo real, apoyada en un modelo de Machine Learning personalizado.',
       point1: '<strong>Android SDK (Java)</strong> y <strong>Firebase Cloud</strong> como base técnica.',
       point2: 'Modelo de <strong>Machine Learning personalizado</strong> entrenado para el caso de uso.',
@@ -128,7 +129,8 @@ const I18N_TRANSLATIONS = {
     },
     a11y: {
       toggleTheme: 'Switch theme', scrollDown: 'Scroll down', openMenu: 'Open menu',
-      backToTop: 'Back to top', changeLanguage: 'Change language'
+      backToTop: 'Back to top', changeLanguage: 'Change language',
+      galleryPrev: 'View previous screenshots', galleryNext: 'View next screenshots'
     },
     hero: {
       eyebrow: 'Computer Systems Engineer', greeting: "Hi, I'm", role: 'Developer',
@@ -179,7 +181,7 @@ const I18N_TRANSLATIONS = {
     project: {
       tag: 'Thesis Project', title: 'Augmented communication for hearing inclusion',
       date: 'Jul 2022 — Aug 2023', affiliation: 'Associated with Universidad Técnica de Manabí',
-      cardTitle: 'Collaborative mobile app for augmented communication for hearing inclusion',
+      cardTitle: 'Collaborative Mobile App for Augmented Communication for Hearing Inclusion',
       description: 'Thesis project focused on accessibility: an application that translates text into sign language through real-time image and gesture generation, powered by a custom Machine Learning model.',
       point1: '<strong>Android SDK (Java)</strong> and <strong>Firebase Cloud</strong> as the technical foundation.',
       point2: 'Custom <strong>Machine Learning model</strong> trained for the use case.',

@@ -17,7 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
   initTypedText();
   initBackToTop();
   initSmoothAnchors();
+  initGalleryScroll();
 });
+
+/* Project screenshots carousel — left/right arrow navigation */
+function initGalleryScroll() {
+  const track = document.getElementById('projectGallery');
+  const prev = document.getElementById('galleryPrev');
+  const next = document.getElementById('galleryNext');
+  if (!track || !prev || !next) return;
+
+  const step = () => track.clientWidth * 0.7;
+  prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+  next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+}
 
 /* Language toggle (ES / EN) */
 function initLanguage() {
