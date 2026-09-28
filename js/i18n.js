@@ -102,7 +102,8 @@ const I18N_TRANSLATIONS = {
       cert4Title: 'Android Enterprise Associate', cert4Meta: 'Android · sep 2024',
       cert5Title: 'Android Enterprise Professional', cert5Meta: 'Android · dic 2024',
       cert6Title: 'Samsung Knox Associate', cert6Meta: 'Samsung · ago 2024',
-      cert7Title: 'Samsung Knox Professional', cert7Meta: 'Samsung · sep 2024'
+      cert7Title: 'Samsung Knox Professional', cert7Meta: 'Samsung · sep 2024',
+      showCredential: 'Mostrar credencial'
     },
     volunteering: {
       tag: 'Compromiso social', title: 'Voluntariado', role: 'Aspirante',
@@ -217,7 +218,8 @@ const I18N_TRANSLATIONS = {
       cert4Title: 'Android Enterprise Associate', cert4Meta: 'Android · Sep 2024',
       cert5Title: 'Android Enterprise Professional', cert5Meta: 'Android · Dec 2024',
       cert6Title: 'Samsung Knox Associate', cert6Meta: 'Samsung · Aug 2024',
-      cert7Title: 'Samsung Knox Professional', cert7Meta: 'Samsung · Sep 2024'
+      cert7Title: 'Samsung Knox Professional', cert7Meta: 'Samsung · Sep 2024',
+      showCredential: 'View credential'
     },
     volunteering: {
       tag: 'Social Commitment', title: 'Volunteering', role: 'Aspirant',

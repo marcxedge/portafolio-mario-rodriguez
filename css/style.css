@@ -883,9 +883,6 @@ img { max-width: 100%; display: block; }
   gap: 18px;
 }
 .cert-card {
-  display: block;
-  color: inherit;
-  text-decoration: none;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -912,6 +909,23 @@ img { max-width: 100%; display: block; }
 .cert-icon-samsung { background: #000000; }
 .cert-card h3 { font-size: 0.92rem; margin-bottom: 6px; line-height: 1.35; }
 .cert-card p { font-size: 0.78rem; color: var(--text-mute); }
+.cert-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+.cert-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.cert-link svg { width: 13px; height: 13px; }
 
 /* ===== Contact ===== */
 .contact-section { text-align: center; }
