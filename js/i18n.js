@@ -100,7 +100,7 @@ const I18N_TRANSLATIONS = {
     project2: {
       tag: 'Proyecto personal',
       date: 'Abr 2026 — Presente', affiliation: 'Proyecto personal, publicado en GitHub',
-      cardTitle: 'Lift.xto — App Móvil de Seguimiento de Gimnasio con Sincronización Offline-First',
+      cardTitle: 'Lift.xto — App Móvil de Seguimiento de Entrenamiento de Gimnasio',
       description: 'App Móvil multiplataforma para el seguimiento de entrenamiento de gimnasio con sobrecarga progresiva, mapa muscular, peso corporal e IMC. Los datos se guardan localmente en SQLite y se sincronizan en segundo plano con Firebase (Firestore) mediante un patrón outbox, funcionando sin conexión y trayendo automáticamente toda tu información al iniciar sesión en un dispositivo nuevo. Arquitectura en capas (Repository + Observer) con inyección de dependencias, validación de datos centralizada y hardening de seguridad en la build de Android.',
       point1: '<strong>Flutter/Dart</strong> con <strong>SQLite local</strong> + sincronización <strong>offline-first</strong> contra Firebase Firestore (patrón outbox, resolución de conflictos por última escritura).',
       point2: 'Arquitectura <strong>Repository + Observer</strong> (ChangeNotifier + provider) que sincroniza el estado entre pantallas en tiempo real, y autenticación con <strong>Google Sign-In o email/contraseña</strong>.',
