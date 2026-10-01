@@ -422,21 +422,23 @@
                 <span data-i18n="project2.affiliation">Proyecto personal, publicado en GitHub</span>
               </span>
             </div>
-            <h3 data-i18n="project2.cardTitle">Lift.xto — App Móvil de Seguimiento de Entrenamiento de Gimnasio</h3>
+            <h3 data-i18n="project2.cardTitle">Lift.xto — App Móvil de Seguimiento de Gimnasio con Sincronización Offline-First</h3>
             <p data-i18n="project2.description">
               App Móvil multiplataforma para el seguimiento de entrenamiento de gimnasio
-              con sobrecarga progresiva, mapa muscular, peso corporal e IMC. Los datos se
-              guardan localmente en SQLite y se sincronizan en segundo plano con Firebase
-              (Firestore) mediante un patrón outbox, funcionando sin conexión y trayendo
-              automáticamente toda tu información al iniciar sesión en un dispositivo
-              nuevo. Arquitectura en capas (Repository + Observer) con inyección de
-              dependencias, validación de datos centralizada y hardening de seguridad en
-              la build de Android.
+              con sobrecarga progresiva, mapa muscular, peso corporal, medidas corporales
+              e IMC. Incluye un catálogo de referencia de ~1300 ejercicios (con GIFs de la
+              técnica e instrucciones en español) y una racha de constancia que sigue la
+              rutina real del usuario. Los datos se guardan localmente en SQLite y se
+              sincronizan en segundo plano con Firebase (Firestore + Storage) mediante un
+              patrón outbox, funcionando sin conexión y trayendo automáticamente toda tu
+              información al iniciar sesión en un dispositivo nuevo. Arquitectura en capas
+              (Repository + Observer) con inyección de dependencias, validación de datos
+              centralizada y hardening de seguridad en la build de Android.
             </p>
             <ul class="project-points">
-              <li data-i18n-html="project2.point1"><strong>Flutter/Dart</strong> con <strong>SQLite local</strong> + sincronización <strong>offline-first</strong> contra Firebase Firestore (patrón outbox, resolución de conflictos por última escritura).</li>
-              <li data-i18n-html="project2.point2">Arquitectura <strong>Repository + Observer</strong> (ChangeNotifier + provider) que sincroniza el estado entre pantallas en tiempo real, y autenticación con <strong>Google Sign-In o email/contraseña</strong>.</li>
-              <li data-i18n="project2.point3">Validación de datos centralizada, manejo de errores con feedback visible, mapa muscular interactivo por grupo trabajado, y build de Android endurecida (reglas de Firestore por usuario, backups deshabilitados, minificación/ofuscación en release).</li>
+              <li data-i18n-html="project2.point1"><strong>Flutter/Dart</strong> con <strong>SQLite local</strong> + sincronización <strong>offline-first</strong> contra Firebase Firestore/Storage (patrón outbox, resolución de conflictos por última escritura).</li>
+              <li data-i18n-html="project2.point2">Catálogo de referencia de <strong>~1300 ejercicios</strong> con instrucciones en español y GIFs de la técnica servidos bajo demanda desde Firebase Storage, más un <strong>mapa muscular interactivo</strong> y una <strong>racha de constancia</strong> calculada contra la rutina real del usuario.</li>
+              <li data-i18n-html="project2.point3">Arquitectura <strong>Repository + Observer</strong> (ChangeNotifier + provider), autenticación con <strong>Google Sign-In o email/contraseña</strong>, gráficos de progreso con selector de métrica (peso / volumen / 1RM estimado), y build de Android endurecida (reglas de Firestore por usuario, backups deshabilitados, minificación/ofuscación en release).</li>
             </ul>
             <div class="tags">
               <span class="tag">Flutter</span>
@@ -465,61 +467,106 @@
                 <img src="assets/img/lift-xto/login.png" alt="Inicio de sesión de Lift.xto" loading="lazy">
               </div>
               <h4 data-i18n="project2.shot1Title">Inicio de sesión</h4>
-              <p data-i18n="project2.shot1Desc">Login obligatorio con Google o email/contraseña — habilita la sincronización con Firebase y el acceso multi-dispositivo.</p>
+              <p data-i18n="project2.shot1Desc">Login con Google o email/contraseña (con toggle de mostrar/ocultar contraseña) — habilita la sincronización con Firebase y el acceso multi-dispositivo.</p>
             </div>
 
             <div class="gallery-item">
               <div class="gallery-shot">
                 <span class="gallery-index">02</span>
-                <img src="assets/img/lift-xto/rutina_semanal.png" alt="Rutina semanal de Lift.xto" loading="lazy">
+                <img src="assets/img/lift-xto/perfil_configuracion.png" alt="Perfil obligatorio en Lift.xto" loading="lazy">
               </div>
-              <h4 data-i18n="project2.shot2Title">Rutina semanal</h4>
-              <p data-i18n="project2.shot2Desc">Vista principal con los 7 días de la semana, el día actual destacado y la cantidad de ejercicios cargados en cada uno. La rutina empieza vacía: cada usuario arma la suya desde cero.</p>
+              <h4 data-i18n="project2.shot2Title">Perfil obligatorio</h4>
+              <p data-i18n="project2.shot2Desc">La primera vez que inicias sesión, la app pide nombre, apellido, estatura y fecha de nacimiento antes de dejarte entrar — la edad se calcula sola, sin pedirla directamente.</p>
             </div>
 
             <div class="gallery-item">
               <div class="gallery-shot">
                 <span class="gallery-index">03</span>
-                <img src="assets/img/lift-xto/dia_ejercicios.png" alt="Ejercicios del día en Lift.xto" loading="lazy">
+                <img src="assets/img/lift-xto/rutina_semanal.png" alt="Rutina semanal de Lift.xto" loading="lazy">
               </div>
-              <h4 data-i18n="project2.shot3Title">Ejercicios del día</h4>
-              <p data-i18n="project2.shot3Desc">Listado de ejercicios de un día puntual, con series/repeticiones objetivo y el grupo muscular elegido manualmente al crear cada ejercicio.</p>
+              <h4 data-i18n="project2.shot3Title">Rutina semanal + racha</h4>
+              <p data-i18n="project2.shot3Desc">Vista principal con los 7 días de la semana, el día actual destacado, y una racha 🔥 de días consecutivos entrenados según lo programado — los días libres no la cortan.</p>
             </div>
 
             <div class="gallery-item">
               <div class="gallery-shot">
                 <span class="gallery-index">04</span>
-                <img src="assets/img/lift-xto/detalle_ejercicio.png" alt="Detalle y progresión de un ejercicio" loading="lazy">
+                <img src="assets/img/lift-xto/dia_ejercicios.png" alt="Ejercicios del día en Lift.xto" loading="lazy">
               </div>
-              <h4 data-i18n="project2.shot4Title">Detalle y progresión</h4>
-              <p data-i18n="project2.shot4Desc">Historial de sesiones, récord personal (PR) y gráfico de evolución del peso levantado a lo largo del tiempo para ese ejercicio.</p>
+              <h4 data-i18n="project2.shot4Title">Ejercicios del día</h4>
+              <p data-i18n="project2.shot4Desc">Listado de ejercicios de un día puntual, con series/repeticiones objetivo y el grupo muscular elegido manualmente al crear cada ejercicio.</p>
             </div>
 
             <div class="gallery-item">
               <div class="gallery-shot">
                 <span class="gallery-index">05</span>
-                <img src="assets/img/lift-xto/progreso_prs.png" alt="Resumen de progreso y récords personales" loading="lazy">
+                <img src="assets/img/lift-xto/detalle_ejercicio.png" alt="Detalle y progresión de un ejercicio" loading="lazy">
               </div>
-              <h4 data-i18n="project2.shot5Title">Resumen de progreso</h4>
-              <p data-i18n="project2.shot5Desc">Vista consolidada de récords personales por ejercicio, actualizada al instante gracias a la arquitectura reactiva (Repository + Observer) — sin necesidad de recargar la app.</p>
+              <h4 data-i18n="project2.shot5Title">Detalle y progresión</h4>
+              <p data-i18n="project2.shot5Desc">Historial de sesiones, récord personal (PR) y gráfico de evolución del peso levantado a lo largo del tiempo para ese ejercicio.</p>
             </div>
 
             <div class="gallery-item">
               <div class="gallery-shot">
                 <span class="gallery-index">06</span>
-                <img src="assets/img/lift-xto/mapa_muscular.png" alt="Mapa muscular de Lift.xto" loading="lazy">
+                <img src="assets/img/lift-xto/progreso_volumen.png" alt="Gráfico de volumen y 1RM estimado" loading="lazy">
               </div>
-              <h4 data-i18n="project2.shot6Title">Mapa muscular</h4>
-              <p data-i18n="project2.shot6Desc">Visualización del volumen entrenado por grupo muscular en los últimos días, calculado a partir de la categorización elegida en cada ejercicio.</p>
+              <h4 data-i18n="project2.shot6Title">Volumen y 1RM estimado</h4>
+              <p data-i18n="project2.shot6Desc">El mismo gráfico admite cambiar la métrica a volumen total o 1RM estimado (fórmula de Epley) — revela progreso real cuando el peso se mantiene pero las repeticiones suben.</p>
             </div>
 
             <div class="gallery-item">
               <div class="gallery-shot">
                 <span class="gallery-index">07</span>
+                <img src="assets/img/lift-xto/progreso_prs.png" alt="Resumen de progreso y récords personales" loading="lazy">
+              </div>
+              <h4 data-i18n="project2.shot7Title">Resumen de progreso</h4>
+              <p data-i18n="project2.shot7Desc">Vista consolidada de récords personales por ejercicio, actualizada al instante gracias a la arquitectura reactiva (Repository + Observer) — sin necesidad de recargar la app.</p>
+            </div>
+
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">08</span>
+                <img src="assets/img/lift-xto/mapa_muscular.png" alt="Mapa muscular de Lift.xto" loading="lazy">
+              </div>
+              <h4 data-i18n="project2.shot8Title">Mapa muscular</h4>
+              <p data-i18n="project2.shot8Desc">Visualización del volumen entrenado por grupo muscular en los últimos días, calculado a partir de la categorización elegida en cada ejercicio.</p>
+            </div>
+
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">09</span>
+                <img src="assets/img/lift-xto/catalogo_busqueda.png" alt="Catálogo de ejercicios de Lift.xto" loading="lazy">
+              </div>
+              <h4 data-i18n="project2.shot9Title">Catálogo de ejercicios</h4>
+              <p data-i18n="project2.shot9Desc">Búsqueda y filtro por músculo sobre un catálogo de referencia de ~1300 ejercicios, con nombre traducido a español y miniatura de la técnica.</p>
+            </div>
+
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">10</span>
+                <img src="assets/img/lift-xto/catalogo_detalle.png" alt="Ficha de ejercicio del catálogo" loading="lazy">
+              </div>
+              <h4 data-i18n="project2.shot10Title">Ficha del ejercicio</h4>
+              <p data-i18n="project2.shot10Desc">Cada ejercicio del catálogo trae un GIF animado de la técnica correcta e instrucciones numeradas en español — se puede usar para precargar nombre y músculo al crear un ejercicio propio.</p>
+            </div>
+
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">11</span>
                 <img src="assets/img/lift-xto/cuerpo.png" alt="Perfil, peso e IMC en Lift.xto" loading="lazy">
               </div>
-              <h4 data-i18n="project2.shot7Title">Perfil, peso e IMC</h4>
-              <p data-i18n="project2.shot7Desc">Pantalla unificada de perfil, peso corporal e Índice de Masa Corporal, con escala visual y rango de peso saludable recomendado para tu estatura.</p>
+              <h4 data-i18n="project2.shot11Title">Perfil, peso e IMC</h4>
+              <p data-i18n="project2.shot11Desc">Pantalla unificada de perfil, peso corporal e Índice de Masa Corporal, con escala visual y rango de peso saludable recomendado para tu estatura.</p>
+            </div>
+
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">12</span>
+                <img src="assets/img/lift-xto/medidas_corporales.png" alt="Medidas corporales en Lift.xto" loading="lazy">
+              </div>
+              <h4 data-i18n="project2.shot12Title">Medidas corporales</h4>
+              <p data-i18n="project2.shot12Desc">Cintura, pecho, cadera, bíceps, muslo, pantorrilla y cuello, con gráfico de evolución por zona — complementa el peso/IMC con composición corporal aproximada.</p>
             </div>
           </div>
           <button class="gallery-nav gallery-next" data-i18n-attr="aria-label:a11y.galleryNext" aria-label="Siguiente">
