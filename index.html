@@ -427,18 +427,24 @@
               App Móvil multiplataforma para el seguimiento de entrenamiento de gimnasio
               con sobrecarga progresiva, mapa muscular, peso corporal, medidas corporales
               e IMC. Incluye un catálogo de referencia de ~1300 ejercicios (con GIFs de la
-              técnica e instrucciones en español) y una racha de constancia que sigue la
-              rutina real del usuario. Los datos se guardan localmente en SQLite y se
-              sincronizan en segundo plano con Firebase (Firestore + Storage) mediante un
-              patrón outbox, funcionando sin conexión y trayendo automáticamente toda tu
-              información al iniciar sesión en un dispositivo nuevo. Arquitectura en capas
-              (Repository + Observer) con inyección de dependencias, validación de datos
-              centralizada y hardening de seguridad en la build de Android.
+              técnica e instrucciones en español), una racha de constancia que sigue la
+              rutina real del usuario, y una capa de autorregulación propia: sugiere el
+              peso de la próxima sesión, avisa si un ejercicio se estancó, y genera un
+              resumen compartible tipo "Wrapped" con tus récords y totales — todo sobre
+              datos que la app ya tiene, sin modelos externos. Unidad de peso configurable
+              (kg/lb) con conversión automática en toda la app. Los datos se guardan
+              localmente en SQLite y se sincronizan en segundo plano con Firebase
+              (Firestore + Storage) mediante un patrón outbox, funcionando sin conexión y
+              trayendo automáticamente toda tu información al iniciar sesión en un
+              dispositivo nuevo. Arquitectura en capas (Repository + Observer) con
+              inyección de dependencias, validación de datos centralizada, diseño
+              responsive (teléfonos chicos y tablets) y hardening de seguridad en la build
+              de Android.
             </p>
             <ul class="project-points">
               <li data-i18n-html="project2.point1"><strong>Flutter/Dart</strong> con <strong>SQLite local</strong> + sincronización <strong>offline-first</strong> contra Firebase Firestore/Storage (patrón outbox, resolución de conflictos por última escritura).</li>
               <li data-i18n-html="project2.point2">Catálogo de referencia de <strong>~1300 ejercicios</strong> con instrucciones en español y GIFs de la técnica servidos bajo demanda desde Firebase Storage, más un <strong>mapa muscular interactivo</strong> y una <strong>racha de constancia</strong> calculada contra la rutina real del usuario.</li>
-              <li data-i18n-html="project2.point3">Arquitectura <strong>Repository + Observer</strong> (ChangeNotifier + provider), autenticación con <strong>Google Sign-In o email/contraseña</strong>, gráficos de progreso con selector de métrica (peso / volumen / 1RM estimado), y build de Android endurecida (reglas de Firestore por usuario, backups deshabilitados, minificación/ofuscación en release).</li>
+              <li data-i18n-html="project2.point3">Capa de autorregulación propia sobre tu propio historial — <strong>sugerencia de sobrecarga progresiva</strong>, <strong>alerta de estancamiento</strong> y un <strong>resumen compartible</strong> con tus totales y récords, sin IA ni servicios externos — más arquitectura <strong>Repository + Observer</strong> (ChangeNotifier + provider), autenticación con <strong>Google Sign-In o email/contraseña</strong>, unidad de peso <strong>kg/lb</strong> configurable, diseño <strong>responsive</strong> y build de Android endurecida.</li>
             </ul>
             <div class="tags">
               <span class="tag">Flutter</span>
@@ -567,6 +573,24 @@
               </div>
               <h4 data-i18n="project2.shot12Title">Medidas corporales</h4>
               <p data-i18n="project2.shot12Desc">Cintura, pecho, cadera, bíceps, muslo, pantorrilla y cuello, con gráfico de evolución por zona — complementa el peso/IMC con composición corporal aproximada.</p>
+            </div>
+
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">13</span>
+                <img src="assets/img/lift-xto/sugerencia_progresion.png" alt="Sugerencia de progresión en Lift.xto" loading="lazy">
+              </div>
+              <h4 data-i18n="project2.shot13Title">Sugerencia de progresión</h4>
+              <p data-i18n="project2.shot13Desc">Al registrar una sesión, la app sugiere el peso/reps de la próxima según si llegaste al techo o piso de tu rango objetivo — autorregulación simple sobre tu propio historial.</p>
+            </div>
+
+            <div class="gallery-item">
+              <div class="gallery-shot">
+                <span class="gallery-index">14</span>
+                <img src="assets/img/lift-xto/resumen_wrapped.png" alt="Resumen compartible de Lift.xto" loading="lazy">
+              </div>
+              <h4 data-i18n="project2.shot14Title">Tu resumen, compartible</h4>
+              <p data-i18n="project2.shot14Desc">Kg totales levantados, racha máxima histórica, músculo más trabajado y PRs destacados en una tarjeta que se comparte como imagen con un toque.</p>
             </div>
           </div>
           <button class="gallery-nav gallery-next" data-i18n-attr="aria-label:a11y.galleryNext" aria-label="Siguiente">

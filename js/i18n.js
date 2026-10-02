@@ -101,10 +101,10 @@ const I18N_TRANSLATIONS = {
       tag: 'Proyecto personal',
       date: 'Abr 2026 — Presente', affiliation: 'Proyecto personal, publicado en GitHub',
       cardTitle: 'Lift.xto — App Móvil de Seguimiento de Gimnasio con Sincronización Offline-First',
-      description: 'App Móvil multiplataforma para el seguimiento de entrenamiento de gimnasio con sobrecarga progresiva, mapa muscular, peso corporal, medidas corporales e IMC. Incluye un catálogo de referencia de ~1300 ejercicios (con GIFs de la técnica e instrucciones en español) y una racha de constancia que sigue la rutina real del usuario. Los datos se guardan localmente en SQLite y se sincronizan en segundo plano con Firebase (Firestore + Storage) mediante un patrón outbox, funcionando sin conexión y trayendo automáticamente toda tu información al iniciar sesión en un dispositivo nuevo. Arquitectura en capas (Repository + Observer) con inyección de dependencias, validación de datos centralizada y hardening de seguridad en la build de Android.',
+      description: 'App Móvil multiplataforma para el seguimiento de entrenamiento de gimnasio con sobrecarga progresiva, mapa muscular, peso corporal, medidas corporales e IMC. Incluye un catálogo de referencia de ~1300 ejercicios (con GIFs de la técnica e instrucciones en español), una racha de constancia que sigue la rutina real del usuario, y una capa de autorregulación propia: sugiere el peso de la próxima sesión, avisa si un ejercicio se estancó, y genera un resumen compartible tipo "Wrapped" con tus récords y totales — todo sobre datos que la app ya tiene, sin modelos externos. Unidad de peso configurable (kg/lb) con conversión automática en toda la app. Los datos se guardan localmente en SQLite y se sincronizan en segundo plano con Firebase (Firestore + Storage) mediante un patrón outbox, funcionando sin conexión y trayendo automáticamente toda tu información al iniciar sesión en un dispositivo nuevo. Arquitectura en capas (Repository + Observer) con inyección de dependencias, validación de datos centralizada, diseño responsive (teléfonos chicos y tablets) y hardening de seguridad en la build de Android.',
       point1: '<strong>Flutter/Dart</strong> con <strong>SQLite local</strong> + sincronización <strong>offline-first</strong> contra Firebase Firestore/Storage (patrón outbox, resolución de conflictos por última escritura).',
       point2: 'Catálogo de referencia de <strong>~1300 ejercicios</strong> con instrucciones en español y GIFs de la técnica servidos bajo demanda desde Firebase Storage, más un <strong>mapa muscular interactivo</strong> y una <strong>racha de constancia</strong> calculada contra la rutina real del usuario.',
-      point3: 'Arquitectura <strong>Repository + Observer</strong> (ChangeNotifier + provider), autenticación con <strong>Google Sign-In o email/contraseña</strong>, gráficos de progreso con selector de métrica (peso / volumen / 1RM estimado), y build de Android endurecida (reglas de Firestore por usuario, backups deshabilitados, minificación/ofuscación en release).',
+      point3: 'Capa de autorregulación propia sobre tu propio historial — <strong>sugerencia de sobrecarga progresiva</strong>, <strong>alerta de estancamiento</strong> y un <strong>resumen compartible</strong> con tus totales y récords, sin IA ni servicios externos — más arquitectura <strong>Repository + Observer</strong> (ChangeNotifier + provider), autenticación con <strong>Google Sign-In o email/contraseña</strong>, unidad de peso <strong>kg/lb</strong> configurable, diseño <strong>responsive</strong> y build de Android endurecida.',
       repoLink: 'Ver repositorio',
       galleryTitle: 'Capturas de la aplicación',
       shot1Title: 'Inicio de sesión',
@@ -130,7 +130,11 @@ const I18N_TRANSLATIONS = {
       shot11Title: 'Perfil, peso e IMC',
       shot11Desc: 'Pantalla unificada de perfil, peso corporal e Índice de Masa Corporal, con escala visual y rango de peso saludable recomendado para tu estatura.',
       shot12Title: 'Medidas corporales',
-      shot12Desc: 'Cintura, pecho, cadera, bíceps, muslo, pantorrilla y cuello, con gráfico de evolución por zona — complementa el peso/IMC con composición corporal aproximada.'
+      shot12Desc: 'Cintura, pecho, cadera, bíceps, muslo, pantorrilla y cuello, con gráfico de evolución por zona — complementa el peso/IMC con composición corporal aproximada.',
+      shot13Title: 'Sugerencia de progresión',
+      shot13Desc: 'Al registrar una sesión, la app sugiere el peso/reps de la próxima según si llegaste al techo o piso de tu rango objetivo — autorregulación simple sobre tu propio historial.',
+      shot14Title: 'Tu resumen, compartible',
+      shot14Desc: 'Kg totales levantados, racha máxima histórica, músculo más trabajado y PRs destacados en una tarjeta que se comparte como imagen con un toque.'
     },
     certifications: {
       tag: 'Credenciales', title: 'Certificaciones',
@@ -263,10 +267,10 @@ const I18N_TRANSLATIONS = {
       tag: 'Personal project',
       date: 'Apr 2026 — Present', affiliation: 'Personal project, published on GitHub',
       cardTitle: 'Lift.xto — Mobile Gym Tracking App with Offline-First Sync',
-      description: 'Cross-platform mobile app for tracking gym workouts with progressive overload, a muscle map, body weight, body measurements, and BMI. Includes a reference catalog of ~1300 exercises (with technique GIFs and Spanish instructions) and a consistency streak that follows the user\'s actual routine. Data is stored locally in SQLite and synced in the background with Firebase (Firestore + Storage) using an outbox pattern, working fully offline and automatically pulling your data when signing in on a new device. Layered architecture (Repository + Observer) with dependency injection, centralized input validation, and Android security hardening in the release build.',
+      description: 'Cross-platform mobile app for tracking gym workouts with progressive overload, a muscle map, body weight, body measurements, and BMI. Includes a reference catalog of ~1300 exercises (with technique GIFs and Spanish instructions), a consistency streak that follows the user\'s actual routine, and a self-coaching layer: it suggests next session\'s weight, flags exercises that stalled, and generates a shareable "Wrapped"-style summary with your totals and records — all from data the app already has, no external models. Configurable weight unit (kg/lb) with automatic conversion throughout the app. Data is stored locally in SQLite and synced in the background with Firebase (Firestore + Storage) using an outbox pattern, working fully offline and automatically pulling your data when signing in on a new device. Layered architecture (Repository + Observer) with dependency injection, centralized input validation, responsive design (small phones and tablets), and Android security hardening in the release build.',
       point1: '<strong>Flutter/Dart</strong> with <strong>local SQLite</strong> plus <strong>offline-first</strong> sync against Firebase Firestore/Storage (outbox pattern, last-write-wins conflict resolution).',
       point2: 'Reference catalog of <strong>~1300 exercises</strong> with Spanish instructions and technique GIFs served on demand from Firebase Storage, plus an <strong>interactive muscle map</strong> and a <strong>consistency streak</strong> computed against the user\'s actual routine.',
-      point3: '<strong>Repository + Observer</strong> architecture (ChangeNotifier + provider), <strong>Google Sign-In or email/password</strong> authentication, progress charts with a metric switch (weight / volume / estimated 1RM), and a hardened Android release build (per-user Firestore rules, backups disabled, minification/obfuscation enabled).',
+      point3: 'A self-coaching layer built on your own history — <strong>progressive overload suggestions</strong>, a <strong>plateau alert</strong>, and a <strong>shareable summary</strong> of your totals and records, no AI or external services — plus <strong>Repository + Observer</strong> architecture (ChangeNotifier + provider), <strong>Google Sign-In or email/password</strong> authentication, configurable <strong>kg/lb</strong> weight unit, responsive design, and a hardened Android release build.',
       repoLink: 'View repository',
       galleryTitle: 'App screenshots',
       shot1Title: 'Sign in',
@@ -292,7 +296,11 @@ const I18N_TRANSLATIONS = {
       shot11Title: 'Profile, weight & BMI',
       shot11Desc: 'Unified profile, body weight, and Body Mass Index screen, with a visual scale and the recommended healthy weight range for your height.',
       shot12Title: 'Body measurements',
-      shot12Desc: 'Waist, chest, hips, biceps, thigh, calf, and neck, with an evolution chart per area — complements weight/BMI with approximate body composition.'
+      shot12Desc: 'Waist, chest, hips, biceps, thigh, calf, and neck, with an evolution chart per area — complements weight/BMI with approximate body composition.',
+      shot13Title: 'Progression suggestion',
+      shot13Desc: "When logging a session, the app suggests next time's weight/reps based on whether you hit the top or bottom of your target rep range — simple self-regulation over your own history.",
+      shot14Title: 'Your shareable summary',
+      shot14Desc: 'Total kg lifted, longest streak ever, most-trained muscle, and standout PRs in one card you can share as an image with a tap.'
     },
     certifications: {
       tag: 'Credentials', title: 'Certifications',
