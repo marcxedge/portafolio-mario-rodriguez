@@ -371,6 +371,9 @@ function initMockApps() {
     cleanup = null;
     wrap.classList.remove('is-open');
     wrap.setAttribute('aria-hidden', 'true');
+    // back button returns to the home screen
+    document.querySelector('.device')?.classList.add('is-home');
+    document.getElementById('homeBtn')?.setAttribute('aria-pressed', 'true');
   };
 
   const open = (key) => {
@@ -385,6 +388,9 @@ function initMockApps() {
     cleanup = views[key](body) || null;
     wrap.classList.add('is-open');
     wrap.setAttribute('aria-hidden', 'false');
+    // the sample app takes over the screen, so the home screen is hidden under it
+    document.querySelector('.device')?.classList.remove('is-home');
+    document.getElementById('homeBtn')?.setAttribute('aria-pressed', 'false');
   };
 
   document.querySelectorAll('[data-mock]').forEach((btn) => {
