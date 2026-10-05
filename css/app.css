@@ -673,3 +673,7 @@ body { background: #0f1528; }
 
 /* Home screen: small AM/PM marker next to the big clock */
 .launcher-ampm { font-size: 0.4em; font-weight: 600; margin-left: 0.4em; vertical-align: 0.9em; letter-spacing: 0; }
+
+/* Home screen: AM/PM centered vertically on the clock digits */
+.launcher-time { display: flex; align-items: center; justify-content: center; gap: 0.3em; }
+.launcher-ampm { margin-left: 0; vertical-align: baseline; }

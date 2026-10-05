@@ -73,7 +73,7 @@ function initLauncher() {
     const period = now.getHours() < 12
       ? (lang === 'en' ? 'AM' : 'a. m.')
       : (lang === 'en' ? 'PM' : 'p. m.');
-    clock.innerHTML = `${hours}:${minutes}<span class="launcher-ampm">${period}</span>`;
+    clock.innerHTML = `<span class="launcher-hm">${hours}:${minutes}</span><span class="launcher-ampm">${period}</span>`;
     if (dateEl) {
       const day = String(now.getDate()).padStart(2, '0');
       // Spanish: "Lun, 05 Oct" · English: "Mon, Oct 05"
