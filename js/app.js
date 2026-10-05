@@ -33,6 +33,26 @@ function initLauncher() {
     btn.addEventListener('click', () => setHome(false));
   });
   document.addEventListener('i18n:changed', updateClock);
+
+  // Language and theme chips in the home screen reuse the header buttons' handlers
+  const proxies = Array.from(document.querySelectorAll('[data-proxy]'));
+  const syncProxies = () => {
+    proxies.forEach((p) => {
+      const src = document.getElementById(p.dataset.proxy);
+      if (!src) return;
+      p.innerHTML = src.innerHTML.replace(/ id="[^"]*"/g, '');
+      p.setAttribute('aria-label', src.getAttribute('aria-label') || '');
+      p.title = src.getAttribute('title') || '';
+    });
+  };
+  proxies.forEach((p) => {
+    p.addEventListener('click', () => {
+      document.getElementById(p.dataset.proxy)?.click();
+      setTimeout(syncProxies, 0);
+    });
+  });
+  document.addEventListener('i18n:changed', syncProxies);
+  syncProxies();
 }
 
 function initAppTabs() {

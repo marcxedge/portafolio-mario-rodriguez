@@ -247,6 +247,25 @@ body { background: #05070f; }
 }
 .device.is-home .launcher { opacity: 1; visibility: visible; transform: none; }
 .launcher-time { text-align: center; font-size: 1.1rem; font-weight: 600; opacity: 0.8; }
+.launcher-tools { display: flex; justify-content: center; gap: 10px; margin-top: 14px; }
+.launcher-chip {
+  min-width: 44px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.launcher-chip svg { width: 18px; height: 18px; }
+.launcher-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .launcher-grid {
   margin: auto;
   display: grid;
