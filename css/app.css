@@ -510,3 +510,9 @@ body { background: #0f1528; }
     padding: 32px 36px;
   }
 }
+
+/* Device frame: darker body in both themes */
+:root { --frame: #05070f; }
+:root:not([data-theme="light"]) { --frame: #03051a; }
+.device { border-color: var(--frame); }
+.home-btn { background: var(--frame); }
