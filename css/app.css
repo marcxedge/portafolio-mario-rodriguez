@@ -570,3 +570,17 @@ body { background: #0f1528; }
   .device .project-card:not(:has(.project-gallery-wrap)) { display: block; }
   .device .project-card:not(:has(.project-gallery-wrap)) .project-content { max-width: 820px; margin: 0 auto; }
 }
+
+/* Home screen: static battery indicator (visual only) */
+.launcher-battery {
+  position: absolute;
+  top: 14px;
+  right: 22px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+.launcher-battery svg { width: 24px; height: 12px; }
