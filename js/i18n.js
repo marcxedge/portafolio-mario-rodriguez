@@ -34,12 +34,12 @@ const I18N_TRANSLATIONS = {
       closeModal: 'Cerrar'
     },
     hero: {
-      eyebrow: 'Ingeniero en Sistemas Informáticos', greeting: 'Hola, soy', role: 'Desarrollador',
+      eyebrow: 'Ingeniero en Sistemas Informáticos', greeting: 'Hola, soy', role: 'Desarrollador Mobile',
       description: 'Especializado en el diseño, desarrollo y despliegue de aplicaciones móviles nativas y multiplataforma. Apasionado por la integración de hardware, Edge AI y la optimización de modelos de Machine Learning para crear soluciones con impacto real.',
       badge: 'Disponible para trabajar · hasta 30h/semana (estancia por estudios) · Valencia, España',
       ctaPrimary: 'Hablemos', ctaSecondary: 'Ver experiencia',
       photoAlt: 'Foto de Mario Antonio Rodríguez Cedeño',
-      typedWords: ['Mobile.', 'Flutter.', 'React Native.', 'Edge AI.', 'Multiplataforma.']
+      typedWords: ['Flutter.', 'React Native.', 'Android.', 'Edge AI.', 'Kotlin.']
     },
     about: {
       tag: 'Sobre mí', title: 'Perfil profesional',
@@ -225,12 +225,12 @@ const I18N_TRANSLATIONS = {
       closeModal: 'Close'
     },
     hero: {
-      eyebrow: 'Computer Systems Engineer', greeting: "Hi, I'm", role: 'Developer',
+      eyebrow: 'Computer Systems Engineer', greeting: "Hi, I'm", role: 'Mobile Developer',
       description: 'Specialized in the design, development, and deployment of native and cross-platform mobile applications. Passionate about hardware integration, Edge AI, and Machine Learning model optimization to build solutions with real impact.',
       badge: 'Available for work · up to 30h/week (student residence permit) · Valencia, Spain',
       ctaPrimary: "Let's talk", ctaSecondary: 'View experience',
       photoAlt: 'Photo of Mario Antonio Rodríguez Cedeño',
-      typedWords: ['Mobile.', 'Flutter.', 'React Native.', 'Edge AI.', 'Cross-platform.']
+      typedWords: ['Flutter.', 'React Native.', 'Android.', 'Edge AI.', 'Kotlin.']
     },
     about: {
       tag: 'About me', title: 'Professional Profile',
