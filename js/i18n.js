@@ -138,14 +138,14 @@ const I18N_TRANSLATIONS = {
     },
     project3: {
       tag: 'Proyecto profesional',
-      date: 'Mar 2025 — Sep 2026', affiliation: 'Altura S.A. · Líder IDS-Mobile / Desarrollador Mobile',
+      date: 'Abr 2026 — Sep 2026', affiliation: 'Altura S.A. · Líder IDS-Mobile / Desarrollador Mobile',
       cardTitle: 'AMobile 7 — Plataforma de Gestión de Fuerza de Campo',
       description: 'Aplicación móvil multiplataforma en Flutter para Android e iOS que permite a equipos de trabajo de campo recibir, gestionar y enviar tareas operativas desde el dispositivo, con operación sin conexión y sincronización automática al recuperar conectividad.',
       point1: '<strong>Clean Architecture</strong> con BLoC/Cubit, persistencia local <strong>Drift sobre SQLite</strong> (WAL) y sincronización <strong>offline-first</strong> con reintentos y backoff exponencial.',
       point2: 'Interoperabilidad de <strong>más de 180 métodos JavaScript</strong> para formularios HTML dinámicos (cámara, GPS, firma, impresión), cámara con <strong>TFLite + Google ML Kit</strong> y tracking GPS en segundo plano.',
       point3: 'Mapas conmutables Google Maps / OpenStreetMap, <strong>asistente de IA con Gemini</strong> sobre datos locales, impresión ESC/POS y ZPL, arquitectura <strong>multi-tenant</strong> y soporte ES/EN/PT.',
-      storePlay: 'Disponible en Google Play',
-      storeApple: 'Disponible en App Store'
+      storePlayTop: 'Disponible en',
+      storeAppleTop: 'Disponible en el'
     },
     certifications: {
       tag: 'Credenciales', title: 'Certificaciones',
@@ -315,14 +315,14 @@ const I18N_TRANSLATIONS = {
     },
     project3: {
       tag: 'Professional project',
-      date: 'Mar 2025 — Sep 2026', affiliation: 'Altura S.A. · IDS-Mobile Lead / Mobile Developer',
+      date: 'Apr 2026 — Sep 2026', affiliation: 'Altura S.A. · IDS-Mobile Lead / Mobile Developer',
       cardTitle: 'AMobile 7 — Field Force Management Platform',
       description: 'Cross-platform Flutter mobile app for Android and iOS that lets field teams receive, manage, and submit operational tasks from their device, with full offline operation and automatic sync when connectivity returns.',
       point1: '<strong>Clean Architecture</strong> with BLoC/Cubit, local persistence with <strong>Drift over SQLite</strong> (WAL) and <strong>offline-first</strong> sync with retries and exponential backoff.',
       point2: 'Interop layer exposing <strong>180+ JavaScript methods</strong> to dynamic HTML forms (camera, GPS, signature, printing), camera pipeline with <strong>TFLite + Google ML Kit</strong>, and background GPS tracking.',
       point3: 'Switchable Google Maps / OpenStreetMap, <strong>Gemini-powered AI assistant</strong> over local data, ESC/POS and ZPL printing, <strong>multi-tenant</strong> architecture, and ES/EN/PT support.',
-      storePlay: 'Get it on Google Play',
-      storeApple: 'Download on the App Store'
+      storePlayTop: 'Get it on',
+      storeAppleTop: 'Download on the'
     },
     certifications: {
       tag: 'Credentials', title: 'Certifications',

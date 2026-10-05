@@ -959,7 +959,10 @@ img { max-width: 100%; display: block; }
   transition: border-color 0.25s, color 0.25s, background 0.25s;
 }
 .store-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
-.store-btn img { width: 22px; height: 22px; object-fit: contain; flex-shrink: 0; }
+.store-btn img { width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; }
+.store-text { display: flex; flex-direction: column; line-height: 1.15; text-align: left; }
+.store-text small { font-size: 0.7rem; font-weight: 500; color: var(--text-mute); }
+.store-text strong { font-size: 1rem; font-weight: 700; }
 .store-btn-apple img { filter: invert(1); }
 :root[data-theme="light"] .store-btn-apple img { filter: none; }
 
