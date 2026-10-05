@@ -784,10 +784,6 @@ body { background: #0f1528; }
 
 
 /* Sections use more of the width: smaller side margins in every mode */
-@media (min-width: 700px) {
-  .device .screen .container { max-width: 1600px; padding: 0 20px; }
-  .device .hero-inner { max-width: 1600px; padding: 0 20px; }
-}
 @media (max-width: 700px) and (orientation: portrait) {
   .device .screen .container { padding: 0 12px; }
   .device .hero-inner { padding: 0 12px; }
