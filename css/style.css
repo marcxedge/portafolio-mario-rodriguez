@@ -943,6 +943,11 @@ img { max-width: 100%; display: block; }
 .cert-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 .cert-link svg { width: 13px; height: 13px; }
 
+.project-desc { margin-bottom: 20px; }
+.project-desc p { color: var(--text-dim); line-height: 1.7; margin-bottom: 14px; }
+.project-desc p:last-child { margin-bottom: 0; }
+.project-desc strong { color: var(--text); }
+
 .store-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
 .store-btn {
   display: inline-flex;
