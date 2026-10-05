@@ -236,9 +236,9 @@ function initAppTabs() {
     });
   });
 
-  // Initial screen from the URL hash (e.g. #proyecto), otherwise the first one
-  const initial = location.hash.slice(1);
-  showScreen(document.getElementById(initial) ? initial : screens[0].id, { updateHash: false });
+  // Always open on the home screen: drop any #section left in the URL from a previous visit
+  if (location.hash) history.replaceState(history.state, '', location.pathname + location.search);
+  showScreen(screens[0].id, { updateHash: false });
 }
 
 /* Sample views for the decorative home-screen apps (settings, calendar, camera, music, maps) */
