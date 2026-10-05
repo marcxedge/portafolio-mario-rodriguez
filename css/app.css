@@ -584,3 +584,40 @@ body { background: #0f1528; }
   opacity: 0.85;
 }
 .launcher-battery svg { width: 24px; height: 12px; }
+
+/* Splash screen shown when the app opens */
+.splash {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.16), transparent 55%),
+    radial-gradient(circle at 75% 85%, rgba(124, 92, 255, 0.18), transparent 50%),
+    var(--bg);
+  transition: opacity 0.5s var(--ease), visibility 0.5s;
+}
+.splash.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
+.splash img {
+  width: 96px;
+  height: 96px;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 16px 40px -14px rgba(99, 102, 241, 0.7);
+  animation: splashIn 0.6s var(--ease) both;
+}
+.splash-name { font-size: 1.1rem; font-weight: 700; animation: splashIn 0.6s 0.15s var(--ease) both; }
+.splash-bar { width: 120px; height: 3px; border-radius: 3px; background: var(--surface-2); overflow: hidden; }
+.splash-bar > span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #38bdf8, #7c5cff);
+  animation: splashLoad 1.6s ease 0.2s forwards;
+}
+@keyframes splashIn { from { opacity: 0; transform: scale(0.88); } to { opacity: 1; transform: none; } }
+@keyframes splashLoad { to { width: 100%; } }

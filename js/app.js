@@ -6,7 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
   initAppTabs();
   initLauncher();
   initToTop();
+  initSplash();
 });
+
+/* Splash screen: hides itself after the loading bar finishes */
+function initSplash() {
+  const splash = document.getElementById('splash');
+  if (!splash) return;
+  setTimeout(() => splash.classList.add('is-done'), 2000);
+}
 
 /* Floating button: scrolls the active screen back to its top */
 function initToTop() {
