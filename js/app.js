@@ -397,4 +397,8 @@ function initMockApps() {
     btn.addEventListener('click', () => open(btn.dataset.mock));
   });
   back.addEventListener('click', close);
+  // the side home button also leaves a sample app and goes to the home screen
+  document.getElementById('homeBtn')?.addEventListener('click', () => {
+    if (wrap.classList.contains('is-open')) close();
+  });
 }
