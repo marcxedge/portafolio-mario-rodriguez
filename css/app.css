@@ -16,7 +16,7 @@ body { background: #05070f; }
 
 .device {
   position: relative;
-  width: min(1600px, calc(100vw - 24px));
+  width: min(2000px, calc(100vw - 16px));
   height: calc(100dvh - 24px);
   background: var(--bg);
   border-radius: 40px;
@@ -195,8 +195,8 @@ body { background: #05070f; }
 
 /* Tablet landscape: wider content, two columns where there is room */
 @media (min-width: 700px) {
-  .screen .container { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
-  .screen .hero-inner { max-width: 1180px; margin: 0 auto; }
+  .screen .container { max-width: 1400px; margin: 0 auto; padding: 0 48px; }
+  .screen .hero-inner { max-width: 1400px; margin: 0 auto; }
   .screen .about-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .screen .values-grid { grid-template-columns: repeat(4, 1fr); }
   .screen .edu-grid { grid-template-columns: 1fr 1fr; }
