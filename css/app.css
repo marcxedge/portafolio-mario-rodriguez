@@ -552,3 +552,9 @@ body { background: #0f1528; }
 /* Home screen: no clipping of the hero content at the top (undo the negative margin) */
 .device #inicio .hero-inner { margin-top: 0; }
 .device #inicio .hero { overflow: visible; }
+
+/* Phone portrait: room above the photo so the glow and chips are not clipped by the scroll area */
+@media (max-width: 700px) and (orientation: portrait) {
+  .device #inicio .app-block:first-child { padding-top: 46px; }
+  .device #inicio .hero { padding-top: 0; }
+}
