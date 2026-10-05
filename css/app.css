@@ -695,3 +695,11 @@ body { background: #0f1528; }
 
 /* Splash appears instantly over the home screen (no fade-in), so the portfolio never shows through; it only fades when it hides */
 .splash:not(.is-done) { transition: none; }
+
+/* Simulated tap on the portfolio icon before it opens */
+.app-icon.is-tapped .app-ico { animation: tapPress 0.45s var(--ease); }
+@keyframes tapPress {
+  0% { transform: scale(1); }
+  35% { transform: scale(0.86); box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.35), 0 12px 24px -10px rgba(0, 0, 0, 0.6); }
+  100% { transform: scale(1); }
+}

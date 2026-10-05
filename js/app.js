@@ -113,13 +113,21 @@ function initLauncher() {
   let openTimer;
   const openPortfolio = () => {
     if (openTimer) return;
-    opening?.classList.add('is-visible');
+    // simulate a tap on the app icon first, then show the notice
+    const icon = document.querySelector('[data-open-app]');
+    icon?.classList.remove('is-tapped');
+    void icon?.offsetWidth;
+    icon?.classList.add('is-tapped');
     openTimer = setTimeout(() => {
-      opening?.classList.remove('is-visible');
-      openTimer = null;
-      setHome(false);
-      playSplash();
-    }, 2000);
+      opening?.classList.add('is-visible');
+      openTimer = setTimeout(() => {
+        opening?.classList.remove('is-visible');
+        icon?.classList.remove('is-tapped');
+        openTimer = null;
+        setHome(false);
+        playSplash();
+      }, 2000);
+    }, 450);
   };
   document.querySelectorAll('[data-open-app]').forEach((btn) => {
     btn.addEventListener('click', openPortfolio);
