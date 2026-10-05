@@ -34,6 +34,18 @@ function initLauncher() {
   });
   document.addEventListener('i18n:changed', updateClock);
 
+  // Decorative apps are not available: show a short notice
+  const toast = document.getElementById('launcherToast');
+  let toastTimer;
+  document.querySelectorAll('[data-unavailable]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (!toast) return;
+      toast.classList.add('is-visible');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 1800);
+    });
+  });
+
   // Language and theme chips in the home screen reuse the header buttons' handlers
   const proxies = Array.from(document.querySelectorAll('[data-proxy]'));
   const syncProxies = () => {

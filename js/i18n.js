@@ -11,7 +11,13 @@ const I18N_TRANSLATIONS = {
     launcher: {
       screen: 'Pantalla de inicio del dispositivo',
       app: 'Portafolio',
-      homeButton: 'Ir a la pantalla de inicio'
+      homeButton: 'Ir a la pantalla de inicio',
+      settings: 'Ajustes',
+      calendar: 'Calendario',
+      camera: 'Cámara',
+      music: 'Música',
+      maps: 'Mapas',
+      unavailable: 'App no disponible'
     },
     nav: {
       home: 'Inicio', about: 'Sobre mí', experience: 'Experiencia', skills: 'Habilidades',
@@ -193,7 +199,13 @@ const I18N_TRANSLATIONS = {
     launcher: {
       screen: 'Device home screen',
       app: 'Portfolio',
-      homeButton: 'Go to the home screen'
+      homeButton: 'Go to the home screen',
+      settings: 'Settings',
+      calendar: 'Calendar',
+      camera: 'Camera',
+      music: 'Music',
+      maps: 'Maps',
+      unavailable: 'App not available'
     },
     nav: {
       home: 'Home', about: 'About', experience: 'Experience', skills: 'Skills',

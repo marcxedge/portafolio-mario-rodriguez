@@ -286,7 +286,26 @@ body { background: #0f1528; }
   cursor: pointer;
 }
 .app-icon:not(.is-dummy):focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 22px; }
-.app-icon.is-dummy { cursor: default; }
+.app-icon:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 22px; }
+.launcher-toast {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  z-index: 20;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 12px);
+  transition: opacity 0.25s, transform 0.25s;
+}
+.launcher-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
 .app-ico {
   width: 84px;
   height: 84px;
@@ -306,7 +325,6 @@ body { background: #0f1528; }
 .app-ico.d4 { background: linear-gradient(135deg, #ec4899, #be185d); }
 .app-ico.d5 { background: linear-gradient(135deg, #0ea5e9, #0369a1); }
 .app-name { font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
-.app-icon.is-dummy .app-name { display: none; }
 
 /* Tablet landscape: wider content, two columns where there is room */
 @media (min-width: 700px) {
