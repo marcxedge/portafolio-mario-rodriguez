@@ -564,3 +564,9 @@ body { background: #0f1528; }
   color: #1d3a8a;
   background: linear-gradient(135deg, rgba(47, 111, 237, 0.1), rgba(99, 102, 241, 0.1));
 }
+
+/* Projects without screenshots: the text takes the full card width, centered, instead of leaving an empty column */
+@media (min-width: 700px) {
+  .device .project-card:not(:has(.project-gallery-wrap)) { display: block; }
+  .device .project-card:not(:has(.project-gallery-wrap)) .project-content { max-width: 820px; margin: 0 auto; }
+}
