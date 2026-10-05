@@ -55,6 +55,22 @@ function initLauncher() {
   });
   document.addEventListener('i18n:changed', updateClock);
 
+  // Real battery level when the browser exposes it (Chromium on laptops and Android); otherwise the static 100%
+  const batText = document.querySelector('.bat-text');
+  const batFill = document.querySelector('.bat-fill');
+  if (batText && batFill && 'getBattery' in navigator) {
+    navigator.getBattery().then((battery) => {
+      const update = () => {
+        const pct = Math.round(battery.level * 100);
+        batText.textContent = `${battery.charging ? '⚡ ' : ''}${pct}%`;
+        batFill.setAttribute('width', String(Math.max(1, 16 * battery.level)));
+      };
+      update();
+      battery.addEventListener('levelchange', update);
+      battery.addEventListener('chargingchange', update);
+    }).catch(() => { /* keep the static 100% */ });
+  }
+
   // Decorative apps are not available: show a short notice
   const toast = document.getElementById('launcherToast');
   let toastTimer;
