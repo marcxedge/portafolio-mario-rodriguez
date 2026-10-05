@@ -537,3 +537,7 @@ body { background: #0f1528; }
 
 /* No background grid pattern behind the sections */
 .device .grid-overlay { display: none; }
+
+/* No divider lines between sections; darker top edge on the tab bar in dark mode */
+.app-block { border-bottom: 0; }
+:root:not([data-theme="light"]) .tabbar { border-top-color: #04061a; }
