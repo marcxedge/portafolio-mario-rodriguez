@@ -667,3 +667,6 @@ body { background: #0f1528; }
   .launcher { padding: 56px 22px 36px; }
   .launcher-grid { grid-template-columns: repeat(4, 70px); }
 }
+
+/* Home screen: date under the clock */
+.launcher-date { text-align: center; font-size: 1rem; font-weight: 500; opacity: 0.85; margin-top: 8px; }

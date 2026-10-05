@@ -53,10 +53,29 @@ function initLauncher() {
   const clock = document.getElementById('launcherTime');
   if (!device || !launcher || !homeBtn) return;
 
+  const DAYS = {
+    es: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
+    en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+  };
+  const MONTHS = {
+    es: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+    en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  };
+  const dateEl = document.getElementById('launcherDate');
+
   const updateClock = () => {
     if (!clock) return;
-    const locale = document.documentElement.lang === 'en' ? 'en-US' : 'es-ES';
-    clock.textContent = new Date().toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' });
+    const lang = document.documentElement.lang === 'en' ? 'en' : 'es';
+    const now = new Date();
+    const locale = lang === 'en' ? 'en-US' : 'es-ES';
+    clock.textContent = now.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' });
+    if (dateEl) {
+      const day = String(now.getDate()).padStart(2, '0');
+      // Spanish: "Lun, 05 Oct" · English: "Mon, Oct 05"
+      dateEl.textContent = lang === 'en'
+        ? `${DAYS.en[now.getDay()]}, ${MONTHS.en[now.getMonth()]} ${day}`
+        : `${DAYS.es[now.getDay()]}, ${day} ${MONTHS.es[now.getMonth()]}`;
+    }
   };
 
   const setHome = (on) => {
