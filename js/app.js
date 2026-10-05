@@ -425,9 +425,12 @@ function initMockApps() {
       loadLeaflet().then(() => {
         if (!alive) return;
         map = window.L.map(el.querySelector('#mockMap')).setView([20, 0], 2);
-        window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        // CARTO basemaps (built on OpenStreetMap data): dark style in dark mode, light style in light mode
+        const dark = document.documentElement.getAttribute('data-theme') !== 'light';
+        window.L.tileLayer(`https://{s}.basemaps.cartocdn.com/${dark ? 'dark_all' : 'light_all'}/{z}/{x}/{y}{r}.png`, {
+          subdomains: 'abcd',
           maxZoom: 19,
-          attribution: '&copy; OpenStreetMap contributors',
+          attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
         }).addTo(map);
         const marker = window.L.marker([20, 0]).addTo(map);
         map.on('click', (e) => marker.setLatLng(e.latlng));
