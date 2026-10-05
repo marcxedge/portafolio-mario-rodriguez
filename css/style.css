@@ -966,7 +966,7 @@ img { max-width: 100%; display: block; }
 .store-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 .store-btn img { width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; }
 .store-text { display: flex; flex-direction: column; line-height: 1.15; text-align: left; }
-.store-text small { font-size: 0.7rem; font-weight: 500; color: inherit; }
+.store-text small { font-size: 0.7rem; font-weight: 400; color: inherit; }
 .store-text strong { font-size: 1rem; font-weight: 700; }
 .store-btn-apple img { filter: invert(1); }
 :root[data-theme="light"] .store-btn-apple img { filter: none; }
