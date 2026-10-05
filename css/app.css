@@ -670,3 +670,6 @@ body { background: #0f1528; }
 
 /* Home screen: date under the clock */
 .launcher-date { text-align: center; font-size: 1rem; font-weight: 500; opacity: 0.85; margin-top: 8px; }
+
+/* Home screen: small AM/PM marker next to the big clock */
+.launcher-ampm { font-size: 0.32em; font-weight: 600; margin-left: 0.2em; vertical-align: 0.9em; letter-spacing: 0; }

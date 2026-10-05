@@ -67,8 +67,13 @@ function initLauncher() {
     if (!clock) return;
     const lang = document.documentElement.lang === 'en' ? 'en' : 'es';
     const now = new Date();
-    const locale = lang === 'en' ? 'en-US' : 'es-ES';
-    clock.textContent = now.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' });
+    // 12-hour time with a small AM/PM marker: Spanish "a. m." / "p. m.", English "AM" / "PM"
+    const hours = now.getHours() % 12 || 12;
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const period = now.getHours() < 12
+      ? (lang === 'en' ? 'AM' : 'a. m.')
+      : (lang === 'en' ? 'PM' : 'p. m.');
+    clock.innerHTML = `${hours}:${minutes}<span class="launcher-ampm">${period}</span>`;
     if (dateEl) {
       const day = String(now.getDate()).padStart(2, '0');
       // Spanish: "Lun, 05 Oct" · English: "Mon, Oct 05"
