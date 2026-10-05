@@ -136,6 +136,17 @@ const I18N_TRANSLATIONS = {
       shot14Title: 'Tu resumen, compartible',
       shot14Desc: 'Kg totales levantados, racha máxima histórica, músculo más trabajado y PRs destacados en una tarjeta que se comparte como imagen con un toque.'
     },
+    project3: {
+      tag: 'Proyecto profesional',
+      date: 'Mar 2025 — Sep 2026', affiliation: 'Altura S.A. · Líder IDS-Mobile / Desarrollador Mobile',
+      cardTitle: 'AMobile 7 — Plataforma de Gestión de Fuerza de Campo',
+      description: 'Aplicación móvil multiplataforma en Flutter para Android e iOS que permite a equipos de trabajo de campo recibir, gestionar y enviar tareas operativas desde el dispositivo, con operación sin conexión y sincronización automática al recuperar conectividad.',
+      point1: '<strong>Clean Architecture</strong> con BLoC/Cubit, persistencia local <strong>Drift sobre SQLite</strong> (WAL) y sincronización <strong>offline-first</strong> con reintentos y backoff exponencial.',
+      point2: 'Interoperabilidad de <strong>más de 180 métodos JavaScript</strong> para formularios HTML dinámicos (cámara, GPS, firma, impresión), cámara con <strong>TFLite + Google ML Kit</strong> y tracking GPS en segundo plano.',
+      point3: 'Mapas conmutables Google Maps / OpenStreetMap, <strong>asistente de IA con Gemini</strong> sobre datos locales, impresión ESC/POS y ZPL, arquitectura <strong>multi-tenant</strong> y soporte ES/EN/PT.',
+      storePlay: 'Disponible en Google Play',
+      storeApple: 'Disponible en App Store'
+    },
     certifications: {
       tag: 'Credenciales', title: 'Certificaciones',
       cert1Title: 'Curso de Flutter', cert1Meta: 'Platzi · feb 2023',
@@ -301,6 +312,17 @@ const I18N_TRANSLATIONS = {
       shot13Desc: "When logging a session, the app suggests next time's weight/reps based on whether you hit the top or bottom of your target rep range — simple self-regulation over your own history.",
       shot14Title: 'Your shareable summary',
       shot14Desc: 'Total kg lifted, longest streak ever, most-trained muscle, and standout PRs in one card you can share as an image with a tap.'
+    },
+    project3: {
+      tag: 'Professional project',
+      date: 'Mar 2025 — Sep 2026', affiliation: 'Altura S.A. · IDS-Mobile Lead / Mobile Developer',
+      cardTitle: 'AMobile 7 — Field Force Management Platform',
+      description: 'Cross-platform Flutter mobile app for Android and iOS that lets field teams receive, manage, and submit operational tasks from their device, with full offline operation and automatic sync when connectivity returns.',
+      point1: '<strong>Clean Architecture</strong> with BLoC/Cubit, local persistence with <strong>Drift over SQLite</strong> (WAL) and <strong>offline-first</strong> sync with retries and exponential backoff.',
+      point2: 'Interop layer exposing <strong>180+ JavaScript methods</strong> to dynamic HTML forms (camera, GPS, signature, printing), camera pipeline with <strong>TFLite + Google ML Kit</strong>, and background GPS tracking.',
+      point3: 'Switchable Google Maps / OpenStreetMap, <strong>Gemini-powered AI assistant</strong> over local data, ESC/POS and ZPL printing, <strong>multi-tenant</strong> architecture, and ES/EN/PT support.',
+      storePlay: 'Get it on Google Play',
+      storeApple: 'Download on the App Store'
     },
     certifications: {
       tag: 'Credentials', title: 'Certifications',
