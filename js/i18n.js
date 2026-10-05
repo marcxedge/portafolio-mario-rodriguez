@@ -20,7 +20,8 @@ const I18N_TRANSLATIONS = {
       camera: 'Cámara',
       music: 'Música',
       maps: 'Mapas',
-      unavailable: 'App no disponible'
+      unavailable: 'App no disponible',
+      opening: 'Abriendo Mi Portafolio'
     },
     nav: {
       home: 'Inicio', about: 'Sobre mí', experience: 'Experiencia', skills: 'Habilidades',
@@ -211,7 +212,8 @@ const I18N_TRANSLATIONS = {
       camera: 'Camera',
       music: 'Music',
       maps: 'Maps',
-      unavailable: 'App not available'
+      unavailable: 'App not available',
+      opening: 'Opening My Portfolio'
     },
     nav: {
       home: 'Home', about: 'About', experience: 'Experience', skills: 'Skills',

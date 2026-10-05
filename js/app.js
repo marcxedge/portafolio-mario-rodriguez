@@ -108,11 +108,21 @@ function initLauncher() {
   };
 
   homeBtn.addEventListener('click', () => setHome(!device.classList.contains('is-home')));
-  document.querySelectorAll('[data-open-app]').forEach((btn) => {
-    btn.addEventListener('click', () => {
+  // Opening the portfolio: short "Abriendo Mi Portafolio" notice, then the splash screen
+  const opening = document.getElementById('launcherOpening');
+  let openTimer;
+  const openPortfolio = () => {
+    if (openTimer) return;
+    opening?.classList.add('is-visible');
+    openTimer = setTimeout(() => {
+      opening?.classList.remove('is-visible');
+      openTimer = null;
       setHome(false);
       playSplash();
-    });
+    }, 2000);
+  };
+  document.querySelectorAll('[data-open-app]').forEach((btn) => {
+    btn.addEventListener('click', openPortfolio);
   });
   document.addEventListener('i18n:changed', updateClock);
 
@@ -166,10 +176,7 @@ function initLauncher() {
 
   // On load the device shows its home screen; after a short pause it opens the portfolio app (with its splash)
   setHome(true);
-  setTimeout(() => {
-    setHome(false);
-    playSplash();
-  }, 2000);
+  setTimeout(openPortfolio, 2000);
 }
 
 function initAppTabs() {
