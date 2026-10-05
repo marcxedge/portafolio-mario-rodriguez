@@ -622,7 +622,7 @@ body { background: #0f1528; }
 @keyframes splashIn { from { opacity: 0; transform: scale(0.88); } to { opacity: 1; transform: none; } }
 @keyframes splashLoad { to { width: 100%; } }
 
-/* Hero title: reserve room for 4 lines so the typing effect does not push the content below */
-.device .hero-title { min-height: 4.5em; }
+/* Hero title: the typed word has its own nowrap line, so the title height stays constant */
+
 .device .typed { white-space: nowrap; }
 .device .hero-text { align-self: start; }
