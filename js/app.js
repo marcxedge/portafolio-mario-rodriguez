@@ -126,7 +126,7 @@ function initLauncher() {
         openTimer = null;
         setHome(false);
         playSplash();
-      }, 2000);
+      }, 1000);
     }, 450);
   };
   document.querySelectorAll('[data-open-app]').forEach((btn) => {
