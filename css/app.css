@@ -638,3 +638,19 @@ body { background: #0f1528; }
   .launcher { padding: 56px 16px 36px; }
   .launcher-time { font-size: 2.8rem; }
 }
+
+/* Home screen: wallpaper with colored symbols, bigger clock lower down, icons closer to the edges on phones */
+.launcher {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cg fill='none' stroke-width='2' stroke-linecap='round' stroke-opacity='0.35'%3E%3Ccircle cx='24' cy='28' r='6' stroke='%2338bdf8'/%3E%3Cpath d='M104 18l4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1z' stroke='%237c5cff'/%3E%3Cpath d='M22 120q10-12 20 0t20 0' stroke='%23ec4899'/%3E%3Cpath d='M112 96l12-20 12 20z' stroke='%23f97316'/%3E%3Cpath d='M64 52v14M57 59h14' stroke='%2322c55e'/%3E%3Ccircle cx='118' cy='138' r='3' fill='%2338bdf8' stroke='none'/%3E%3Cpath d='M58 128l6-14 6 14' stroke='%23facc15'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(circle at 18% 12%, var(--accent-soft), transparent 55%),
+    radial-gradient(circle at 85% 90%, rgba(124, 92, 255, 0.18), transparent 50%);
+  background-size: 150px 150px, auto, auto;
+  background-color: var(--bg);
+}
+.launcher-time { font-size: 5rem; margin-top: 30px; }
+@media (max-width: 700px) and (orientation: portrait) {
+  .launcher { padding: 56px 8px 36px; }
+  .launcher-time { font-size: 4.2rem; margin-top: 24px; }
+  .launcher-grid { grid-template-columns: repeat(4, 72px); justify-content: space-between; gap: 24px 0; }
+}
