@@ -3,7 +3,7 @@
    ========================================================================== */
 
 html, body { overflow: hidden; }
-body { background: #05070f; }
+body { background: #0f1528; }
 :root[data-theme="light"] body { background: #e9ecf5; }
 
 .stage {
