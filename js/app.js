@@ -253,6 +253,68 @@ function initMockApps() {
   const locale = () => (en() ? 'en-US' : 'es-ES');
   let cleanup = null;
 
+  // Real map: Leaflet + OpenStreetMap, loaded the first time the Maps sample app opens
+  let leafletPromise = null;
+  const loadLeaflet = () => {
+    if (window.L) return Promise.resolve();
+    if (!leafletPromise) {
+      leafletPromise = new Promise((resolve, reject) => {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+        document.head.appendChild(link);
+        const script = document.createElement('script');
+        script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+        script.onload = resolve;
+        script.onerror = () => { leafletPromise = null; reject(); };
+        document.head.appendChild(script);
+      });
+    }
+    return leafletPromise;
+  };
+
+  // Approximate city per time zone, used when the browser does not give the exact location
+  const zoneCenters = {
+    'Europe/Madrid': [40.42, -3.7],
+    'Europe/London': [51.5, -0.12],
+    'Europe/Paris': [48.86, 2.35],
+    'Europe/Berlin': [52.52, 13.4],
+    'America/Guayaquil': [-0.23, -78.52],
+    'America/Bogota': [4.71, -74.07],
+    'America/Lima': [-12.05, -77.04],
+    'America/Santiago': [-33.45, -70.67],
+    'America/Argentina/Buenos_Aires': [-34.6, -58.38],
+    'America/Mexico_City': [19.43, -99.13],
+    'America/New_York': [40.71, -74.0],
+    'America/Los_Angeles': [34.05, -118.24],
+  };
+
+  const locate = (map, marker, note, hint) => {
+    const showAt = (lat, lng, zoom, text) => {
+      map.setView([lat, lng], zoom);
+      marker.setLatLng([lat, lng]);
+      note.textContent = text;
+    };
+    const fallback = () => {
+      const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const c = zoneCenters[zone];
+      if (c) {
+        showAt(c[0], c[1], 5, (en() ? 'Approximate location from your time zone. ' : 'Ubicación aproximada según tu zona horaria. ') + hint);
+      } else {
+        note.textContent = hint;
+      }
+    };
+    if (!navigator.geolocation) {
+      fallback();
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      (pos) => showAt(pos.coords.latitude, pos.coords.longitude, 12, (en() ? 'Your current location. ' : 'Tu ubicación actual. ') + hint),
+      fallback,
+      { timeout: 8000, maximumAge: 600000 }
+    );
+  };
+
   const views = {
     settings(el) {
       const rows = en()
@@ -354,15 +416,29 @@ function initMockApps() {
     },
 
     maps(el) {
-      el.innerHTML = `<div class="mock-map" id="mockMap"><div class="mock-pin" id="mockPin"></div></div>
-        <p class="mock-note">${en() ? 'Tap the map to move the marker' : 'Toca el mapa para mover el marcador'}</p>`;
-      const map = el.querySelector('#mockMap');
-      const pin = el.querySelector('#mockPin');
-      map.addEventListener('click', (e) => {
-        const r = map.getBoundingClientRect();
-        pin.style.left = `${((e.clientX - r.left) / r.width) * 100}%`;
-        pin.style.top = `${((e.clientY - r.top) / r.height) * 100}%`;
+      el.innerHTML = `<div class="mock-map" id="mockMap"></div>
+        <p class="mock-note" id="mockNote">${en() ? 'Finding your location…' : 'Buscando tu ubicación…'}</p>`;
+      const note = el.querySelector('#mockNote');
+      const hint = en() ? 'Tap the map to move the marker.' : 'Toca el mapa para mover el marcador.';
+      let map = null;
+      let alive = true;
+      loadLeaflet().then(() => {
+        if (!alive) return;
+        map = window.L.map(el.querySelector('#mockMap')).setView([20, 0], 2);
+        window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; OpenStreetMap contributors',
+        }).addTo(map);
+        const marker = window.L.marker([20, 0]).addTo(map);
+        map.on('click', (e) => marker.setLatLng(e.latlng));
+        locate(map, marker, note, hint);
+      }).catch(() => {
+        note.textContent = en() ? 'The map could not be loaded.' : 'No se pudo cargar el mapa.';
       });
+      return () => {
+        alive = false;
+        if (map) map.remove();
+      };
     },
   };
 
