@@ -782,3 +782,13 @@ body { background: #0f1528; }
 .mock-body.is-maps > .mock-map { flex: 1; min-height: 0; height: auto; max-width: none; margin: 0; border-radius: 0; }
 .mock-body.is-maps > .mock-note { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); margin: 0; max-width: 92%; padding: 8px 14px; border-radius: 999px; background: var(--surface); box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.6); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; z-index: 2; }
 
+
+/* Sections use more of the width: smaller side margins in every mode */
+@media (min-width: 700px) {
+  .device .screen .container { max-width: 1600px; padding: 0 20px; }
+  .device .hero-inner { max-width: 1600px; padding: 0 20px; }
+}
+@media (max-width: 700px) and (orientation: portrait) {
+  .device .screen .container { padding: 0 12px; }
+  .device .hero-inner { padding: 0 12px; }
+}
