@@ -541,3 +541,7 @@ body { background: #0f1528; }
 /* No divider lines between sections; darker top edge on the tab bar in dark mode */
 .app-block { border-bottom: 0; }
 :root:not([data-theme="light"]) .tabbar { border-top-color: #04061a; }
+
+/* Home screen: less space between the header and the photo/intro block */
+.device #inicio .app-block:first-child { padding-top: 0; }
+.device #inicio .hero { padding-top: 6px; }
