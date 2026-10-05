@@ -371,3 +371,72 @@ body { background: #0f1528; }
     border-radius: 36px;
   }
 }
+
+/* ==========================================================================
+   Dark restyle — deep navy base with blue → violet gradients and cyan accents.
+   Light theme keeps its own tokens from style.css.
+   ========================================================================== */
+:root:not([data-theme="light"]) {
+  --bg: #0a0f2e;
+  --bg-alt: #0c1338;
+  --surface: #111a44;
+  --surface-2: #17225a;
+  --border: #26337a;
+  --text: #f1f4ff;
+  --text-dim: #b3bde0;
+  --text-mute: #7480b0;
+  --accent: #38bdf8;
+  --accent-2: #7c5cff;
+  --accent-soft: rgba(56, 189, 248, 0.14);
+}
+:root:not([data-theme="light"]) body { background: #0a0f2e; }
+.device { border-color: #0a0f2e; }
+.home-btn { background: #151d4a; }
+
+/* Section headings with a gradient underline */
+.device .section-title { position: relative; padding-bottom: 14px; }
+.device .section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 44px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #38bdf8, #7c5cff);
+}
+.device .section-tag,
+.device .project-kicker { color: var(--accent); letter-spacing: 0.12em; }
+
+/* Gradient-outlined cards, like the service boxes in the reference */
+.device .project-card,
+.device .timeline-card,
+.device .skill-card,
+.device .value-card,
+.device .cert-card,
+.device .contact-card,
+.device .edu-card,
+.device .stat-card,
+.device .volunteer-card,
+.device .soft-skills,
+.device .languages {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    linear-gradient(135deg, #38bdf8, #7c5cff) border-box;
+  box-shadow: 0 0 24px -12px rgba(56, 189, 248, 0.35);
+}
+
+/* Gradient buttons */
+.device .btn-primary {
+  background: linear-gradient(135deg, #3b82f6, #7c5cff);
+  color: #fff;
+  box-shadow: 0 10px 28px -10px rgba(99, 102, 241, 0.7);
+}
+
+/* Bottom tab bar: gradient pill for the active tab */
+.device .tabbar { background: var(--bg-alt); }
+.device .tab.is-active {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.32), rgba(124, 92, 255, 0.32));
+  color: #fff;
+}
