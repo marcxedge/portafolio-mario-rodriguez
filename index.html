@@ -16,7 +16,6 @@
 </head>
 <body>
 
-<div class="scroll-progress" id="scrollProgress"></div>
 <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
 <div class="stage">
@@ -901,6 +900,11 @@
       <button class="tab" data-tab="habilidades"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg><span data-i18n="nav.skills">Habilidades</span></button>
       <button class="tab" data-tab="contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><span data-i18n="nav.contact">Contacto</span></button>
     </nav>
+
+    <!-- Botón flotante: vuelve al inicio de la sección activa -->
+    <button class="to-top" id="toTop" type="button" data-i18n-attr="aria-label:a11y.backToTop;title:a11y.backToTop">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
 
     <!-- Pantalla de inicio del dispositivo: se abre con el botón lateral -->
     <section class="launcher" id="launcher" aria-hidden="true" data-i18n-attr="aria-label:launcher.screen">

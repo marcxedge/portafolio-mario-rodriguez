@@ -5,7 +5,28 @@
 document.addEventListener('DOMContentLoaded', () => {
   initAppTabs();
   initLauncher();
+  initToTop();
 });
+
+/* Floating button: scrolls the active screen back to its top */
+function initToTop() {
+  const btn = document.getElementById('toTop');
+  if (!btn) return;
+  const activeScroll = () => document.querySelector('.screen.is-active .screen-scroll');
+
+  const update = () => {
+    const el = activeScroll();
+    btn.classList.toggle('is-visible', !!el && el.scrollTop > 300);
+  };
+
+  btn.addEventListener('click', () => {
+    activeScroll()?.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  // scroll events don't bubble, so listen in the capture phase to catch every app screen
+  document.addEventListener('scroll', update, { passive: true, capture: true });
+  document.addEventListener('app:screenchange', update);
+  update();
+}
 
 /* Device home screen: the side button shows it, the portfolio icon brings the app back */
 function initLauncher() {

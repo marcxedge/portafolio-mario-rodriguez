@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initMobileMenu();
   initScrollSpy();
-  initScrollProgress();
   initCursorGlow();
   initReveal();
   initCounters();
@@ -199,23 +198,6 @@ function initScrollSpy() {
   }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
 
   sections.forEach(s => observer.observe(s));
-}
-
-/* Top scroll progress bar — follows the scroll of the active app screen */
-function initScrollProgress() {
-  const bar = document.getElementById('scrollProgress');
-  if (!bar) return;
-  const update = () => {
-    const el = document.querySelector('.screen.is-active .screen-scroll') || document.documentElement;
-    const scrolled = el.scrollTop;
-    const max = el.scrollHeight - el.clientHeight;
-    bar.style.width = max > 0 ? `${(scrolled / max) * 100}%` : '0%';
-  };
-  update();
-  // scroll events don't bubble, so listen in the capture phase to catch the app screens
-  document.addEventListener('scroll', update, { passive: true, capture: true });
-  window.addEventListener('resize', update);
-  document.addEventListener('app:screenchange', update);
 }
 
 /* Cursor glow follows pointer (desktop only) */
