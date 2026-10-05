@@ -420,7 +420,7 @@ body { background: #0f1528; }
 .device .volunteer-card,
 .device .soft-skills,
 .device .languages {
-  border: 1px solid var(--card-border);
+  border: 1px solid transparent;
   background: var(--card-bg);
   transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
 }
