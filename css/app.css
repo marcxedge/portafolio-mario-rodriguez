@@ -769,3 +769,7 @@ body { background: #0f1528; }
 .mock-pin { position: absolute; width: 22px; height: 22px; border-radius: 50% 50% 50% 0; background: #f97316; transform: translate(-50%, -100%) rotate(-45deg); box-shadow: 0 8px 16px -6px rgba(0, 0, 0, 0.6); transition: left 0.3s var(--ease), top 0.3s var(--ease); left: 50%; top: 50%; }
 /* Sample app views: keep the content at a readable width, centered */
 .mock-body > * { max-width: 460px; margin-left: auto; margin-right: auto; }
+
+/* Status bar stays pinned at the top of the frame and never moves with the content */
+.statusbar { position: absolute; top: 0; left: 0; right: 0; z-index: 9; }
+.device .appbar { margin-top: 28px; }
