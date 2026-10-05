@@ -11,13 +11,13 @@ body { background: #05070f; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 28px 16px;
+  padding: 12px;
 }
 
 .device {
   position: relative;
-  width: min(1024px, calc(100vw - 32px));
-  height: min(768px, calc(100dvh - 56px));
+  width: min(1600px, calc(100vw - 24px));
+  height: calc(100dvh - 24px);
   background: var(--bg);
   border-radius: 40px;
   border: 14px solid #0b0e1a;
@@ -195,8 +195,8 @@ body { background: #05070f; }
 
 /* Tablet landscape: wider content, two columns where there is room */
 @media (min-width: 700px) {
-  .screen .container { max-width: 880px; margin: 0 auto; padding: 0 32px; }
-  .screen .hero-inner { max-width: 880px; margin: 0 auto; }
+  .screen .container { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+  .screen .hero-inner { max-width: 1180px; margin: 0 auto; }
   .screen .about-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .screen .values-grid { grid-template-columns: repeat(4, 1fr); }
   .screen .edu-grid { grid-template-columns: 1fr 1fr; }
