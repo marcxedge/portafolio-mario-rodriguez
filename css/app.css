@@ -508,3 +508,6 @@ body { background: #0f1528; }
 :root:not([data-theme="light"]) { --frame: #03051a; }
 .device { border-color: var(--frame); }
 .home-btn { background: var(--frame); }
+
+/* No background grid pattern behind the sections */
+.device .grid-overlay { display: none; }
