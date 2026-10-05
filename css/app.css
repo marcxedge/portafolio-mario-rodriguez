@@ -773,3 +773,6 @@ body { background: #0f1528; }
 /* Status bar stays pinned at the top of the frame and never moves with the content */
 .statusbar { position: absolute; top: 0; left: 0; right: 0; z-index: 9; }
 .device .appbar { margin-top: 28px; }
+
+/* Splash screen leaves the status bar (time and battery) visible at the top */
+.splash { top: 28px; }

@@ -187,7 +187,7 @@ function initLauncher() {
   // On load the device shows its home screen; after a short pause it opens the portfolio app (with its splash)
   setHome(true);
   // The automatic opening is cancelled as soon as the user touches the home screen
-  const autoOpenTimer = setTimeout(openPortfolio, 2000);
+  const autoOpenTimer = setTimeout(openPortfolio, 0);
   const cancelAutoOpen = () => clearTimeout(autoOpenTimer);
   launcher.addEventListener('pointerdown', cancelAutoOpen, { once: true });
   launcher.addEventListener('click', cancelAutoOpen, { once: true });
