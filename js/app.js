@@ -425,12 +425,12 @@ function initMockApps() {
       loadLeaflet().then(() => {
         if (!alive) return;
         map = window.L.map(el.querySelector('#mockMap')).setView([20, 0], 2);
-        // CARTO basemaps (built on OpenStreetMap data): dark style in dark mode, light style in light mode
+        // Esri basemaps (no API key needed): dark style in dark mode, light style in light mode
         const dark = document.documentElement.getAttribute('data-theme') !== 'light';
-        window.L.tileLayer(`https://{s}.basemaps.cartocdn.com/${dark ? 'dark_all' : 'light_all'}/{z}/{x}/{y}{r}.png`, {
-          subdomains: 'abcd',
-          maxZoom: 19,
-          attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+        const style = dark ? 'Canvas/World_Dark_Gray_Base' : 'Canvas/World_Light_Gray_Base';
+        window.L.tileLayer(`https://services.arcgisonline.com/ArcGIS/rest/services/${style}/MapServer/tile/{z}/{y}/{x}`, {
+          maxZoom: 16,
+          attribution: 'Tiles &copy; Esri',
         }).addTo(map);
         const marker = window.L.marker([20, 0]).addTo(map);
         map.on('click', (e) => marker.setLatLng(e.latlng));
