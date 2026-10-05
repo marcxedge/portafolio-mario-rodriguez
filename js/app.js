@@ -463,6 +463,7 @@ function initMockApps() {
     cleanup = null;
     title.textContent = name.textContent;
     title.setAttribute('data-i18n', name.getAttribute('data-i18n'));
+    body.className = key === 'maps' ? 'mock-body is-maps' : 'mock-body';
     body.innerHTML = '';
     cleanup = views[key](body) || null;
     wrap.classList.add('is-open');
