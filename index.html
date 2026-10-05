@@ -12,49 +12,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 
-<!-- Progress bar -->
 <div class="scroll-progress" id="scrollProgress"></div>
-
-<!-- Custom cursor glow (desktop) -->
 <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
-<!-- ===== NAV ===== -->
-<header class="navbar" id="navbar">
-  <div class="nav-inner container">
-    <nav class="nav-links" id="navLinks">
-      <a href="#inicio" class="nav-link active" data-nav data-i18n="nav.home">Inicio</a>
-      <a href="#sobre-mi" class="nav-link" data-nav data-i18n="nav.about">Sobre mí</a>
-      <a href="#experiencia" class="nav-link" data-nav data-i18n="nav.experience">Experiencia</a>
-      <a href="#habilidades" class="nav-link" data-nav data-i18n="nav.skills">Habilidades</a>
-      <a href="#proyecto" class="nav-link" data-nav data-i18n="nav.project">Proyectos</a>
-      <a href="#certificaciones" class="nav-link" data-nav data-i18n="nav.certifications">Certificaciones</a>
-      <a href="#voluntariado" class="nav-link" data-nav data-i18n="nav.volunteering">Voluntariado</a>
-      <a href="#contacto" class="nav-link" data-nav data-i18n="nav.contact">Contacto</a>
-    </nav>
-
-    <div class="nav-actions">
-      <button class="icon-btn" id="langToggle" aria-label="Change language" title="Change language">
-        <span id="langToggleLabel">EN</span>
-      </button>
-      <button class="icon-btn" id="themeToggle" data-i18n-attr="aria-label:a11y.toggleTheme;title:a11y.toggleTheme" aria-label="Cambiar tema" title="Cambiar tema">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-      <a href="assets/CV_Mario_Rodriguez.pdf" id="cvDownload" class="btn btn-primary btn-sm" data-i18n="nav.downloadCV" download>Descargar CV</a>
-      <button class="menu-toggle" id="menuToggle" data-i18n-attr="aria-label:a11y.openMenu" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<main>
-
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="inicio">
+<div class="stage">
+  <div class="device">
+    <header class="appbar">
+      <span class="appbar-brand">Mario Rodríguez</span>
+      <div class="appbar-actions">
+        <button class="icon-btn" id="langToggle" aria-label="Change language" title="Change language">
+          <span id="langToggleLabel">EN</span>
+        </button>
+        <button class="icon-btn" id="themeToggle" data-i18n-attr="aria-label:a11y.toggleTheme;title:a11y.toggleTheme" aria-label="Cambiar tema" title="Cambiar tema">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="assets/CV_Mario_Rodriguez.pdf" id="cvDownload" class="btn btn-primary btn-sm" data-i18n="nav.downloadCV" download>Descargar CV</a>
+      </div>
+    </header>
+    <main class="screens">
+    <section class="screen" id="inicio">
+      <div class="screen-scroll">
+<div class="app-block"><div class="hero">
     <div class="hero-bg" aria-hidden="true">
       <div class="blob blob-1"></div>
       <div class="blob blob-2"></div>
@@ -107,15 +90,8 @@
         </div>
       </div>
     </div>
-
-    <a href="#sobre-mi" class="scroll-cue" data-i18n-attr="aria-label:a11y.scrollDown" aria-label="Desplazarse hacia abajo">
-      <span></span>
-    </a>
-  </section>
-
-  <!-- ===== SOBRE MI / STATS ===== -->
-  <section class="section" id="sobre-mi">
-    <div class="container">
+  </div></div>
+<div class="app-block"><div class="container"><div class="container">
       <p class="section-tag" data-reveal data-i18n="about.tag">Sobre mí</p>
       <h2 class="section-title" data-reveal data-i18n="about.title">Perfil profesional</h2>
 
@@ -172,12 +148,40 @@
           <p data-i18n="about.value4Text">Arquitectura y publicación en Google Play y App Store.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </div></div></div>
+<div class="app-block"><div class="container"><div class="container">
+      <p class="section-tag" data-reveal data-i18n="hobbies.tag">Fuera del código</p>
+      <h2 class="section-title" data-reveal data-i18n="hobbies.title">Vida más allá de la pantalla</h2>
+      <p class="hobbies-intro" data-reveal data-i18n="hobbies.intro">Cuando no estoy programando, me encontrarás entrenando, jugando o siguiendo el deporte —sobre todo fútbol—, metido de lleno en algún videojuego, o —por encima de todo— compartiendo tiempo de calidad con mi familia y amigos. Soy una persona muy sociable, y creo que esas conexiones importan tanto como cualquier línea de código.</p>
 
-  <!-- ===== EXPERIENCIA ===== -->
-  <section class="section section-alt" id="experiencia">
-    <div class="container">
+      <div class="values-grid">
+        <div class="value-card" data-reveal>
+          <div class="value-icon">🏋️</div>
+          <h3 data-i18n="hobbies.gymTitle">Gimnasio</h3>
+          <p data-i18n="hobbies.gymText">Entrenar con constancia me mantiene enfocado, disciplinado y con la energía a tope para cada reto.</p>
+        </div>
+        <div class="value-card" data-reveal>
+          <div class="value-icon">⚽</div>
+          <h3 data-i18n="hobbies.footballTitle">Fútbol y deportes</h3>
+          <p data-i18n="hobbies.footballText">El deporte me apasiona en general, sobre todo el fútbol: lo disfruto tanto jugándolo como siguiéndolo como hincha.</p>
+        </div>
+        <div class="value-card" data-reveal>
+          <div class="value-icon">🎮</div>
+          <h3 data-i18n="hobbies.gamingTitle">Videojuegos</h3>
+          <p data-i18n="hobbies.gamingText">Mi forma favorita de desconectar y ejercitar la estrategia y la creatividad.</p>
+        </div>
+        <div class="value-card" data-reveal>
+          <div class="value-icon">👨‍👩‍👧‍👦</div>
+          <h3 data-i18n="hobbies.familyTitle">Familia y amigos</h3>
+          <p data-i18n="hobbies.familyText">Tiempo de calidad con la gente que quiero — lo que más valoro.</p>
+        </div>
+      </div>
+    </div></div></div>
+      </div>
+    </section>
+    <section class="screen" id="experiencia">
+      <div class="screen-scroll">
+<div class="app-block"><div class="container"><div class="container">
       <p class="section-tag" data-reveal data-i18n="experience.tag">Trayectoria</p>
       <h2 class="section-title" data-reveal data-i18n="experience.title">Experiencia profesional</h2>
 
@@ -261,120 +265,23 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </div></div></div>
+<div class="app-block"><div class="container"><div class="container">
+      <p class="section-tag" data-reveal data-i18n="volunteering.tag">Compromiso social</p>
+      <h2 class="section-title" data-reveal data-i18n="volunteering.title">Voluntariado</h2>
 
-  <!-- ===== HABILIDADES ===== -->
-  <section class="section" id="habilidades">
-    <div class="container">
-      <p class="section-tag" data-reveal data-i18n="skills.tag">Stack</p>
-      <h2 class="section-title" data-reveal data-i18n="skills.title">Competencias técnicas</h2>
-
-      <div class="skills-grid">
-        <div class="skill-card" data-reveal>
-          <h3><span class="skill-emoji">📱</span> <span data-i18n="skills.mobileTitle">Desarrollo Mobile</span></h3>
-          <div class="tags">
-            <span class="tag">Flutter (Dart)</span>
-            <span class="tag">React Native</span>
-            <span class="tag">Android SDK (Java/Kotlin)</span>
-            <span class="tag">iOS SDK (Swift)</span>
-          </div>
+      <div class="volunteer-card" data-reveal>
+        <div class="volunteer-logo">
+          <img src="assets/img/logo-jci.png" alt="Logo de JCI Ecuador">
         </div>
-
-        <div class="skill-card" data-reveal>
-          <h3><span class="skill-emoji">🧠</span> <span data-i18n="skills.aiTitle">IA & Integración</span></h3>
-          <div class="tags">
-            <span class="tag" data-i18n="skills.mlMobile">Machine Learning Móvil</span>
-            <span class="tag">TFLite</span>
-            <span class="tag">ONNX</span>
-            <span class="tag" data-i18n="skills.djiSdk">SDK DJI (Drones)</span>
-          </div>
-        </div>
-
-        <div class="skill-card" data-reveal>
-          <h3><span class="skill-emoji">🌐</span> <span data-i18n="skills.frontendTitle">Frontend Web</span></h3>
-          <div class="tags">
-            <span class="tag">HTML5</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">React</span>
-            <span class="tag">jQuery</span>
-            <span class="tag">XML</span>
-          </div>
-        </div>
-
-        <div class="skill-card" data-reveal>
-          <h3><span class="skill-emoji">🗄️</span> <span data-i18n="skills.backendTitle">Backend & BD</span></h3>
-          <div class="tags">
-            <span class="tag">Java</span>
-            <span class="tag">PHP</span>
-            <span class="tag">Twig</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">SQLite</span>
-          </div>
-        </div>
-
-        <div class="skill-card" data-reveal>
-          <h3><span class="skill-emoji">🔁</span> <span data-i18n="skills.methodsTitle">Metodologías</span></h3>
-          <div class="tags">
-            <span class="tag">Scrum</span>
-            <span class="tag">Kanban</span>
-          </div>
-        </div>
-
-        <div class="skill-card" data-reveal>
-          <h3><span class="skill-emoji">🛠️</span> <span data-i18n="skills.toolsTitle">Herramientas</span></h3>
-          <div class="tags">
-            <span class="tag">Git</span>
-            <span class="tag">VS Code</span>
-            <span class="tag">Android Studio</span>
-            <span class="tag">XCode</span>
-            <span class="tag">NetBeans</span>
-          </div>
+        <div class="volunteer-content">
+          <h3 data-i18n="volunteering.role">Aspirante</h3>
+          <p class="volunteer-org">JCI Ecuador</p>
+          <span class="timeline-date" data-i18n="volunteering.date">May 2022 — Oct 2023 · 1 año 6 meses</span>
         </div>
       </div>
-
-      <div class="skills-bottom">
-        <div class="soft-skills" data-reveal>
-          <h3 data-i18n="skills.softTitle">Competencias blandas</h3>
-          <div class="tags">
-            <span class="tag tag-outline" data-i18n="skills.soft1">Liderazgo</span>
-            <span class="tag tag-outline" data-i18n="skills.soft2">Resolución de problemas</span>
-            <span class="tag tag-outline" data-i18n="skills.soft3">Aprendizaje continuo</span>
-            <span class="tag tag-outline" data-i18n="skills.soft4">Proactividad</span>
-          </div>
-        </div>
-
-        <div class="languages" data-reveal>
-          <h3 data-i18n="skills.langTitle">Idiomas</h3>
-          <div class="lang-row">
-            <span class="lang-name" data-i18n="skills.langSpanish">Español</span>
-            <div class="lang-bar"><div class="lang-fill" style="--fill:100%"></div></div>
-            <span class="lang-level" data-i18n="skills.langNative">Nativo</span>
-          </div>
-          <div class="lang-row">
-            <span class="lang-name" data-i18n="skills.langEnWritten">Inglés — Escrito</span>
-            <div class="lang-bar"><div class="lang-fill" style="--fill:60%"></div></div>
-            <span class="lang-level">B1</span>
-          </div>
-          <div class="lang-row">
-            <span class="lang-name" data-i18n="skills.langEnSpoken">Inglés — Hablado</span>
-            <div class="lang-bar"><div class="lang-fill" style="--fill:60%"></div></div>
-            <span class="lang-level">B1</span>
-          </div>
-          <div class="lang-row">
-            <span class="lang-name" data-i18n="skills.langEnComprehension">Inglés — Interpretado</span>
-            <div class="lang-bar"><div class="lang-fill" style="--fill:60%"></div></div>
-            <span class="lang-level">B1</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FORMACION ===== -->
-  <section class="section section-alt" id="formacion">
-    <div class="container">
+    </div></div></div>
+<div class="app-block"><div class="container"><div class="container">
       <p class="section-tag" data-reveal data-i18n="education.tag">Academia</p>
       <h2 class="section-title" data-reveal data-i18n="education.title">Formación académica</h2>
 
@@ -400,12 +307,12 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== PROYECTO DESTACADO ===== -->
-  <section class="section" id="proyecto">
-    <div class="container">
+    </div></div></div>
+      </div>
+    </section>
+    <section class="screen" id="proyecto">
+      <div class="screen-scroll">
+<div class="app-block"><div class="container"><div class="container">
       <p class="section-tag" data-reveal data-i18n="projectsSection.tag">Proyectos</p>
       <h2 class="section-title" data-reveal data-i18n="projectsSection.title">Proyectos destacados</h2>
 
@@ -755,12 +662,116 @@
         </div>
         </div>
       </div>
-    </div>
-  </section>
+    </div></div></div>
+      </div>
+    </section>
+    <section class="screen" id="habilidades">
+      <div class="screen-scroll">
+<div class="app-block"><div class="container"><div class="container">
+      <p class="section-tag" data-reveal data-i18n="skills.tag">Stack</p>
+      <h2 class="section-title" data-reveal data-i18n="skills.title">Competencias técnicas</h2>
 
-  <!-- ===== CERTIFICACIONES ===== -->
-  <section class="section section-alt" id="certificaciones">
-    <div class="container">
+      <div class="skills-grid">
+        <div class="skill-card" data-reveal>
+          <h3><span class="skill-emoji">📱</span> <span data-i18n="skills.mobileTitle">Desarrollo Mobile</span></h3>
+          <div class="tags">
+            <span class="tag">Flutter (Dart)</span>
+            <span class="tag">React Native</span>
+            <span class="tag">Android SDK (Java/Kotlin)</span>
+            <span class="tag">iOS SDK (Swift)</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal>
+          <h3><span class="skill-emoji">🧠</span> <span data-i18n="skills.aiTitle">IA & Integración</span></h3>
+          <div class="tags">
+            <span class="tag" data-i18n="skills.mlMobile">Machine Learning Móvil</span>
+            <span class="tag">TFLite</span>
+            <span class="tag">ONNX</span>
+            <span class="tag" data-i18n="skills.djiSdk">SDK DJI (Drones)</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal>
+          <h3><span class="skill-emoji">🌐</span> <span data-i18n="skills.frontendTitle">Frontend Web</span></h3>
+          <div class="tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">React</span>
+            <span class="tag">jQuery</span>
+            <span class="tag">XML</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal>
+          <h3><span class="skill-emoji">🗄️</span> <span data-i18n="skills.backendTitle">Backend & BD</span></h3>
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">PHP</span>
+            <span class="tag">Twig</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">SQLite</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal>
+          <h3><span class="skill-emoji">🔁</span> <span data-i18n="skills.methodsTitle">Metodologías</span></h3>
+          <div class="tags">
+            <span class="tag">Scrum</span>
+            <span class="tag">Kanban</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal>
+          <h3><span class="skill-emoji">🛠️</span> <span data-i18n="skills.toolsTitle">Herramientas</span></h3>
+          <div class="tags">
+            <span class="tag">Git</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">Android Studio</span>
+            <span class="tag">XCode</span>
+            <span class="tag">NetBeans</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-bottom">
+        <div class="soft-skills" data-reveal>
+          <h3 data-i18n="skills.softTitle">Competencias blandas</h3>
+          <div class="tags">
+            <span class="tag tag-outline" data-i18n="skills.soft1">Liderazgo</span>
+            <span class="tag tag-outline" data-i18n="skills.soft2">Resolución de problemas</span>
+            <span class="tag tag-outline" data-i18n="skills.soft3">Aprendizaje continuo</span>
+            <span class="tag tag-outline" data-i18n="skills.soft4">Proactividad</span>
+          </div>
+        </div>
+
+        <div class="languages" data-reveal>
+          <h3 data-i18n="skills.langTitle">Idiomas</h3>
+          <div class="lang-row">
+            <span class="lang-name" data-i18n="skills.langSpanish">Español</span>
+            <div class="lang-bar"><div class="lang-fill" style="--fill:100%"></div></div>
+            <span class="lang-level" data-i18n="skills.langNative">Nativo</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name" data-i18n="skills.langEnWritten">Inglés — Escrito</span>
+            <div class="lang-bar"><div class="lang-fill" style="--fill:60%"></div></div>
+            <span class="lang-level">B1</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name" data-i18n="skills.langEnSpoken">Inglés — Hablado</span>
+            <div class="lang-bar"><div class="lang-fill" style="--fill:60%"></div></div>
+            <span class="lang-level">B1</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name" data-i18n="skills.langEnComprehension">Inglés — Interpretado</span>
+            <div class="lang-bar"><div class="lang-fill" style="--fill:60%"></div></div>
+            <span class="lang-level">B1</span>
+          </div>
+        </div>
+      </div>
+    </div></div></div>
+<div class="app-block"><div class="container"><div class="container">
       <p class="section-tag" data-reveal data-i18n="certifications.tag">Credenciales</p>
       <h2 class="section-title" data-reveal data-i18n="certifications.title">Certificaciones</h2>
 
@@ -829,63 +840,12 @@
           </a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== VOLUNTARIADO ===== -->
-  <section class="section" id="voluntariado">
-    <div class="container">
-      <p class="section-tag" data-reveal data-i18n="volunteering.tag">Compromiso social</p>
-      <h2 class="section-title" data-reveal data-i18n="volunteering.title">Voluntariado</h2>
-
-      <div class="volunteer-card" data-reveal>
-        <div class="volunteer-logo">
-          <img src="assets/img/logo-jci.png" alt="Logo de JCI Ecuador">
-        </div>
-        <div class="volunteer-content">
-          <h3 data-i18n="volunteering.role">Aspirante</h3>
-          <p class="volunteer-org">JCI Ecuador</p>
-          <span class="timeline-date" data-i18n="volunteering.date">May 2022 — Oct 2023 · 1 año 6 meses</span>
-        </div>
+    </div></div></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== FUERA DEL CÓDIGO ===== -->
-  <section class="section section-alt" id="hobbies">
-    <div class="container">
-      <p class="section-tag" data-reveal data-i18n="hobbies.tag">Fuera del código</p>
-      <h2 class="section-title" data-reveal data-i18n="hobbies.title">Vida más allá de la pantalla</h2>
-      <p class="hobbies-intro" data-reveal data-i18n="hobbies.intro">Cuando no estoy programando, me encontrarás entrenando, jugando o siguiendo el deporte —sobre todo fútbol—, metido de lleno en algún videojuego, o —por encima de todo— compartiendo tiempo de calidad con mi familia y amigos. Soy una persona muy sociable, y creo que esas conexiones importan tanto como cualquier línea de código.</p>
-
-      <div class="values-grid">
-        <div class="value-card" data-reveal>
-          <div class="value-icon">🏋️</div>
-          <h3 data-i18n="hobbies.gymTitle">Gimnasio</h3>
-          <p data-i18n="hobbies.gymText">Entrenar con constancia me mantiene enfocado, disciplinado y con la energía a tope para cada reto.</p>
-        </div>
-        <div class="value-card" data-reveal>
-          <div class="value-icon">⚽</div>
-          <h3 data-i18n="hobbies.footballTitle">Fútbol y deportes</h3>
-          <p data-i18n="hobbies.footballText">El deporte me apasiona en general, sobre todo el fútbol: lo disfruto tanto jugándolo como siguiéndolo como hincha.</p>
-        </div>
-        <div class="value-card" data-reveal>
-          <div class="value-icon">🎮</div>
-          <h3 data-i18n="hobbies.gamingTitle">Videojuegos</h3>
-          <p data-i18n="hobbies.gamingText">Mi forma favorita de desconectar y ejercitar la estrategia y la creatividad.</p>
-        </div>
-        <div class="value-card" data-reveal>
-          <div class="value-icon">👨‍👩‍👧‍👦</div>
-          <h3 data-i18n="hobbies.familyTitle">Familia y amigos</h3>
-          <p data-i18n="hobbies.familyText">Tiempo de calidad con la gente que quiero — lo que más valoro.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACTO ===== -->
-  <section class="section contact-section" id="contacto">
-    <div class="container">
+    </section>
+    <section class="screen" id="contacto">
+      <div class="screen-scroll">
+<div class="app-block"><div class="container"><div class="container">
       <p class="section-tag" data-reveal data-i18n="contact.tag">Contacto</p>
       <h2 class="section-title" data-reveal data-i18n="contact.title">¿Hablamos de tu próximo proyecto?</h2>
       <p class="contact-desc" data-reveal data-i18n="contact.description">
@@ -924,20 +884,24 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
+    </div></div></div>
+<div class="app-block"><footer class="footer">
   <div class="container footer-inner">
     <p>© <span id="year"></span> Mario Antonio Rodríguez Cedeño. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
   </div>
-</footer>
-
-<button class="back-to-top" id="backToTop" data-i18n-attr="aria-label:a11y.backToTop" aria-label="Volver arriba">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
-</button>
+</footer></div>
+      </div>
+    </section>
+    </main>
+    <nav class="tabbar" aria-label="Navegación">
+      <button class="tab" data-tab="inicio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span data-i18n="nav.home">Inicio</span></button>
+      <button class="tab" data-tab="experiencia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg><span data-i18n="nav.experience">Experiencia</span></button>
+      <button class="tab" data-tab="proyecto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-i18n="nav.project">Proyectos</span></button>
+      <button class="tab" data-tab="habilidades"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg><span data-i18n="nav.skills">Habilidades</span></button>
+      <button class="tab" data-tab="contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><span data-i18n="nav.contact">Contacto</span></button>
+    </nav>
+  </div>
+</div>
 
 <!-- ===== GALLERY LIGHTBOX ===== -->
 <div class="gallery-modal" id="galleryModal" aria-hidden="true">
@@ -967,5 +931,6 @@
 
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

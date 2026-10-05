@@ -201,19 +201,21 @@ function initScrollSpy() {
   sections.forEach(s => observer.observe(s));
 }
 
-/* Top scroll progress bar */
+/* Top scroll progress bar — follows the scroll of the active app screen */
 function initScrollProgress() {
   const bar = document.getElementById('scrollProgress');
   if (!bar) return;
   const update = () => {
-    const h = document.documentElement;
-    const scrolled = h.scrollTop;
-    const max = h.scrollHeight - h.clientHeight;
+    const el = document.querySelector('.screen.is-active .screen-scroll') || document.documentElement;
+    const scrolled = el.scrollTop;
+    const max = el.scrollHeight - el.clientHeight;
     bar.style.width = max > 0 ? `${(scrolled / max) * 100}%` : '0%';
   };
   update();
-  window.addEventListener('scroll', update, { passive: true });
+  // scroll events don't bubble, so listen in the capture phase to catch the app screens
+  document.addEventListener('scroll', update, { passive: true, capture: true });
   window.addEventListener('resize', update);
+  document.addEventListener('app:screenchange', update);
 }
 
 /* Cursor glow follows pointer (desktop only) */
@@ -363,7 +365,7 @@ function initSmoothAnchors() {
       const id = link.getAttribute('href');
       if (id.length < 2) return;
       const target = document.querySelector(id);
-      if (!target) return;
+      if (!target || target.classList.contains('screen')) return; // app.js handles tab screens
       e.preventDefault();
       const offset = (navbar?.offsetHeight || 70) + 10;
       const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
