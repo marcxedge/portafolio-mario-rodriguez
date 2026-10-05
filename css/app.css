@@ -692,3 +692,6 @@ body { background: #0f1528; }
 }
 .sb-battery { display: flex; align-items: center; gap: 6px; }
 .sb-battery svg { width: 24px; height: 12px; }
+
+/* Splash appears instantly over the home screen (no fade-in), so the portfolio never shows through; it only fades when it hides */
+.splash:not(.is-done) { transition: none; }
