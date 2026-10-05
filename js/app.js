@@ -155,6 +155,11 @@ function initLauncher() {
   let toastTimer;
   document.querySelectorAll('[data-unavailable]').forEach((btn) => {
     btn.addEventListener('click', () => {
+      // same tap animation as the portfolio icon
+      btn.classList.remove('is-tapped');
+      void btn.offsetWidth;
+      btn.classList.add('is-tapped');
+      setTimeout(() => btn.classList.remove('is-tapped'), 450);
       if (!toast) return;
       toast.classList.add('is-visible');
       clearTimeout(toastTimer);
