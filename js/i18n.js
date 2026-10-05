@@ -8,6 +8,11 @@ const I18N_TRANSLATIONS = {
       title: 'Mario Rodríguez Cedeño · Desarrollador Mobile & Edge AI',
       description: 'Portafolio de Mario Antonio Rodríguez Cedeño — Ingeniero en Sistemas Informáticos especializado en Flutter, React Native, Android, iOS, Edge AI y Machine Learning.'
     },
+    launcher: {
+      screen: 'Pantalla de inicio del dispositivo',
+      app: 'Portafolio',
+      homeButton: 'Ir a la pantalla de inicio'
+    },
     nav: {
       home: 'Inicio', about: 'Sobre mí', experience: 'Experiencia', skills: 'Habilidades',
       project: 'Proyectos', certifications: 'Certificaciones', volunteering: 'Voluntariado',
@@ -184,6 +189,11 @@ const I18N_TRANSLATIONS = {
     meta: {
       title: 'Mario Rodríguez Cedeño · Mobile Developer & Edge AI',
       description: 'Portfolio of Mario Antonio Rodríguez Cedeño — Computer Systems Engineer specialized in Flutter, React Native, Android, iOS, Edge AI, and Machine Learning.'
+    },
+    launcher: {
+      screen: 'Device home screen',
+      app: 'Portfolio',
+      homeButton: 'Go to the home screen'
     },
     nav: {
       home: 'Home', about: 'About', experience: 'Experience', skills: 'Skills',

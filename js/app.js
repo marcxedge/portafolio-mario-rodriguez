@@ -4,7 +4,36 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initAppTabs();
+  initLauncher();
 });
+
+/* Device home screen: the side button shows it, the portfolio icon brings the app back */
+function initLauncher() {
+  const device = document.querySelector('.device');
+  const launcher = document.getElementById('launcher');
+  const homeBtn = document.getElementById('homeBtn');
+  const clock = document.getElementById('launcherTime');
+  if (!device || !launcher || !homeBtn) return;
+
+  const updateClock = () => {
+    if (!clock) return;
+    const locale = document.documentElement.lang === 'en' ? 'en-US' : 'es-ES';
+    clock.textContent = new Date().toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' });
+  };
+
+  const setHome = (on) => {
+    device.classList.toggle('is-home', on);
+    launcher.setAttribute('aria-hidden', String(!on));
+    homeBtn.setAttribute('aria-pressed', String(on));
+    if (on) updateClock();
+  };
+
+  homeBtn.addEventListener('click', () => setHome(!device.classList.contains('is-home')));
+  document.querySelectorAll('[data-open-app]').forEach((btn) => {
+    btn.addEventListener('click', () => setHome(false));
+  });
+  document.addEventListener('i18n:changed', updateClock);
+}
 
 function initAppTabs() {
   const screens = Array.from(document.querySelectorAll('.screen'));
