@@ -558,3 +558,9 @@ body { background: #0f1528; }
   .device #inicio .app-block:first-child { padding-top: 46px; }
   .device #inicio .hero { padding-top: 0; }
 }
+
+/* Light mode: active tab uses dark blue icon and label on a soft tint */
+:root[data-theme="light"] .device .tab.is-active {
+  color: #1d3a8a;
+  background: linear-gradient(135deg, rgba(47, 111, 237, 0.2), rgba(99, 102, 241, 0.2));
+}
