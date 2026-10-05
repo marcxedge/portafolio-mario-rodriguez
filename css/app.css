@@ -548,3 +548,7 @@ body { background: #0f1528; }
 
 /* Home screen: a little more room removed above the photo/intro block */
 .device #inicio .hero-inner { margin-top: -16px; }
+
+/* Home screen: no clipping of the hero content at the top (undo the negative margin) */
+.device #inicio .hero-inner { margin-top: 0; }
+.device #inicio .hero { overflow: visible; }
