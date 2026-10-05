@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initAppTabs();
   initLauncher();
   initToTop();
-  playSplash();
 });
 
 /* Splash screen: plays on load and whenever the app is opened from the home screen */
@@ -146,6 +145,13 @@ function initLauncher() {
   });
   document.addEventListener('i18n:changed', syncProxies);
   syncProxies();
+
+  // On load the device shows its home screen; after a short pause it opens the portfolio app (with its splash)
+  setHome(true);
+  setTimeout(() => {
+    setHome(false);
+    playSplash();
+  }, 2000);
 }
 
 function initAppTabs() {
