@@ -6,14 +6,23 @@ document.addEventListener('DOMContentLoaded', () => {
   initAppTabs();
   initLauncher();
   initToTop();
-  initSplash();
+  playSplash();
 });
 
-/* Splash screen: hides itself after the loading bar finishes */
-function initSplash() {
+/* Splash screen: plays on load and whenever the app is opened from the home screen */
+let splashTimer;
+function playSplash() {
   const splash = document.getElementById('splash');
   if (!splash) return;
-  setTimeout(() => splash.classList.add('is-done'), 2000);
+  clearTimeout(splashTimer);
+  splash.classList.remove('is-done');
+  // restart the entrance and loading animations
+  splash.querySelectorAll('img, .splash-name, .splash-bar > span').forEach((el) => {
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = '';
+  });
+  splashTimer = setTimeout(() => splash.classList.add('is-done'), 2000);
 }
 
 /* Floating button: scrolls the active screen back to its top */
@@ -59,7 +68,10 @@ function initLauncher() {
 
   homeBtn.addEventListener('click', () => setHome(!device.classList.contains('is-home')));
   document.querySelectorAll('[data-open-app]').forEach((btn) => {
-    btn.addEventListener('click', () => setHome(false));
+    btn.addEventListener('click', () => {
+      setHome(false);
+      playSplash();
+    });
   });
   document.addEventListener('i18n:changed', updateClock);
 
