@@ -628,3 +628,13 @@ body { background: #0f1528; }
 .device .hero-text { align-self: start; }
 /* Fixed-height typed line: the title keeps the same height whatever word is shown */
 .device .typed { display: inline-block; height: 1.12em; vertical-align: top; }
+
+/* Home screen layout: language/theme top-left, battery top-right, big clock under the status bar, apps at the bottom */
+.launcher { padding: 56px 28px 56px; }
+.launcher-tools { position: absolute; top: 12px; left: 20px; margin: 0; }
+.launcher-time { font-size: 3.4rem; font-weight: 500; line-height: 1; letter-spacing: -0.02em; margin-top: 6px; }
+.launcher-grid { margin: auto 0 0; }
+@media (max-width: 700px) and (orientation: portrait) {
+  .launcher { padding: 56px 16px 36px; }
+  .launcher-time { font-size: 2.8rem; }
+}
