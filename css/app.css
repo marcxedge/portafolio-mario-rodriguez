@@ -408,7 +408,7 @@ body { background: #0f1528; }
 .device .section-tag,
 .device .project-kicker { color: var(--accent); letter-spacing: 0.12em; }
 
-/* Gradient-outlined cards, like the service boxes in the reference */
+/* Cards: quiet by default, gradient outline only on hover or selection */
 .device .project-card,
 .device .timeline-card,
 .device .skill-card,
@@ -420,12 +420,43 @@ body { background: #0f1528; }
 .device .volunteer-card,
 .device .soft-skills,
 .device .languages {
-  border: 1px solid transparent;
-  background:
-    linear-gradient(var(--surface), var(--surface)) padding-box,
-    linear-gradient(135deg, #38bdf8, #7c5cff) border-box;
-  box-shadow: 0 0 24px -12px rgba(56, 189, 248, 0.35);
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
 }
+
+/* Hover or selected: softer gradient outline and a subtle glow */
+.device .project-card:hover,
+.device .timeline-card:hover,
+.device .skill-card:hover,
+.device .value-card:hover,
+.device .cert-card:hover,
+.device .contact-card:hover,
+.device .edu-card:hover,
+.device .stat-card:hover,
+.device .volunteer-card:hover,
+.device .soft-skills:hover,
+.device .languages:hover,
+.device .project-card:focus-within,
+.device .timeline-card:focus-within,
+.device .skill-card:focus-within,
+.device .value-card:focus-within,
+.device .cert-card:focus-within,
+.device .contact-card:focus-within,
+.device .edu-card:focus-within,
+.device .stat-card:focus-within,
+.device .volunteer-card:focus-within,
+.device .soft-skills:focus-within,
+.device .languages:focus-within {
+  border-color: transparent;
+  background:
+    linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+    linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(124, 92, 255, 0.4)) border-box;
+  box-shadow: 0 0 14px -10px rgba(56, 189, 248, 0.3);
+}
+
+:root:not([data-theme="light"]) { --card-bg: #0b1234; --card-border: #1a2660; }
+:root[data-theme="light"] { --card-bg: #e9edf7; --card-border: #d2d9ea; }
 
 /* Gradient buttons */
 .device .btn-primary {
