@@ -127,7 +127,7 @@ function initLauncher() {
         setHome(false);
         playSplash();
       }, 1000);
-    }, 1000);
+    }, 500);
   };
   document.querySelectorAll('[data-open-app]').forEach((btn) => {
     btn.addEventListener('click', openPortfolio);
