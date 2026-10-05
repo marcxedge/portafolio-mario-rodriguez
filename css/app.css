@@ -677,3 +677,18 @@ body { background: #0f1528; }
 /* Home screen: AM/PM centered vertically on the clock digits */
 .launcher-time { display: flex; align-items: center; justify-content: center; gap: 0.12em; }
 .launcher-ampm { margin-left: 0; vertical-align: baseline; }
+
+/* Status bar above the screens: small time on the left, battery on the right, same in home screen and app */
+.statusbar {
+  flex-shrink: 0;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--bg);
+}
+.sb-battery { display: flex; align-items: center; gap: 6px; }
+.sb-battery svg { width: 24px; height: 12px; }

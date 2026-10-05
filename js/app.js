@@ -6,7 +6,25 @@ document.addEventListener('DOMContentLoaded', () => {
   initAppTabs();
   initLauncher();
   initToTop();
+  initStatusBar();
 });
+
+/* Status bar above the screens: time and battery, visible in the home screen and inside the app */
+function initStatusBar() {
+  const sbTime = document.getElementById('sbTime');
+  if (!sbTime) return;
+  const update = () => {
+    const now = new Date();
+    const en = document.documentElement.lang === 'en';
+    const hours = now.getHours() % 12 || 12;
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const period = now.getHours() < 12 ? (en ? 'AM' : 'a. m.') : (en ? 'PM' : 'p. m.');
+    sbTime.textContent = `${hours}:${minutes} ${period}`;
+  };
+  update();
+  setInterval(update, 30000);
+  document.addEventListener('i18n:changed', update);
+}
 
 /* Splash screen: plays on load and whenever the app is opened from the home screen */
 let splashTimer;
@@ -99,14 +117,14 @@ function initLauncher() {
   document.addEventListener('i18n:changed', updateClock);
 
   // Real battery level when the browser exposes it (Chromium on laptops and Android); otherwise the static 100%
-  const batText = document.querySelector('.bat-text');
-  const batFill = document.querySelector('.bat-fill');
-  if (batText && batFill && 'getBattery' in navigator) {
+  const batTexts = document.querySelectorAll('.bat-text');
+  const batFills = document.querySelectorAll('.bat-fill');
+  if (batTexts.length && batFills.length && 'getBattery' in navigator) {
     navigator.getBattery().then((battery) => {
       const update = () => {
         const pct = Math.round(battery.level * 100);
-        batText.textContent = `${battery.charging ? '⚡ ' : ''}${pct}%`;
-        batFill.setAttribute('width', String(Math.max(1, 16 * battery.level)));
+        batTexts.forEach((el) => { el.textContent = `${battery.charging ? '⚡ ' : ''}${pct}%`; });
+        batFills.forEach((el) => el.setAttribute('width', String(Math.max(1, 16 * battery.level))));
       };
       update();
       battery.addEventListener('levelchange', update);
