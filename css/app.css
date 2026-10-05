@@ -672,4 +672,4 @@ body { background: #0f1528; }
 .launcher-date { text-align: center; font-size: 1rem; font-weight: 500; opacity: 0.85; margin-top: 8px; }
 
 /* Home screen: small AM/PM marker next to the big clock */
-.launcher-ampm { font-size: 0.32em; font-weight: 600; margin-left: 0.2em; vertical-align: 0.9em; letter-spacing: 0; }
+.launcher-ampm { font-size: 0.4em; font-weight: 600; margin-left: 0.4em; vertical-align: 0.9em; letter-spacing: 0; }
