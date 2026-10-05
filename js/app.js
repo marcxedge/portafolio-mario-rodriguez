@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLauncher();
   initToTop();
   initStatusBar();
+  initMockApps();
 });
 
 /* Status bar above the screens: time and battery, visible in the home screen and inside the app */
@@ -153,17 +154,13 @@ function initLauncher() {
   // Decorative apps are not available: show a short notice
   const toast = document.getElementById('launcherToast');
   let toastTimer;
-  document.querySelectorAll('[data-unavailable]').forEach((btn) => {
+  document.querySelectorAll('[data-mock]').forEach((btn) => {
     btn.addEventListener('click', () => {
       // same tap animation as the portfolio icon
       btn.classList.remove('is-tapped');
       void btn.offsetWidth;
       btn.classList.add('is-tapped');
       setTimeout(() => btn.classList.remove('is-tapped'), 450);
-      if (!toast) return;
-      toast.classList.add('is-visible');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 1800);
     });
   });
 
@@ -242,4 +239,156 @@ function initAppTabs() {
   // Initial screen from the URL hash (e.g. #proyecto), otherwise the first one
   const initial = location.hash.slice(1);
   showScreen(document.getElementById(initial) ? initial : screens[0].id, { updateHash: false });
+}
+
+/* Sample views for the decorative home-screen apps (settings, calendar, camera, music, maps) */
+function initMockApps() {
+  const wrap = document.getElementById('mockApp');
+  const body = document.getElementById('mockBody');
+  const title = document.getElementById('mockTitle');
+  const back = document.getElementById('mockBack');
+  if (!wrap || !body || !title || !back) return;
+
+  const en = () => document.documentElement.lang === 'en';
+  const locale = () => (en() ? 'en-US' : 'es-ES');
+  let cleanup = null;
+
+  const views = {
+    settings(el) {
+      const rows = en()
+        ? ['Wi-Fi', 'Bluetooth', 'Notifications', 'Dark mode']
+        : ['Wi-Fi', 'Bluetooth', 'Notificaciones', 'Modo oscuro'];
+      el.innerHTML = `<div class="mock-list">${rows.map((label, i) =>
+        `<label class="mock-row"><span>${label}</span><input class="mock-switch" type="checkbox" ${i < 3 ? 'checked' : ''} ${i === 3 ? 'data-dark' : ''}></label>`
+      ).join('')}</div>`;
+      const dark = el.querySelector('[data-dark]');
+      dark.checked = document.documentElement.getAttribute('data-theme') !== 'light';
+      dark.addEventListener('change', () => document.getElementById('themeToggle')?.click());
+    },
+
+    calendar(el) {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = now.getMonth();
+      const monthName = new Intl.DateTimeFormat(locale(), { month: 'long', year: 'numeric' }).format(now);
+      const weekdays = [];
+      for (let i = 0; i < 7; i++) {
+        weekdays.push(new Intl.DateTimeFormat(locale(), { weekday: 'narrow' }).format(new Date(2024, 0, 7 + i)));
+      }
+      const blanks = new Date(y, m, 1).getDay();
+      const total = new Date(y, m + 1, 0).getDate();
+      let cells = '';
+      for (let i = 0; i < blanks; i++) cells += '<span></span>';
+      for (let d = 1; d <= total; d++) {
+        cells += `<button class="mock-day${d === now.getDate() ? ' is-today' : ''}" type="button">${d}</button>`;
+      }
+      el.innerHTML = `<h3 class="mock-h">${monthName.charAt(0).toUpperCase() + monthName.slice(1)}</h3>
+        <div class="mock-cal">${weekdays.map((w) => `<span class="mock-wd">${w}</span>`).join('')}${cells}</div>
+        <p class="mock-note" id="mockNote"></p>`;
+      const note = el.querySelector('#mockNote');
+      el.querySelectorAll('.mock-day').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          el.querySelectorAll('.mock-day').forEach((b) => b.classList.remove('is-selected'));
+          btn.classList.add('is-selected');
+          note.textContent = en() ? `Selected: ${btn.textContent} ${monthName}` : `Seleccionado: ${btn.textContent} de ${monthName}`;
+        });
+      });
+    },
+
+    camera(el) {
+      el.innerHTML = `<div class="mock-viewfinder" id="mockView"><div class="mock-grid"></div></div>
+        <div class="mock-camrow">
+          <span class="mock-count" id="mockCount">0</span>
+          <button class="mock-shutter" type="button" id="mockShutter" aria-label="${en() ? 'Take photo' : 'Tomar foto'}"></button>
+          <span class="mock-thumb" id="mockThumb"></span>
+        </div>`;
+      let count = 0;
+      el.querySelector('#mockShutter').addEventListener('click', () => {
+        count += 1;
+        el.querySelector('#mockCount').textContent = String(count);
+        el.querySelector('#mockThumb').style.background = `hsl(${(count * 67) % 360} 70% 55%)`;
+        const view = el.querySelector('#mockView');
+        view.classList.add('is-flash');
+        setTimeout(() => view.classList.remove('is-flash'), 250);
+      });
+    },
+
+    music(el) {
+      const tracks = ['Track 01', 'Track 02', 'Track 03'];
+      let index = 0;
+      let playing = false;
+      let progress = 0;
+      let timer = null;
+      el.innerHTML = `<div class="mock-art"></div>
+        <p class="mock-track" id="mockTrack"></p>
+        <div class="mock-progress"><span id="mockBar"></span></div>
+        <div class="mock-controls">
+          <button class="mock-ctl" type="button" id="mockPrev" aria-label="${en() ? 'Previous' : 'Anterior'}">⏮</button>
+          <button class="mock-ctl mock-play" type="button" id="mockPlay" aria-label="${en() ? 'Play' : 'Reproducir'}">▶</button>
+          <button class="mock-ctl" type="button" id="mockNext" aria-label="${en() ? 'Next' : 'Siguiente'}">⏭</button>
+        </div>`;
+      const trackEl = el.querySelector('#mockTrack');
+      const bar = el.querySelector('#mockBar');
+      const playBtn = el.querySelector('#mockPlay');
+      const render = () => {
+        trackEl.textContent = tracks[index];
+        bar.style.width = `${progress}%`;
+        playBtn.textContent = playing ? '❚❚' : '▶';
+      };
+      const tick = () => {
+        progress = (progress + 2) % 100;
+        if (progress === 0) index = (index + 1) % tracks.length;
+        render();
+      };
+      const setPlaying = (on) => {
+        playing = on;
+        clearInterval(timer);
+        if (on) timer = setInterval(tick, 200);
+        render();
+      };
+      playBtn.addEventListener('click', () => setPlaying(!playing));
+      el.querySelector('#mockNext').addEventListener('click', () => { index = (index + 1) % tracks.length; progress = 0; render(); });
+      el.querySelector('#mockPrev').addEventListener('click', () => { index = (index - 1 + tracks.length) % tracks.length; progress = 0; render(); });
+      render();
+      return () => clearInterval(timer);
+    },
+
+    maps(el) {
+      el.innerHTML = `<div class="mock-map" id="mockMap"><div class="mock-pin" id="mockPin"></div></div>
+        <p class="mock-note">${en() ? 'Tap the map to move the marker' : 'Toca el mapa para mover el marcador'}</p>`;
+      const map = el.querySelector('#mockMap');
+      const pin = el.querySelector('#mockPin');
+      map.addEventListener('click', (e) => {
+        const r = map.getBoundingClientRect();
+        pin.style.left = `${((e.clientX - r.left) / r.width) * 100}%`;
+        pin.style.top = `${((e.clientY - r.top) / r.height) * 100}%`;
+      });
+    },
+  };
+
+  const close = () => {
+    if (cleanup) cleanup();
+    cleanup = null;
+    wrap.classList.remove('is-open');
+    wrap.setAttribute('aria-hidden', 'true');
+  };
+
+  const open = (key) => {
+    const btn = document.querySelector(`[data-mock="${key}"]`);
+    const name = btn?.querySelector('.app-name');
+    if (!name) return;
+    if (cleanup) cleanup();
+    cleanup = null;
+    title.textContent = name.textContent;
+    title.setAttribute('data-i18n', name.getAttribute('data-i18n'));
+    body.innerHTML = '';
+    cleanup = views[key](body) || null;
+    wrap.classList.add('is-open');
+    wrap.setAttribute('aria-hidden', 'false');
+  };
+
+  document.querySelectorAll('[data-mock]').forEach((btn) => {
+    btn.addEventListener('click', () => open(btn.dataset.mock));
+  });
+  back.addEventListener('click', close);
 }
