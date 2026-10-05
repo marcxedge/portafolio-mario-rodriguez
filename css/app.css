@@ -23,7 +23,7 @@ body { background: #05070f; }
   border-radius: 40px;
   box-sizing: border-box;
   border: 14px solid #0b0e1a;
-  border-right-width: 40px; /* side strip where the physical home button lives */
+  border-right-width: 50px; /* side strip where the physical home button lives */
   box-shadow:
     0 40px 90px -30px rgba(0, 0, 0, 0.7),
     0 0 0 1px rgba(255, 255, 255, 0.06),
@@ -203,7 +203,7 @@ body { background: #05070f; }
 .home-btn {
   position: absolute;
   top: 50%;
-  left: calc(100% - 35px); /* centered inside the 40px side strip */
+  left: calc(100% - 40px); /* centered inside the 50px side strip */
   transform: translateY(-50%);
   width: 30px;
   height: 46px;
