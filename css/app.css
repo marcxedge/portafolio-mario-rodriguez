@@ -494,7 +494,7 @@ body { background: #0f1528; }
 /* Bottom tab bar: gradient pill for the active tab */
 .device .tabbar { background: var(--bg-alt); }
 .device .tab.is-active {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.32), rgba(124, 92, 255, 0.32));
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.18), rgba(124, 92, 255, 0.18));
   color: #fff;
 }
 
