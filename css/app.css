@@ -788,3 +788,8 @@ body { background: #0f1528; }
   .device .screen .container { padding: 0 12px; }
   .device .hero-inner { padding: 0 12px; }
 }
+
+/* Everything is visible from the start: no scroll-triggered reveal or loading animations */
+.device [data-reveal],
+.device [data-reveal].in-view { opacity: 1 !important; transform: none !important; transition: none !important; }
+.device .lang-fill { width: var(--fill) !important; transition: none !important; }
