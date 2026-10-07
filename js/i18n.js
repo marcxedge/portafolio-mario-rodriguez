@@ -11,6 +11,9 @@ const I18N_TRANSLATIONS = {
     appbar: {
       brand: 'Mi Portafolio'
     },
+    dragHint: {
+      text: '💡 Mantén <kbd>Mayús</kbd> y arrastra para seleccionar texto'
+    },
     launcher: {
       screen: 'Pantalla de inicio del dispositivo',
       app: 'Mi Portafolio',
@@ -202,6 +205,9 @@ const I18N_TRANSLATIONS = {
     },
     appbar: {
       brand: 'My Portfolio'
+    },
+    dragHint: {
+      text: '💡 Hold <kbd>Shift</kbd> and drag to select text'
     },
     launcher: {
       screen: 'Device home screen',

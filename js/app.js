@@ -9,7 +9,24 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatusBar();
   initMockApps();
   initDragScroll();
+  initTextSelectHint();
 });
+
+/* Shows, once ever, a short hint about Shift+drag to select text — only for mouse users,
+   since touch already selects text with a normal long-press (no shortcut needed there) */
+function initTextSelectHint() {
+  const hint = document.getElementById('dragHint');
+  if (!hint) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  let seen = false;
+  try { seen = localStorage.getItem('mr-drag-hint-seen') === '1'; } catch { /* ignore */ }
+  if (seen) return;
+  try { localStorage.setItem('mr-drag-hint-seen', '1'); } catch { /* ignore */ }
+  setTimeout(() => {
+    hint.classList.add('is-visible');
+    setTimeout(() => hint.classList.remove('is-visible'), 5000);
+  }, 4500);
+}
 
 /* Status bar above the screens: time and battery, visible in the home screen and inside the app */
 function initStatusBar() {
@@ -484,21 +501,10 @@ function initMockApps() {
   });
 }
 
-/* True where the pointer lands directly on text (not on a button, link or empty background),
-   so the mouse can start a normal text selection there instead of a scroll drag. */
-function isTextTarget(el) {
-  if (!el || el.nodeType !== 1) return false;
-  if (el.closest('a, button, input, textarea, select, svg, img, .btn, [data-mock], [data-open-app], [data-unavailable], .tab, .home-btn, .to-top')) return false;
-  for (const node of el.childNodes) {
-    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) return true;
-  }
-  return false;
-}
-
 /* Drag-to-scroll with the mouse pointer: click and drag up/down to scroll the content,
    like swiping on a real phone. Touch keeps its native scrolling; this only reacts to the mouse.
-   Clicking directly on text shows the text cursor and selects text instead, so copy/paste still
-   works normally (see isTextTarget and the matching CSS cursor rules in app.css). */
+   Hold Shift while dragging to select text instead (a hint about this shows the first time,
+   see initTextSelectHint). */
 function initDragScroll() {
   const targets = document.querySelectorAll('.screen-scroll, .mock-body');
   targets.forEach((el) => {
@@ -537,8 +543,8 @@ function initDragScroll() {
 
     el.addEventListener('pointerdown', (e) => {
       if (e.pointerType !== 'mouse' || e.button !== 0) return;
-      // clicked directly on text: let the browser select it instead of dragging to scroll
-      if (isTextTarget(e.target)) return;
+      // hold Shift to select text with the mouse instead of dragging to scroll
+      if (e.shiftKey) return;
       dragging = true;
       moved = false;
       startY = e.clientY;

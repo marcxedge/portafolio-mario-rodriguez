@@ -75,25 +75,6 @@ body { background: #0f1528; }
 @media (hover: hover) and (pointer: fine) {
   .screen-scroll, .mock-body { cursor: grab; }
   .screen-scroll.is-dragging, .mock-body.is-dragging { cursor: grabbing; user-select: none; }
-  /* over real text, the browser's own text cursor takes over (matches isTextTarget in app.js),
-     so dragging there selects text instead of scrolling; skipped while a scroll-drag is in progress */
-  .screen-scroll:not(.is-dragging) p,
-  .screen-scroll:not(.is-dragging) li,
-  .screen-scroll:not(.is-dragging) h1,
-  .screen-scroll:not(.is-dragging) h2,
-  .screen-scroll:not(.is-dragging) h3,
-  .screen-scroll:not(.is-dragging) h4,
-  .screen-scroll:not(.is-dragging) blockquote,
-  .screen-scroll:not(.is-dragging) td,
-  .screen-scroll:not(.is-dragging) th,
-  .screen-scroll:not(.is-dragging) dt,
-  .screen-scroll:not(.is-dragging) dd,
-  .screen-scroll:not(.is-dragging) label,
-  .mock-body:not(.is-dragging) p,
-  .mock-body:not(.is-dragging) li,
-  .mock-body:not(.is-dragging) label {
-    cursor: auto;
-  }
 }
 
 .screen .container { max-width: none; padding: 0 18px; }
@@ -246,6 +227,41 @@ body { background: #0f1528; }
 .to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
 .to-top svg { width: 20px; height: 20px; }
 .to-top:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* One-time hint: teaches the Shift+drag shortcut to select text; mouse users only */
+.drag-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 84px;
+  z-index: 6;
+  max-width: calc(100% - 36px);
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 10px);
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+}
+.drag-hint.is-visible { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.drag-hint kbd {
+  font: inherit;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
 
 /* Device wrapper: the tablet plus the side home button */
 .device-wrap { position: relative; }
