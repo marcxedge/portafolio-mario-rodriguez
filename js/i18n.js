@@ -5,7 +5,7 @@
 const I18N_TRANSLATIONS = {
   es: {
     meta: {
-      title: 'Mario Rodríguez Cedeño · Desarrollador Mobile & Edge AI',
+      title: 'Mario Rodríguez Cedeño · Desarrollador Móvil & Edge AI',
       description: 'Portafolio de Mario Antonio Rodríguez Cedeño — Ingeniero en Sistemas Informáticos especializado en Flutter, React Native, Android, iOS, Edge AI y Machine Learning.'
     },
     appbar: {
@@ -35,7 +35,7 @@ const I18N_TRANSLATIONS = {
       closeModal: 'Cerrar'
     },
     hero: {
-      eyebrow: 'Ingeniero en Sistemas Informáticos', greeting: 'Hola, soy', role: 'Desarrollador Mobile',
+      eyebrow: 'Ingeniero en Sistemas Informáticos', greeting: 'Hola, soy', role: 'Desarrollador Móvil',
       description: 'Especializado en el diseño, desarrollo y despliegue de aplicaciones móviles nativas y multiplataforma. Apasionado por la integración de hardware, Edge AI y la optimización de modelos de Machine Learning para crear soluciones con impacto real.',
       badge: 'Disponible para trabajar · hasta 30h/semana (estancia por estudios) · Valencia, España',
       ctaPrimary: 'Hablemos', ctaSecondary: 'Ver experiencia',
@@ -53,11 +53,11 @@ const I18N_TRANSLATIONS = {
     },
     experience: {
       tag: 'Trayectoria', title: 'Experiencia profesional',
-      job1Date: 'Mar 2025 — Sep 2026', job1Title: 'Líder IDS-Mobile', job1Company: 'Altura S.A. · Manta, Manabí, Ecuador',
+      job1Date: 'Mar 2025 — Sep 2026', job1Title: 'Líder de Desarrollo Móvil', job1Company: 'Altura S.A. · Manta, Manabí, Ecuador',
       job1Bullet1: 'Liderazgo técnico en la arquitectura y desarrollo end-to-end de apps móviles.',
       job1Bullet2: 'Integración avanzada de SDKs de DJI para control y automatización de drones.',
       job1Bullet3: 'Implementación de soluciones de Edge AI y despliegue de modelos de ML (reconocimiento facial y OCR) en tiempo real.',
-      job2Date: 'Abr 2024 — Sep 2026', job2Title: 'Desarrollador Mobile', job2Company: 'Altura S.A. · Manta, Manabí, Ecuador',
+      job2Date: 'Abr 2024 — Sep 2026', job2Title: 'Desarrollador Móvil', job2Company: 'Altura S.A. · Manta, Manabí, Ecuador',
       job2Bullet1: 'Desarrollo y mantenimiento de apps nativas (Android/iOS) y multiplataforma.',
       job2Bullet2: 'Gestión de despliegues y lanzamientos (code signing, aprovisionamiento) en Google Play Console y App Store Connect.',
       job3Date: 'Abr 2023 — Mar 2024', job3Title: 'Frontend Developer', job3Company: 'Pardux · Quito, Pichincha, Ecuador',
@@ -67,7 +67,7 @@ const I18N_TRANSLATIONS = {
     },
     skills: {
       tag: 'Stack', title: 'Competencias técnicas',
-      mobileTitle: 'Desarrollo Mobile', aiTitle: 'IA & Integración', mlMobile: 'Machine Learning Móvil', djiSdk: 'SDK DJI (Drones)',
+      mobileTitle: 'Desarrollo Móvil', aiTitle: 'IA & Integración', mlMobile: 'Machine Learning Móvil', djiSdk: 'SDK DJI (Drones)',
       frontendTitle: 'Frontend Web', backendTitle: 'Backend & BD', methodsTitle: 'Metodologías', toolsTitle: 'Herramientas',
       softTitle: 'Competencias blandas', soft1: 'Liderazgo', soft2: 'Resolución de problemas', soft3: 'Aprendizaje continuo', soft4: 'Proactividad',
       langTitle: 'Idiomas', langSpanish: 'Español', langNative: 'Nativo',
@@ -153,7 +153,7 @@ const I18N_TRANSLATIONS = {
     },
     project3: {
       tag: 'Proyecto profesional',
-      date: 'Abr 2026 — Sep 2026', affiliation: 'Altura S.A. · Líder IDS-Mobile / Desarrollador Mobile',
+      date: 'Abr 2026 — Sep 2026', affiliation: 'Altura S.A. · Líder de Desarrollo Móvil / Desarrollador Móvil',
       cardTitle: 'AMobile 7 — Plataforma de Gestión de Fuerza de Campo',
       description: 'Aplicación multiplataforma para equipos de campo que recibe, gestiona y envía tareas operativas, con operación offline y sincronización automática. Desarrollada con Flutter bajo Clean Architecture, BLoC/Cubit para el estado, Drift sobre SQLite (WAL) para persistencia local, GetIt para inyección de dependencias y Dio para HTTP. Integra formularios HTML en WebView, cámara con TFLite y ML Kit, mapas con Google Maps y OpenStreetMap, tracking GPS en segundo plano y un asistente con Gemini.',
       point1: '<strong>Clean Architecture</strong> con BLoC/Cubit, persistencia local <strong>Drift sobre SQLite</strong> (WAL) y sincronización <strong>offline-first</strong> con reintentos y backoff exponencial.',
