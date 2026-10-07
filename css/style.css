@@ -508,6 +508,29 @@ img { max-width: 100%; display: block; }
 .value-icon { font-size: 1.8rem; margin-bottom: 14px; }
 .value-card h3 { font-size: 1.02rem; margin-bottom: 8px; }
 .value-card p { color: var(--text-mute); font-size: 0.88rem; }
+.value-card p + p { margin-top: 10px; }
+
+/* Featured card (Music): spans the full row instead of being left stranded alone,
+   with its own icon + content layout since it carries more text and a button */
+.value-card.is-featured {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--accent-soft), transparent 65%), var(--surface);
+}
+.value-card.is-featured .cert-link { margin-top: 16px; }
+@media (min-width: 560px) {
+  .value-card.is-featured { display: flex; align-items: flex-start; gap: 22px; }
+  .value-card.is-featured .value-icon {
+    flex: 0 0 auto;
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 0;
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+  }
+  .value-card.is-featured .value-body { flex: 1; min-width: 0; }
+}
 
 /* ===== Timeline ===== */
 .timeline {
