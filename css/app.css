@@ -71,6 +71,12 @@ body { background: #0f1528; }
 }
 .screen-scroll::-webkit-scrollbar { display: none; }
 
+/* Drag-to-scroll cursor: only shown with a mouse (fine pointer), not on real touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .screen-scroll, .mock-body { cursor: grab; }
+  .screen-scroll.is-dragging, .mock-body.is-dragging { cursor: grabbing; user-select: none; }
+}
+
 .screen .container { max-width: none; padding: 0 18px; }
 .app-block { padding: 26px 0; border-bottom: 1px solid var(--border); }
 .app-block:last-child { border-bottom: 0; }

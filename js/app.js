@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initToTop();
   initStatusBar();
   initMockApps();
+  initDragScroll();
 });
 
 /* Status bar above the screens: time and battery, visible in the home screen and inside the app */
@@ -480,5 +481,54 @@ function initMockApps() {
   // the side home button also leaves a sample app and goes to the home screen
   document.getElementById('homeBtn')?.addEventListener('click', () => {
     if (wrap.classList.contains('is-open')) close();
+  });
+}
+
+/* Drag-to-scroll with the mouse pointer: click and drag up/down to scroll the content,
+   like swiping on a real phone. Touch keeps its native scrolling; this only reacts to the mouse. */
+function initDragScroll() {
+  const targets = document.querySelectorAll('.screen-scroll, .mock-body');
+  targets.forEach((el) => {
+    let startY = 0;
+    let startScroll = 0;
+    let dragging = false;
+    let moved = false;
+
+    const onMove = (e) => {
+      if (!dragging) return;
+      const dy = e.clientY - startY;
+      if (!moved && Math.abs(dy) > 4) {
+        moved = true;
+        el.classList.add('is-dragging');
+      }
+      if (moved) {
+        e.preventDefault();
+        el.scrollTop = startScroll - dy;
+      }
+    };
+
+    const onUp = (e) => {
+      if (!dragging) return;
+      dragging = false;
+      el.classList.remove('is-dragging');
+      if (moved) {
+        // swallow the click that follows a real drag, so links/buttons don't fire by accident
+        const swallow = (ev) => { ev.preventDefault(); ev.stopPropagation(); };
+        document.addEventListener('click', swallow, { capture: true, once: true });
+      }
+      el.releasePointerCapture?.(e.pointerId);
+    };
+
+    el.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      dragging = true;
+      moved = false;
+      startY = e.clientY;
+      startScroll = el.scrollTop;
+      el.setPointerCapture?.(e.pointerId);
+    });
+    el.addEventListener('pointermove', onMove);
+    el.addEventListener('pointerup', onUp);
+    el.addEventListener('pointercancel', onUp);
   });
 }
