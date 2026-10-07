@@ -484,8 +484,21 @@ function initMockApps() {
   });
 }
 
+/* True where the pointer lands directly on text (not on a button, link or empty background),
+   so the mouse can start a normal text selection there instead of a scroll drag. */
+function isTextTarget(el) {
+  if (!el || el.nodeType !== 1) return false;
+  if (el.closest('a, button, input, textarea, select, svg, img, .btn, [data-mock], [data-open-app], [data-unavailable], .tab, .home-btn, .to-top')) return false;
+  for (const node of el.childNodes) {
+    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) return true;
+  }
+  return false;
+}
+
 /* Drag-to-scroll with the mouse pointer: click and drag up/down to scroll the content,
-   like swiping on a real phone. Touch keeps its native scrolling; this only reacts to the mouse. */
+   like swiping on a real phone. Touch keeps its native scrolling; this only reacts to the mouse.
+   Clicking directly on text shows the text cursor and selects text instead, so copy/paste still
+   works normally (see isTextTarget and the matching CSS cursor rules in app.css). */
 function initDragScroll() {
   const targets = document.querySelectorAll('.screen-scroll, .mock-body');
   targets.forEach((el) => {
@@ -500,6 +513,9 @@ function initDragScroll() {
       if (!moved && Math.abs(dy) > 4) {
         moved = true;
         el.classList.add('is-dragging');
+        // this is a real scroll drag, not a text selection: clear any text the
+        // browser may have started highlighting in the first few pixels of movement
+        window.getSelection?.()?.removeAllRanges();
       }
       if (moved) {
         e.preventDefault();
@@ -521,6 +537,8 @@ function initDragScroll() {
 
     el.addEventListener('pointerdown', (e) => {
       if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      // clicked directly on text: let the browser select it instead of dragging to scroll
+      if (isTextTarget(e.target)) return;
       dragging = true;
       moved = false;
       startY = e.clientY;

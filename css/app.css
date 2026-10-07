@@ -75,6 +75,25 @@ body { background: #0f1528; }
 @media (hover: hover) and (pointer: fine) {
   .screen-scroll, .mock-body { cursor: grab; }
   .screen-scroll.is-dragging, .mock-body.is-dragging { cursor: grabbing; user-select: none; }
+  /* over real text, the browser's own text cursor takes over (matches isTextTarget in app.js),
+     so dragging there selects text instead of scrolling; skipped while a scroll-drag is in progress */
+  .screen-scroll:not(.is-dragging) p,
+  .screen-scroll:not(.is-dragging) li,
+  .screen-scroll:not(.is-dragging) h1,
+  .screen-scroll:not(.is-dragging) h2,
+  .screen-scroll:not(.is-dragging) h3,
+  .screen-scroll:not(.is-dragging) h4,
+  .screen-scroll:not(.is-dragging) blockquote,
+  .screen-scroll:not(.is-dragging) td,
+  .screen-scroll:not(.is-dragging) th,
+  .screen-scroll:not(.is-dragging) dt,
+  .screen-scroll:not(.is-dragging) dd,
+  .screen-scroll:not(.is-dragging) label,
+  .mock-body:not(.is-dragging) p,
+  .mock-body:not(.is-dragging) li,
+  .mock-body:not(.is-dragging) label {
+    cursor: auto;
+  }
 }
 
 .screen .container { max-width: none; padding: 0 18px; }
