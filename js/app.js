@@ -500,6 +500,11 @@ function initDragScroll() {
       if (!moved && Math.abs(dy) > 4) {
         moved = true;
         el.classList.add('is-dragging');
+        // only capture the pointer once this is a real drag, so a plain click on a button or
+        // link underneath isn't redirected to this container and lost; capture is a nice-to-have
+        // (keeps the drag going if the cursor leaves the element), so a failure here must never
+        // stop the scroll update below
+        try { el.setPointerCapture?.(e.pointerId); } catch { /* ignore */ }
       }
       if (moved) {
         e.preventDefault();
@@ -516,7 +521,7 @@ function initDragScroll() {
         const swallow = (ev) => { ev.preventDefault(); ev.stopPropagation(); };
         document.addEventListener('click', swallow, { capture: true, once: true });
       }
-      el.releasePointerCapture?.(e.pointerId);
+      try { el.releasePointerCapture?.(e.pointerId); } catch { /* ignore */ }
     };
 
     el.addEventListener('pointerdown', (e) => {
@@ -525,7 +530,6 @@ function initDragScroll() {
       moved = false;
       startY = e.clientY;
       startScroll = el.scrollTop;
-      el.setPointerCapture?.(e.pointerId);
     });
     el.addEventListener('pointermove', onMove);
     el.addEventListener('pointerup', onUp);
