@@ -71,7 +71,7 @@ const I18N_TRANSLATIONS = {
       frontendTitle: 'Frontend Web', backendTitle: 'Backend & BD', methodsTitle: 'Metodologías', toolsTitle: 'Herramientas',
       softTitle: 'Competencias blandas', soft1: 'Liderazgo', soft2: 'Resolución de problemas', soft3: 'Aprendizaje continuo', soft4: 'Proactividad',
       langTitle: 'Idiomas', langSpanish: 'Español', langNative: 'Nativo',
-      langEnWritten: 'Inglés — Escrito', langEnSpoken: 'Inglés — Hablado', langEnComprehension: 'Inglés — Interpretado'
+      langEnglish: 'Inglés'
     },
     education: {
       tag: 'Academia', title: 'Formación académica',
@@ -263,7 +263,7 @@ const I18N_TRANSLATIONS = {
       frontendTitle: 'Frontend Web', backendTitle: 'Backend & DB', methodsTitle: 'Methodologies', toolsTitle: 'Tools',
       softTitle: 'Soft Skills', soft1: 'Leadership', soft2: 'Problem Solving', soft3: 'Continuous Learning', soft4: 'Proactivity',
       langTitle: 'Languages', langSpanish: 'Spanish', langNative: 'Native',
-      langEnWritten: 'English — Written', langEnSpoken: 'English — Spoken', langEnComprehension: 'English — Comprehension'
+      langEnglish: 'English'
     },
     education: {
       tag: 'Academic Background', title: 'Education',
