@@ -485,60 +485,14 @@ function initMockApps() {
 }
 
 /* Drag-to-scroll with the mouse pointer: click and drag up/down to scroll the content,
-   like swiping on a real phone. Touch keeps its native scrolling; this only reacts to the mouse.
-   Hold Shift while dragging to select text instead (a hint about this shows the first time,
-   see initTextSelectHint). */
-/* True where an element directly holds its own text (not just nested inside it), and
-   isn't a button, link or other control — used to decide when to show the "hold Shift to
-   select text" hint next to the cursor. */
-function hasOwnText(el) {
-  if (!el) return false;
-  if (el.closest('a, button, input, textarea, select, svg, img, .btn, [data-mock], [data-open-app], [data-unavailable], .tab, .home-btn, .to-top, .mock-switch, .mock-day, kbd')) return false;
-  for (const node of el.childNodes) {
-    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) return true;
-  }
-  return false;
-}
-
+   like swiping on a real phone. Touch keeps its native scrolling; this only reacts to the mouse. */
 function initDragScroll() {
   const targets = document.querySelectorAll('.screen-scroll, .mock-body');
-  const hint = document.getElementById('dragHint');
-  const device = document.querySelector('.device');
-  // the hint follows the cursor over text; only on mouse — touch already selects text natively
-  const canHint = hint && device && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
   targets.forEach((el) => {
     let startY = 0;
     let startScroll = 0;
     let dragging = false;
     let moved = false;
-    let hoverQueued = false;
-
-    if (canHint) {
-      el.addEventListener('mousemove', (e) => {
-        if (dragging || hoverQueued) return;
-        hoverQueued = true;
-        const { clientX, clientY } = e;
-        requestAnimationFrame(() => {
-          hoverQueued = false;
-          const overText = hasOwnText(document.elementFromPoint(clientX, clientY));
-          hint.classList.toggle('is-visible', overText);
-          if (!overText) return;
-          // place the hint beside the cursor, flipping to the left if it would overflow the device
-          const deviceRect = device.getBoundingClientRect();
-          const hintRect = hint.getBoundingClientRect();
-          const gap = 16;
-          let left = clientX - deviceRect.left + gap;
-          if (left + hintRect.width > deviceRect.width - 10) left = clientX - deviceRect.left - gap - hintRect.width;
-          left = Math.max(10, Math.min(left, deviceRect.width - hintRect.width - 10));
-          let top = clientY - deviceRect.top - hintRect.height / 2;
-          top = Math.max(10, Math.min(top, deviceRect.height - hintRect.height - 10));
-          hint.style.left = `${left}px`;
-          hint.style.top = `${top}px`;
-        });
-      });
-      el.addEventListener('mouseleave', () => hint.classList.remove('is-visible'));
-    }
 
     const onMove = (e) => {
       if (!dragging) return;
@@ -546,10 +500,6 @@ function initDragScroll() {
       if (!moved && Math.abs(dy) > 4) {
         moved = true;
         el.classList.add('is-dragging');
-        hint?.classList.remove('is-visible');
-        // this is a real scroll drag, not a text selection: clear any text the
-        // browser may have started highlighting in the first few pixels of movement
-        window.getSelection?.()?.removeAllRanges();
       }
       if (moved) {
         e.preventDefault();
@@ -571,8 +521,6 @@ function initDragScroll() {
 
     el.addEventListener('pointerdown', (e) => {
       if (e.pointerType !== 'mouse' || e.button !== 0) return;
-      // hold Shift to select text with the mouse instead of dragging to scroll
-      if (e.shiftKey) return;
       dragging = true;
       moved = false;
       startY = e.clientY;

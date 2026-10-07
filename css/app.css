@@ -228,36 +228,6 @@ body { background: #0f1528; }
 .to-top svg { width: 20px; height: 20px; }
 .to-top:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-/* Hint that follows the cursor while it sits over text: teaches the Shift+drag shortcut
-   to select text. Position (left/top) is set in app.js, right beside the cursor. Mouse only. */
-.drag-hint {
-  position: absolute;
-  z-index: 6;
-  max-width: 230px;
-  padding: 7px 12px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  font-size: 0.74rem;
-  font-weight: 600;
-  line-height: 1.3;
-  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.5);
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.12s, visibility 0.12s;
-}
-.drag-hint.is-visible { opacity: 1; visibility: visible; }
-.drag-hint kbd {
-  font: inherit;
-  font-weight: 700;
-  padding: 1px 6px;
-  border-radius: 6px;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-}
-
 /* Device wrapper: the tablet plus the side home button */
 .device-wrap { position: relative; }
 
