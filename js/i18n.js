@@ -245,7 +245,7 @@ const I18N_TRANSLATIONS = {
     },
     experience: {
       tag: 'Career Path', title: 'Professional Experience',
-      job1Date: 'Mar 2025 — Sep 2026', job1Title: 'IDS-Mobile Lead', job1Company: 'Altura S.A. · Manta, Manabí, Ecuador',
+      job1Date: 'Mar 2025 — Sep 2026', job1Title: 'Mobile Development Lead', job1Company: 'Altura S.A. · Manta, Manabí, Ecuador',
       job1Bullet1: 'Technical leadership in the architecture and end-to-end development of mobile apps.',
       job1Bullet2: 'Advanced integration of DJI SDKs for drone control and automation.',
       job1Bullet3: 'Implementation of Edge AI solutions and deployment of ML models (facial recognition and OCR) in real time.',
@@ -345,7 +345,7 @@ const I18N_TRANSLATIONS = {
     },
     project3: {
       tag: 'Professional project',
-      date: 'Apr 2026 — Sep 2026', affiliation: 'Altura S.A. · IDS-Mobile Lead / Mobile Developer',
+      date: 'Apr 2026 — Sep 2026', affiliation: 'Altura S.A. · Mobile Development Lead / Mobile Developer',
       cardTitle: 'AMobile 7 — Field Force Management Platform',
       description: 'Cross-platform app for field teams to receive, manage, and submit operational tasks, with offline operation and automatic sync. Built with Flutter under Clean Architecture, BLoC/Cubit for state, Drift over SQLite (WAL) for local persistence, GetIt for dependency injection, and Dio for HTTP. Integrates HTML forms in a WebView, a camera with TFLite and ML Kit, Google Maps and OpenStreetMap, background GPS tracking, and a Gemini assistant.',
       point1: '<strong>Clean Architecture</strong> with BLoC/Cubit, local persistence with <strong>Drift over SQLite</strong> (WAL) and <strong>offline-first</strong> sync with retries and exponential backoff.',
