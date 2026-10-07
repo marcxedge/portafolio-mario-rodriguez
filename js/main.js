@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothAnchors();
   initGalleryScroll();
   initGalleryModal();
+  initVideoModal();
 });
 
 /* Project screenshots carousels — left/right arrow navigation (one per project) */
@@ -99,6 +100,46 @@ function initGalleryModal() {
     if (e.key === 'Escape') close();
     if (e.key === 'ArrowLeft') render(current - 1);
     if (e.key === 'ArrowRight') render(current + 1);
+  });
+}
+
+/* Music video modal (e.g. the guitar/bass TikTok clip) — loads the embed only when opened,
+   so the page never fetches it unless someone actually wants to watch */
+function initVideoModal() {
+  const btn = document.getElementById('musicVideoBtn');
+  const modal = document.getElementById('videoModal');
+  if (!btn || !modal) return;
+
+  const frame = document.getElementById('videoModalFrame');
+  const closeBtn = document.getElementById('videoModalClose');
+  const backdrop = document.getElementById('videoModalBackdrop');
+
+  const close = () => {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    frame.innerHTML = ''; // stop playback/audio and free the request once closed
+  };
+
+  const open = () => {
+    const id = btn.dataset.videoId;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.tiktok.com/embed/v2/${id}`;
+    iframe.allow = 'autoplay; encrypted-media; picture-in-picture; web-share';
+    iframe.allowFullscreen = true;
+    iframe.title = btn.querySelector('span')?.textContent || 'TikTok video';
+    frame.innerHTML = '';
+    frame.appendChild(iframe);
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  btn.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
   });
 }
 

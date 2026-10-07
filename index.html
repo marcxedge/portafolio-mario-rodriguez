@@ -190,6 +190,10 @@
           <div class="value-icon">🎸</div>
           <h3 data-i18n="hobbies.musicTitle">Música</h3>
           <p data-i18n="hobbies.musicText">La música me acompaña tanto como el código: la disfruto escuchándola y tocándola, con la guitarra y el bajo como mis instrumentos de cabecera. Escucho de todos los géneros, pero el Rock y el Metal son mi verdadera pasión.</p>
+          <button type="button" class="cert-link" id="musicVideoBtn" data-video-id="7328548256777129222">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span data-i18n="hobbies.musicVideoBtn">Ver vídeo</span>
+          </button>
         </div>
       </div>
     </div></div></div>
@@ -980,6 +984,18 @@
         </button>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ===== MUSIC VIDEO MODAL ===== -->
+<div class="video-modal" id="videoModal" aria-hidden="true">
+  <div class="gallery-modal-backdrop" id="videoModalBackdrop"></div>
+  <div class="video-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle">
+    <button class="gallery-modal-close" id="videoModalClose" data-i18n-attr="aria-label:a11y.closeModal" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <h3 id="videoModalTitle" class="video-modal-title" data-i18n="hobbies.musicVideoTitle">Tocando guitarra y bajo</h3>
+    <div class="video-modal-frame" id="videoModalFrame"></div>
   </div>
 </div>
 

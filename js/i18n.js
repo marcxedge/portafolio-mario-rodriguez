@@ -184,7 +184,8 @@ const I18N_TRANSLATIONS = {
       footballTitle: 'Fútbol y deportes', footballText: 'El deporte me apasiona en general, sobre todo el fútbol: lo disfruto tanto jugándolo como siguiéndolo como hincha.',
       gamingTitle: 'Videojuegos', gamingText: 'Mi forma favorita de desconectar y ejercitar la estrategia y la creatividad.',
       familyTitle: 'Familia y amigos', familyText: 'Tiempo de calidad con la gente que quiero — lo que más valoro.',
-      musicTitle: 'Música', musicText: 'La música me acompaña tanto como el código: la disfruto escuchándola y tocándola, con la guitarra y el bajo como mis instrumentos de cabecera. Escucho de todos los géneros, pero el Rock y el Metal son mi verdadera pasión.'
+      musicTitle: 'Música', musicText: 'La música me acompaña tanto como el código: la disfruto escuchándola y tocándola, con la guitarra y el bajo como mis instrumentos de cabecera. Escucho de todos los géneros, pero el Rock y el Metal son mi verdadera pasión.',
+      musicVideoBtn: 'Ver vídeo', musicVideoTitle: 'Tocando guitarra y bajo'
     },
     contact: {
       tag: 'Contacto', title: '¿Hablamos de tu próximo proyecto?',
@@ -377,7 +378,8 @@ const I18N_TRANSLATIONS = {
       footballTitle: 'Football & sports', footballText: "I'm passionate about sports in general, football above all: I enjoy both playing it and following it as a fan.",
       gamingTitle: 'Video games', gamingText: 'My favorite way to unwind and exercise strategy and creativity.',
       familyTitle: 'Family & friends', familyText: 'Quality time with the people I love — what I value most.',
-      musicTitle: 'Music', musicText: "Music is as much a part of my life as code: I enjoy both listening to it and playing it, with guitar and bass as my go-to instruments. I listen to every genre, but Rock and Metal are my true passion."
+      musicTitle: 'Music', musicText: "Music is as much a part of my life as code: I enjoy both listening to it and playing it, with guitar and bass as my go-to instruments. I listen to every genre, but Rock and Metal are my true passion.",
+      musicVideoBtn: 'Watch video', musicVideoTitle: 'Playing guitar and bass'
     },
     contact: {
       tag: 'Contact', title: "Shall we talk about your next project?",
