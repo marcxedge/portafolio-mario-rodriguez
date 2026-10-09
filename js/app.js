@@ -12,12 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
   initDragScroll();
 });
 
-/* Boot screen: plays once on the initial page load, simulating the device powering on */
+/* Boot screen: plays once on the initial page load, simulating the device powering on.
+   The home-screen/auto-open sequence (initLauncher) waits for BOOT_DURATION so its own
+   timings stay exactly as they were before, just shifted to start once the device is "on". */
+const BOOT_ON_DELAY = 400;
+const BOOT_OFF_DELAY = 1300;
+const BOOT_DURATION = 1750; // BOOT_OFF_DELAY + the 0.45s fade-out transition in css/app.css
 function initBootScreen() {
   const boot = document.getElementById('bootScreen');
   if (!boot) return;
-  setTimeout(() => boot.classList.add('is-on'), 400);
-  setTimeout(() => boot.classList.add('is-off'), 1300);
+  setTimeout(() => boot.classList.add('is-on'), BOOT_ON_DELAY);
+  setTimeout(() => boot.classList.add('is-off'), BOOT_OFF_DELAY);
 }
 
 /* Status bar above the screens: time and battery, visible in the home screen and inside the app */
@@ -196,8 +201,9 @@ function initLauncher() {
 
   // On load the device shows its home screen; after a short pause it opens the portfolio app (with its splash)
   setHome(true);
-  // The automatic opening is cancelled as soon as the user touches the home screen
-  const autoOpenTimer = setTimeout(openPortfolio, 0);
+  // The automatic opening is cancelled as soon as the user touches the home screen.
+  // Waits for the boot screen to finish so this sequence's own timings stay as they were before.
+  const autoOpenTimer = setTimeout(openPortfolio, BOOT_DURATION);
   const cancelAutoOpen = () => clearTimeout(autoOpenTimer);
   launcher.addEventListener('pointerdown', cancelAutoOpen, { once: true });
   launcher.addEventListener('click', cancelAutoOpen, { once: true });
