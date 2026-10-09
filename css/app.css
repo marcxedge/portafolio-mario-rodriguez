@@ -350,11 +350,11 @@ body { background: #0f1528; }
 .app-icon:hover .app-ico { transform: translateY(-3px) scale(1.04); }
 .app-ico img { width: 100%; height: 100%; object-fit: cover; }
 .app-ico svg { width: 42px; height: 42px; color: #fff; }
-.app-ico.d1 { background: linear-gradient(135deg, #64748b, #334155); }
-.app-ico.d2 { background: linear-gradient(135deg, #f97316, #ea580c); }
-.app-ico.d3 { background: linear-gradient(135deg, #22c55e, #15803d); }
-.app-ico.d4 { background: linear-gradient(135deg, #ec4899, #be185d); }
-.app-ico.d5 { background: linear-gradient(135deg, #0ea5e9, #0369a1); }
+.app-ico.d1 { background: linear-gradient(135deg, #38bdf8, #1d4ed8); } /* Flutter */
+.app-ico.d2 { background: linear-gradient(135deg, #22d3ee, #0e7490); } /* React Native */
+.app-ico.d3 { background: linear-gradient(135deg, #8bc34a, #4c8c2b); } /* Android */
+.app-ico.d4 { background: linear-gradient(135deg, #94a3b8, #334155); } /* iOS */
+.app-ico.d5 { background: linear-gradient(135deg, #a78bfa, #6d28d9); } /* Edge AI */
 .app-name { font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
 
 /* Tablet landscape: wider content, two columns where there is room */
@@ -760,7 +760,13 @@ body { background: #0f1528; }
 .mock-note { margin-top: 14px; font-size: 0.82rem; color: var(--text-dim); text-align: center; min-height: 1.2em; }
 .mock-h { font-size: 1.05rem; font-weight: 700; margin-bottom: 12px; text-align: center; }
 
-/* Settings */
+/* Stack apps: shared intro paragraph and "see it for real" link */
+.mock-intro { font-size: 0.86rem; line-height: 1.55; opacity: 0.8; margin: 0 0 20px; }
+.mock-cta { display: inline-flex; align-items: center; gap: 6px; margin-top: 22px; border: 0; background: none; padding: 0; font-size: 0.84rem; font-weight: 700; color: var(--accent); cursor: pointer; }
+.mock-cta svg { width: 15px; height: 15px; transition: transform 0.2s var(--ease); }
+.mock-cta:hover svg { transform: translateX(3px); }
+
+/* Shared list + switch rows, reused by the iOS sample app */
 .mock-list { display: flex; flex-direction: column; gap: 10px; }
 .mock-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-radius: 16px; background: var(--surface); font-weight: 600; font-size: 0.92rem; cursor: pointer; }
 .mock-switch { appearance: none; width: 44px; height: 26px; border-radius: 999px; background: var(--surface-2); position: relative; cursor: pointer; transition: background 0.25s; }
@@ -768,36 +774,34 @@ body { background: #0f1528; }
 .mock-switch:checked { background: linear-gradient(135deg, #3b82f6, #7c5cff); }
 .mock-switch:checked::after { transform: translateX(18px); }
 
-/* Calendar */
-.mock-cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; }
-.mock-wd { font-size: 0.7rem; color: var(--text-mute); font-weight: 600; padding-bottom: 4px; }
-.mock-day { aspect-ratio: 1; border: 0; border-radius: 50%; background: transparent; color: var(--text); font: inherit; font-size: 0.8rem; cursor: pointer; }
-.mock-day:hover { background: var(--surface-2); }
-.mock-day.is-today { color: var(--accent); font-weight: 700; box-shadow: inset 0 0 0 1.5px var(--accent); }
-.mock-day.is-selected { background: linear-gradient(135deg, #3b82f6, #7c5cff); color: #fff; }
+/* Flutter: tap counter */
+.mock-counter { display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 24px 0; }
+.mock-counter-value { font-size: 3rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.mock-fab { width: 56px; height: 56px; border-radius: 50%; border: 0; background: linear-gradient(135deg, #38bdf8, #2563eb); color: #fff; font-size: 1.6rem; line-height: 1; cursor: pointer; box-shadow: 0 14px 24px -12px rgba(37, 99, 235, 0.7); }
+.mock-fab:active { transform: scale(0.92); }
 
-/* Camera */
-.mock-viewfinder { position: relative; aspect-ratio: 3 / 4; border-radius: 22px; background: radial-gradient(circle at 40% 30%, #1e3a8a, #0b1030 70%); overflow: hidden; transition: filter 0.2s; }
-.mock-viewfinder.is-flash { filter: brightness(2.2); }
-.mock-grid { position: absolute; inset: 0; background: linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px) 0 0 / 33.33% 33.33%, linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px) 0 0 / 33.33% 33.33%; }
-.mock-camrow { display: flex; align-items: center; justify-content: space-between; margin-top: 18px; }
-.mock-count { min-width: 32px; font-weight: 700; font-size: 0.95rem; }
-.mock-shutter { width: 64px; height: 64px; border-radius: 50%; border: 4px solid var(--text); background: transparent; cursor: pointer; padding: 0; }
-.mock-shutter:active { transform: scale(0.92); }
-.mock-thumb { width: 32px; height: 32px; border-radius: 10px; background: var(--surface-2); }
+/* React Native: same card, re-skinned per platform */
+.mock-segmented { display: flex; background: var(--surface-2); border-radius: 999px; padding: 4px; gap: 4px; margin-bottom: 20px; }
+.mock-segmented button { flex: 1; border: 0; background: transparent; padding: 8px 0; border-radius: 999px; font-size: 0.8rem; font-weight: 700; color: var(--text); opacity: 0.55; cursor: pointer; }
+.mock-segmented button.is-active { background: var(--surface); opacity: 1; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18); }
+.mock-rn-card { background: var(--surface); border-radius: 20px; padding: 26px 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+.mock-rn-dot { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #22d3ee, #0891b2); }
+.mock-rn-label { font-weight: 600; margin: 0; }
+.mock-rn-btn { margin-top: 6px; border: 0; padding: 10px 26px; font-weight: 700; font-size: 0.85rem; color: #fff; background: #0891b2; border-radius: 10px; cursor: pointer; transition: border-radius 0.25s var(--ease), background 0.25s; }
+.mock-rn-card.is-ios .mock-rn-btn { border-radius: 999px; background: #0ea5e9; }
 
-/* Music */
-.mock-art { width: 180px; height: 180px; margin: 8px auto 18px; border-radius: 26px; background: linear-gradient(135deg, #ec4899, #7c5cff 55%, #38bdf8); box-shadow: 0 20px 40px -18px rgba(124, 92, 255, 0.7); }
-.mock-track { text-align: center; font-weight: 700; font-size: 1rem; }
-.mock-progress { height: 4px; border-radius: 4px; background: var(--surface-2); margin: 16px 0 18px; overflow: hidden; }
-.mock-progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #38bdf8, #7c5cff); transition: width 0.2s linear; }
-.mock-controls { display: flex; align-items: center; justify-content: center; gap: 22px; }
-.mock-ctl { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 1rem; cursor: pointer; }
-.mock-play { width: 64px; height: 64px; border: 0; background: linear-gradient(135deg, #3b82f6, #7c5cff); color: #fff; font-size: 1.1rem; }
+/* Android: Material FAB + snackbar */
+.mock-android { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 24px 0 8px; }
+.mock-fab-android { background: linear-gradient(135deg, #8bc34a, #4c8c2b); box-shadow: 0 14px 24px -12px rgba(76, 140, 43, 0.7); }
+.mock-snackbar { opacity: 0; transform: translateY(10px); transition: opacity 0.25s, transform 0.25s; background: #1f2937; color: #fff; padding: 10px 18px; border-radius: 10px; font-size: 0.82rem; font-weight: 600; }
+.mock-snackbar.is-visible { opacity: 1; transform: none; }
 
-/* Maps */
-.mock-map { position: relative; height: 340px; border-radius: 22px; overflow: hidden; cursor: crosshair; background: linear-gradient(135deg, #0f2a4a, #14204a); background-image: linear-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.12) 1px, transparent 1px); background-size: 40px 40px; }
-.mock-pin { position: absolute; width: 22px; height: 22px; border-radius: 50% 50% 50% 0; background: #f97316; transform: translate(-50%, -100%) rotate(-45deg); box-shadow: 0 8px 16px -6px rgba(0, 0, 0, 0.6); transition: left 0.3s var(--ease), top 0.3s var(--ease); left: 50%; top: 50%; }
+/* Edge AI: live-looking inference metrics */
+.mock-ai-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 0.86rem; }
+.mock-ai-row strong { color: var(--accent); font-variant-numeric: tabular-nums; }
+.mock-ai-bars { display: flex; align-items: flex-end; gap: 4px; height: 70px; margin-top: 20px; }
+.mock-ai-bars span { flex: 1; border-radius: 3px 3px 0 0; background: linear-gradient(180deg, #a78bfa, #6d28d9); transition: height 0.3s ease; }
+
 /* Sample app views: keep the content at a readable width, centered */
 .mock-body > * { max-width: 460px; margin-left: auto; margin-right: auto; }
 
@@ -807,11 +811,6 @@ body { background: #0f1528; }
 
 /* Splash screen leaves the status bar (time and battery) visible at the top */
 .splash { top: 28px; }
-
-/* Maps sample app: the map fills the whole area below the status bar; the note floats over the bottom */
-.mock-body.is-maps { position: relative; padding: 0; display: flex; flex-direction: column; overflow: hidden; }
-.mock-body.is-maps > .mock-map { flex: 1; min-height: 0; height: auto; max-width: none; margin: 0; border-radius: 0; }
-.mock-body.is-maps > .mock-note { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); margin: 0; max-width: 92%; padding: 8px 14px; border-radius: 999px; background: var(--surface); box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.6); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; z-index: 2; }
 
 
 /* Sections use more of the width: smaller side margins in every mode */

@@ -266,198 +266,112 @@ function initMockApps() {
   if (!wrap || !body || !title || !back) return;
 
   const en = () => document.documentElement.lang === 'en';
-  const locale = () => (en() ? 'en-US' : 'es-ES');
   let cleanup = null;
 
-  // Real map: Leaflet + OpenStreetMap, loaded the first time the Maps sample app opens
-  let leafletPromise = null;
-  const loadLeaflet = () => {
-    if (window.L) return Promise.resolve();
-    if (!leafletPromise) {
-      leafletPromise = new Promise((resolve, reject) => {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
-        document.head.appendChild(link);
-        const script = document.createElement('script');
-        script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
-        script.onload = resolve;
-        script.onerror = () => { leafletPromise = null; reject(); };
-        document.head.appendChild(script);
-      });
-    }
-    return leafletPromise;
-  };
-
-  // Approximate city per time zone, used when the browser does not give the exact location
-  const zoneCenters = {
-    'Europe/Madrid': [40.42, -3.7],
-    'Europe/London': [51.5, -0.12],
-    'Europe/Paris': [48.86, 2.35],
-    'Europe/Berlin': [52.52, 13.4],
-    'America/Guayaquil': [-0.23, -78.52],
-    'America/Bogota': [4.71, -74.07],
-    'America/Lima': [-12.05, -77.04],
-    'America/Santiago': [-33.45, -70.67],
-    'America/Argentina/Buenos_Aires': [-34.6, -58.38],
-    'America/Mexico_City': [19.43, -99.13],
-    'America/New_York': [40.71, -74.0],
-    'America/Los_Angeles': [34.05, -118.24],
-  };
-
-  const locate = (map, marker, note, hint) => {
-    const showAt = (lat, lng, zoom, text) => {
-      map.setView([lat, lng], zoom);
-      marker.setLatLng([lat, lng]);
-      note.textContent = text;
-    };
-    const fallback = () => {
-      const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      const c = zoneCenters[zone];
-      if (c) {
-        showAt(c[0], c[1], 5, (en() ? 'Approximate location from your time zone. ' : 'Ubicación aproximada según tu zona horaria. ') + hint);
-      } else {
-        note.textContent = hint;
-      }
-    };
-    if (!navigator.geolocation) {
-      fallback();
-      return;
-    }
-    navigator.geolocation.getCurrentPosition(
-      (pos) => showAt(pos.coords.latitude, pos.coords.longitude, 12, (en() ? 'Your current location. ' : 'Tu ubicación actual. ') + hint),
-      fallback,
-      { timeout: 8000, maximumAge: 600000 }
-    );
-  };
+  // Each sample app opens with a short note on why that technology is part of the stack,
+  // a tiny interactive demo of it, and a link back to the real section of the portfolio.
+  const stackLink = (tabId, label) => `<button class="mock-cta" type="button" data-goto="${tabId}">${label}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>`;
 
   const views = {
-    settings(el) {
-      const rows = en()
-        ? ['Wi-Fi', 'Bluetooth', 'Notifications', 'Dark mode']
-        : ['Wi-Fi', 'Bluetooth', 'Notificaciones', 'Modo oscuro'];
-      el.innerHTML = `<div class="mock-list">${rows.map((label, i) =>
-        `<label class="mock-row"><span>${label}</span><input class="mock-switch" type="checkbox" ${i < 3 ? 'checked' : ''} ${i === 3 ? 'data-dark' : ''}></label>`
-      ).join('')}</div>`;
-      const dark = el.querySelector('[data-dark]');
-      dark.checked = document.documentElement.getAttribute('data-theme') !== 'light';
-      dark.addEventListener('change', () => document.getElementById('themeToggle')?.click());
+    flutter(el) {
+      el.innerHTML = `
+        <p class="mock-intro">${en()
+          ? 'Part of my stack: I use it to build cross-platform apps (Android and iOS) from a single codebase. Try the counter below — the same widget pattern I use in production.'
+          : 'Parte de mi stack: lo uso para construir apps multiplataforma (Android e iOS) con un solo código base. Prueba el contador de abajo, hecho con el mismo patrón de widgets que uso en producción.'}</p>
+        <div class="mock-counter">
+          <span class="mock-counter-value" id="mockCounterValue">0</span>
+          <button class="mock-fab" type="button" id="mockFab" aria-label="+1">+</button>
+        </div>
+        ${stackLink('proyecto', en() ? 'See the Flutter project' : 'Ver el proyecto con Flutter')}`;
+      let count = 0;
+      const valueEl = el.querySelector('#mockCounterValue');
+      el.querySelector('#mockFab').addEventListener('click', () => {
+        count += 1;
+        valueEl.textContent = String(count);
+      });
     },
 
-    calendar(el) {
-      const now = new Date();
-      const y = now.getFullYear();
-      const m = now.getMonth();
-      const monthName = new Intl.DateTimeFormat(locale(), { month: 'long', year: 'numeric' }).format(now);
-      const weekdays = [];
-      for (let i = 0; i < 7; i++) {
-        weekdays.push(new Intl.DateTimeFormat(locale(), { weekday: 'narrow' }).format(new Date(2024, 0, 7 + i)));
-      }
-      const blanks = new Date(y, m, 1).getDay();
-      const total = new Date(y, m + 1, 0).getDate();
-      let cells = '';
-      for (let i = 0; i < blanks; i++) cells += '<span></span>';
-      for (let d = 1; d <= total; d++) {
-        cells += `<button class="mock-day${d === now.getDate() ? ' is-today' : ''}" type="button">${d}</button>`;
-      }
-      el.innerHTML = `<h3 class="mock-h">${monthName.charAt(0).toUpperCase() + monthName.slice(1)}</h3>
-        <div class="mock-cal">${weekdays.map((w) => `<span class="mock-wd">${w}</span>`).join('')}${cells}</div>
-        <p class="mock-note" id="mockNote"></p>`;
-      const note = el.querySelector('#mockNote');
-      el.querySelectorAll('.mock-day').forEach((btn) => {
+    reactnative(el) {
+      el.innerHTML = `
+        <p class="mock-intro">${en()
+          ? 'Part of my stack: I use it when most of the code needs to be shared between Android and iOS without losing a native feel. Switch the platform below to see the same screen adapt.'
+          : 'Parte de mi stack: lo uso cuando la mayor parte del código debe compartirse entre Android e iOS sin perder una sensación nativa. Cambia la plataforma abajo para ver cómo se adapta la misma pantalla.'}</p>
+        <div class="mock-segmented" id="mockSeg">
+          <button type="button" class="is-active" data-platform="android">Android</button>
+          <button type="button" data-platform="ios">iOS</button>
+        </div>
+        <div class="mock-rn-card" id="mockRnCard">
+          <span class="mock-rn-dot"></span>
+          <p class="mock-rn-label">Hola 👋</p>
+          <button type="button" class="mock-rn-btn">${en() ? 'Tap me' : 'Tócame'}</button>
+        </div>
+        ${stackLink('habilidades', en() ? 'See it in my skills' : 'Ver en mis habilidades')}`;
+      const card = el.querySelector('#mockRnCard');
+      el.querySelectorAll('#mockSeg button').forEach((btn) => {
         btn.addEventListener('click', () => {
-          el.querySelectorAll('.mock-day').forEach((b) => b.classList.remove('is-selected'));
-          btn.classList.add('is-selected');
-          note.textContent = en() ? `Selected: ${btn.textContent} ${monthName}` : `Seleccionado: ${btn.textContent} de ${monthName}`;
+          el.querySelectorAll('#mockSeg button').forEach((b) => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          card.classList.toggle('is-ios', btn.dataset.platform === 'ios');
         });
       });
     },
 
-    camera(el) {
-      el.innerHTML = `<div class="mock-viewfinder" id="mockView"><div class="mock-grid"></div></div>
-        <div class="mock-camrow">
-          <span class="mock-count" id="mockCount">0</span>
-          <button class="mock-shutter" type="button" id="mockShutter" aria-label="${en() ? 'Take photo' : 'Tomar foto'}"></button>
-          <span class="mock-thumb" id="mockThumb"></span>
-        </div>`;
-      let count = 0;
-      el.querySelector('#mockShutter').addEventListener('click', () => {
-        count += 1;
-        el.querySelector('#mockCount').textContent = String(count);
-        el.querySelector('#mockThumb').style.background = `hsl(${(count * 67) % 360} 70% 55%)`;
-        const view = el.querySelector('#mockView');
-        view.classList.add('is-flash');
-        setTimeout(() => view.classList.remove('is-flash'), 250);
+    android(el) {
+      el.innerHTML = `
+        <p class="mock-intro">${en()
+          ? 'Part of my stack: native development in Kotlin when a project needs maximum performance or direct access to the Android SDK. Try the button below, Material-style.'
+          : 'Parte de mi stack: desarrollo nativo en Kotlin cuando el proyecto necesita el máximo rendimiento o acceso directo al SDK de Android. Prueba el botón de abajo, al estilo Material.'}</p>
+        <div class="mock-android">
+          <button class="mock-fab mock-fab-android" type="button" id="mockSnackBtn" aria-label="Save">✓</button>
+          <div class="mock-snackbar" id="mockSnackbar">${en() ? 'Saved' : 'Guardado'}</div>
+        </div>
+        ${stackLink('habilidades', en() ? 'See it in my skills' : 'Ver en mis habilidades')}`;
+      const snackbar = el.querySelector('#mockSnackbar');
+      let snackTimer;
+      el.querySelector('#mockSnackBtn').addEventListener('click', () => {
+        clearTimeout(snackTimer);
+        snackbar.classList.add('is-visible');
+        snackTimer = setTimeout(() => snackbar.classList.remove('is-visible'), 1800);
       });
+      return () => clearTimeout(snackTimer);
     },
 
-    music(el) {
-      const tracks = ['Track 01', 'Track 02', 'Track 03'];
-      let index = 0;
-      let playing = false;
-      let progress = 0;
-      let timer = null;
-      el.innerHTML = `<div class="mock-art"></div>
-        <p class="mock-track" id="mockTrack"></p>
-        <div class="mock-progress"><span id="mockBar"></span></div>
-        <div class="mock-controls">
-          <button class="mock-ctl" type="button" id="mockPrev" aria-label="${en() ? 'Previous' : 'Anterior'}">⏮</button>
-          <button class="mock-ctl mock-play" type="button" id="mockPlay" aria-label="${en() ? 'Play' : 'Reproducir'}">▶</button>
-          <button class="mock-ctl" type="button" id="mockNext" aria-label="${en() ? 'Next' : 'Siguiente'}">⏭</button>
-        </div>`;
-      const trackEl = el.querySelector('#mockTrack');
-      const bar = el.querySelector('#mockBar');
-      const playBtn = el.querySelector('#mockPlay');
-      const render = () => {
-        trackEl.textContent = tracks[index];
-        bar.style.width = `${progress}%`;
-        playBtn.textContent = playing ? '❚❚' : '▶';
-      };
+    ios(el) {
+      const rows = en() ? ['Wi-Fi', 'Face ID', 'Notifications'] : ['Wi-Fi', 'Face ID', 'Notificaciones'];
+      el.innerHTML = `
+        <p class="mock-intro">${en()
+          ? "Part of my stack: native development in Swift to make the most of Apple's ecosystem. This is the grouped, switch-driven list typical of iOS."
+          : 'Parte de mi stack: desarrollo nativo en Swift para aprovechar al máximo el ecosistema de Apple. Así luce el típico listado con interruptores de iOS.'}</p>
+        <div class="mock-list">${rows.map((label, i) =>
+          `<label class="mock-row"><span>${label}</span><input class="mock-switch" type="checkbox" ${i !== 1 ? 'checked' : ''}></label>`
+        ).join('')}</div>
+        ${stackLink('habilidades', en() ? 'See it in my skills' : 'Ver en mis habilidades')}`;
+    },
+
+    edgeai(el) {
+      el.innerHTML = `
+        <p class="mock-intro">${en()
+          ? 'Part of my stack: I deploy Machine Learning models directly on-device, without depending on a server. This is what a real-time inference monitor would look like.'
+          : 'Parte de mi stack: despliego modelos de Machine Learning directamente en el dispositivo, sin depender de un servidor. Así luciría un monitor de inferencia en tiempo real.'}</p>
+        <div class="mock-ai">
+          <div class="mock-ai-row"><span>${en() ? 'Latency' : 'Latencia'}</span><strong id="mockLatency">—</strong></div>
+          <div class="mock-ai-row"><span>${en() ? 'Inferences/s' : 'Inferencias/s'}</span><strong id="mockThroughput">—</strong></div>
+          <div class="mock-ai-bars" id="mockAiBars"></div>
+        </div>
+        ${stackLink('experiencia', en() ? 'See it in my experience' : 'Ver en mi experiencia')}`;
+      const bars = el.querySelector('#mockAiBars');
+      for (let i = 0; i < 12; i++) bars.appendChild(document.createElement('span'));
+      const latencyEl = el.querySelector('#mockLatency');
+      const throughputEl = el.querySelector('#mockThroughput');
       const tick = () => {
-        progress = (progress + 2) % 100;
-        if (progress === 0) index = (index + 1) % tracks.length;
-        render();
+        latencyEl.textContent = `${(8 + Math.random() * 14).toFixed(1)} ms`;
+        throughputEl.textContent = `${(35 + Math.random() * 50).toFixed(0)}/s`;
+        bars.querySelectorAll('span').forEach((s) => { s.style.height = `${18 + Math.random() * 42}px`; });
       };
-      const setPlaying = (on) => {
-        playing = on;
-        clearInterval(timer);
-        if (on) timer = setInterval(tick, 200);
-        render();
-      };
-      playBtn.addEventListener('click', () => setPlaying(!playing));
-      el.querySelector('#mockNext').addEventListener('click', () => { index = (index + 1) % tracks.length; progress = 0; render(); });
-      el.querySelector('#mockPrev').addEventListener('click', () => { index = (index - 1 + tracks.length) % tracks.length; progress = 0; render(); });
-      render();
+      tick();
+      const timer = setInterval(tick, 900);
       return () => clearInterval(timer);
-    },
-
-    maps(el) {
-      el.innerHTML = `<div class="mock-map" id="mockMap"></div>
-        <p class="mock-note" id="mockNote">${en() ? 'Finding your location…' : 'Buscando tu ubicación…'}</p>`;
-      const note = el.querySelector('#mockNote');
-      const hint = en() ? 'Tap the map to move the marker.' : 'Toca el mapa para mover el marcador.';
-      let map = null;
-      let alive = true;
-      loadLeaflet().then(() => {
-        if (!alive) return;
-        map = window.L.map(el.querySelector('#mockMap')).setView([20, 0], 2);
-        // Esri basemaps (no API key needed): dark style in dark mode, light style in light mode
-        const dark = document.documentElement.getAttribute('data-theme') !== 'light';
-        const style = dark ? 'Canvas/World_Dark_Gray_Base' : 'Canvas/World_Light_Gray_Base';
-        window.L.tileLayer(`https://services.arcgisonline.com/ArcGIS/rest/services/${style}/MapServer/tile/{z}/{y}/{x}`, {
-          maxZoom: 16,
-          attribution: 'Tiles &copy; Esri',
-        }).addTo(map);
-        const marker = window.L.marker([20, 0]).addTo(map);
-        map.on('click', (e) => marker.setLatLng(e.latlng));
-        locate(map, marker, note, hint);
-      }).catch(() => {
-        note.textContent = en() ? 'The map could not be loaded.' : 'No se pudo cargar el mapa.';
-      });
-      return () => {
-        alive = false;
-        if (map) map.remove();
-      };
     },
   };
 
@@ -479,7 +393,7 @@ function initMockApps() {
     cleanup = null;
     title.textContent = name.textContent;
     title.setAttribute('data-i18n', name.getAttribute('data-i18n'));
-    body.className = key === 'maps' ? 'mock-body is-maps' : 'mock-body';
+    body.className = 'mock-body';
     body.innerHTML = '';
     cleanup = views[key](body) || null;
     wrap.classList.add('is-open');
@@ -496,6 +410,17 @@ function initMockApps() {
   // the side home button also leaves a sample app and goes to the home screen
   document.getElementById('homeBtn')?.addEventListener('click', () => {
     if (wrap.classList.contains('is-open')) close();
+  });
+  // "See it in my..." link inside a sample app: leaves the app open on the portfolio itself, on that tab
+  body.addEventListener('click', (e) => {
+    const link = e.target.closest('.mock-cta[data-goto]');
+    if (!link) return;
+    const tabId = link.dataset.goto;
+    if (cleanup) cleanup();
+    cleanup = null;
+    wrap.classList.remove('is-open');
+    wrap.setAttribute('aria-hidden', 'true');
+    document.querySelector(`.tab[data-tab="${tabId}"]`)?.click();
   });
 }
 
