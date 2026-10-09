@@ -269,9 +269,8 @@ function initMockApps() {
   let cleanup = null;
 
   // Each sample app opens with a short note on why that technology is part of the stack,
-  // a tiny interactive demo of it, and a link back to the real section of the portfolio.
-  const stackLink = (tabId, label) => `<button class="mock-cta" type="button" data-goto="${tabId}">${label}
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>`;
+  // the tools around it, and a small interactive demo of it.
+  const tagsHtml = (list) => `<div class="tags">${list.map((t) => `<span class="tag">${t}</span>`).join('')}</div>`;
 
   const views = {
     flutter(el) {
@@ -279,24 +278,44 @@ function initMockApps() {
         <p class="mock-intro">${en()
           ? 'Part of my stack: I use it to build cross-platform apps (Android and iOS) from a single codebase. Try the counter below — the same widget pattern I use in production.'
           : 'Parte de mi stack: lo uso para construir apps multiplataforma (Android e iOS) con un solo código base. Prueba el contador de abajo, hecho con el mismo patrón de widgets que uso en producción.'}</p>
+        ${tagsHtml(['Dart', 'Provider', 'SQLite', 'Firebase'])}
         <div class="mock-counter">
-          <span class="mock-counter-value" id="mockCounterValue">0</span>
-          <button class="mock-fab" type="button" id="mockFab" aria-label="+1">+</button>
-        </div>
-        ${stackLink('proyecto', en() ? 'See the Flutter project' : 'Ver el proyecto con Flutter')}`;
+          <div class="mock-counter-row">
+            <button class="mock-fab mock-fab-ghost" type="button" id="mockMinus" aria-label="-1">−</button>
+            <span class="mock-counter-value" id="mockCounterValue">0</span>
+            <button class="mock-fab" type="button" id="mockFab" aria-label="+1">+</button>
+          </div>
+          <p class="mock-note" id="mockRebuilds"></p>
+        </div>`;
       let count = 0;
+      let rebuilds = 0;
       const valueEl = el.querySelector('#mockCounterValue');
-      el.querySelector('#mockFab').addEventListener('click', () => {
-        count += 1;
+      const rebuildEl = el.querySelector('#mockRebuilds');
+      const renderRebuilds = () => {
+        rebuildEl.textContent = en()
+          ? `${rebuilds} widget${rebuilds === 1 ? '' : 's'} rebuilt`
+          : `${rebuilds} widget${rebuilds === 1 ? '' : 's'} reconstruido${rebuilds === 1 ? '' : 's'}`;
+      };
+      renderRebuilds();
+      const bump = (delta) => {
+        count += delta;
+        rebuilds += 1;
         valueEl.textContent = String(count);
-      });
+        renderRebuilds();
+      };
+      el.querySelector('#mockFab').addEventListener('click', () => bump(1));
+      el.querySelector('#mockMinus').addEventListener('click', () => bump(-1));
     },
 
     reactnative(el) {
+      const note = (platform) => (platform === 'ios'
+        ? (en() ? 'iOS: pill-shaped button, SF-style weight.' : 'iOS: botón en forma de píldora, peso tipo SF.')
+        : (en() ? 'Android: rounded-rect button, Material ripple.' : 'Android: botón rectangular redondeado, estilo Material.'));
       el.innerHTML = `
         <p class="mock-intro">${en()
           ? 'Part of my stack: I use it when most of the code needs to be shared between Android and iOS without losing a native feel. Switch the platform below to see the same screen adapt.'
           : 'Parte de mi stack: lo uso cuando la mayor parte del código debe compartirse entre Android e iOS sin perder una sensación nativa. Cambia la plataforma abajo para ver cómo se adapta la misma pantalla.'}</p>
+        ${tagsHtml(['JavaScript', 'TypeScript', 'Expo'])}
         <div class="mock-segmented" id="mockSeg">
           <button type="button" class="is-active" data-platform="android">Android</button>
           <button type="button" data-platform="ios">iOS</button>
@@ -306,13 +325,15 @@ function initMockApps() {
           <p class="mock-rn-label">Hola 👋</p>
           <button type="button" class="mock-rn-btn">${en() ? 'Tap me' : 'Tócame'}</button>
         </div>
-        ${stackLink('habilidades', en() ? 'See it in my skills' : 'Ver en mis habilidades')}`;
+        <p class="mock-note" id="mockRnNote">${note('android')}</p>`;
       const card = el.querySelector('#mockRnCard');
+      const noteEl = el.querySelector('#mockRnNote');
       el.querySelectorAll('#mockSeg button').forEach((btn) => {
         btn.addEventListener('click', () => {
           el.querySelectorAll('#mockSeg button').forEach((b) => b.classList.remove('is-active'));
           btn.classList.add('is-active');
           card.classList.toggle('is-ios', btn.dataset.platform === 'ios');
+          noteEl.textContent = note(btn.dataset.platform);
         });
       });
     },
@@ -320,58 +341,104 @@ function initMockApps() {
     android(el) {
       el.innerHTML = `
         <p class="mock-intro">${en()
-          ? 'Part of my stack: native development in Kotlin when a project needs maximum performance or direct access to the Android SDK. Try the button below, Material-style.'
-          : 'Parte de mi stack: desarrollo nativo en Kotlin cuando el proyecto necesita el máximo rendimiento o acceso directo al SDK de Android. Prueba el botón de abajo, al estilo Material.'}</p>
+          ? 'Part of my stack: native development in Kotlin when a project needs maximum performance or direct access to the Android SDK. Try the button below, Material-style, then pick a dynamic color.'
+          : 'Parte de mi stack: desarrollo nativo en Kotlin cuando el proyecto necesita el máximo rendimiento o acceso directo al SDK de Android. Prueba el botón de abajo, al estilo Material, y elige un color dinámico.'}</p>
+        ${tagsHtml(['Kotlin', 'Jetpack Compose', 'Material You'])}
         <div class="mock-android">
           <button class="mock-fab mock-fab-android" type="button" id="mockSnackBtn" aria-label="Save">✓</button>
           <div class="mock-snackbar" id="mockSnackbar">${en() ? 'Saved' : 'Guardado'}</div>
-        </div>
-        ${stackLink('habilidades', en() ? 'See it in my skills' : 'Ver en mis habilidades')}`;
+          <div class="mock-swatches" id="mockSwatches"></div>
+        </div>`;
       const snackbar = el.querySelector('#mockSnackbar');
+      const fab = el.querySelector('#mockSnackBtn');
       let snackTimer;
-      el.querySelector('#mockSnackBtn').addEventListener('click', () => {
+      fab.addEventListener('click', () => {
         clearTimeout(snackTimer);
         snackbar.classList.add('is-visible');
         snackTimer = setTimeout(() => snackbar.classList.remove('is-visible'), 1800);
+      });
+      const swatchWrap = el.querySelector('#mockSwatches');
+      const palettes = [['#8bc34a', '#4c8c2b'], ['#38bdf8', '#1d4ed8'], ['#f97316', '#c2410c'], ['#ec4899', '#a21caf']];
+      palettes.forEach(([c1, c2], i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', en() ? `Color ${i + 1}` : `Color ${i + 1}`);
+        if (i === 0) b.classList.add('is-active');
+        b.style.background = `linear-gradient(135deg, ${c1}, ${c2})`;
+        b.addEventListener('click', () => {
+          swatchWrap.querySelectorAll('button').forEach((x) => x.classList.remove('is-active'));
+          b.classList.add('is-active');
+          fab.style.background = `linear-gradient(135deg, ${c1}, ${c2})`;
+        });
+        swatchWrap.appendChild(b);
       });
       return () => clearTimeout(snackTimer);
     },
 
     ios(el) {
-      const rows = en() ? ['Wi-Fi', 'Face ID', 'Notifications'] : ['Wi-Fi', 'Face ID', 'Notificaciones'];
+      const sets = {
+        general: en() ? ['Wi-Fi', 'Bluetooth', 'Dark mode'] : ['Wi-Fi', 'Bluetooth', 'Modo oscuro'],
+        privacy: en() ? ['Face ID', 'Location', 'Notifications'] : ['Face ID', 'Ubicación', 'Notificaciones'],
+      };
       el.innerHTML = `
         <p class="mock-intro">${en()
           ? "Part of my stack: native development in Swift to make the most of Apple's ecosystem. This is the grouped, switch-driven list typical of iOS."
           : 'Parte de mi stack: desarrollo nativo en Swift para aprovechar al máximo el ecosistema de Apple. Así luce el típico listado con interruptores de iOS.'}</p>
-        <div class="mock-list">${rows.map((label, i) =>
+        ${tagsHtml(['Swift', 'UIKit', 'SwiftUI'])}
+        <div class="mock-segmented" id="mockIosSeg">
+          <button type="button" class="is-active" data-set="general">${en() ? 'General' : 'General'}</button>
+          <button type="button" data-set="privacy">${en() ? 'Privacy' : 'Privacidad'}</button>
+        </div>
+        <div class="mock-list" id="mockIosList"></div>`;
+      const listEl = el.querySelector('#mockIosList');
+      const render = (key) => {
+        listEl.innerHTML = sets[key].map((label, i) =>
           `<label class="mock-row"><span>${label}</span><input class="mock-switch" type="checkbox" ${i !== 1 ? 'checked' : ''}></label>`
-        ).join('')}</div>
-        ${stackLink('habilidades', en() ? 'See it in my skills' : 'Ver en mis habilidades')}`;
+        ).join('');
+      };
+      render('general');
+      el.querySelectorAll('#mockIosSeg button').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          el.querySelectorAll('#mockIosSeg button').forEach((b) => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          render(btn.dataset.set);
+        });
+      });
     },
 
     edgeai(el) {
+      const labels = en() ? ['Facial recognition', 'Live OCR'] : ['Reconocimiento facial', 'OCR en vivo'];
       el.innerHTML = `
         <p class="mock-intro">${en()
           ? 'Part of my stack: I deploy Machine Learning models directly on-device, without depending on a server. This is what a real-time inference monitor would look like.'
           : 'Parte de mi stack: despliego modelos de Machine Learning directamente en el dispositivo, sin depender de un servidor. Así luciría un monitor de inferencia en tiempo real.'}</p>
+        ${tagsHtml(en() ? ['TensorFlow Lite', 'OCR', 'Facial recognition'] : ['TensorFlow Lite', 'OCR', 'Reconocimiento facial'])}
         <div class="mock-ai">
+          <p class="mock-ai-model" id="mockAiModel"></p>
           <div class="mock-ai-row"><span>${en() ? 'Latency' : 'Latencia'}</span><strong id="mockLatency">—</strong></div>
           <div class="mock-ai-row"><span>${en() ? 'Inferences/s' : 'Inferencias/s'}</span><strong id="mockThroughput">—</strong></div>
+          <div class="mock-ai-row"><span>${en() ? 'Accuracy' : 'Precisión'}</span><strong id="mockAccuracy">—</strong></div>
           <div class="mock-ai-bars" id="mockAiBars"></div>
-        </div>
-        ${stackLink('experiencia', en() ? 'See it in my experience' : 'Ver en mi experiencia')}`;
+        </div>`;
       const bars = el.querySelector('#mockAiBars');
       for (let i = 0; i < 12; i++) bars.appendChild(document.createElement('span'));
       const latencyEl = el.querySelector('#mockLatency');
       const throughputEl = el.querySelector('#mockThroughput');
+      const accuracyEl = el.querySelector('#mockAccuracy');
       const tick = () => {
         latencyEl.textContent = `${(8 + Math.random() * 14).toFixed(1)} ms`;
         throughputEl.textContent = `${(35 + Math.random() * 50).toFixed(0)}/s`;
+        accuracyEl.textContent = `${(90 + Math.random() * 9).toFixed(1)}%`;
         bars.querySelectorAll('span').forEach((s) => { s.style.height = `${18 + Math.random() * 42}px`; });
       };
       tick();
       const timer = setInterval(tick, 900);
-      return () => clearInterval(timer);
+      const modelEl = el.querySelector('#mockAiModel');
+      let modelIndex = 0;
+      const setModel = () => { modelEl.textContent = `● ${labels[modelIndex % labels.length]}`; };
+      setModel();
+      const modelTimer = setInterval(() => { modelIndex += 1; setModel(); }, 3000);
+      return () => { clearInterval(timer); clearInterval(modelTimer); };
     },
   };
 
@@ -410,17 +477,6 @@ function initMockApps() {
   // the side home button also leaves a sample app and goes to the home screen
   document.getElementById('homeBtn')?.addEventListener('click', () => {
     if (wrap.classList.contains('is-open')) close();
-  });
-  // "See it in my..." link inside a sample app: leaves the app open on the portfolio itself, on that tab
-  body.addEventListener('click', (e) => {
-    const link = e.target.closest('.mock-cta[data-goto]');
-    if (!link) return;
-    const tabId = link.dataset.goto;
-    if (cleanup) cleanup();
-    cleanup = null;
-    wrap.classList.remove('is-open');
-    wrap.setAttribute('aria-hidden', 'true');
-    document.querySelector(`.tab[data-tab="${tabId}"]`)?.click();
   });
 }
 
