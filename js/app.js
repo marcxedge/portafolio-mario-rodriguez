@@ -275,17 +275,21 @@ function initMockApps() {
   const views = {
     flutter(el) {
       el.innerHTML = `
-        <p class="mock-intro">${en()
-          ? 'Part of my stack: I use it to build cross-platform apps (Android and iOS) from a single codebase. Try the counter below — the same widget pattern I use in production.'
-          : 'Parte de mi stack: lo uso para construir apps multiplataforma (Android e iOS) con un solo código base. Prueba el contador de abajo, hecho con el mismo patrón de widgets que uso en producción.'}</p>
-        ${tagsHtml(['Dart', 'Provider', 'SQLite', 'Firebase'])}
-        <div class="mock-counter">
-          <div class="mock-counter-row">
-            <button class="mock-fab mock-fab-ghost" type="button" id="mockMinus" aria-label="-1">−</button>
-            <span class="mock-counter-value" id="mockCounterValue">0</span>
-            <button class="mock-fab" type="button" id="mockFab" aria-label="+1">+</button>
+        <div class="mock-stack">
+          <div class="mock-info">
+            <p class="mock-intro">${en()
+              ? 'Part of my stack: I use it to build cross-platform apps (Android and iOS) from a single codebase. Try the counter below — the same widget pattern I use in production.'
+              : 'Parte de mi stack: lo uso para construir apps multiplataforma (Android e iOS) con un solo código base. Prueba el contador de abajo, hecho con el mismo patrón de widgets que uso en producción.'}</p>
+            ${tagsHtml(['Dart', 'Provider', 'SQLite', 'Firebase'])}
           </div>
-          <p class="mock-note" id="mockRebuilds"></p>
+          <div class="mock-demo mock-counter">
+            <div class="mock-counter-row">
+              <button class="mock-fab mock-fab-ghost" type="button" id="mockMinus" aria-label="-1">−</button>
+              <span class="mock-counter-value" id="mockCounterValue">0</span>
+              <button class="mock-fab" type="button" id="mockFab" aria-label="+1">+</button>
+            </div>
+            <p class="mock-note" id="mockRebuilds"></p>
+          </div>
         </div>`;
       let count = 0;
       let rebuilds = 0;
@@ -312,20 +316,26 @@ function initMockApps() {
         ? (en() ? 'iOS: pill-shaped button, SF-style weight.' : 'iOS: botón en forma de píldora, peso tipo SF.')
         : (en() ? 'Android: rounded-rect button, Material ripple.' : 'Android: botón rectangular redondeado, estilo Material.'));
       el.innerHTML = `
-        <p class="mock-intro">${en()
-          ? 'Part of my stack: I use it when most of the code needs to be shared between Android and iOS without losing a native feel. Switch the platform below to see the same screen adapt.'
-          : 'Parte de mi stack: lo uso cuando la mayor parte del código debe compartirse entre Android e iOS sin perder una sensación nativa. Cambia la plataforma abajo para ver cómo se adapta la misma pantalla.'}</p>
-        ${tagsHtml(['JavaScript', 'TypeScript', 'Expo'])}
-        <div class="mock-segmented" id="mockSeg">
-          <button type="button" class="is-active" data-platform="android">Android</button>
-          <button type="button" data-platform="ios">iOS</button>
-        </div>
-        <div class="mock-rn-card" id="mockRnCard">
-          <span class="mock-rn-dot"></span>
-          <p class="mock-rn-label">Hola 👋</p>
-          <button type="button" class="mock-rn-btn">${en() ? 'Tap me' : 'Tócame'}</button>
-        </div>
-        <p class="mock-note" id="mockRnNote">${note('android')}</p>`;
+        <div class="mock-stack">
+          <div class="mock-info">
+            <p class="mock-intro">${en()
+              ? 'Part of my stack: I use it when most of the code needs to be shared between Android and iOS without losing a native feel. Switch the platform below to see the same screen adapt.'
+              : 'Parte de mi stack: lo uso cuando la mayor parte del código debe compartirse entre Android e iOS sin perder una sensación nativa. Cambia la plataforma abajo para ver cómo se adapta la misma pantalla.'}</p>
+            ${tagsHtml(['JavaScript', 'TypeScript', 'Expo'])}
+          </div>
+          <div class="mock-demo">
+            <div class="mock-segmented" id="mockSeg">
+              <button type="button" class="is-active" data-platform="android">Android</button>
+              <button type="button" data-platform="ios">iOS</button>
+            </div>
+            <div class="mock-rn-card" id="mockRnCard">
+              <span class="mock-rn-dot"></span>
+              <p class="mock-rn-label">Hola 👋</p>
+              <button type="button" class="mock-rn-btn">${en() ? 'Tap me' : 'Tócame'}</button>
+            </div>
+            <p class="mock-note" id="mockRnNote">${note('android')}</p>
+          </div>
+        </div>`;
       const card = el.querySelector('#mockRnCard');
       const noteEl = el.querySelector('#mockRnNote');
       el.querySelectorAll('#mockSeg button').forEach((btn) => {
@@ -340,14 +350,18 @@ function initMockApps() {
 
     android(el) {
       el.innerHTML = `
-        <p class="mock-intro">${en()
-          ? 'Part of my stack: native development in Kotlin when a project needs maximum performance or direct access to the Android SDK. Try the button below, Material-style, then pick a dynamic color.'
-          : 'Parte de mi stack: desarrollo nativo en Kotlin cuando el proyecto necesita el máximo rendimiento o acceso directo al SDK de Android. Prueba el botón de abajo, al estilo Material, y elige un color dinámico.'}</p>
-        ${tagsHtml(['Kotlin', 'Jetpack Compose', 'Material You'])}
-        <div class="mock-android">
-          <button class="mock-fab mock-fab-android" type="button" id="mockSnackBtn" aria-label="Save">✓</button>
-          <div class="mock-snackbar" id="mockSnackbar">${en() ? 'Saved' : 'Guardado'}</div>
-          <div class="mock-swatches" id="mockSwatches"></div>
+        <div class="mock-stack">
+          <div class="mock-info">
+            <p class="mock-intro">${en()
+              ? 'Part of my stack: native development in Kotlin when a project needs maximum performance or direct access to the Android SDK. Try the button below, Material-style, then pick a dynamic color.'
+              : 'Parte de mi stack: desarrollo nativo en Kotlin cuando el proyecto necesita el máximo rendimiento o acceso directo al SDK de Android. Prueba el botón de abajo, al estilo Material, y elige un color dinámico.'}</p>
+            ${tagsHtml(['Kotlin', 'Jetpack Compose', 'Material You'])}
+          </div>
+          <div class="mock-demo mock-android">
+            <button class="mock-fab mock-fab-android" type="button" id="mockSnackBtn" aria-label="Save">✓</button>
+            <div class="mock-snackbar" id="mockSnackbar">${en() ? 'Saved' : 'Guardado'}</div>
+            <div class="mock-swatches" id="mockSwatches"></div>
+          </div>
         </div>`;
       const snackbar = el.querySelector('#mockSnackbar');
       const fab = el.querySelector('#mockSnackBtn');
@@ -381,15 +395,21 @@ function initMockApps() {
         privacy: en() ? ['Face ID', 'Location', 'Notifications'] : ['Face ID', 'Ubicación', 'Notificaciones'],
       };
       el.innerHTML = `
-        <p class="mock-intro">${en()
-          ? "Part of my stack: native development in Swift to make the most of Apple's ecosystem. This is the grouped, switch-driven list typical of iOS."
-          : 'Parte de mi stack: desarrollo nativo en Swift para aprovechar al máximo el ecosistema de Apple. Así luce el típico listado con interruptores de iOS.'}</p>
-        ${tagsHtml(['Swift', 'UIKit', 'SwiftUI'])}
-        <div class="mock-segmented" id="mockIosSeg">
-          <button type="button" class="is-active" data-set="general">${en() ? 'General' : 'General'}</button>
-          <button type="button" data-set="privacy">${en() ? 'Privacy' : 'Privacidad'}</button>
-        </div>
-        <div class="mock-list" id="mockIosList"></div>`;
+        <div class="mock-stack">
+          <div class="mock-info">
+            <p class="mock-intro">${en()
+              ? "Part of my stack: native development in Swift to make the most of Apple's ecosystem. This is the grouped, switch-driven list typical of iOS."
+              : 'Parte de mi stack: desarrollo nativo en Swift para aprovechar al máximo el ecosistema de Apple. Así luce el típico listado con interruptores de iOS.'}</p>
+            ${tagsHtml(['Swift', 'UIKit', 'SwiftUI'])}
+          </div>
+          <div class="mock-demo">
+            <div class="mock-segmented" id="mockIosSeg">
+              <button type="button" class="is-active" data-set="general">${en() ? 'General' : 'General'}</button>
+              <button type="button" data-set="privacy">${en() ? 'Privacy' : 'Privacidad'}</button>
+            </div>
+            <div class="mock-list" id="mockIosList"></div>
+          </div>
+        </div>`;
       const listEl = el.querySelector('#mockIosList');
       const render = (key) => {
         listEl.innerHTML = sets[key].map((label, i) =>
@@ -409,16 +429,20 @@ function initMockApps() {
     edgeai(el) {
       const labels = en() ? ['Facial recognition', 'Live OCR'] : ['Reconocimiento facial', 'OCR en vivo'];
       el.innerHTML = `
-        <p class="mock-intro">${en()
-          ? 'Part of my stack: I deploy Machine Learning models directly on-device, without depending on a server. This is what a real-time inference monitor would look like.'
-          : 'Parte de mi stack: despliego modelos de Machine Learning directamente en el dispositivo, sin depender de un servidor. Así luciría un monitor de inferencia en tiempo real.'}</p>
-        ${tagsHtml(en() ? ['TensorFlow Lite', 'OCR', 'Facial recognition'] : ['TensorFlow Lite', 'OCR', 'Reconocimiento facial'])}
-        <div class="mock-ai">
-          <p class="mock-ai-model" id="mockAiModel"></p>
-          <div class="mock-ai-row"><span>${en() ? 'Latency' : 'Latencia'}</span><strong id="mockLatency">—</strong></div>
-          <div class="mock-ai-row"><span>${en() ? 'Inferences/s' : 'Inferencias/s'}</span><strong id="mockThroughput">—</strong></div>
-          <div class="mock-ai-row"><span>${en() ? 'Accuracy' : 'Precisión'}</span><strong id="mockAccuracy">—</strong></div>
-          <div class="mock-ai-bars" id="mockAiBars"></div>
+        <div class="mock-stack">
+          <div class="mock-info">
+            <p class="mock-intro">${en()
+              ? 'Part of my stack: I deploy Machine Learning models directly on-device, without depending on a server. This is what a real-time inference monitor would look like.'
+              : 'Parte de mi stack: despliego modelos de Machine Learning directamente en el dispositivo, sin depender de un servidor. Así luciría un monitor de inferencia en tiempo real.'}</p>
+            ${tagsHtml(en() ? ['TensorFlow Lite', 'OCR', 'Facial recognition'] : ['TensorFlow Lite', 'OCR', 'Reconocimiento facial'])}
+          </div>
+          <div class="mock-demo mock-ai">
+            <p class="mock-ai-model" id="mockAiModel"></p>
+            <div class="mock-ai-row"><span>${en() ? 'Latency' : 'Latencia'}</span><strong id="mockLatency">—</strong></div>
+            <div class="mock-ai-row"><span>${en() ? 'Inferences/s' : 'Inferencias/s'}</span><strong id="mockThroughput">—</strong></div>
+            <div class="mock-ai-row"><span>${en() ? 'Accuracy' : 'Precisión'}</span><strong id="mockAccuracy">—</strong></div>
+            <div class="mock-ai-bars" id="mockAiBars"></div>
+          </div>
         </div>`;
       const bars = el.querySelector('#mockAiBars');
       for (let i = 0; i < 12; i++) bars.appendChild(document.createElement('span'));
