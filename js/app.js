@@ -3,6 +3,7 @@
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+  initBootScreen();
   initAppTabs();
   initLauncher();
   initToTop();
@@ -10,6 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
   initMockApps();
   initDragScroll();
 });
+
+/* Boot screen: plays once on the initial page load, simulating the device powering on */
+function initBootScreen() {
+  const boot = document.getElementById('bootScreen');
+  if (!boot) return;
+  setTimeout(() => boot.classList.add('is-on'), 400);
+  setTimeout(() => boot.classList.add('is-off'), 1300);
+}
 
 /* Status bar above the screens: time and battery, visible in the home screen and inside the app */
 function initStatusBar() {
