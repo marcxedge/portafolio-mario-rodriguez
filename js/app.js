@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
 /* Boot screen: plays once on the initial page load, simulating the device powering on.
    The home-screen/auto-open sequence (initLauncher) waits for BOOT_DURATION so its own
    timings stay exactly as they were before, just shifted to start once the device is "on". */
-const BOOT_ON_DELAY = 400;
-const BOOT_OFF_DELAY = 1300;
-const BOOT_DURATION = 1750; // BOOT_OFF_DELAY + the 0.45s fade-out transition in css/app.css
+const BOOT_ON_DELAY = 650;
+const BOOT_OFF_DELAY = 2100;
+const BOOT_DURATION = 2550; // BOOT_OFF_DELAY + the 0.45s fade-out transition in css/app.css
 function initBootScreen() {
   const boot = document.getElementById('bootScreen');
   if (!boot) return;
