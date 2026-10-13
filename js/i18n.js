@@ -6,7 +6,7 @@ const I18N_TRANSLATIONS = {
   es: {
     meta: {
       title: 'Mario Rodríguez Cedeño · Desarrollador Móvil & Edge AI',
-      description: 'Portafolio de Mario Antonio Rodríguez Cedeño — Ingeniero en Sistemas Informáticos especializado en Flutter, React Native, Android, iOS, Edge AI y Machine Learning.'
+      description: 'Portafolio de Mario Antonio Rodríguez Cedeño — Desarrollador Móvil especializado en Flutter, React Native, Android, iOS, Edge AI y Machine Learning.'
     },
     appbar: {
       brand: 'Mi Portafolio'
@@ -35,7 +35,7 @@ const I18N_TRANSLATIONS = {
       closeModal: 'Cerrar'
     },
     hero: {
-      eyebrow: 'Ingeniero en Sistemas Informáticos', greeting: 'Hola, soy', role: 'Desarrollador Móvil',
+      greeting: 'Hola, soy', role: 'Desarrollador Móvil',
       description: 'Más de 4 años diseñando, desarrollando y desplegando aplicaciones nativas (Android/iOS) y multiplataforma con Flutter. Especializado en integración de hardware, Edge AI (IA en el dispositivo) y optimización de modelos de Machine Learning.',
       badge: 'Disponible para trabajar · hasta 30 h/semana (estancia por estudios) · Valencia, España',
       ctaPrimary: 'Hablemos', ctaSecondary: 'Ver experiencia',
@@ -203,7 +203,7 @@ const I18N_TRANSLATIONS = {
   en: {
     meta: {
       title: 'Mario Rodríguez Cedeño · Mobile Developer & Edge AI',
-      description: 'Portfolio of Mario Antonio Rodríguez Cedeño — Computer Systems Engineer specialized in Flutter, React Native, Android, iOS, Edge AI, and Machine Learning.'
+      description: 'Portfolio of Mario Antonio Rodríguez Cedeño — Mobile Developer specialized in Flutter, React Native, Android, iOS, Edge AI, and Machine Learning.'
     },
     appbar: {
       brand: 'My Portfolio'
@@ -232,7 +232,7 @@ const I18N_TRANSLATIONS = {
       closeModal: 'Close'
     },
     hero: {
-      eyebrow: 'Computer Systems Engineer', greeting: "Hi, I'm", role: 'Mobile Developer',
+      greeting: "Hi, I'm", role: 'Mobile Developer',
       description: '4+ years designing, developing, and deploying native (Android/iOS) and cross-platform apps with Flutter. Specialized in hardware integration, Edge AI (on-device AI), and Machine Learning model optimization.',
       badge: 'Available for work · up to 30 h/week (student residence permit) · Valencia, Spain',
       ctaPrimary: "Let's talk", ctaSecondary: 'View experience',

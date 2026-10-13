@@ -7,7 +7,7 @@
 
 ## Qué es esto
 
-Portafolio personal de Mario Antonio Rodríguez Cedeño — Ingeniero en Sistemas Informáticos
+Portafolio personal de Mario Antonio Rodríguez Cedeño — Desarrollador Móvil
 especializado en desarrollo móvil (Flutter, React Native, Android, iOS) y Edge AI/Machine
 Learning. Es un sitio estático (HTML + CSS + JS puro, sin build step ni frameworks) presentado
 como un **app-shell**: el sitio completo vive dentro de un marco de tablet/teléfono simulado

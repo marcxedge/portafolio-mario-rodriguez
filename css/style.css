@@ -307,14 +307,6 @@ img { max-width: 100%; display: block; }
   align-items: center;
 }
 
-.eyebrow {
-  color: var(--accent);
-  font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
 .hero-title {
   font-size: clamp(2.2rem, 5vw, 3.4rem);
   font-weight: 700;
