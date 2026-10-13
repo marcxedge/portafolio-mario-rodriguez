@@ -237,6 +237,7 @@ function initCounters() {
 
   const animate = (el) => {
     const target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    const suffix = el.getAttribute('data-suffix') || '';
     const duration = 1200;
     const start = performance.now();
 
@@ -245,7 +246,7 @@ function initCounters() {
       const eased = 1 - Math.pow(1 - progress, 3);
       el.textContent = Math.round(eased * target);
       if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target;
+      else el.textContent = target + suffix;
     };
     requestAnimationFrame(step);
   };

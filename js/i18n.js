@@ -36,16 +36,16 @@ const I18N_TRANSLATIONS = {
     },
     hero: {
       eyebrow: 'Ingeniero en Sistemas Informáticos', greeting: 'Hola, soy', role: 'Desarrollador Móvil',
-      description: 'Especializado en el diseño, desarrollo y despliegue de aplicaciones móviles nativas y multiplataforma. Apasionado por la integración de hardware, Edge AI y la optimización de modelos de Machine Learning para crear soluciones con impacto real.',
-      badge: 'Disponible para trabajar · hasta 30h/semana (estancia por estudios) · Valencia, España',
+      description: 'Más de 4 años diseñando, desarrollando y desplegando aplicaciones nativas (Android/iOS) y multiplataforma con Flutter. Especializado en integración de hardware, Edge AI (IA en el dispositivo) y optimización de modelos de Machine Learning.',
+      badge: 'Disponible para trabajar · hasta 30 h/semana (estancia por estudios) · Valencia, España',
       ctaPrimary: 'Hablemos', ctaSecondary: 'Ver experiencia',
       photoAlt: 'Foto de Mario Antonio Rodríguez Cedeño',
       typedWords: ['Flutter.', 'React Native.', 'Android.', 'Edge AI.', 'Kotlin.']
     },
     about: {
       tag: 'Sobre mí', title: 'Perfil profesional',
-      text: 'Ingeniero en Sistemas Informáticos con sólida experiencia en el diseño, desarrollo y despliegue de <strong>aplicaciones móviles nativas y multiplataforma</strong>. Especializado en la integración de hardware, <strong>Edge AI</strong> y optimización de modelos de <strong>Machine Learning</strong>. Apasionado por la innovación tecnológica y la creación de soluciones que aporten valor real a los usuarios y al negocio.<br><br>Originario de Ecuador, actualmente cursando una maestría en Burjassot (Valencia, España).',
-      statYears: 'Años de experiencia', statCerts: 'Certificaciones', statSdk: 'Plataformas SDK (DJI)', statCompanies: 'Empresas / roles',
+      text: 'Desarrollador Móvil con más de 4 años de experiencia en el diseño, desarrollo y despliegue de <strong>aplicaciones nativas (Android/iOS) y multiplataforma con Flutter</strong>. Especializado en integración de hardware, <strong>Edge AI</strong> (IA en el dispositivo) y optimización de modelos de <strong>Machine Learning</strong>. He liderado equipos técnicos y publicado más de 3 aplicaciones en producción en Google Play Console y App Store Connect para clientes como <strong>CNEL, MPCEIP, EPAM y Kimberly-Clark</strong>.<br><br>Originario de Ecuador, actualmente cursando el Máster en Tecnologías Web, Computación en la Nube y Aplicaciones Móviles en la Universitat de València (Burjassot, España).',
+      statYears: 'Años de experiencia', statCerts: 'Certificaciones', statSdk: 'Apps en producción', statCompanies: 'Clientes destacados',
       value1Title: 'Apps móviles', value1Text: 'Desarrollo de aplicaciones nativas y multiplataforma end-to-end.',
       value2Title: 'Hardware & SDKs', value2Text: 'Integración avanzada de SDKs (DJI, sensores, dispositivos IoT).',
       value3Title: 'Edge AI & ML', value3Text: 'Machine Learning y despliegue de modelos en dispositivos móviles.',
@@ -53,17 +53,19 @@ const I18N_TRANSLATIONS = {
     },
     experience: {
       tag: 'Trayectoria', title: 'Experiencia profesional',
-      job1Date: 'Mar 2025 — Sep 2026', job1Title: 'Líder de Desarrollo Móvil', job1Company: 'Altura S.A. · Manta, Manabí, Ecuador',
-      job1Bullet1: 'Liderazgo técnico en la arquitectura y desarrollo end-to-end de apps móviles.',
-      job1Bullet2: 'Integración avanzada de SDKs de DJI para control y automatización de drones.',
-      job1Bullet3: 'Implementación de soluciones de Edge AI y despliegue de modelos de ML (reconocimiento facial y OCR) en tiempo real.',
+      job1Date: 'Mar 2025 — Sep 2026', job1Title: 'Líder de Equipo Móvil', job1Company: 'Altura S.A. · Manta, Manabí, Ecuador',
+      job1Bullet1: 'Lideré un equipo en la arquitectura y el desarrollo end-to-end de aplicaciones móviles.',
+      job1Bullet2: 'Integré SDKs de DJI para el control y la automatización de drones.',
+      job1Bullet3: 'Desplegué modelos de ML on-device (reconocimiento facial y OCR - Reconocimiento Óptico de Caracteres) en tiempo real, reduciendo la dependencia de conexión.',
       job2Date: 'Abr 2024 — Sep 2026', job2Title: 'Desarrollador Móvil', job2Company: 'Altura S.A. · Manta, Manabí, Ecuador',
-      job2Bullet1: 'Desarrollo y mantenimiento de apps nativas (Android/iOS) y multiplataforma.',
-      job2Bullet2: 'Gestión de despliegues y lanzamientos (code signing, aprovisionamiento) en Google Play Console y App Store Connect.',
-      job3Date: 'Abr 2023 — Mar 2024', job3Title: 'Frontend Developer', job3Company: 'Pardux · Quito, Pichincha, Ecuador',
-      job3Bullet1: 'Maquetación y mantenimiento de interfaces de usuario (UI) para aplicaciones web responsivas y escalables.',
-      job4Date: 'Oct 2020 — Nov 2022', job4Title: 'Especialista I+D', job4Company: 'Altura S.A. · Manta, Manabí, Ecuador',
-      job4Bullet1: 'Investigación e implementación de nuevas tecnologías, arquitecturas y metodologías para el desarrollo de apps.'
+      job2Bullet1: 'Desarrollé y publiqué más de 3 aplicaciones en producción, nativas (Android/iOS) y multiplataforma con Flutter, para clientes como CNEL, MPCEIP, EPAM y Kimberly-Clark.',
+      job2Bullet2: 'Gestioné despliegues y lanzamientos (code signing, aprovisionamiento) en Google Play Console y App Store Connect.',
+      job3Date: 'Abr 2023 — Mar 2024', job3Title: 'Desarrollador Frontend', job3Company: 'Pardux · Quito, Pichincha, Ecuador',
+      job3Bullet1: 'Maqueté y mantuve interfaces de usuario (UI) para aplicaciones web responsivas y escalables (HTML5, CSS, JavaScript).',
+      job3Bullet2: 'Garanticé la compatibilidad cross-browser y el diseño responsive en múltiples resoluciones.',
+      job4Date: 'Oct 2020 — Nov 2022', job4Title: 'Especialista de Investigación y Desarrollo (I+D)', job4Company: 'Altura S.A. · Manta, Manabí, Ecuador',
+      job4Bullet1: 'Investigué e implementé nuevas tecnologías, arquitecturas y metodologías para el desarrollo de aplicaciones.',
+      job4Bullet2: 'Elaboré pruebas de concepto (PoC) y documentación técnica para fundamentar decisiones de arquitectura.'
     },
     skills: {
       tag: 'Stack', title: 'Competencias técnicas',
@@ -75,10 +77,12 @@ const I18N_TRANSLATIONS = {
     },
     education: {
       tag: 'Academia', title: 'Formación académica',
-      masterDate: 'Sep 2026 — Presente', masterTitle: 'Máster Universitario en Tecnologías Web, Computación en la Nube y Aplicaciones Móviles',
+      masterDate: 'Sep 2026 — Jul 2027 (en curso)', masterTitle: 'Máster Universitario en Tecnologías Web, Computación en la Nube y Aplicaciones Móviles',
       masterPlace: 'Universitat de València · Valencia, España',
-      degreeDate: 'Oct 2015 — Ago 2023', degreeTitle: 'Ingeniería en Sistemas Informáticos',
-      degreePlace: 'Universidad Técnica de Manabí · Portoviejo, Ecuador'
+      masterNote: 'Áreas: Tecnologías Web, Computación en la Nube, Desarrollo de Aplicaciones Móviles.',
+      degreeDate: 'Oct 2015 — Ago 2023', degreeTitle: 'Grado en Ingeniería en Sistemas Informáticos',
+      degreePlace: 'Universidad Técnica de Manabí · Portoviejo, Ecuador',
+      degreeNote: 'Proyecto de titulación: app móvil colaborativa de comunicación aumentada para inclusión auditiva (Android SDK en Java, Firebase Cloud, Machine Learning).'
     },
     projectsSection: {
       tag: 'Proyectos', title: 'Proyectos destacados'
@@ -153,7 +157,7 @@ const I18N_TRANSLATIONS = {
     },
     project3: {
       tag: 'Proyecto profesional',
-      date: 'Abr 2026 — Sep 2026', affiliation: 'Altura S.A. · Líder de Desarrollo Móvil / Desarrollador Móvil',
+      date: 'Abr 2026 — Sep 2026', affiliation: 'Altura S.A. · Líder de Equipo Móvil / Desarrollador Móvil',
       cardTitle: 'AMobile 7 — Plataforma de Gestión de Fuerza de Campo',
       description: 'Aplicación multiplataforma para equipos de campo que recibe, gestiona y envía tareas operativas, con operación offline y sincronización automática. Desarrollada con Flutter bajo Clean Architecture, BLoC/Cubit para el estado, Drift sobre SQLite (WAL) para persistencia local, GetIt para inyección de dependencias y Dio para HTTP. Integra formularios HTML en WebView, cámara con TFLite y ML Kit, mapas con Google Maps y OpenStreetMap, tracking GPS en segundo plano y un asistente con Gemini.',
       point1: '<strong>Clean Architecture</strong> con BLoC/Cubit, persistencia local <strong>Drift sobre SQLite</strong> (WAL) y sincronización <strong>offline-first</strong> con reintentos y backoff exponencial.',
@@ -165,8 +169,8 @@ const I18N_TRANSLATIONS = {
     certifications: {
       tag: 'Credenciales', title: 'Certificaciones',
       cert1Title: 'Curso de Flutter', cert1Meta: 'Platzi · feb 2023',
-      cert2Title: 'Bases Técnicas de Android', cert2Meta: 'Platzi · mar 2023',
-      cert3Title: 'Diseño de Interfaces con Android Studio', cert3Meta: 'Platzi · mar 2023',
+      cert2Title: 'Curso de Bases Técnicas de Android', cert2Meta: 'Platzi · mar 2023',
+      cert3Title: 'Curso de Diseño de Interfaces con Android Studio', cert3Meta: 'Platzi · mar 2023',
       cert4Title: 'Android Enterprise Associate', cert4Meta: 'Android · sep 2024',
       cert5Title: 'Android Enterprise Professional', cert5Meta: 'Android · dic 2024',
       cert6Title: 'Samsung Knox Associate', cert6Meta: 'Samsung · ago 2024',
@@ -188,7 +192,7 @@ const I18N_TRANSLATIONS = {
     },
     contact: {
       tag: 'Contacto', title: '¿Hablamos de tu próximo proyecto?',
-      description: 'Disponible para trabajar hasta 30h/semana en Valencia (estancia por estudios) o en remoto. Escríbeme y con gusto conversamos.',
+      description: 'Autorizado para trabajar hasta 30 h/semana (estancia por estudios), en Valencia o en remoto. Escríbeme y con gusto conversamos.',
       emailLabel: 'Email', locationLabel: 'Ubicación', locationValue: 'Burjassot, Valencia (España)'
     },
     footer: {
@@ -229,16 +233,16 @@ const I18N_TRANSLATIONS = {
     },
     hero: {
       eyebrow: 'Computer Systems Engineer', greeting: "Hi, I'm", role: 'Mobile Developer',
-      description: 'Specialized in the design, development, and deployment of native and cross-platform mobile applications. Passionate about hardware integration, Edge AI, and Machine Learning model optimization to build solutions with real impact.',
-      badge: 'Available for work · up to 30h/week (student residence permit) · Valencia, Spain',
+      description: '4+ years designing, developing, and deploying native (Android/iOS) and cross-platform apps with Flutter. Specialized in hardware integration, Edge AI (on-device AI), and Machine Learning model optimization.',
+      badge: 'Available for work · up to 30 h/week (student residence permit) · Valencia, Spain',
       ctaPrimary: "Let's talk", ctaSecondary: 'View experience',
       photoAlt: 'Photo of Mario Antonio Rodríguez Cedeño',
       typedWords: ['Flutter.', 'React Native.', 'Android.', 'Edge AI.', 'Kotlin.']
     },
     about: {
       tag: 'About me', title: 'Professional Profile',
-      text: "Computer Systems Engineer with solid experience in the design, development, and deployment of <strong>native and cross-platform mobile applications</strong>. Specialized in hardware integration, <strong>Edge AI</strong>, and <strong>Machine Learning</strong> model optimization. Passionate about technological innovation and building solutions that deliver real value to users and the business.<br><br>Originally from Ecuador, currently pursuing a master's degree in Burjassot (Valencia, Spain).",
-      statYears: 'Years of experience', statCerts: 'Certifications', statSdk: 'SDK Platforms (DJI)', statCompanies: 'Companies / roles',
+      text: "Mobile Developer with 4+ years of experience in the design, development, and deployment of <strong>native (Android/iOS) and cross-platform applications with Flutter</strong>. Specialized in hardware integration, <strong>Edge AI</strong> (on-device AI), and <strong>Machine Learning</strong> model optimization. Led technical teams and shipped 3+ production apps to Google Play Console and App Store Connect for clients such as <strong>CNEL, MPCEIP, EPAM, and Kimberly-Clark</strong>.<br><br>Originally from Ecuador, currently pursuing the Master's Degree in Web Technologies, Cloud Computing and Mobile Applications at the Universitat de València (Burjassot, Spain).",
+      statYears: 'Years of experience', statCerts: 'Certifications', statSdk: 'Production apps', statCompanies: 'Key clients',
       value1Title: 'Mobile Apps', value1Text: 'End-to-end development of native and cross-platform applications.',
       value2Title: 'Hardware & SDKs', value2Text: 'Advanced integration of SDKs (DJI, sensors, IoT devices).',
       value3Title: 'Edge AI & ML', value3Text: 'Machine Learning and model deployment on mobile devices.',
@@ -246,17 +250,19 @@ const I18N_TRANSLATIONS = {
     },
     experience: {
       tag: 'Career Path', title: 'Professional Experience',
-      job1Date: 'Mar 2025 — Sep 2026', job1Title: 'Mobile Development Lead', job1Company: 'Altura S.A. · Manta, Manabí, Ecuador',
-      job1Bullet1: 'Technical leadership in the architecture and end-to-end development of mobile apps.',
-      job1Bullet2: 'Advanced integration of DJI SDKs for drone control and automation.',
-      job1Bullet3: 'Implementation of Edge AI solutions and deployment of ML models (facial recognition and OCR) in real time.',
+      job1Date: 'Mar 2025 — Sep 2026', job1Title: 'Mobile Team Lead', job1Company: 'Altura S.A. · Manta, Manabí, Ecuador',
+      job1Bullet1: 'Led a team in the architecture and end-to-end development of mobile applications.',
+      job1Bullet2: 'Integrated DJI SDKs for drone control and automation.',
+      job1Bullet3: 'Deployed on-device ML models (facial recognition and OCR - Optical Character Recognition) in real time, reducing connectivity dependence.',
       job2Date: 'Apr 2024 — Sep 2026', job2Title: 'Mobile Developer', job2Company: 'Altura S.A. · Manta, Manabí, Ecuador',
-      job2Bullet1: 'Development and maintenance of native (Android/iOS) and cross-platform apps.',
-      job2Bullet2: 'Management of deployments and releases (code signing, provisioning) on Google Play Console and App Store Connect.',
+      job2Bullet1: 'Developed and shipped 3+ production apps, native (Android/iOS) and cross-platform with Flutter, for clients such as CNEL, MPCEIP, EPAM, and Kimberly-Clark.',
+      job2Bullet2: 'Managed deployments and releases (code signing, provisioning) on Google Play Console and App Store Connect.',
       job3Date: 'Apr 2023 — Mar 2024', job3Title: 'Frontend Developer', job3Company: 'Pardux · Quito, Pichincha, Ecuador',
-      job3Bullet1: 'Layout and maintenance of user interfaces (UI) for responsive and scalable web applications.',
-      job4Date: 'Oct 2020 — Nov 2022', job4Title: 'R&D Specialist', job4Company: 'Altura S.A. · Manta, Manabí, Ecuador',
-      job4Bullet1: 'Research and implementation of new technologies, architectures, and methodologies for app development.'
+      job3Bullet1: 'Built and maintained user interfaces (UI) for responsive and scalable web applications (HTML5, CSS, JavaScript).',
+      job3Bullet2: 'Ensured cross-browser compatibility and responsive design across multiple resolutions.',
+      job4Date: 'Oct 2020 — Nov 2022', job4Title: 'Research and Development (R&D) Specialist', job4Company: 'Altura S.A. · Manta, Manabí, Ecuador',
+      job4Bullet1: 'Researched and implemented new technologies, architectures, and methodologies for app development.',
+      job4Bullet2: 'Built proof-of-concept (PoC) prototypes and technical documentation to support architecture decisions.'
     },
     skills: {
       tag: 'Stack', title: 'Technical Skills',
@@ -268,10 +274,12 @@ const I18N_TRANSLATIONS = {
     },
     education: {
       tag: 'Academic Background', title: 'Education',
-      masterDate: 'Sep 2026 — Present', masterTitle: "Master's Degree in Web Technologies, Cloud Computing and Mobile Applications",
+      masterDate: 'Sep 2026 — Jul 2027 (in progress)', masterTitle: "Master's Degree in Web Technologies, Cloud Computing and Mobile Applications",
       masterPlace: 'Universitat de València · Valencia, Spain',
-      degreeDate: 'Oct 2015 — Aug 2023', degreeTitle: 'Computer Systems Engineering',
-      degreePlace: 'Universidad Técnica de Manabí · Portoviejo, Ecuador'
+      masterNote: 'Focus areas: Web Technologies, Cloud Computing, Mobile Application Development.',
+      degreeDate: 'Oct 2015 — Aug 2023', degreeTitle: "Bachelor's Degree in Computer Systems Engineering",
+      degreePlace: 'Universidad Técnica de Manabí · Portoviejo, Ecuador',
+      degreeNote: 'Thesis: collaborative mobile app for augmented communication for hearing inclusion (Android SDK in Java, Firebase Cloud, Machine Learning).'
     },
     projectsSection: {
       tag: 'Projects', title: 'Featured projects'
@@ -346,7 +354,7 @@ const I18N_TRANSLATIONS = {
     },
     project3: {
       tag: 'Professional project',
-      date: 'Apr 2026 — Sep 2026', affiliation: 'Altura S.A. · Mobile Development Lead / Mobile Developer',
+      date: 'Apr 2026 — Sep 2026', affiliation: 'Altura S.A. · Mobile Team Lead / Mobile Developer',
       cardTitle: 'AMobile 7 — Field Force Management Platform',
       description: 'Cross-platform app for field teams to receive, manage, and submit operational tasks, with offline operation and automatic sync. Built with Flutter under Clean Architecture, BLoC/Cubit for state, Drift over SQLite (WAL) for local persistence, GetIt for dependency injection, and Dio for HTTP. Integrates HTML forms in a WebView, a camera with TFLite and ML Kit, Google Maps and OpenStreetMap, background GPS tracking, and a Gemini assistant.',
       point1: '<strong>Clean Architecture</strong> with BLoC/Cubit, local persistence with <strong>Drift over SQLite</strong> (WAL) and <strong>offline-first</strong> sync with retries and exponential backoff.',
@@ -381,7 +389,7 @@ const I18N_TRANSLATIONS = {
     },
     contact: {
       tag: 'Contact', title: "Shall we talk about your next project?",
-      description: "Available to work up to 30h/week in Valencia (student residence permit) or remotely. Reach out and let's talk.",
+      description: "Authorized to work up to 30 h/week (student residence permit), in Valencia or remotely. Reach out and let's talk.",
       emailLabel: 'Email', locationLabel: 'Location', locationValue: 'Burjassot, Valencia (Spain)'
     },
     footer: {
@@ -391,7 +399,7 @@ const I18N_TRANSLATIONS = {
 };
 
 const I18N_STORAGE_KEY = 'mr-lang';
-const I18N_CV_PATHS = { es: 'assets/CV_Mario_Rodriguez.pdf', en: 'assets/CV_Mario_Rodriguez_EN.pdf' };
+const I18N_CV_PATHS = { es: 'assets/CV_Mario_Rodriguez_ES.pdf', en: 'assets/CV_Mario_Rodriguez_EN.pdf' };
 
 function i18nGet(lang, key) {
   return key.split('.').reduce((obj, part) => (obj && obj[part] !== undefined ? obj[part] : null), I18N_TRANSLATIONS[lang]);

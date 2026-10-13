@@ -39,8 +39,10 @@ físico lateral), como si fuera una app móvil real corriendo en un dispositivo.
 │   └── app.js                 # Interacciones del APP-SHELL: tabs, launcher, splash/boot
 │                               #   screen, apps de ejemplo (stack), drag-to-scroll, status bar
 ├── assets/
-│   ├── CV_Mario_Rodriguez.pdf      # CV en español, descargable desde el botón "Descargar CV"
-│   ├── CV_Mario_Rodriguez_EN.pdf   # CV en inglés
+│   ├── CV_Mario_Rodriguez_ES.pdf   # CV en español — "Descargar CV" lo sirve cuando el sitio está en ES
+│   ├── CV_Mario_Rodriguez_EN.pdf   # CV en inglés — lo sirve cuando el sitio está en EN
+│   │                                #   (rutas en I18N_CV_PATHS de js/i18n.js; la fuente original
+│   │                                #   de los PDF está en Documents\CV ESPAÑA\ en la máquina de Mario)
 │   └── img/                         # Imágenes (foto de perfil, capturas de proyectos, etc.)
 ├── README.md            # README genérico orientado a "cómo personalizar el sitio"
 │                         #   (está desactualizado: no menciona app.css/app.js/i18n.js ni el
