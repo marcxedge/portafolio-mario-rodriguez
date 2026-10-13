@@ -288,11 +288,34 @@ sesión de contexto. Lo que se hizo en las sesiones recientes, en orden:
    usuario), se amplió el contenido de cada demo, y finalmente se hizo responsive (dos columnas
    en desktop/landscape, apilado en móvil portrait) — ver arquitectura arriba para el detalle
    final de cada app.
-9. **Publicado a producción** dos veces durante estas sesiones: una vez tras el punto 5-6, y
-   otra vez (la más reciente) tras el punto 9, que incluyó los puntos 6-8 completos. El commit
-   en vivo actual en `main` corresponde al mismo HEAD que `diseno-app` en el momento de cada
-   publicación — revisar `git log --oneline -1 main` vs `origin/main` para confirmar si siguen
-   sincronizados o si `diseno-app` ya avanzó más desde la última publicación.
+9. **Textos alineados con los CV actualizados (oct 2026)**. Fuente: los PDF de
+   `Documents\CV ESPAÑA\` (`CV_Mario_Rodriguez_ES.pdf` / `_EN.pdf`). Se actualizaron, en ES y EN:
+   - Perfil (portada y "Sobre mí") con el resumen del CV: +4 años, +3 apps en producción, clientes
+     CNEL, MPCEIP, EPAM y Kimberly-Clark.
+   - Experiencia: títulos y viñetas con la redacción exacta del CV ("Líder de Equipo Móvil /
+     Mobile Team Lead", "Desarrollador Frontend", "Especialista de Investigación y Desarrollo
+     (I+D)"), y se añadió la 2.ª viñeta de Pardux y de I+D (`job3Bullet2`, `job4Bullet2`).
+   - Formación: máster "Sep 2026 — Jul 2027 (en curso)", grado "Grado en Ingeniería en Sistemas
+     Informáticos", y una línea extra por tarjeta (`masterNote`, `degreeNote`, clase `.edu-note`).
+   - Habilidades: + Python, "TensorFlow Lite (TFLite)", "Visual Studio Code", "Xcode". **Inglés B2**
+     (barra al 75 %) — antes estaba en B1.
+   - Certificaciones de Platzi con el nombre completo del CV ("Curso de …").
+   - Estadísticas de "Sobre mí": 4+ años, 7 certificaciones, **3+ apps en producción** (antes
+     "Plataformas SDK (DJI): 2") y **4 clientes destacados** (antes "Empresas / roles: 3"). El
+     contador animado de `main.js` ahora acepta `data-suffix="+"`.
+   - Los proyectos (AMobile 7, Lift.xto, tesis), voluntariado y hobbies **no** se tocaron: el
+     portafolio los tiene más completos que el CV.
+   - "Descargar CV": el PDF en español se renombró a `CV_Mario_Rodriguez_ES.pdf`; el botón sirve
+     el PDF ES o EN según el idioma activo (`I18N_CV_PATHS` en `js/i18n.js`). Para actualizar el
+     CV en el futuro basta con reemplazar esos dos archivos en `assets/`.
+10. **Quitado "Ingeniero en Sistemas Informáticos" / "Computer Systems Engineer"** como título
+    profesional: se eliminó el subtítulo (`hero.eyebrow`) de la portada y se cambió la
+    meta-descripción a "Desarrollador Móvil / Mobile Developer". Se mantiene únicamente como
+    nombre del grado en la tarjeta de Formación. No volver a ponerlo como título profesional.
+11. **Publicaciones a producción**: tras los puntos 5-6, tras el punto 8, y la más reciente tras
+    los puntos 9-10 (commit `b583a85`, 12 oct 2026, incluyendo este `HANDOFF.md`). Para saber si
+    hay cambios sin publicar, comparar `git log --oneline -1 origin/main` con
+    `git log --oneline -1 diseno-app`.
 
 Para el detalle línea por línea de cada decisión (incluyendo callejones sin salida explorados y
 descartados), el historial de commits en `diseno-app` tiene mensajes descriptivos — úsalo como
