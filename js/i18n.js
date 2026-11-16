@@ -90,8 +90,8 @@ const I18N_TRANSLATIONS = {
     project1: {
       tag: 'Proyecto final de grado',
       date: 'Jul 2022 — Ago 2023', affiliation: 'Asociado con Universidad Técnica de Manabí',
-      thumbTitle: 'SL Assist',
-      cardTitle: 'SL Assist — Asistente de Lenguaje de Señas',
+      thumbTitle: 'SL Assist — Asistente de lenguaje de señas',
+      cardTitle: 'SL Assist — Asistente de lenguaje de señas',
       description: 'Las personas con discapacidad auditiva enfrentan barreras de comunicación constantes. Esta app surgió para derribar una de ellas: convertir texto y voz a lenguaje de señas en tiempo real, directo desde el móvil.',
       point1: 'Convierte lo que escribes o dices a lenguaje de señas al instante, sin internet.',
       point2: 'Un diccionario visual del alfabeto de señas para aprender y consultar en cualquier momento.',
@@ -120,8 +120,8 @@ const I18N_TRANSLATIONS = {
     project2: {
       tag: 'Proyecto personal',
       date: 'Abr 2026 — Presente', affiliation: 'Proyecto personal, publicado en GitHub',
-      thumbTitle: 'Lift.xto — App de Seguimiento de Gimnasio',
-      cardTitle: 'Lift.xto — App de Seguimiento de Gimnasio',
+      thumbTitle: 'Lift.xto — App de seguimiento de gimnasio',
+      cardTitle: 'Lift.xto — App de seguimiento de gimnasio',
       description: 'Nació de mi propia frustración con las apps de gym existentes: o eran demasiado complicadas o perdías todo sin internet. La construí para resolver exactamente eso.',
       point1: 'Nunca pierdes tu historial — funciona sin internet y se sincroniza sola cuando hay conexión.',
       point2: 'Más de 1300 ejercicios con animaciones de técnica para entrenar bien desde el primer día.',
@@ -160,8 +160,8 @@ const I18N_TRANSLATIONS = {
     project3: {
       tag: 'Proyecto profesional',
       date: 'Abr 2026 — Sep 2026', affiliation: 'Altura S.A. · Líder de Equipo Móvil / Desarrollador Móvil',
-      thumbTitle: 'AMobile 7 — App para Equipos en Campo',
-      cardTitle: 'AMobile 7 — App para Equipos en Campo',
+      thumbTitle: 'AMobile 7 — App para equipos en campo',
+      cardTitle: 'AMobile 7 — App para equipos en campo',
       description: 'El reto era que los equipos en campo pudieran trabajar en zonas sin cobertura sin perder productividad. AMobile 7 resuelve eso: las órdenes llegan al móvil, se gestionan sin internet y los resultados se sincronizan solos al volver la señal.',
       point1: 'Los equipos trabajan igual con o sin internet — cero interrupciones por falta de señal.',
       point2: 'La cámara del móvil se convierte en herramienta de trabajo: lee texto, identifica objetos y ubica en el mapa sin salir de la app.',
@@ -291,7 +291,7 @@ const I18N_TRANSLATIONS = {
     project1: {
       tag: 'Final Degree Project',
       date: 'Jul 2022 — Aug 2023', affiliation: 'Associated with Universidad Técnica de Manabí',
-      thumbTitle: 'SL Assist',
+      thumbTitle: 'SL Assist — Sign Language Assistant',
       cardTitle: 'SL Assist — Sign Language Assistant',
       description: 'People with hearing impairments face constant communication barriers. This app was built to break down one of them: converting text and voice to sign language in real time, right on a phone.',
       point1: 'Converts what you type or say to sign language instantly, offline.',
