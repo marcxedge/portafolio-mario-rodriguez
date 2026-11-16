@@ -90,7 +90,7 @@ const I18N_TRANSLATIONS = {
     project1: {
       tag: 'Proyecto de titulación',
       date: 'Jul 2022 — Ago 2023', affiliation: 'Asociado con Universidad Técnica de Manabí',
-      thumbTitle: 'Lenguaje de Señas',
+      thumbTitle: 'Asistente de Lenguaje de Señas',
       cardTitle: 'App de Lenguaje de Señas en Tiempo Real',
       description: 'Las personas con discapacidad auditiva enfrentan barreras de comunicación constantes. Esta app surgió para derribar una de ellas: convertir texto y voz a lenguaje de señas en tiempo real, directo desde el móvil.',
       point1: 'Convierte lo que escribes o dices a lenguaje de señas al instante, sin internet.',
@@ -291,7 +291,7 @@ const I18N_TRANSLATIONS = {
     project1: {
       tag: 'Thesis Project',
       date: 'Jul 2022 — Aug 2023', affiliation: 'Associated with Universidad Técnica de Manabí',
-      thumbTitle: 'Sign Language',
+      thumbTitle: 'Sign Language Assistant',
       cardTitle: 'Real-Time Sign Language App',
       description: 'People with hearing impairments face constant communication barriers. This app was built to break down one of them: converting text and voice to sign language in real time, right on a phone.',
       point1: 'Converts what you type or say to sign language instantly, offline.',
