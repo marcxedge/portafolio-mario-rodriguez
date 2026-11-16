@@ -90,6 +90,7 @@ const I18N_TRANSLATIONS = {
     project1: {
       tag: 'Proyecto de titulación',
       date: 'Jul 2022 — Ago 2023', affiliation: 'Asociado con Universidad Técnica de Manabí',
+      thumbTitle: 'Lenguaje de Señas',
       cardTitle: 'App de Lenguaje de Señas en Tiempo Real',
       description: 'Las personas con discapacidad auditiva enfrentan barreras de comunicación constantes. Esta app surgió para derribar una de ellas: convertir texto y voz a lenguaje de señas en tiempo real, directo desde el móvil.',
       point1: 'Convierte lo que escribes o dices a lenguaje de señas al instante, sin internet.',
@@ -119,6 +120,7 @@ const I18N_TRANSLATIONS = {
     project2: {
       tag: 'Proyecto personal',
       date: 'Abr 2026 — Presente', affiliation: 'Proyecto personal, publicado en GitHub',
+      thumbTitle: 'Lift.xto',
       cardTitle: 'Lift.xto — App de Seguimiento de Gimnasio',
       description: 'Nació de mi propia frustración con las apps de gym existentes: o eran demasiado complicadas o perdías todo sin internet. La construí para resolver exactamente eso.',
       point1: 'Nunca pierdes tu historial — funciona sin internet y se sincroniza sola cuando hay conexión.',
@@ -158,6 +160,7 @@ const I18N_TRANSLATIONS = {
     project3: {
       tag: 'Proyecto profesional',
       date: 'Abr 2026 — Sep 2026', affiliation: 'Altura S.A. · Líder de Equipo Móvil / Desarrollador Móvil',
+      thumbTitle: 'AMobile 7',
       cardTitle: 'AMobile 7 — App para Equipos en Campo',
       description: 'El reto era que los equipos en campo pudieran trabajar en zonas sin cobertura sin perder productividad. AMobile 7 resuelve eso: las órdenes llegan al móvil, se gestionan sin internet y los resultados se sincronizan solos al volver la señal.',
       point1: 'Los equipos trabajan igual con o sin internet — cero interrupciones por falta de señal.',
@@ -288,6 +291,7 @@ const I18N_TRANSLATIONS = {
     project1: {
       tag: 'Thesis Project',
       date: 'Jul 2022 — Aug 2023', affiliation: 'Associated with Universidad Técnica de Manabí',
+      thumbTitle: 'Sign Language',
       cardTitle: 'Real-Time Sign Language App',
       description: 'People with hearing impairments face constant communication barriers. This app was built to break down one of them: converting text and voice to sign language in real time, right on a phone.',
       point1: 'Converts what you type or say to sign language instantly, offline.',
@@ -317,6 +321,7 @@ const I18N_TRANSLATIONS = {
     project2: {
       tag: 'Personal project',
       date: 'Apr 2026 — Present', affiliation: 'Personal project, published on GitHub',
+      thumbTitle: 'Lift.xto',
       cardTitle: 'Lift.xto — Gym Tracking App',
       description: "Born from my own frustration with existing gym apps: either too complicated or you'd lose everything without internet. I built it to fix exactly that.",
       point1: 'Never lose your history — works offline and syncs automatically when connected.',
@@ -356,6 +361,7 @@ const I18N_TRANSLATIONS = {
     project3: {
       tag: 'Professional project',
       date: 'Apr 2026 — Sep 2026', affiliation: 'Altura S.A. · Mobile Team Lead / Mobile Developer',
+      thumbTitle: 'AMobile 7',
       cardTitle: 'AMobile 7 — App for Field Teams',
       description: 'The challenge: let field teams work in areas with no coverage without losing productivity. AMobile 7 solves that — work orders arrive on the phone, managed offline, results sync automatically when signal returns.',
       point1: 'Teams work the same with or without internet — zero interruptions from poor signal.',

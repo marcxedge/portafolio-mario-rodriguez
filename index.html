@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -206,8 +206,206 @@
       <p class="section-tag" data-reveal data-i18n="projectsSection.tag">Proyectos</p>
       <h2 class="section-title" data-reveal data-i18n="projectsSection.title">Proyectos destacados</h2>
 
+      <!-- ===== TIMELINE NAV ===== -->
+      <div class="projects-timeline-nav" role="tablist" aria-label="Proyectos">
+        <button class="project-thumb" role="tab" data-target="project-tesis" aria-selected="false">
+          <img class="thumb-icon thumb-icon--padded" src="assets/img/icon-tesis.png" alt="App Lenguaje de Señas">
+          <div class="thumb-dot"></div>
+          <div class="thumb-label">
+            <span class="project-kicker" data-i18n="project1.tag">Tesis</span>
+            <strong class="thumb-title" data-i18n="project1.thumbTitle">Lenguaje de Señas</strong>
+            <span class="thumb-date" data-i18n="project1.date">Jul 2022</span>
+          </div>
+        </button>
+        <button class="project-thumb" role="tab" data-target="project-amobile" aria-selected="false">
+          <img class="thumb-icon thumb-icon--padded" src="assets/img/icon-amobile.png" alt="AMobile 7">
+          <div class="thumb-dot"></div>
+          <div class="thumb-label">
+            <span class="project-kicker" data-i18n="project3.tag">Profesional</span>
+            <strong class="thumb-title" data-i18n="project3.thumbTitle">AMobile 7</strong>
+            <span class="thumb-date" data-i18n="project3.date">Abr 2026</span>
+          </div>
+        </button>
+        <button class="project-thumb" role="tab" data-target="project-liftxto" aria-selected="false">
+          <img class="thumb-icon" src="assets/img/icon-liftxto.png" alt="Lift.xto">
+          <div class="thumb-dot"></div>
+          <div class="thumb-label">
+            <span class="project-kicker" data-i18n="project2.tag">Personal</span>
+            <strong class="thumb-title" data-i18n="project2.thumbTitle">Lift.xto</strong>
+            <span class="thumb-date" data-i18n="project2.date">Abr 2026</span>
+          </div>
+        </button>
+      </div>
+      <!-- ===== PROYECTO 3: Lenguaje de señas ===== -->
+      <div class="project-entry" id="project-tesis" role="tabpanel">
+        <div class="project-card" data-reveal>
+          <div class="project-glow" aria-hidden="true"></div>
+
+          <div class="project-header">
+            <img class="project-app-icon project-app-icon--padded" src="assets/img/icon-tesis.png" alt="App Lenguaje de Señas">
+            <div class="project-header-content">
+              <div class="project-header-top">
+                <span class="project-kicker" data-i18n="project1.tag">Proyecto de titulación</span>
+                <div class="project-meta">
+                  <span class="timeline-date" data-i18n="project1.date">Jul 2022 — Ago 2023</span>
+                  <span class="project-org">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/></svg>
+                    <span data-i18n="project1.affiliation">Asociado con Universidad Técnica de Manabí</span>
+                  </span>
+                </div>
+              </div>
+              <h3 data-i18n="project1.cardTitle">App de Lenguaje de Señas en Tiempo Real</h3>
+            </div>
+          </div>
+
+          <div class="project-gallery-wrap" data-reveal>
+            <button class="gallery-nav gallery-prev" data-i18n-attr="aria-label:a11y.galleryPrev" aria-label="Anterior">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="project-gallery">
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">01</span><img src="assets/img/project/01-inicio.png" alt="Pantalla de inicio" loading="lazy"></div>
+                <h4 data-i18n="project1.shot1Title">Pantalla de inicio</h4>
+                <p data-i18n="project1.shot1Desc">Acceso al asistente, diccionario y cambio de idioma.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">02</span><img src="assets/img/project/02-diccionario.png" alt="Diccionario visual" loading="lazy"></div>
+                <h4 data-i18n="project1.shot2Title">Diccionario visual</h4>
+                <p data-i18n="project1.shot2Desc">Consulta el gesto de cualquier letra al instante.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">03</span><img src="assets/img/project/03-detalle-letra.png" alt="Gesto de una letra" loading="lazy"></div>
+                <h4 data-i18n="project1.shot3Title">Detalle de gesto</h4>
+                <p data-i18n="project1.shot3Desc">Ilustración exacta del gesto en Lenguaje de Señas.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">04</span><img src="assets/img/project/04-asistente.png" alt="Asistente de comunicación" loading="lazy"></div>
+                <h4 data-i18n="project1.shot4Title">Asistente de comunicación</h4>
+                <p data-i18n="project1.shot4Desc">Escribe, habla o haz señas para comunicarte.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">05</span><img src="assets/img/project/06-redaccion-mensaje.png" alt="Redacción del mensaje" loading="lazy"></div>
+                <h4 data-i18n="project1.shot5Title">Redacción del mensaje</h4>
+                <p data-i18n="project1.shot5Desc">Escribe el mensaje que quieres comunicar.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">06</span><img src="assets/img/project/05-conversion-senas.png" alt="Conversión a señas" loading="lazy"></div>
+                <h4 data-i18n="project1.shot6Title">Conversión a Lenguaje de Señas</h4>
+                <p data-i18n="project1.shot6Desc">Texto convertido a secuencia de gestos al instante.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">07</span><img src="assets/img/project/07-menu-opciones.png" alt="Selector de modo" loading="lazy"></div>
+                <h4 data-i18n="project1.shot7Title">Selector de modo</h4>
+                <p data-i18n="project1.shot7Desc">Alterna entre voz y cámara según necesites.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">08</span><img src="assets/img/project/08-reconocimiento-voz.png" alt="Reconocimiento de voz" loading="lazy"></div>
+                <h4 data-i18n="project1.shot8Title">Reconocimiento de voz</h4>
+                <p data-i18n="project1.shot8Desc">Tu voz transcrita automáticamente a texto.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">09</span><img src="assets/img/project/09-reconocimiento-senas.png" alt="Reconocimiento de señas" loading="lazy"></div>
+                <h4 data-i18n="project1.shot9Title">Reconocimiento de señas</h4>
+                <p data-i18n="project1.shot9Desc">La cámara reconoce señas y compone el mensaje.</p>
+              </div>
+            </div>
+            <button class="gallery-nav gallery-next" data-i18n-attr="aria-label:a11y.galleryNext" aria-label="Siguiente">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+
+          <div class="project-body">
+            <div class="project-desc-wrap">
+              <p class="project-desc" data-i18n="project1.description">Las personas con discapacidad auditiva enfrentan barreras de comunicación constantes.</p>
+              <ul class="project-points">
+                <li data-i18n="project1.point1">Convierte lo que escribes o dices a lenguaje de señas al instante.</li>
+                <li data-i18n="project1.point2">Un diccionario visual del alfabeto de señas.</li>
+                <li data-i18n="project1.point3">Reconoce señas con la cámara y las convierte en texto.</li>
+              </ul>
+              <button class="btn-ver-mas" type="button">
+                <span class="ver-mas-label" data-i18n="common.verMas">Ver más</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </div>
+            <div class="tags">
+              <span class="tag" data-i18n="project1.tagAccessibility">Accesibilidad</span>
+              <span class="tag">Android</span>
+              <span class="tag">Tiempo real</span>
+              <span class="tag">Inclusión</span>
+            </div>
+          </div>
+
+          <div class="project-footer">
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PROYECTO 2: AMobile 7 ===== -->
+      <div class="project-entry" id="project-amobile" role="tabpanel">
+        <div class="project-card" data-reveal>
+          <div class="project-glow" aria-hidden="true"></div>
+
+          <div class="project-header">
+            <img class="project-app-icon project-app-icon--padded" src="assets/img/icon-amobile.png" alt="AMobile 7">
+            <div class="project-header-content">
+              <div class="project-header-top">
+                <span class="project-kicker" data-i18n="project3.tag">Proyecto profesional</span>
+                <div class="project-meta">
+                  <span class="timeline-date" data-i18n="project3.date">Abr 2026 — Sep 2026</span>
+                  <span class="project-org">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+                    <span data-i18n="project3.affiliation">Altura S.A. · Líder de Equipo Móvil / Desarrollador Móvil</span>
+                  </span>
+                </div>
+              </div>
+              <h3 data-i18n="project3.cardTitle">AMobile 7 — App para Equipos en Campo</h3>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <div class="project-desc-wrap">
+              <p class="project-desc" data-i18n="project3.description">El reto era que los equipos en campo pudieran trabajar sin cobertura.</p>
+              <ul class="project-points">
+                <li data-i18n="project3.point1">Los equipos trabajan igual con o sin internet.</li>
+                <li data-i18n="project3.point2">La cámara del móvil se convierte en herramienta de trabajo.</li>
+                <li data-i18n="project3.point3">Un asistente de IA en el bolsillo.</li>
+              </ul>
+              <button class="btn-ver-mas" type="button">
+                <span class="ver-mas-label" data-i18n="common.verMas">Ver más</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </div>
+            <div class="tags">
+              <span class="tag">Offline-first</span>
+              <span class="tag">iOS · Android</span>
+              <span class="tag">Empresarial</span>
+              <span class="tag">IA integrada</span>
+            </div>
+          </div>
+
+          <div class="project-footer">
+            <div class="store-links">
+              <a class="store-btn" href="https://play.google.com/store/apps/details?id=system.altura.amobile.flt&amp;pcampaignid=web_share" target="_blank" rel="noopener">
+                <img src="assets/img/store/google-play.png" alt="" aria-hidden="true">
+                <span class="store-text">
+                  <small data-i18n="project3.storePlayTop">Disponible en</small>
+                  <strong>Google Play</strong>
+                </span>
+              </a>
+              <a class="store-btn store-btn-apple" href="https://apps.apple.com/ec/app/amobile-7/id6783435746" target="_blank" rel="noopener">
+                <img src="assets/img/store/apple.png" alt="" aria-hidden="true">
+                <span class="store-text">
+                  <small data-i18n="project3.storeAppleTop">Disponible en el</small>
+                  <strong>App Store</strong>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- ===== PROYECTO 1: Lift.xto ===== -->
-      <div class="project-entry">
+      <div class="project-entry" id="project-liftxto" role="tabpanel">
         <div class="project-card" data-reveal>
           <div class="project-glow" aria-hidden="true"></div>
 
@@ -335,174 +533,6 @@
               <span data-i18n="project2.repoLink">Ver repositorio</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
             </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== PROYECTO 2: AMobile 7 ===== -->
-      <div class="project-entry">
-        <div class="project-card" data-reveal>
-          <div class="project-glow" aria-hidden="true"></div>
-
-          <div class="project-header">
-            <img class="project-app-icon project-app-icon--padded" src="assets/img/icon-amobile.png" alt="AMobile 7">
-            <div class="project-header-content">
-              <div class="project-header-top">
-                <span class="project-kicker" data-i18n="project3.tag">Proyecto profesional</span>
-                <div class="project-meta">
-                  <span class="timeline-date" data-i18n="project3.date">Abr 2026 — Sep 2026</span>
-                  <span class="project-org">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-                    <span data-i18n="project3.affiliation">Altura S.A. · Líder de Equipo Móvil / Desarrollador Móvil</span>
-                  </span>
-                </div>
-              </div>
-              <h3 data-i18n="project3.cardTitle">AMobile 7 — App para Equipos en Campo</h3>
-            </div>
-          </div>
-
-          <div class="project-body">
-            <div class="project-desc-wrap">
-              <p class="project-desc" data-i18n="project3.description">El reto era que los equipos en campo pudieran trabajar sin cobertura.</p>
-              <ul class="project-points">
-                <li data-i18n="project3.point1">Los equipos trabajan igual con o sin internet.</li>
-                <li data-i18n="project3.point2">La cámara del móvil se convierte en herramienta de trabajo.</li>
-                <li data-i18n="project3.point3">Un asistente de IA en el bolsillo.</li>
-              </ul>
-              <button class="btn-ver-mas" type="button">
-                <span class="ver-mas-label" data-i18n="common.verMas">Ver más</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-              </button>
-            </div>
-            <div class="tags">
-              <span class="tag">Offline-first</span>
-              <span class="tag">iOS · Android</span>
-              <span class="tag">Empresarial</span>
-              <span class="tag">IA integrada</span>
-            </div>
-          </div>
-
-          <div class="project-footer">
-            <div class="store-links">
-              <a class="store-btn" href="https://play.google.com/store/apps/details?id=system.altura.amobile.flt&amp;pcampaignid=web_share" target="_blank" rel="noopener">
-                <img src="assets/img/store/google-play.png" alt="" aria-hidden="true">
-                <span class="store-text">
-                  <small data-i18n="project3.storePlayTop">Disponible en</small>
-                  <strong>Google Play</strong>
-                </span>
-              </a>
-              <a class="store-btn store-btn-apple" href="https://apps.apple.com/ec/app/amobile-7/id6783435746" target="_blank" rel="noopener">
-                <img src="assets/img/store/apple.png" alt="" aria-hidden="true">
-                <span class="store-text">
-                  <small data-i18n="project3.storeAppleTop">Disponible en el</small>
-                  <strong>App Store</strong>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== PROYECTO 3: Lenguaje de señas ===== -->
-      <div class="project-entry">
-        <div class="project-card" data-reveal>
-          <div class="project-glow" aria-hidden="true"></div>
-
-          <div class="project-header">
-            <img class="project-app-icon project-app-icon--padded" src="assets/img/icon-tesis.png" alt="App Lenguaje de Señas">
-            <div class="project-header-content">
-              <div class="project-header-top">
-                <span class="project-kicker" data-i18n="project1.tag">Proyecto de titulación</span>
-                <div class="project-meta">
-                  <span class="timeline-date" data-i18n="project1.date">Jul 2022 — Ago 2023</span>
-                  <span class="project-org">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/></svg>
-                    <span data-i18n="project1.affiliation">Asociado con Universidad Técnica de Manabí</span>
-                  </span>
-                </div>
-              </div>
-              <h3 data-i18n="project1.cardTitle">App de Lenguaje de Señas en Tiempo Real</h3>
-            </div>
-          </div>
-
-          <div class="project-gallery-wrap" data-reveal>
-            <button class="gallery-nav gallery-prev" data-i18n-attr="aria-label:a11y.galleryPrev" aria-label="Anterior">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            <div class="project-gallery">
-              <div class="gallery-item">
-                <div class="gallery-shot"><span class="gallery-index">01</span><img src="assets/img/project/01-inicio.png" alt="Pantalla de inicio" loading="lazy"></div>
-                <h4 data-i18n="project1.shot1Title">Pantalla de inicio</h4>
-                <p data-i18n="project1.shot1Desc">Acceso al asistente, diccionario y cambio de idioma.</p>
-              </div>
-              <div class="gallery-item">
-                <div class="gallery-shot"><span class="gallery-index">02</span><img src="assets/img/project/02-diccionario.png" alt="Diccionario visual" loading="lazy"></div>
-                <h4 data-i18n="project1.shot2Title">Diccionario visual</h4>
-                <p data-i18n="project1.shot2Desc">Consulta el gesto de cualquier letra al instante.</p>
-              </div>
-              <div class="gallery-item">
-                <div class="gallery-shot"><span class="gallery-index">03</span><img src="assets/img/project/03-detalle-letra.png" alt="Gesto de una letra" loading="lazy"></div>
-                <h4 data-i18n="project1.shot3Title">Detalle de gesto</h4>
-                <p data-i18n="project1.shot3Desc">Ilustración exacta del gesto en Lenguaje de Señas.</p>
-              </div>
-              <div class="gallery-item">
-                <div class="gallery-shot"><span class="gallery-index">04</span><img src="assets/img/project/04-asistente.png" alt="Asistente de comunicación" loading="lazy"></div>
-                <h4 data-i18n="project1.shot4Title">Asistente de comunicación</h4>
-                <p data-i18n="project1.shot4Desc">Escribe, habla o haz señas para comunicarte.</p>
-              </div>
-              <div class="gallery-item">
-                <div class="gallery-shot"><span class="gallery-index">05</span><img src="assets/img/project/06-redaccion-mensaje.png" alt="Redacción del mensaje" loading="lazy"></div>
-                <h4 data-i18n="project1.shot5Title">Redacción del mensaje</h4>
-                <p data-i18n="project1.shot5Desc">Escribe el mensaje que quieres comunicar.</p>
-              </div>
-              <div class="gallery-item">
-                <div class="gallery-shot"><span class="gallery-index">06</span><img src="assets/img/project/05-conversion-senas.png" alt="Conversión a señas" loading="lazy"></div>
-                <h4 data-i18n="project1.shot6Title">Conversión a Lenguaje de Señas</h4>
-                <p data-i18n="project1.shot6Desc">Texto convertido a secuencia de gestos al instante.</p>
-              </div>
-              <div class="gallery-item">
-                <div class="gallery-shot"><span class="gallery-index">07</span><img src="assets/img/project/07-menu-opciones.png" alt="Selector de modo" loading="lazy"></div>
-                <h4 data-i18n="project1.shot7Title">Selector de modo</h4>
-                <p data-i18n="project1.shot7Desc">Alterna entre voz y cámara según necesites.</p>
-              </div>
-              <div class="gallery-item">
-                <div class="gallery-shot"><span class="gallery-index">08</span><img src="assets/img/project/08-reconocimiento-voz.png" alt="Reconocimiento de voz" loading="lazy"></div>
-                <h4 data-i18n="project1.shot8Title">Reconocimiento de voz</h4>
-                <p data-i18n="project1.shot8Desc">Tu voz transcrita automáticamente a texto.</p>
-              </div>
-              <div class="gallery-item">
-                <div class="gallery-shot"><span class="gallery-index">09</span><img src="assets/img/project/09-reconocimiento-senas.png" alt="Reconocimiento de señas" loading="lazy"></div>
-                <h4 data-i18n="project1.shot9Title">Reconocimiento de señas</h4>
-                <p data-i18n="project1.shot9Desc">La cámara reconoce señas y compone el mensaje.</p>
-              </div>
-            </div>
-            <button class="gallery-nav gallery-next" data-i18n-attr="aria-label:a11y.galleryNext" aria-label="Siguiente">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
-          </div>
-
-          <div class="project-body">
-            <div class="project-desc-wrap">
-              <p class="project-desc" data-i18n="project1.description">Las personas con discapacidad auditiva enfrentan barreras de comunicación constantes.</p>
-              <ul class="project-points">
-                <li data-i18n="project1.point1">Convierte lo que escribes o dices a lenguaje de señas al instante.</li>
-                <li data-i18n="project1.point2">Un diccionario visual del alfabeto de señas.</li>
-                <li data-i18n="project1.point3">Reconoce señas con la cámara y las convierte en texto.</li>
-              </ul>
-              <button class="btn-ver-mas" type="button">
-                <span class="ver-mas-label" data-i18n="common.verMas">Ver más</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-              </button>
-            </div>
-            <div class="tags">
-              <span class="tag" data-i18n="project1.tagAccessibility">Accesibilidad</span>
-              <span class="tag">Android</span>
-              <span class="tag">Tiempo real</span>
-              <span class="tag">Inclusión</span>
-            </div>
-          </div>
-
-          <div class="project-footer">
           </div>
         </div>
       </div>

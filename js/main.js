@@ -19,7 +19,29 @@ document.addEventListener('DOMContentLoaded', () => {
   initGalleryScroll();
   initGalleryModal();
   initVerMas();
+  initProjectNav();
 });
+
+/* Project timeline nav — clicking a thumb shows the full project entry */
+function initProjectNav() {
+  const thumbs = document.querySelectorAll('.project-thumb');
+  if (!thumbs.length) return;
+
+  const entries = {};
+  document.querySelectorAll('.project-entry[id]').forEach(e => { entries[e.id] = e; });
+
+  const activate = (thumb) => {
+    thumbs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+    Object.values(entries).forEach(e => e.classList.remove('is-active'));
+    thumb.classList.add('is-active');
+    thumb.setAttribute('aria-selected', 'true');
+    const target = entries[thumb.dataset.target];
+    if (target) target.classList.add('is-active');
+  };
+
+  thumbs.forEach(t => t.addEventListener('click', () => activate(t)));
+  if (thumbs[0]) activate(thumbs[0]);
+}
 
 /* "Ver más / Ver menos" toggle on project descriptions */
 function initVerMas() {
