@@ -18,7 +18,35 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothAnchors();
   initGalleryScroll();
   initGalleryModal();
+  initVerMas();
 });
+
+/* "Ver más / Ver menos" toggle on project descriptions */
+function initVerMas() {
+  const updateLabel = (btn, expanded) => {
+    const lang = document.documentElement.lang || 'es';
+    const label = window.I18N ? window.I18N.get(lang, expanded ? 'common.verMenos' : 'common.verMas') : (expanded ? 'Ver menos' : 'Ver más');
+    const span = btn.querySelector('.ver-mas-label');
+    if (span) span.textContent = label;
+  };
+
+  document.querySelectorAll('.btn-ver-mas').forEach(btn => {
+    const wrap = btn.closest('.project-desc-wrap');
+    if (!wrap) return;
+    btn.addEventListener('click', () => {
+      wrap.classList.toggle('is-expanded');
+      updateLabel(btn, wrap.classList.contains('is-expanded'));
+    });
+  });
+
+  document.addEventListener('i18n:changed', () => {
+    document.querySelectorAll('.btn-ver-mas').forEach(btn => {
+      const wrap = btn.closest('.project-desc-wrap');
+      if (!wrap) return;
+      updateLabel(btn, wrap.classList.contains('is-expanded'));
+    });
+  });
+}
 
 /* Project screenshots carousels — left/right arrow navigation (one per project) */
 function initGalleryScroll() {

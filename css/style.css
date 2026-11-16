@@ -728,7 +728,7 @@ img { max-width: 100%; display: block; }
 .edu-card p { color: var(--text-mute); font-size: 0.88rem; }
 .edu-card .edu-note { margin-top: 8px; font-size: 0.82rem; line-height: 1.5; }
 
-/* ===== Project ===== */
+/* ===== Project — Play Store layout ===== */
 .project-entry { margin-bottom: 80px; }
 .project-entry:last-child { margin-bottom: 0; }
 .project-kicker {
@@ -739,14 +739,13 @@ img { max-width: 100%; display: block; }
   background: var(--accent-soft);
   padding: 5px 13px;
   border-radius: 999px;
-  margin-bottom: 16px;
 }
 .project-card {
   position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 48px;
+  padding: 36px 40px;
   overflow: hidden;
 }
 .project-glow {
@@ -756,13 +755,22 @@ img { max-width: 100%; display: block; }
   top: -100px; right: -100px;
   pointer-events: none;
 }
-.project-content { position: relative; z-index: 1; max-width: 720px; }
+
+/* Header: kicker + meta + title */
+.project-header { position: relative; z-index: 1; margin-bottom: 24px; }
+.project-header-top {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-bottom: 14px;
+}
+.project-header h3 { font-size: 1.35rem; line-height: 1.3; margin: 0; }
 .project-meta {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 14px;
-  margin-bottom: 16px;
 }
 .project-org {
   display: inline-flex;
@@ -772,9 +780,21 @@ img { max-width: 100%; display: block; }
   color: var(--text-mute);
 }
 .project-org svg { width: 16px; height: 16px; flex-shrink: 0; }
-.project-content h3 { font-size: 1.4rem; margin-bottom: 16px; }
-.project-content > p { color: var(--text-dim); margin-bottom: 20px; }
-.project-points { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+
+/* Body: description + points + tags */
+.project-body { position: relative; z-index: 1; margin-top: 24px; }
+
+.project-desc-wrap { margin-bottom: 20px; }
+.project-desc { color: var(--text-dim); margin-bottom: 14px; }
+.project-desc-wrap:not(.is-expanded) .project-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.project-desc-wrap:not(.is-expanded) .project-points { display: none; }
+
+.project-points { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
 .project-points li {
   color: var(--text-dim);
   font-size: 0.95rem;
@@ -790,19 +810,43 @@ img { max-width: 100%; display: block; }
 }
 .project-points strong { color: var(--text); }
 
-.project-gallery-title {
-  position: relative;
-  z-index: 1;
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin: 40px 0 24px;
+.btn-ver-mas {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+  margin-bottom: 20px;
+  transition: opacity 0.2s;
 }
+.btn-ver-mas:hover { opacity: 0.75; }
+.btn-ver-mas svg { width: 16px; height: 16px; transition: transform 0.3s; }
+.project-desc-wrap.is-expanded .btn-ver-mas svg { transform: rotate(180deg); }
+
+/* Footer: store/repo links */
+.project-footer {
+  position: relative; z-index: 1;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.project-footer:empty { display: none; }
+.project-footer .store-links { margin-top: 0; }
+.project-footer .cert-link { margin-top: 0; }
+/* Gallery sits between header and body */
 .project-gallery-wrap {
   position: relative;
   z-index: 1;
   display: flex;
   align-items: center;
   gap: 12px;
+  margin: 0 -40px;
+  padding: 0 40px;
 }
 .project-gallery {
   display: flex;
@@ -1188,7 +1232,8 @@ img { max-width: 100%; display: block; }
   .skills-grid { grid-template-columns: 1fr; }
   .cert-grid { grid-template-columns: 1fr; }
   .section { padding: 56px 0; }
-  .project-card { padding: 30px 22px; }
+  .project-card { padding: 28px 22px; }
+  .project-gallery-wrap { margin: 0 -22px; padding: 0 22px; }
   .gallery-item { flex-basis: 142px; width: 142px; }
   .gallery-nav { width: 34px; height: 34px; }
   .gallery-nav svg { width: 15px; height: 15px; }

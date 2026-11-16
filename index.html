@@ -210,173 +210,129 @@
       <div class="project-entry">
         <div class="project-card" data-reveal>
           <div class="project-glow" aria-hidden="true"></div>
-          <div class="project-content">
-            <span class="project-kicker" data-i18n="project2.tag">Proyecto personal</span>
-            <div class="project-meta">
-              <span class="timeline-date" data-i18n="project2.date">Abr 2026 — Presente</span>
-              <span class="project-org">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.46-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .28.18.61.69.5A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
-                <span data-i18n="project2.affiliation">Proyecto personal, publicado en GitHub</span>
-              </span>
+
+          <div class="project-header">
+            <div class="project-header-top">
+              <span class="project-kicker" data-i18n="project2.tag">Proyecto personal</span>
+              <div class="project-meta">
+                <span class="timeline-date" data-i18n="project2.date">Abr 2026 — Presente</span>
+                <span class="project-org">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.46-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .28.18.61.69.5A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+                  <span data-i18n="project2.affiliation">Proyecto personal, publicado en GitHub</span>
+                </span>
+              </div>
             </div>
-            <h3 data-i18n="project2.cardTitle">Lift.xto — App Móvil de Seguimiento de Gimnasio con Sincronización Offline-First</h3>
-            <p data-i18n="project2.description">App móvil multiplataforma para registrar y analizar el entrenamiento de gimnasio: sobrecarga progresiva, mapa muscular, medidas corporales y gráficos de progreso. Desarrollada con Flutter y Dart, arquitectura Repository + Observer con Provider, persistencia local en SQLite y sincronización offline-first con Firebase (Firestore y Storage) mediante patrón outbox, con autenticación de Google y correo.</p>
-            <ul class="project-points">
-              <li data-i18n-html="project2.point1"><strong>Flutter/Dart</strong> con <strong>SQLite local</strong> + sincronización <strong>offline-first</strong> contra Firebase Firestore/Storage (patrón outbox, resolución de conflictos por última escritura).</li>
-              <li data-i18n-html="project2.point2">Catálogo de referencia de <strong>~1300 ejercicios</strong> con instrucciones en español y GIFs de la técnica servidos bajo demanda desde Firebase Storage, más un <strong>mapa muscular interactivo</strong> y una <strong>racha de constancia</strong> calculada contra la rutina real del usuario.</li>
-              <li data-i18n-html="project2.point3">Capa de autorregulación propia sobre tu propio historial — <strong>sugerencia de sobrecarga progresiva</strong>, <strong>alerta de estancamiento</strong> y un <strong>resumen compartible</strong> con tus totales y récords, sin IA ni servicios externos — más arquitectura <strong>Repository + Observer</strong> (ChangeNotifier + provider), autenticación con <strong>Google Sign-In o email/contraseña</strong>, unidad de peso <strong>kg/lb</strong> configurable, diseño <strong>responsive</strong> y build de Android endurecida.</li>
-            </ul>
+            <h3 data-i18n="project2.cardTitle">Lift.xto — App de Seguimiento de Gimnasio</h3>
+          </div>
+
+          <div class="project-gallery-wrap" data-reveal>
+            <button class="gallery-nav gallery-prev" data-i18n-attr="aria-label:a11y.galleryPrev" aria-label="Anterior">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="project-gallery">
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">01</span><img src="assets/img/lift-xto/login.png" alt="Inicio de sesión de Lift.xto" loading="lazy"></div>
+                <h4 data-i18n="project2.shot1Title">Inicio de sesión</h4>
+                <p data-i18n="project2.shot1Desc">Login con Google o email/contraseña.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">02</span><img src="assets/img/lift-xto/perfil_configuracion.png" alt="Perfil de Lift.xto" loading="lazy"></div>
+                <h4 data-i18n="project2.shot2Title">Perfil obligatorio</h4>
+                <p data-i18n="project2.shot2Desc">Configura tu perfil antes de empezar.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">03</span><img src="assets/img/lift-xto/rutina_semanal.png" alt="Rutina semanal de Lift.xto" loading="lazy"></div>
+                <h4 data-i18n="project2.shot3Title">Rutina semanal + racha</h4>
+                <p data-i18n="project2.shot3Desc">Los 7 días de la semana y tu racha activa.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">04</span><img src="assets/img/lift-xto/dia_ejercicios.png" alt="Ejercicios del día" loading="lazy"></div>
+                <h4 data-i18n="project2.shot4Title">Ejercicios del día</h4>
+                <p data-i18n="project2.shot4Desc">Listado con series y repeticiones objetivo.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">05</span><img src="assets/img/lift-xto/detalle_ejercicio.png" alt="Detalle y progresión" loading="lazy"></div>
+                <h4 data-i18n="project2.shot5Title">Detalle y progresión</h4>
+                <p data-i18n="project2.shot5Desc">Historial y récord personal del ejercicio.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">06</span><img src="assets/img/lift-xto/progreso_volumen.png" alt="Volumen y 1RM" loading="lazy"></div>
+                <h4 data-i18n="project2.shot6Title">Volumen y 1RM estimado</h4>
+                <p data-i18n="project2.shot6Desc">Revela progreso real cuando el peso no sube.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">07</span><img src="assets/img/lift-xto/progreso_prs.png" alt="Récords personales" loading="lazy"></div>
+                <h4 data-i18n="project2.shot7Title">Resumen de progreso</h4>
+                <p data-i18n="project2.shot7Desc">Récords personales por ejercicio.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">08</span><img src="assets/img/lift-xto/mapa_muscular.png" alt="Mapa muscular" loading="lazy"></div>
+                <h4 data-i18n="project2.shot8Title">Mapa muscular</h4>
+                <p data-i18n="project2.shot8Desc">Volumen entrenado por grupo muscular.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">09</span><img src="assets/img/lift-xto/catalogo_busqueda.png" alt="Catálogo de ejercicios" loading="lazy"></div>
+                <h4 data-i18n="project2.shot9Title">Catálogo de ejercicios</h4>
+                <p data-i18n="project2.shot9Desc">Búsqueda y filtro por músculo.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">10</span><img src="assets/img/lift-xto/catalogo_detalle.png" alt="Ficha del ejercicio" loading="lazy"></div>
+                <h4 data-i18n="project2.shot10Title">Ficha del ejercicio</h4>
+                <p data-i18n="project2.shot10Desc">GIF de técnica e instrucciones.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">11</span><img src="assets/img/lift-xto/cuerpo.png" alt="Perfil y peso" loading="lazy"></div>
+                <h4 data-i18n="project2.shot11Title">Perfil, peso e IMC</h4>
+                <p data-i18n="project2.shot11Desc">Seguimiento de peso y composición corporal.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">12</span><img src="assets/img/lift-xto/medidas_corporales.png" alt="Medidas corporales" loading="lazy"></div>
+                <h4 data-i18n="project2.shot12Title">Medidas corporales</h4>
+                <p data-i18n="project2.shot12Desc">Evolución de medidas por zona.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">13</span><img src="assets/img/lift-xto/sugerencia_progresion.png" alt="Sugerencia de progresión" loading="lazy"></div>
+                <h4 data-i18n="project2.shot13Title">Sugerencia de progresión</h4>
+                <p data-i18n="project2.shot13Desc">La app te dice cuándo subir de peso.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">14</span><img src="assets/img/lift-xto/resumen_wrapped.png" alt="Resumen compartible" loading="lazy"></div>
+                <h4 data-i18n="project2.shot14Title">Tu resumen, compartible</h4>
+                <p data-i18n="project2.shot14Desc">Récords y totales en una tarjeta.</p>
+              </div>
+            </div>
+            <button class="gallery-nav gallery-next" data-i18n-attr="aria-label:a11y.galleryNext" aria-label="Siguiente">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+
+          <div class="project-body">
+            <div class="project-desc-wrap">
+              <p class="project-desc" data-i18n="project2.description">Nació de mi propia frustración con las apps de gym existentes.</p>
+              <ul class="project-points">
+                <li data-i18n="project2.point1">Nunca pierdes tu historial.</li>
+                <li data-i18n="project2.point2">Más de 1300 ejercicios con animaciones.</li>
+                <li data-i18n="project2.point3">La app te dice cuándo subir de peso.</li>
+              </ul>
+              <button class="btn-ver-mas" type="button">
+                <span class="ver-mas-label" data-i18n="common.verMas">Ver más</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </div>
             <div class="tags">
-              <span class="tag">Flutter</span>
-              <span class="tag">Dart</span>
-              <span class="tag">Firebase</span>
-              <span class="tag">SQLite</span>
-              <span class="tag">Provider</span>
-              <span class="tag">Material 3</span>
+              <span class="tag">Offline-first</span>
               <span class="tag">Android</span>
+              <span class="tag">Gym tracker</span>
+              <span class="tag">Coaching</span>
             </div>
+          </div>
+
+          <div class="project-footer">
             <a class="cert-link" href="https://github.com/marcxedge/lift_xto" target="_blank" rel="noopener">
               <span data-i18n="project2.repoLink">Ver repositorio</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
             </a>
           </div>
-
-          <h3 class="project-gallery-title" data-reveal data-i18n="project2.galleryTitle">Capturas de la aplicación</h3>
-        <div class="project-gallery-wrap" data-reveal>
-          <button class="gallery-nav gallery-prev" data-i18n-attr="aria-label:a11y.galleryPrev" aria-label="Anterior">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-          </button>
-          <div class="project-gallery">
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">01</span>
-                <img src="assets/img/lift-xto/login.png" alt="Inicio de sesión de Lift.xto" loading="lazy">
-              </div>
-              <h4 data-i18n="project2.shot1Title">Inicio de sesión</h4>
-              <p data-i18n="project2.shot1Desc">Login con Google o email/contraseña (con toggle de mostrar/ocultar contraseña) — habilita la sincronización con Firebase y el acceso multi-dispositivo.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">02</span>
-                <img src="assets/img/lift-xto/perfil_configuracion.png" alt="Perfil obligatorio en Lift.xto" loading="lazy">
-              </div>
-              <h4 data-i18n="project2.shot2Title">Perfil obligatorio</h4>
-              <p data-i18n="project2.shot2Desc">La primera vez que inicias sesión, la app pide nombre, apellido, estatura y fecha de nacimiento antes de dejarte entrar — la edad se calcula sola, sin pedirla directamente.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">03</span>
-                <img src="assets/img/lift-xto/rutina_semanal.png" alt="Rutina semanal de Lift.xto" loading="lazy">
-              </div>
-              <h4 data-i18n="project2.shot3Title">Rutina semanal + racha</h4>
-              <p data-i18n="project2.shot3Desc">Vista principal con los 7 días de la semana, el día actual destacado, y una racha 🔥 de días consecutivos entrenados según lo programado — los días libres no la cortan.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">04</span>
-                <img src="assets/img/lift-xto/dia_ejercicios.png" alt="Ejercicios del día en Lift.xto" loading="lazy">
-              </div>
-              <h4 data-i18n="project2.shot4Title">Ejercicios del día</h4>
-              <p data-i18n="project2.shot4Desc">Listado de ejercicios de un día puntual, con series/repeticiones objetivo y el grupo muscular elegido manualmente al crear cada ejercicio.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">05</span>
-                <img src="assets/img/lift-xto/detalle_ejercicio.png" alt="Detalle y progresión de un ejercicio" loading="lazy">
-              </div>
-              <h4 data-i18n="project2.shot5Title">Detalle y progresión</h4>
-              <p data-i18n="project2.shot5Desc">Historial de sesiones, récord personal (PR) y gráfico de evolución del peso levantado a lo largo del tiempo para ese ejercicio.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">06</span>
-                <img src="assets/img/lift-xto/progreso_volumen.png" alt="Gráfico de volumen y 1RM estimado" loading="lazy">
-              </div>
-              <h4 data-i18n="project2.shot6Title">Volumen y 1RM estimado</h4>
-              <p data-i18n="project2.shot6Desc">El mismo gráfico admite cambiar la métrica a volumen total o 1RM estimado (fórmula de Epley) — revela progreso real cuando el peso se mantiene pero las repeticiones suben.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">07</span>
-                <img src="assets/img/lift-xto/progreso_prs.png" alt="Resumen de progreso y récords personales" loading="lazy">
-              </div>
-              <h4 data-i18n="project2.shot7Title">Resumen de progreso</h4>
-              <p data-i18n="project2.shot7Desc">Vista consolidada de récords personales por ejercicio, actualizada al instante gracias a la arquitectura reactiva (Repository + Observer) — sin necesidad de recargar la app.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">08</span>
-                <img src="assets/img/lift-xto/mapa_muscular.png" alt="Mapa muscular de Lift.xto" loading="lazy">
-              </div>
-              <h4 data-i18n="project2.shot8Title">Mapa muscular</h4>
-              <p data-i18n="project2.shot8Desc">Visualización del volumen entrenado por grupo muscular en los últimos días, calculado a partir de la categorización elegida en cada ejercicio.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">09</span>
-                <img src="assets/img/lift-xto/catalogo_busqueda.png" alt="Catálogo de ejercicios de Lift.xto" loading="lazy">
-              </div>
-              <h4 data-i18n="project2.shot9Title">Catálogo de ejercicios</h4>
-              <p data-i18n="project2.shot9Desc">Búsqueda y filtro por músculo sobre un catálogo de referencia de ~1300 ejercicios, con nombre traducido a español y miniatura de la técnica.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">10</span>
-                <img src="assets/img/lift-xto/catalogo_detalle.png" alt="Ficha de ejercicio del catálogo" loading="lazy">
-              </div>
-              <h4 data-i18n="project2.shot10Title">Ficha del ejercicio</h4>
-              <p data-i18n="project2.shot10Desc">Cada ejercicio del catálogo trae un GIF animado de la técnica correcta e instrucciones numeradas en español — se puede usar para precargar nombre y músculo al crear un ejercicio propio.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">11</span>
-                <img src="assets/img/lift-xto/cuerpo.png" alt="Perfil, peso e IMC en Lift.xto" loading="lazy">
-              </div>
-              <h4 data-i18n="project2.shot11Title">Perfil, peso e IMC</h4>
-              <p data-i18n="project2.shot11Desc">Pantalla unificada de perfil, peso corporal e Índice de Masa Corporal, con escala visual y rango de peso saludable recomendado para tu estatura.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">12</span>
-                <img src="assets/img/lift-xto/medidas_corporales.png" alt="Medidas corporales en Lift.xto" loading="lazy">
-              </div>
-              <h4 data-i18n="project2.shot12Title">Medidas corporales</h4>
-              <p data-i18n="project2.shot12Desc">Cintura, pecho, cadera, bíceps, muslo, pantorrilla y cuello, con gráfico de evolución por zona — complementa el peso/IMC con composición corporal aproximada.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">13</span>
-                <img src="assets/img/lift-xto/sugerencia_progresion.png" alt="Sugerencia de progresión en Lift.xto" loading="lazy">
-              </div>
-              <h4 data-i18n="project2.shot13Title">Sugerencia de progresión</h4>
-              <p data-i18n="project2.shot13Desc">Al registrar una sesión, la app sugiere el peso/reps de la próxima según si llegaste al techo o piso de tu rango objetivo — autorregulación simple sobre tu propio historial.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">14</span>
-                <img src="assets/img/lift-xto/resumen_wrapped.png" alt="Resumen compartible de Lift.xto" loading="lazy">
-              </div>
-              <h4 data-i18n="project2.shot14Title">Tu resumen, compartible</h4>
-              <p data-i18n="project2.shot14Desc">Kg totales levantados, racha máxima histórica, músculo más trabajado y PRs destacados en una tarjeta que se comparte como imagen con un toque.</p>
-            </div>
-          </div>
-          <button class="gallery-nav gallery-next" data-i18n-attr="aria-label:a11y.galleryNext" aria-label="Siguiente">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-          </button>
-        </div>
         </div>
       </div>
 
@@ -384,32 +340,43 @@
       <div class="project-entry">
         <div class="project-card" data-reveal>
           <div class="project-glow" aria-hidden="true"></div>
-          <div class="project-content">
-            <span class="project-kicker" data-i18n="project3.tag">Proyecto profesional</span>
-            <div class="project-meta">
-              <span class="timeline-date" data-i18n="project3.date">Abr 2026 — Sep 2026</span>
-              <span class="project-org">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-                <span data-i18n="project3.affiliation">Altura S.A. · Líder de Equipo Móvil / Desarrollador Móvil</span>
-              </span>
+
+          <div class="project-header">
+            <div class="project-header-top">
+              <span class="project-kicker" data-i18n="project3.tag">Proyecto profesional</span>
+              <div class="project-meta">
+                <span class="timeline-date" data-i18n="project3.date">Abr 2026 — Sep 2026</span>
+                <span class="project-org">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+                  <span data-i18n="project3.affiliation">Altura S.A. · Líder de Equipo Móvil / Desarrollador Móvil</span>
+                </span>
+              </div>
             </div>
-            <h3 data-i18n="project3.cardTitle">AMobile 7 — Plataforma de Gestión de Fuerza de Campo</h3>
-            <p data-i18n="project3.description">Aplicación multiplataforma para equipos de campo que recibe, gestiona y envía tareas operativas, con operación offline y sincronización automática. Desarrollada con Flutter bajo Clean Architecture, BLoC/Cubit para el estado, Drift sobre SQLite (WAL) para persistencia local, GetIt para inyección de dependencias y Dio para HTTP. Integra formularios HTML en WebView, cámara con TFLite y ML Kit, mapas con Google Maps y OpenStreetMap, tracking GPS en segundo plano y un asistente con Gemini.</p>
-            <ul class="project-points">
-              <li data-i18n-html="project3.point1"><strong>Clean Architecture</strong> con BLoC/Cubit, persistencia local <strong>Drift sobre SQLite</strong> (WAL) y sincronización <strong>offline-first</strong> con reintentos y backoff exponencial.</li>
-              <li data-i18n-html="project3.point2">Interoperabilidad de <strong>más de 180 métodos JavaScript</strong> para formularios HTML dinámicos (cámara, GPS, firma, impresión), cámara con <strong>TFLite + Google ML Kit</strong> y tracking GPS en segundo plano.</li>
-              <li data-i18n-html="project3.point3">Mapas conmutables Google Maps / OpenStreetMap, <strong>asistente de IA con Gemini</strong> sobre datos locales, impresión ESC/POS y ZPL, arquitectura <strong>multi-tenant</strong> y soporte ES/EN/PT.</li>
-            </ul>
+            <h3 data-i18n="project3.cardTitle">AMobile 7 — App para Equipos en Campo</h3>
+          </div>
+
+          <div class="project-body">
+            <div class="project-desc-wrap">
+              <p class="project-desc" data-i18n="project3.description">El reto era que los equipos en campo pudieran trabajar sin cobertura.</p>
+              <ul class="project-points">
+                <li data-i18n="project3.point1">Los equipos trabajan igual con o sin internet.</li>
+                <li data-i18n="project3.point2">La cámara del móvil se convierte en herramienta de trabajo.</li>
+                <li data-i18n="project3.point3">Un asistente de IA en el bolsillo.</li>
+              </ul>
+              <button class="btn-ver-mas" type="button">
+                <span class="ver-mas-label" data-i18n="common.verMas">Ver más</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </div>
             <div class="tags">
-              <span class="tag">Flutter</span>
-              <span class="tag">Dart</span>
-              <span class="tag">BLoC</span>
-              <span class="tag">Drift</span>
-              <span class="tag">SQLite</span>
-              <span class="tag">TFLite</span>
-              <span class="tag">Google ML Kit</span>
-              <span class="tag">Gemini</span>
+              <span class="tag">Offline-first</span>
+              <span class="tag">iOS · Android</span>
+              <span class="tag">Empresarial</span>
+              <span class="tag">IA integrada</span>
             </div>
+          </div>
+
+          <div class="project-footer">
             <div class="store-links">
               <a class="store-btn" href="https://play.google.com/store/apps/details?id=system.altura.amobile.flt&amp;pcampaignid=web_share" target="_blank" rel="noopener">
                 <img src="assets/img/store/google-play.png" alt="" aria-hidden="true">
@@ -430,128 +397,107 @@
         </div>
       </div>
 
-      <!-- ===== PROYECTO 3: Comunicación aumentada ===== -->
+      <!-- ===== PROYECTO 3: Lenguaje de señas ===== -->
       <div class="project-entry">
         <div class="project-card" data-reveal>
           <div class="project-glow" aria-hidden="true"></div>
-          <div class="project-content">
-            <span class="project-kicker" data-i18n="project1.tag">Proyecto de titulación</span>
-            <div class="project-meta">
-              <span class="timeline-date" data-i18n="project1.date">Jul 2022 — Ago 2023</span>
-              <span class="project-org">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/></svg>
-                <span data-i18n="project1.affiliation">Asociado con Universidad Técnica de Manabí</span>
-              </span>
+
+          <div class="project-header">
+            <div class="project-header-top">
+              <span class="project-kicker" data-i18n="project1.tag">Proyecto de titulación</span>
+              <div class="project-meta">
+                <span class="timeline-date" data-i18n="project1.date">Jul 2022 — Ago 2023</span>
+                <span class="project-org">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/></svg>
+                  <span data-i18n="project1.affiliation">Asociado con Universidad Técnica de Manabí</span>
+                </span>
+              </div>
             </div>
-            <h3 data-i18n="project1.cardTitle">App Móvil Colaborativa de Comunicación Aumentada para Inclusión Auditiva</h3>
-            <p data-i18n="project1.description">Proyecto de titulación de accesibilidad: aplicación Android que traduce texto a lenguaje de señas mediante generación de imágenes y gestos en tiempo real. Desarrollada con Android SDK en Java, Firebase Cloud como backend y un modelo de Machine Learning personalizado.</p>
-            <ul class="project-points">
-              <li data-i18n-html="project1.point1"><strong>Android SDK (Java)</strong> y <strong>Firebase Cloud</strong> como base técnica.</li>
-              <li data-i18n-html="project1.point2">Modelo de <strong>Machine Learning personalizado</strong> entrenado para el caso de uso.</li>
-              <li data-i18n="project1.point3">Transcripción automática de texto a lenguaje de señas mediante generación de imágenes y gestos en tiempo real.</li>
-            </ul>
+            <h3 data-i18n="project1.cardTitle">App de Lenguaje de Señas en Tiempo Real</h3>
+          </div>
+
+          <div class="project-gallery-wrap" data-reveal>
+            <button class="gallery-nav gallery-prev" data-i18n-attr="aria-label:a11y.galleryPrev" aria-label="Anterior">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="project-gallery">
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">01</span><img src="assets/img/project/01-inicio.png" alt="Pantalla de inicio" loading="lazy"></div>
+                <h4 data-i18n="project1.shot1Title">Pantalla de inicio</h4>
+                <p data-i18n="project1.shot1Desc">Acceso al asistente, diccionario y cambio de idioma.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">02</span><img src="assets/img/project/02-diccionario.png" alt="Diccionario visual" loading="lazy"></div>
+                <h4 data-i18n="project1.shot2Title">Diccionario visual</h4>
+                <p data-i18n="project1.shot2Desc">Consulta el gesto de cualquier letra al instante.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">03</span><img src="assets/img/project/03-detalle-letra.png" alt="Gesto de una letra" loading="lazy"></div>
+                <h4 data-i18n="project1.shot3Title">Detalle de gesto</h4>
+                <p data-i18n="project1.shot3Desc">Ilustración exacta del gesto en Lenguaje de Señas.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">04</span><img src="assets/img/project/04-asistente.png" alt="Asistente de comunicación" loading="lazy"></div>
+                <h4 data-i18n="project1.shot4Title">Asistente de comunicación</h4>
+                <p data-i18n="project1.shot4Desc">Escribe, habla o haz señas para comunicarte.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">05</span><img src="assets/img/project/06-redaccion-mensaje.png" alt="Redacción del mensaje" loading="lazy"></div>
+                <h4 data-i18n="project1.shot5Title">Redacción del mensaje</h4>
+                <p data-i18n="project1.shot5Desc">Escribe el mensaje que quieres comunicar.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">06</span><img src="assets/img/project/05-conversion-senas.png" alt="Conversión a señas" loading="lazy"></div>
+                <h4 data-i18n="project1.shot6Title">Conversión a Lenguaje de Señas</h4>
+                <p data-i18n="project1.shot6Desc">Texto convertido a secuencia de gestos al instante.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">07</span><img src="assets/img/project/07-menu-opciones.png" alt="Selector de modo" loading="lazy"></div>
+                <h4 data-i18n="project1.shot7Title">Selector de modo</h4>
+                <p data-i18n="project1.shot7Desc">Alterna entre voz y cámara según necesites.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">08</span><img src="assets/img/project/08-reconocimiento-voz.png" alt="Reconocimiento de voz" loading="lazy"></div>
+                <h4 data-i18n="project1.shot8Title">Reconocimiento de voz</h4>
+                <p data-i18n="project1.shot8Desc">Tu voz transcrita automáticamente a texto.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">09</span><img src="assets/img/project/09-reconocimiento-senas.png" alt="Reconocimiento de señas" loading="lazy"></div>
+                <h4 data-i18n="project1.shot9Title">Reconocimiento de señas</h4>
+                <p data-i18n="project1.shot9Desc">La cámara reconoce señas y compone el mensaje.</p>
+              </div>
+            </div>
+            <button class="gallery-nav gallery-next" data-i18n-attr="aria-label:a11y.galleryNext" aria-label="Siguiente">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+
+          <div class="project-body">
+            <div class="project-desc-wrap">
+              <p class="project-desc" data-i18n="project1.description">Las personas con discapacidad auditiva enfrentan barreras de comunicación constantes.</p>
+              <ul class="project-points">
+                <li data-i18n="project1.point1">Convierte lo que escribes o dices a lenguaje de señas al instante.</li>
+                <li data-i18n="project1.point2">Un diccionario visual del alfabeto de señas.</li>
+                <li data-i18n="project1.point3">Reconoce señas con la cámara y las convierte en texto.</li>
+              </ul>
+              <button class="btn-ver-mas" type="button">
+                <span class="ver-mas-label" data-i18n="common.verMas">Ver más</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </div>
             <div class="tags">
-              <span class="tag">Android</span>
-              <span class="tag">Java</span>
-              <span class="tag">Firebase</span>
-              <span class="tag">Machine Learning</span>
               <span class="tag" data-i18n="project1.tagAccessibility">Accesibilidad</span>
+              <span class="tag">Android</span>
+              <span class="tag">Tiempo real</span>
+              <span class="tag">Inclusión</span>
             </div>
           </div>
 
-          <h3 class="project-gallery-title" data-reveal data-i18n="project1.galleryTitle">Capturas de la aplicación</h3>
-        <div class="project-gallery-wrap" data-reveal>
-          <button class="gallery-nav gallery-prev" data-i18n-attr="aria-label:a11y.galleryPrev" aria-label="Anterior">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-          </button>
-          <div class="project-gallery">
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">01</span>
-                <img src="assets/img/project/01-inicio.png" alt="Pantalla de inicio de la app" loading="lazy">
-              </div>
-              <h4 data-i18n="project1.shot1Title">Pantalla de inicio</h4>
-              <p data-i18n="project1.shot1Desc">Punto de entrada de la app: desde aquí se accede al asistente de reconocimiento de señas y voz, al diccionario visual del abecedario, y se puede cambiar el idioma principal.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">02</span>
-                <img src="assets/img/project/02-diccionario.png" alt="Listado del diccionario visual" loading="lazy">
-              </div>
-              <h4 data-i18n="project1.shot2Title">Diccionario visual</h4>
-              <p data-i18n="project1.shot2Desc">Listado alfabético navegable donde el usuario elige una letra para consultar de inmediato su gesto correspondiente en Lenguaje de Señas.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">03</span>
-                <img src="assets/img/project/03-detalle-letra.png" alt="Detalle del gesto de una letra" loading="lazy">
-              </div>
-              <h4 data-i18n="project1.shot3Title">Detalle de gesto por letra</h4>
-              <p data-i18n="project1.shot3Desc">Al seleccionar una letra del diccionario, la app despliega la ilustración exacta del gesto en Lenguaje de Señas, pensada como material de aprendizaje rápido.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">04</span>
-                <img src="assets/img/project/04-asistente.png" alt="Pantalla principal del asistente" loading="lazy">
-              </div>
-              <h4 data-i18n="project1.shot4Title">Asistente de comunicación</h4>
-              <p data-i18n="project1.shot4Desc">Pantalla principal del asistente: el usuario puede escribir su propio texto, o iniciar el reconocimiento de voz o de señas, con control de entonación y velocidad.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">05</span>
-                <img src="assets/img/project/06-redaccion-mensaje.png" alt="Redacción del mensaje en el asistente" loading="lazy">
-              </div>
-              <h4 data-i18n="project1.shot5Title">Conversión a Lenguaje de Señas</h4>
-              <p data-i18n="project1.shot5Desc">Un texto puede transformarse al instante en su representación gráfica en Lenguaje de Señas, mostrando la secuencia completa de gestos a comunicar.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">06</span>
-                <img src="assets/img/project/05-conversion-senas.png" alt="Conversión de texto a lenguaje de señas" loading="lazy">
-              </div>
-              <h4 data-i18n="project1.shot6Title">Redacción del mensaje</h4>
-              <p data-i18n="project1.shot6Desc">El usuario escribe libremente el mensaje que desea comunicar; ese texto es la base tanto para la síntesis de voz como para su conversión a señas.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">07</span>
-                <img src="assets/img/project/07-menu-opciones.png" alt="Menú de selección de modo de entrada" loading="lazy">
-              </div>
-              <h4 data-i18n="project1.shot7Title">Selector de modo de entrada</h4>
-              <p data-i18n="project1.shot7Desc">Menú de acceso rápido para alternar entre reconocimiento de voz y reconocimiento de señas por cámara, según la necesidad del usuario.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">08</span>
-                <img src="assets/img/project/08-reconocimiento-voz.png" alt="Reconocimiento de voz en funcionamiento" loading="lazy">
-              </div>
-              <h4 data-i18n="project1.shot8Title">Reconocimiento de voz</h4>
-              <p data-i18n="project1.shot8Desc">Integración con los servicios de voz de Google: el habla del usuario se transcribe automáticamente a texto dentro de la conversación.</p>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-shot">
-                <span class="gallery-index">09</span>
-                <img src="assets/img/project/09-reconocimiento-senas.png" alt="Reconocimiento de señas por cámara" loading="lazy">
-              </div>
-              <h4 data-i18n="project1.shot9Title">Reconocimiento de señas por cámara</h4>
-              <p data-i18n="project1.shot9Desc">Modelo de Machine Learning personalizado que detecta en tiempo real los puntos clave de la mano para reconocer cada seña y componer el mensaje letra por letra.</p>
-            </div>
+          <div class="project-footer">
           </div>
-          <button class="gallery-nav gallery-next" data-i18n-attr="aria-label:a11y.galleryNext" aria-label="Siguiente">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-          </button>
-        </div>
         </div>
       </div>
+
     </div></div></div>
       </div>
     </section>
