@@ -814,6 +814,7 @@ img { max-width: 100%; display: block; }
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  min-height: 36px;
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--accent);
@@ -821,12 +822,14 @@ img { max-width: 100%; display: block; }
   border: none;
   cursor: pointer;
   padding: 4px 0;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   transition: opacity 0.2s;
 }
 .btn-ver-mas:hover { opacity: 0.75; }
-.btn-ver-mas svg { width: 16px; height: 16px; transition: transform 0.3s; }
+.btn-ver-mas svg { width: 16px; height: 16px; flex-shrink: 0; transition: transform 0.3s; }
 .project-desc-wrap.is-expanded .btn-ver-mas svg { transform: rotate(180deg); }
+/* Fallback for project-content class still used in some references */
+.project-content { position: relative; z-index: 1; }
 
 /* Footer: store/repo links */
 .project-footer {

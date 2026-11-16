@@ -127,26 +127,33 @@ body { background: #0f1528; }
 .screen .edu-card:hover { transform: none; }
 .screen .edu-logo { width: 56px; height: 56px; padding: 8px; }
 
-/* Projects */
+/* Projects — Play Store layout */
 .screen .project-entry { margin-bottom: 28px; }
 .screen .project-entry:last-child { margin-bottom: 0; }
-.screen .project-card { padding: 22px 18px; border-radius: 22px; }
-.screen .project-content { max-width: none; }
-.screen .project-meta { gap: 8px 12px; }
-.screen .project-content h3 { font-size: 1.12rem; }
-.screen .project-content > p { font-size: 0.88rem; }
+.screen .project-card { padding: 20px 18px; border-radius: 22px; }
+.screen .project-header { margin-bottom: 18px; }
+.screen .project-header-top { gap: 8px 12px; }
+.screen .project-header h3 { font-size: 1.08rem; }
+.screen .project-meta { gap: 6px 10px; }
+.screen .project-org { font-size: 0.78rem; }
+.screen .project-body { margin-top: 18px; }
+.screen .project-desc { font-size: 0.88rem; }
 .screen .project-points li { font-size: 0.84rem; }
-.screen .project-gallery-title { margin: 24px 0 14px; font-size: 1rem; }
-.screen .project-gallery-wrap { gap: 6px; }
+.screen .btn-ver-mas { font-size: 0.82rem; }
+.screen .project-footer { margin-top: 16px; padding-top: 16px; }
+/* Gallery bleeds to card edges inside the shell */
+.screen .project-gallery-wrap { margin: 0 -18px; padding: 0 10px; gap: 6px; }
 .screen .gallery-nav { width: 30px; height: 30px; }
 .screen .gallery-nav svg { width: 14px; height: 14px; }
 .screen .project-gallery { gap: 10px; }
-.screen .gallery-item { flex: 0 0 128px; width: 128px; padding: 8px; }
+.screen .gallery-item { flex: 0 0 120px; width: 120px; padding: 8px; }
 .screen .gallery-item:hover { transform: none; }
-.screen .gallery-item h4 { font-size: 0.78rem; }
-.screen .gallery-item p { font-size: 0.66rem; -webkit-line-clamp: 4; }
-.screen .store-links { gap: 10px; }
-.screen .store-btn { padding: 9px 14px; }
+.screen .gallery-item h4 { font-size: 0.76rem; }
+.screen .gallery-item p { font-size: 0.65rem; -webkit-line-clamp: 3; }
+.screen .store-links { gap: 8px; }
+.screen .store-btn { padding: 8px 12px; }
+.screen .store-text small { font-size: 0.6rem; }
+.screen .store-text strong { font-size: 0.88rem; }
 
 /* Skills & certifications */
 .screen .skills-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; margin-bottom: 16px; }
@@ -370,6 +377,10 @@ body { background: #0f1528; }
   .screen .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .screen .gallery-item { flex-basis: 150px; width: 150px; }
   .screen .volunteer-card { max-width: none; }
+  /* Gallery bleed: match the wider container padding */
+  .screen .project-gallery-wrap { margin: 0 -48px; padding: 0 40px; }
+  .screen .project-card { padding: 28px 32px; }
+  .screen .project-header h3 { font-size: 1.25rem; }
 }
 
 /* Phones: the app fills the whole screen */
@@ -393,6 +404,13 @@ body { background: #0f1528; }
   .app-ico { width: 60px; height: 60px; border-radius: 16px; }
   .app-ico svg { width: 30px; height: 30px; }
   .app-name { font-size: 0.7rem; }
+  /* Projects on portrait phone */
+  .screen .project-card { padding: 18px 14px; border-radius: 18px; }
+  .screen .project-gallery-wrap { margin: 0 -14px; padding: 0 8px; gap: 4px; }
+  .screen .gallery-item { flex: 0 0 108px; width: 108px; }
+  .screen .project-header h3 { font-size: 1rem; }
+  .screen .store-links { flex-direction: column; }
+  .screen .store-btn { justify-content: center; }
   /* Same frame as desktop, scaled to the phone: rounded body, side bezels, thick bottom strip */
   .device {
     width: calc(100vw - 16px);

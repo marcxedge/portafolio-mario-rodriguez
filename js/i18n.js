@@ -36,7 +36,7 @@ const I18N_TRANSLATIONS = {
     },
     hero: {
       greeting: 'Hola, soy', role: 'Desarrollador Móvil',
-      description: 'Construyo apps para Android e iOS que se publican, se usan y funcionan incluso sin internet. 4 años, 3 apps en producción, clientes como CNEL y Kimberly-Clark.',
+      description: 'Construyo apps para Android e iOS que se publican, se usan y funcionan incluso sin internet. 4 años, 3 apps en producción para empresas de sectores como energía, tecnología y consumo masivo.',
       badge: 'Disponible para trabajar · hasta 30 h/semana (estancia por estudios) · Valencia, España',
       ctaPrimary: 'Hablemos', ctaSecondary: 'Ver experiencia',
       photoAlt: 'Foto de Mario Antonio Rodríguez Cedeño',
@@ -44,7 +44,7 @@ const I18N_TRANSLATIONS = {
     },
     about: {
       tag: 'Sobre mí', title: 'Perfil profesional',
-      text: 'Desarrollador Móvil con 4 años construyendo apps para <strong>Android e iOS</strong> que se publican, se usan y funcionan incluso sin internet. He liderado equipos técnicos y trabajado con clientes como <strong>CNEL, MPCEIP, EPAM y Kimberly-Clark</strong>.<br><br>Originario de Ecuador, ahora en Valencia cursando un Máster en tecnologías web, nube y móvil en la <strong>Universitat de València</strong>.',
+      text: 'Desarrollador Móvil con 4 años construyendo apps para <strong>Android e iOS</strong> que se publican, se usan y funcionan incluso sin internet. He liderado equipos técnicos y entregado soluciones a empresas de <strong>sectores como energía, gobierno, tecnología y consumo masivo</strong> — desde prototipos hasta apps publicadas en las tiendas oficiales.<br><br>Originario de Ecuador, ahora en Valencia cursando un Máster en tecnologías web, nube y móvil en la <strong>Universitat de València</strong>.',
       statYears: 'Años de experiencia', statCerts: 'Certificaciones', statSdk: 'Apps en producción', statCompanies: 'Clientes destacados',
       value1Title: 'Apps móviles', value1Text: 'Apps nativas y multiplataforma de principio a fin.',
       value2Title: 'Hardware & SDKs', value2Text: 'Integración de hardware: drones, sensores e IoT.',
@@ -58,7 +58,7 @@ const I18N_TRANSLATIONS = {
       job1Bullet2: 'Conecté drones reales a una app móvil (SDK de DJI).',
       job1Bullet3: 'Metí IA en el dispositivo: reconocimiento facial y lectura de texto, sin necesitar internet.',
       job2Date: 'Abr 2024 — Sep 2026', job2Title: 'Desarrollador Móvil', job2Company: 'Altura S.A. · Manta, Manabí, Ecuador',
-      job2Bullet1: '3+ apps publicadas en Google Play y App Store para CNEL, MPCEIP, EPAM y Kimberly-Clark.',
+      job2Bullet1: '3+ apps publicadas en Google Play y App Store para empresas de sectores como energía, sector público, tecnología y consumo masivo.',
       job2Bullet2: 'Gestión completa del ciclo de publicación en ambas tiendas.',
       job3Date: 'Abr 2023 — Mar 2024', job3Title: 'Desarrollador Frontend', job3Company: 'Pardux · Quito, Pichincha, Ecuador',
       job3Bullet1: 'Desarrollo y mantenimiento de interfaces web responsivas.',
@@ -234,7 +234,7 @@ const I18N_TRANSLATIONS = {
     },
     hero: {
       greeting: "Hi, I'm", role: 'Mobile Developer',
-      description: 'I build Android & iOS apps that ship, get used, and work even offline. 4 years. 3 apps in production. Clients like CNEL and Kimberly-Clark.',
+      description: 'I build Android & iOS apps that ship, get used, and work even offline. 4 years. 3 apps in production for companies in sectors like energy, technology, and consumer goods.',
       badge: 'Available for work · up to 30 h/week (student residence permit) · Valencia, Spain',
       ctaPrimary: "Let's talk", ctaSecondary: 'View experience',
       photoAlt: 'Photo of Mario Antonio Rodríguez Cedeño',
@@ -242,7 +242,7 @@ const I18N_TRANSLATIONS = {
     },
     about: {
       tag: 'About me', title: 'Professional Profile',
-      text: "Mobile Developer with 4 years building <strong>Android and iOS apps</strong> that ship, get used, and work offline. Led technical teams and delivered for clients like <strong>CNEL, MPCEIP, EPAM, and Kimberly-Clark</strong>.<br><br>From Ecuador, now in Valencia completing a Master's in web, cloud, and mobile development at <strong>Universitat de València</strong>.",
+      text: "Mobile Developer with 4 years building <strong>Android and iOS apps</strong> that ship, get used, and work offline. Led technical teams and delivered solutions to companies in <strong>sectors like energy, government, technology, and consumer goods</strong> — from prototypes to apps published on the official stores.<br><br>From Ecuador, now in Valencia completing a Master's in web, cloud, and mobile development at <strong>Universitat de València</strong>.",
       statYears: 'Years of experience', statCerts: 'Certifications', statSdk: 'Production apps', statCompanies: 'Key clients',
       value1Title: 'Mobile Apps', value1Text: 'Native and cross-platform apps, end to end.',
       value2Title: 'Hardware & SDKs', value2Text: 'Hardware integration: drones, sensors, IoT.',
@@ -256,7 +256,7 @@ const I18N_TRANSLATIONS = {
       job1Bullet2: 'Connected real drones to a mobile app (DJI SDK).',
       job1Bullet3: 'Ran AI on the device itself: facial recognition and text reading, no internet needed.',
       job2Date: 'Apr 2024 — Sep 2026', job2Title: 'Mobile Developer', job2Company: 'Altura S.A. · Manta, Manabí, Ecuador',
-      job2Bullet1: '3+ apps shipped to Google Play and the App Store for CNEL, MPCEIP, EPAM, and Kimberly-Clark.',
+      job2Bullet1: '3+ apps shipped to Google Play and the App Store for companies in sectors like energy, public services, technology, and consumer goods.',
       job2Bullet2: 'Owned the full release pipeline on both stores.',
       job3Date: 'Apr 2023 — Mar 2024', job3Title: 'Frontend Developer', job3Company: 'Pardux · Quito, Pichincha, Ecuador',
       job3Bullet1: 'Built and maintained responsive web interfaces.',
