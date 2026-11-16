@@ -131,6 +131,14 @@ body { background: #0f1528; }
 .screen .projects-timeline-nav { margin-bottom: 24px; padding: 0 2px; }
 .screen .projects-timeline-nav::before { top: 74px; } /* padding(12) + icon(48) + gap(8) + dot-center(6) */
 .screen .projects-timeline-nav::after { top: 74px; }
+/* 4-col nav shell overrides (left/right + tighter label) */
+.screen .projects-timeline-nav[data-cols="4"]::before { left: calc(100% / 8); right: calc(100% / 8); }
+.screen .projects-timeline-nav[data-cols="4"]::after { left: calc(100% / 8); }
+.screen .projects-timeline-nav[data-cols="4"] .thumb-title { max-width: 80px; font-size: 0.68rem; }
+/* 2-col nav shell overrides */
+.screen .projects-timeline-nav[data-cols="2"]::before { left: calc(100% / 4); right: calc(100% / 4); }
+.screen .projects-timeline-nav[data-cols="2"]::after { left: calc(100% / 4); }
+.screen .projects-timeline-nav[data-cols="2"] .thumb-title { max-width: 160px; }
 .screen .thumb-icon { width: 48px; height: 48px; border-radius: 12px; }
 .screen .thumb-label .project-kicker { font-size: 0.6rem; padding: 2px 6px; }
 .screen .thumb-title { font-size: 0.74rem; max-width: 110px; }

@@ -65,7 +65,8 @@ const I18N_TRANSLATIONS = {
       job3Bullet2: 'Diseño adaptable a cualquier pantalla y navegador.',
       job4Date: 'Oct 2020 — Nov 2022', job4Title: 'Especialista de Investigación y Desarrollo (I+D)', job4Company: 'Altura S.A. · Manta, Manabí, Ecuador',
       job4Bullet1: 'Investigación de nuevas tecnologías y toma de decisiones de arquitectura.',
-      job4Bullet2: 'Prototipos y documentación técnica como base para los proyectos.'
+      job4Bullet2: 'Prototipos y documentación técnica como base para los proyectos.',
+      job4ThumbTitle: 'Especialista I+D'
     },
     skills: {
       tag: 'Stack', title: 'Competencias técnicas',
@@ -82,7 +83,9 @@ const I18N_TRANSLATIONS = {
       masterNote: 'Áreas: Tecnologías Web, Computación en la Nube, Desarrollo de Aplicaciones Móviles.',
       degreeDate: 'Oct 2015 — Ago 2023', degreeTitle: 'Grado en Ingeniería en Sistemas Informáticos',
       degreePlace: 'Universidad Técnica de Manabí · Portoviejo, Ecuador',
-      degreeNote: 'Proyecto de titulación: app móvil colaborativa de comunicación aumentada para inclusión auditiva (Android SDK en Java, Firebase Cloud, Machine Learning).'
+      degreeNote: 'Proyecto de titulación: app móvil colaborativa de comunicación aumentada para inclusión auditiva (Android SDK en Java, Firebase Cloud, Machine Learning).',
+      masterThumbTitle: 'Máster en Tecnologías Web',
+      degreeThumbTitle: 'Grado en Ing. en Sistemas'
     },
     projectsSection: {
       tag: 'Proyectos', title: 'Proyectos destacados'
@@ -266,7 +269,8 @@ const I18N_TRANSLATIONS = {
       job3Bullet2: 'Adaptive design that works on any screen and browser.',
       job4Date: 'Oct 2020 — Nov 2022', job4Title: 'Research and Development (R&D) Specialist', job4Company: 'Altura S.A. · Manta, Manabí, Ecuador',
       job4Bullet1: 'Researched new technologies to back architecture decisions.',
-      job4Bullet2: 'Built prototypes and technical docs as foundation for new projects.'
+      job4Bullet2: 'Built prototypes and technical docs as foundation for new projects.',
+      job4ThumbTitle: 'R&D Specialist'
     },
     skills: {
       tag: 'Stack', title: 'Technical Skills',
@@ -283,7 +287,9 @@ const I18N_TRANSLATIONS = {
       masterNote: 'Focus areas: Web Technologies, Cloud Computing, Mobile Application Development.',
       degreeDate: 'Oct 2015 — Aug 2023', degreeTitle: "Bachelor's Degree in Computer Systems Engineering",
       degreePlace: 'Universidad Técnica de Manabí · Portoviejo, Ecuador',
-      degreeNote: 'Thesis: collaborative mobile app for augmented communication for hearing inclusion (Android SDK in Java, Firebase Cloud, Machine Learning).'
+      degreeNote: 'Thesis: collaborative mobile app for augmented communication for hearing inclusion (Android SDK in Java, Firebase Cloud, Machine Learning).',
+      masterThumbTitle: "Master's in Web Tech",
+      degreeThumbTitle: "Bachelor's in CS Eng."
     },
     projectsSection: {
       tag: 'Projects', title: 'Featured projects'

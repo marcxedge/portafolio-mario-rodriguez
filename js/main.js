@@ -22,27 +22,29 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectNav();
 });
 
-/* Project timeline nav — clicking a thumb shows the full project entry */
+/* Timeline nav — clicking a thumb shows the full entry; works for all sections */
 function initProjectNav() {
-  const thumbs = Array.from(document.querySelectorAll('.project-thumb'));
-  if (!thumbs.length) return;
+  document.querySelectorAll('.projects-timeline-nav').forEach(nav => {
+    const thumbs = Array.from(nav.querySelectorAll('.project-thumb'));
+    if (!thumbs.length) return;
 
-  const nav = thumbs[0].closest('.projects-timeline-nav');
-  const entries = {};
-  document.querySelectorAll('.project-entry[id]').forEach(e => { entries[e.id] = e; });
+    const container = nav.parentElement;
+    const entries = {};
+    container.querySelectorAll('.project-entry[id]').forEach(e => { entries[e.id] = e; });
 
-  const activate = (thumb) => {
-    thumbs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
-    Object.values(entries).forEach(e => e.classList.remove('is-active'));
-    thumb.classList.add('is-active');
-    thumb.setAttribute('aria-selected', 'true');
-    const target = entries[thumb.dataset.target];
-    if (target) target.classList.add('is-active');
-    if (nav) nav.dataset.active = thumbs.indexOf(thumb);
-  };
+    const activate = (thumb) => {
+      thumbs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+      Object.values(entries).forEach(e => e.classList.remove('is-active'));
+      thumb.classList.add('is-active');
+      thumb.setAttribute('aria-selected', 'true');
+      const target = entries[thumb.dataset.target];
+      if (target) target.classList.add('is-active');
+      nav.dataset.active = thumbs.indexOf(thumb);
+    };
 
-  thumbs.forEach(t => t.addEventListener('click', () => activate(t)));
-  if (thumbs[0]) activate(thumbs[0]);
+    thumbs.forEach(t => t.addEventListener('click', () => activate(t)));
+    if (thumbs[0]) activate(thumbs[0]);
+  });
 }
 
 /* "Ver más / Ver menos" toggle on project descriptions */

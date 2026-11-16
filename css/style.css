@@ -765,6 +765,18 @@ img { max-width: 100%; display: block; }
 .projects-timeline-nav[data-active="1"]::after { width: calc(100% / 3); }
 /* dot1→dot3 (item 3 active): full line = 100%*2/3 of nav width */
 .projects-timeline-nav[data-active="2"]::after { width: calc(100% * 2 / 3); }
+/* 4-column nav (experience) */
+.projects-timeline-nav[data-cols="4"] { grid-template-columns: repeat(4, 1fr); }
+.projects-timeline-nav[data-cols="4"]::before { left: calc(100% / 8); right: calc(100% / 8); }
+.projects-timeline-nav[data-cols="4"]::after { left: calc(100% / 8); }
+.projects-timeline-nav[data-cols="4"][data-active="1"]::after { width: calc(100% / 4); }
+.projects-timeline-nav[data-cols="4"][data-active="2"]::after { width: calc(100% / 2); }
+.projects-timeline-nav[data-cols="4"][data-active="3"]::after { width: calc(100% * 3 / 4); }
+/* 2-column nav (education) */
+.projects-timeline-nav[data-cols="2"] { grid-template-columns: repeat(2, 1fr); }
+.projects-timeline-nav[data-cols="2"]::before { left: calc(100% / 4); right: calc(100% / 4); }
+.projects-timeline-nav[data-cols="2"]::after { left: calc(100% / 4); }
+.projects-timeline-nav[data-cols="2"][data-active="1"]::after { width: calc(100% / 2); }
 .project-thumb {
   display: flex;
   flex-direction: column;
