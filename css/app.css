@@ -134,6 +134,8 @@ body { background: #0f1528; }
 .screen .project-header { margin-bottom: 18px; }
 .screen .project-header-top { gap: 8px 12px; }
 .screen .project-header h3 { font-size: 1.08rem; }
+.screen .project-title-row { gap: 12px; }
+.screen .project-app-icon { width: 56px; height: 56px; border-radius: 14px; }
 .screen .project-meta { gap: 6px 10px; }
 .screen .project-org { font-size: 0.78rem; }
 .screen .project-body { margin-top: 18px; }
@@ -381,6 +383,7 @@ body { background: #0f1528; }
   .screen .project-gallery-wrap { margin: 0 -48px; padding: 0 40px; }
   .screen .project-card { padding: 28px 32px; }
   .screen .project-header h3 { font-size: 1.25rem; }
+  .screen .project-app-icon { width: 68px; height: 68px; border-radius: 16px; }
 }
 
 /* Phones: the app fills the whole screen */
@@ -409,6 +412,7 @@ body { background: #0f1528; }
   .screen .project-gallery-wrap { margin: 0 -14px; padding: 0 8px; gap: 4px; }
   .screen .gallery-item { flex: 0 0 108px; width: 108px; }
   .screen .project-header h3 { font-size: 1rem; }
+  .screen .project-app-icon { width: 48px; height: 48px; border-radius: 12px; }
   .screen .store-links { flex-direction: column; }
   .screen .store-btn { justify-content: center; }
   /* Same frame as desktop, scaled to the phone: rounded body, side bezels, thick bottom strip */
