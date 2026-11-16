@@ -88,7 +88,7 @@ const I18N_TRANSLATIONS = {
       tag: 'Proyectos', title: 'Proyectos destacados'
     },
     project1: {
-      tag: 'Proyecto de titulación',
+      tag: 'Proyecto final de grado',
       date: 'Jul 2022 — Ago 2023', affiliation: 'Asociado con Universidad Técnica de Manabí',
       thumbTitle: 'Asistente de Lenguaje de Señas',
       cardTitle: 'App de Lenguaje de Señas en Tiempo Real',
@@ -289,7 +289,7 @@ const I18N_TRANSLATIONS = {
       tag: 'Projects', title: 'Featured projects'
     },
     project1: {
-      tag: 'Thesis Project',
+      tag: 'Final Degree Project',
       date: 'Jul 2022 — Aug 2023', affiliation: 'Associated with Universidad Técnica de Manabí',
       thumbTitle: 'Sign Language Assistant',
       cardTitle: 'Real-Time Sign Language App',
