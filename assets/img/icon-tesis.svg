@@ -1,61 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2d1b69;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#4c1d95;stop-opacity:1"/>
-    </linearGradient>
-    <linearGradient id="hand" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#c084fc;stop-opacity:1"/>
-    </linearGradient>
-    <linearGradient id="hand2" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1"/>
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#ffffff"/>
 
-  <!-- Background rounded rect -->
-  <rect width="120" height="120" rx="26" fill="url(#bg)"/>
-
-  <!-- Left hand (open palm, fingers extended) -->
-  <g fill="url(#hand)">
+  <!-- Back hand (left, slightly behind) -->
+  <g fill="#5b21b6" transform="rotate(-15, 36, 60)">
     <!-- Palm -->
-    <rect x="22" y="58" width="22" height="28" rx="6"/>
+    <rect x="20" y="52" width="28" height="30" rx="8"/>
+    <!-- Fingers -->
+    <rect x="22" y="22" width="9"  height="34" rx="4.5"/>
+    <rect x="32" y="18" width="9"  height="38" rx="4.5"/>
+    <rect x="42" y="22" width="8"  height="34" rx="4"/>
+    <rect x="51" y="30" width="7"  height="26" rx="3.5"/>
     <!-- Thumb -->
-    <rect x="17" y="68" width="10" height="14" rx="5"/>
-    <!-- Index finger -->
-    <rect x="24" y="38" width="8" height="26" rx="4"/>
-    <!-- Middle finger -->
-    <rect x="33" y="34" width="8" height="30" rx="4"/>
-    <!-- Ring finger -->
-    <rect x="24" y="38" width="8" height="22" rx="4" opacity="0"/>
-    <!-- Pinky -->
-    <rect x="38" y="58" width="7" height="22" rx="3"/>
+    <ellipse cx="16" cy="62" rx="7" ry="11" transform="rotate(-25,16,62)"/>
   </g>
 
-  <!-- Right hand (pointing / sign gesture) -->
-  <g fill="url(#hand2)">
+  <!-- Front hand (right, on top) -->
+  <g fill="#7c3aed" transform="rotate(12, 64, 62)">
     <!-- Palm -->
-    <rect x="76" y="62" width="22" height="26" rx="6"/>
-    <!-- Thumb out -->
-    <rect x="93" y="58" width="10" height="14" rx="5"/>
-    <!-- Index pointing up -->
-    <rect x="88" y="36" width="8" height="30" rx="4"/>
-    <!-- Other fingers curled (small bumps) -->
-    <rect x="78" y="62" width="7" height="10" rx="3"/>
-    <rect x="77" y="64" width="6" height="9" rx="3"/>
-    <!-- Middle slightly raised -->
-    <rect x="80" y="54" width="7" height="14" rx="3"/>
+    <rect x="52" y="52" width="28" height="30" rx="8"/>
+    <!-- Fingers -->
+    <rect x="54" y="22" width="9"  height="34" rx="4.5"/>
+    <rect x="64" y="18" width="9"  height="38" rx="4.5"/>
+    <rect x="74" y="22" width="8"  height="34" rx="4"/>
+    <rect x="83" y="30" width="7"  height="26" rx="3.5"/>
+    <!-- Thumb -->
+    <ellipse cx="84" cy="62" rx="7" ry="11" transform="rotate(25,84,62)"/>
   </g>
-
-  <!-- Signal/wave arcs between hands -->
-  <g fill="none" stroke="#e9d5ff" stroke-width="2.5" stroke-linecap="round" opacity="0.7">
-    <path d="M52 55 Q60 44 68 55"/>
-    <path d="M49 63 Q60 48 71 63" opacity="0.4"/>
-  </g>
-
-  <!-- Small sparkle dots -->
-  <circle cx="60" cy="94" r="3" fill="#c084fc" opacity="0.6"/>
-  <circle cx="52" cy="98" r="2" fill="#a855f7" opacity="0.4"/>
-  <circle cx="68" cy="98" r="2" fill="#a855f7" opacity="0.4"/>
 </svg>

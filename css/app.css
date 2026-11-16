@@ -538,14 +538,8 @@ body { background: #0f1528; }
   .device .hero-visual { order: 0; }
   .device .photo-frame { position: relative; isolation: isolate; width: min(300px, 100%); margin-left: auto; }
 
-  /* Projects: image beside the text, alternating sides */
-  .device .project-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); column-gap: 32px; align-items: start; }
-  .device .project-content { grid-column: 1; grid-row: 1 / span 2; }
-  .device .project-gallery-title { grid-column: 2; grid-row: 1; margin: 0 0 14px; }
-  .device .project-gallery-wrap { grid-column: 2; grid-row: 2; }
-  .device .project-entry:nth-of-type(even) .project-content { grid-column: 2; }
-  .device .project-entry:nth-of-type(even) .project-gallery-title,
-  .device .project-entry:nth-of-type(even) .project-gallery-wrap { grid-column: 1; }
+  /* Projects: Play Store single-column layout — header → gallery → description → links */
+  .device .project-card { display: block; }
 
   /* Contact: gradient panel around the contact cards */
   .device #contacto .app-block > .container {
@@ -592,10 +586,9 @@ body { background: #0f1528; }
   background: linear-gradient(135deg, rgba(47, 111, 237, 0.1), rgba(99, 102, 241, 0.1));
 }
 
-/* Projects without screenshots: the text takes the full card width, centered, instead of leaving an empty column */
+/* Projects without screenshots: description constrained for readability */
 @media (min-width: 700px) {
-  .device .project-card:not(:has(.project-gallery-wrap)) { display: block; }
-  .device .project-card:not(:has(.project-gallery-wrap)) .project-content { max-width: 820px; margin: 0 auto; }
+  .device .project-card:not(:has(.project-gallery-wrap)) .project-body { max-width: 820px; }
 }
 
 /* Home screen: static battery indicator (visual only) */
