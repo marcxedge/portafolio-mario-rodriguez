@@ -130,6 +130,7 @@ body { background: #0f1528; }
 /* Projects — Timeline nav */
 .screen .projects-timeline-nav { margin-bottom: 24px; padding: 0 2px; }
 .screen .projects-timeline-nav::before { top: 74px; } /* padding(12) + icon(48) + gap(8) + dot-center(6) */
+.screen .projects-timeline-nav::after { top: 74px; }
 .screen .thumb-icon { width: 48px; height: 48px; border-radius: 12px; }
 .screen .thumb-label .project-kicker { font-size: 0.6rem; padding: 2px 6px; }
 .screen .thumb-title { font-size: 0.74rem; max-width: 110px; }

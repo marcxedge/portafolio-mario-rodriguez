@@ -24,9 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* Project timeline nav — clicking a thumb shows the full project entry */
 function initProjectNav() {
-  const thumbs = document.querySelectorAll('.project-thumb');
+  const thumbs = Array.from(document.querySelectorAll('.project-thumb'));
   if (!thumbs.length) return;
 
+  const nav = thumbs[0].closest('.projects-timeline-nav');
   const entries = {};
   document.querySelectorAll('.project-entry[id]').forEach(e => { entries[e.id] = e; });
 
@@ -37,6 +38,7 @@ function initProjectNav() {
     thumb.setAttribute('aria-selected', 'true');
     const target = entries[thumb.dataset.target];
     if (target) target.classList.add('is-active');
+    if (nav) nav.dataset.active = thumbs.indexOf(thumb);
   };
 
   thumbs.forEach(t => t.addEventListener('click', () => activate(t)));

@@ -736,7 +736,7 @@ img { max-width: 100%; display: block; }
   margin-bottom: 36px;
   padding: 0 8px;
 }
-/* Connecting line through the dots */
+/* Base line through the dots */
 .projects-timeline-nav::before {
   content: '';
   position: absolute;
@@ -747,6 +747,24 @@ img { max-width: 100%; display: block; }
   background: var(--border);
   z-index: 0;
 }
+/* Filled/glowing line — expands left→right as projects are selected */
+.projects-timeline-nav::after {
+  content: '';
+  position: absolute;
+  top: 82px;
+  left: calc(100% / 6);
+  height: 2px;
+  width: 0;
+  background: linear-gradient(to right, var(--accent), var(--accent-2));
+  box-shadow: 0 0 8px 1px var(--accent), 0 0 18px 2px rgba(99,102,241,0.5);
+  border-radius: 2px;
+  z-index: 0;
+  transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* dot1→dot2 (item 2 active): half the line = 100%/3 of nav width */
+.projects-timeline-nav[data-active="1"]::after { width: calc(100% / 3); }
+/* dot1→dot3 (item 3 active): full line = 100%*2/3 of nav width */
+.projects-timeline-nav[data-active="2"]::after { width: calc(100% * 2 / 3); }
 .project-thumb {
   display: flex;
   flex-direction: column;
@@ -790,7 +808,13 @@ img { max-width: 100%; display: block; }
 }
 .project-thumb.is-active .thumb-dot {
   background: var(--accent);
+  box-shadow: 0 0 8px 2px var(--accent);
   transform: scale(1.35);
+}
+/* Dots of projects that come BEFORE the active one */
+.project-thumb:has(~ .project-thumb.is-active) .thumb-dot {
+  background: var(--accent);
+  box-shadow: 0 0 6px 1px var(--accent);
 }
 .thumb-label {
   display: flex;
