@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -34,6 +34,9 @@
       <span class="sb-battery"><span class="bat-text">100%</span><svg viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="0.6" y="0.6" width="20" height="10.8" rx="3"/><rect class="bat-fill" x="2.6" y="2.6" width="16" height="6.8" rx="1.5" fill="currentColor" stroke="none"/><rect x="21.6" y="4" width="2" height="4" rx="1" fill="currentColor" stroke="none"/></svg></span>
     </div>
     <header class="appbar">
+      <button class="appbar-back" id="appbarBack" type="button" data-i18n-attr="aria-label:launcher.homeButton;title:launcher.homeButton" aria-label="Ir a la pantalla de inicio">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
       <span class="appbar-brand" data-i18n="appbar.brand">Mi Portafolio</span>
       <div class="appbar-actions">
         <button class="icon-btn" id="langToggle" aria-label="Change language" title="Change language">
@@ -207,13 +210,14 @@
       <h2 class="section-title" data-reveal data-i18n="projectsSection.title">Proyectos destacados</h2>
 
       <!-- ===== TIMELINE NAV ===== -->
+      <p class="timeline-intro" data-i18n="projectsSection.intro">Estos son los productos que he construido, desde el proyecto de grado hasta la app que hoy usan equipos en campo. Recorre la línea para verlos.</p>
       <div class="projects-timeline-nav" role="tablist" aria-label="Proyectos">
         <button class="project-thumb" role="tab" data-target="project-tesis" aria-selected="false">
           <img class="thumb-icon thumb-icon--padded" src="assets/img/icon-tesis.png" alt="App Lenguaje de Señas">
           <div class="thumb-dot"></div>
           <div class="thumb-label">
-            <span class="project-kicker" data-i18n="project1.tag">Tesis</span>
-            <strong class="thumb-title" data-i18n="project1.thumbTitle">Lenguaje de Señas</strong>
+            <span class="project-kicker" data-i18n="project1.tag">Proyecto de grado</span>
+            <strong class="thumb-title" data-i18n="project1.thumbTitle">SL Assist</strong>
             <span class="thumb-date" data-i18n="project1.date">Jul 2022</span>
           </div>
         </button>
@@ -245,7 +249,7 @@
             <img class="project-app-icon project-app-icon--padded" src="assets/img/icon-tesis.png" alt="App Lenguaje de Señas">
             <div class="project-header-content">
               <div class="project-header-top">
-                <span class="project-kicker" data-i18n="project1.tag">Proyecto de titulación</span>
+                <span class="project-kicker" data-i18n="project1.tag">Proyecto de grado</span>
                 <div class="project-meta">
                   <span class="timeline-date" data-i18n="project1.date">Jul 2022 — Ago 2023</span>
                   <span class="project-org">
@@ -316,7 +320,7 @@
 
           <div class="project-body">
             <div class="project-desc-wrap">
-              <p class="project-desc" data-i18n="project1.description">Las personas con discapacidad auditiva enfrentan barreras de comunicación constantes.</p>
+              <p class="project-desc" data-i18n="project1.description">Prototipo académico desarrollado como proyecto de grado, orientado a la inclusión de personas con discapacidad auditiva.</p>
               <ul class="project-points">
                 <li data-i18n="project1.point1">Convierte lo que escribes o dices a lenguaje de señas al instante.</li>
                 <li data-i18n="project1.point2">Un diccionario visual del alfabeto de señas.</li>
@@ -328,6 +332,7 @@
               </button>
             </div>
             <div class="tags">
+              <span class="tag" data-i18n="project1.tagPrototype">Prototipo</span>
               <span class="tag" data-i18n="project1.tagAccessibility">Accesibilidad</span>
               <span class="tag">Android</span>
               <span class="tag">Tiempo real</span>
@@ -360,6 +365,52 @@
               </div>
               <h3 data-i18n="project3.cardTitle">AMobile 7 — App para Equipos en Campo</h3>
             </div>
+          </div>
+
+          <div class="project-gallery-wrap" data-reveal>
+            <button class="gallery-nav gallery-prev" data-i18n-attr="aria-label:a11y.galleryPrev" aria-label="Anterior">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="project-gallery">
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">01</span><img src="assets/img/amobile/01-bandeja-mapa.jpg" alt="Bandeja y mapa de tareas en AMobile 7" loading="lazy"></div>
+                <h4 data-i18n="project3.shot1Title">Bandeja y mapa de tareas</h4>
+                <p data-i18n="project3.shot1Desc">Las tareas asignadas sobre el mapa, agrupadas por proceso y con su estado.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">02</span><img src="assets/img/amobile/02-gaia-consultas.jpg" alt="Consultas rápidas de GAIA en AMobile 7" loading="lazy"></div>
+                <h4 data-i18n="project3.shot2Title">Consultas rápidas de GAIA</h4>
+                <p data-i18n="project3.shot2Desc">Asistente integrado: pendientes, sincronización y tareas del día en lenguaje natural.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">03</span><img src="assets/img/amobile/03-ruta-oscuro.jpg" alt="Ruta hacia la tarea en AMobile 7" loading="lazy"></div>
+                <h4 data-i18n="project3.shot3Title">Ruta hacia la tarea</h4>
+                <p data-i18n="project3.shot3Desc">Traza la ruta hasta el punto de la orden, en tema claro u oscuro.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">04</span><img src="assets/img/amobile/04-navegacion.jpg" alt="Navegación en curso en AMobile 7" loading="lazy"></div>
+                <h4 data-i18n="project3.shot4Title">Navegación en curso</h4>
+                <p data-i18n="project3.shot4Desc">Seguimiento GPS en tiempo real mientras el técnico se desplaza.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">05</span><img src="assets/img/amobile/05-formulario-ocr.jpg" alt="Formulario dinámico en AMobile 7" loading="lazy"></div>
+                <h4 data-i18n="project3.shot5Title">Formulario dinámico</h4>
+                <p data-i18n="project3.shot5Desc">Formularios configurables por proceso, con adjuntos y captura desde cámara.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">06</span><img src="assets/img/amobile/06-dashboard.jpg" alt="Dashboard de gestión en AMobile 7" loading="lazy"></div>
+                <h4 data-i18n="project3.shot6Title">Dashboard de gestión</h4>
+                <p data-i18n="project3.shot6Desc">Asignadas, por sincronizar y sincronizadas, con fotos y vídeos del día.</p>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-shot"><span class="gallery-index">07</span><img src="assets/img/amobile/07-ocr-medidor.jpg" alt="Lectura OCR del medidor en AMobile 7" loading="lazy"></div>
+                <h4 data-i18n="project3.shot7Title">Lectura OCR del medidor</h4>
+                <p data-i18n="project3.shot7Desc">El modelo on-device lee el medidor y devuelve el valor listo para validar.</p>
+              </div>
+            </div>
+            <button class="gallery-nav gallery-next" data-i18n-attr="aria-label:a11y.galleryNext" aria-label="Siguiente">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
           </div>
 
           <div class="project-body">
@@ -546,21 +597,14 @@
       <p class="section-tag" data-reveal data-i18n="experience.tag">Trayectoria</p>
       <h2 class="section-title" data-reveal data-i18n="experience.title">Experiencia profesional</h2>
 
+      <p class="timeline-intro" data-i18n="experience.intro">Así ha sido mi camino profesional, de investigar tecnología a liderar el equipo móvil. Toca cada punto para ver qué construí en cada etapa.</p>
       <div class="projects-timeline-nav" data-cols="4" role="tablist" aria-label="Experiencia laboral">
-        <button class="project-thumb" role="tab" data-target="exp-job1" aria-selected="false">
+        <button class="project-thumb" role="tab" data-target="exp-job4" aria-selected="false">
           <img class="thumb-icon thumb-icon--padded" src="assets/img/logo-altura.png" alt="Logo empresa">
           <div class="thumb-dot"></div>
           <div class="thumb-label">
-            <strong class="thumb-title" data-i18n="experience.job1Title">Líder de Equipo Móvil</strong>
-            <span class="thumb-date">2025</span>
-          </div>
-        </button>
-        <button class="project-thumb" role="tab" data-target="exp-job2" aria-selected="false">
-          <img class="thumb-icon thumb-icon--padded" src="assets/img/logo-altura.png" alt="Logo empresa">
-          <div class="thumb-dot"></div>
-          <div class="thumb-label">
-            <strong class="thumb-title" data-i18n="experience.job2Title">Desarrollador Móvil</strong>
-            <span class="thumb-date">2024</span>
+            <strong class="thumb-title" data-i18n="experience.job4ThumbTitle">Especialista I+D</strong>
+            <span class="thumb-date">2020</span>
           </div>
         </button>
         <button class="project-thumb" role="tab" data-target="exp-job3" aria-selected="false">
@@ -571,51 +615,39 @@
             <span class="thumb-date">2023</span>
           </div>
         </button>
-        <button class="project-thumb" role="tab" data-target="exp-job4" aria-selected="false">
+        <button class="project-thumb" role="tab" data-target="exp-job2" aria-selected="false">
           <img class="thumb-icon thumb-icon--padded" src="assets/img/logo-altura.png" alt="Logo empresa">
           <div class="thumb-dot"></div>
           <div class="thumb-label">
-            <strong class="thumb-title" data-i18n="experience.job4ThumbTitle">Especialista I+D</strong>
-            <span class="thumb-date">2020</span>
+            <strong class="thumb-title" data-i18n="experience.job2Title">Desarrollador Móvil</strong>
+            <span class="thumb-date">2024</span>
+          </div>
+        </button>
+        <button class="project-thumb" role="tab" data-target="exp-job1" aria-selected="false">
+          <img class="thumb-icon thumb-icon--padded" src="assets/img/logo-altura.png" alt="Logo empresa">
+          <div class="thumb-dot"></div>
+          <div class="thumb-label">
+            <strong class="thumb-title" data-i18n="experience.job1Title">Líder de Equipo Móvil</strong>
+            <span class="thumb-date">2025</span>
           </div>
         </button>
       </div>
 
-      <div class="project-entry" id="exp-job1" role="tabpanel">
+      <div class="project-entry" id="exp-job4" role="tabpanel">
         <div class="timeline-card">
           <div class="timeline-head">
             <div class="company-logo">
               <img src="assets/img/logo-altura.png" alt="Logo de Altura S.A.">
             </div>
             <div>
-              <span class="timeline-date" data-i18n="experience.job1Date">Mar 2025 — Sep 2026</span>
-              <h3 data-i18n="experience.job1Title">Líder de Equipo Móvil</h3>
-              <p class="timeline-company" data-i18n="experience.job1Company">Altura S.A. · Manta, Manabí, Ecuador</p>
+              <span class="timeline-date" data-i18n="experience.job4Date">Oct 2020 — Nov 2022</span>
+              <h3 data-i18n="experience.job4Title">Especialista de Investigación y Desarrollo (I+D)</h3>
+              <p class="timeline-company" data-i18n="experience.job4Company">Altura S.A. · Manta, Manabí, Ecuador</p>
             </div>
           </div>
           <ul>
-            <li data-i18n="experience.job1Bullet1">Lideré un equipo en la arquitectura y el desarrollo end-to-end de aplicaciones móviles.</li>
-            <li data-i18n="experience.job1Bullet2">Integré SDKs de DJI para el control y la automatización de drones.</li>
-            <li data-i18n="experience.job1Bullet3">Desplegué modelos de ML on-device (reconocimiento facial y OCR - Reconocimiento Óptico de Caracteres) en tiempo real, reduciendo la dependencia de conexión.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="project-entry" id="exp-job2" role="tabpanel">
-        <div class="timeline-card">
-          <div class="timeline-head">
-            <div class="company-logo">
-              <img src="assets/img/logo-altura.png" alt="Logo de Altura S.A.">
-            </div>
-            <div>
-              <span class="timeline-date" data-i18n="experience.job2Date">Abr 2024 — Sep 2026</span>
-              <h3 data-i18n="experience.job2Title">Desarrollador Móvil</h3>
-              <p class="timeline-company" data-i18n="experience.job2Company">Altura S.A. · Manta, Manabí, Ecuador</p>
-            </div>
-          </div>
-          <ul>
-            <li data-i18n="experience.job2Bullet1">Desarrollé y publiqué más de 3 aplicaciones en producción, nativas (Android/iOS) y multiplataforma con Flutter, para clientes como CNEL, MPCEIP, EPAM y Kimberly-Clark.</li>
-            <li data-i18n="experience.job2Bullet2">Gestioné despliegues y lanzamientos (code signing, aprovisionamiento) en Google Play Console y App Store Connect.</li>
+            <li data-i18n="experience.job4Bullet1">Investigué e implementé nuevas tecnologías, arquitecturas y metodologías para el desarrollo de aplicaciones.</li>
+            <li data-i18n="experience.job4Bullet2">Elaboré pruebas de concepto (PoC) y documentación técnica para fundamentar decisiones de arquitectura.</li>
           </ul>
         </div>
       </div>
@@ -639,22 +671,94 @@
         </div>
       </div>
 
-      <div class="project-entry" id="exp-job4" role="tabpanel">
+      <div class="project-entry" id="exp-job2" role="tabpanel">
         <div class="timeline-card">
           <div class="timeline-head">
             <div class="company-logo">
               <img src="assets/img/logo-altura.png" alt="Logo de Altura S.A.">
             </div>
             <div>
-              <span class="timeline-date" data-i18n="experience.job4Date">Oct 2020 — Nov 2022</span>
-              <h3 data-i18n="experience.job4Title">Especialista de Investigación y Desarrollo (I+D)</h3>
-              <p class="timeline-company" data-i18n="experience.job4Company">Altura S.A. · Manta, Manabí, Ecuador</p>
+              <span class="timeline-date" data-i18n="experience.job2Date">Abr 2024 — Sep 2026</span>
+              <h3 data-i18n="experience.job2Title">Desarrollador Móvil</h3>
+              <p class="timeline-company" data-i18n="experience.job2Company">Altura S.A. · Manta, Manabí, Ecuador</p>
             </div>
           </div>
           <ul>
-            <li data-i18n="experience.job4Bullet1">Investigué e implementé nuevas tecnologías, arquitecturas y metodologías para el desarrollo de aplicaciones.</li>
-            <li data-i18n="experience.job4Bullet2">Elaboré pruebas de concepto (PoC) y documentación técnica para fundamentar decisiones de arquitectura.</li>
+            <li data-i18n="experience.job2Bullet1">Desarrollé y publiqué más de 3 aplicaciones en producción, nativas (Android/iOS) y multiplataforma con Flutter, para clientes como CNEL, MPCEIP, EPAM y Kimberly-Clark.</li>
+            <li data-i18n="experience.job2Bullet2">Gestioné despliegues y lanzamientos (code signing, aprovisionamiento) en Google Play Console y App Store Connect.</li>
           </ul>
+        </div>
+      </div>
+
+      <div class="project-entry" id="exp-job1" role="tabpanel">
+        <div class="timeline-card">
+          <div class="timeline-head">
+            <div class="company-logo">
+              <img src="assets/img/logo-altura.png" alt="Logo de Altura S.A.">
+            </div>
+            <div>
+              <span class="timeline-date" data-i18n="experience.job1Date">Mar 2025 — Sep 2026</span>
+              <h3 data-i18n="experience.job1Title">Líder de Equipo Móvil</h3>
+              <p class="timeline-company" data-i18n="experience.job1Company">Altura S.A. · Manta, Manabí, Ecuador</p>
+            </div>
+          </div>
+          <ul>
+            <li data-i18n="experience.job1Bullet1">Lideré un equipo en la arquitectura y el desarrollo end-to-end de aplicaciones móviles.</li>
+            <li data-i18n="experience.job1Bullet2">Integré SDKs de DJI para el control y la automatización de drones.</li>
+            <li data-i18n="experience.job1Bullet3">Desplegué modelos de ML on-device (reconocimiento facial y OCR - Reconocimiento Óptico de Caracteres) en tiempo real, reduciendo la dependencia de conexión.</li>
+          </ul>
+        </div>
+      </div>
+    </div></div></div>
+<div class="app-block"><div class="container"><div class="container">
+      <p class="section-tag" data-reveal data-i18n="education.tag">Academia</p>
+      <h2 class="section-title" data-reveal data-i18n="education.title">Formación académica</h2>
+
+      <p class="timeline-intro" data-i18n="education.intro">Toda la base técnica viene de aquí: del grado en Manabí al máster en Valencia. Recorre la línea para ver cada etapa.</p>
+      <div class="projects-timeline-nav" data-cols="2" role="tablist" aria-label="Formación académica">
+        <button class="project-thumb" role="tab" data-target="edu-degree" aria-selected="false">
+          <img class="thumb-icon thumb-icon--padded" src="assets/img/logo-utm.png" alt="Logo UTM">
+          <div class="thumb-dot"></div>
+          <div class="thumb-label">
+            <strong class="thumb-title" data-i18n="education.degreeThumbTitle">Grado en Ing. en Sistemas</strong>
+            <span class="thumb-date">2015</span>
+          </div>
+        </button>
+        <button class="project-thumb" role="tab" data-target="edu-master" aria-selected="false">
+          <img class="thumb-icon thumb-icon--padded" src="assets/img/logo-uv.png" alt="Logo UV">
+          <div class="thumb-dot"></div>
+          <div class="thumb-label">
+            <strong class="thumb-title" data-i18n="education.masterThumbTitle">Máster en TWCAM</strong>
+            <span class="thumb-date">2026</span>
+          </div>
+        </button>
+      </div>
+
+      <div class="project-entry" id="edu-degree" role="tabpanel">
+        <div class="edu-card">
+          <div class="edu-logo edu-logo-utm">
+            <img src="assets/img/logo-utm.png" alt="Escudo de la Universidad Técnica de Manabí">
+          </div>
+          <div class="edu-body">
+            <span class="edu-date" data-i18n="education.degreeDate">Oct 2015 — Ago 2023</span>
+            <h3 data-i18n="education.degreeTitle">Grado en Ingeniería en Sistemas Informáticos</h3>
+            <p data-i18n="education.degreePlace">Universidad Técnica de Manabí · Portoviejo, Ecuador</p>
+            <p class="edu-note" data-i18n="education.degreeNote">Proyecto de titulación: app móvil colaborativa de comunicación aumentada para inclusión auditiva (Android SDK en Java, Firebase Cloud, Machine Learning).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-entry" id="edu-master" role="tabpanel">
+        <div class="edu-card">
+          <div class="edu-logo">
+            <img src="assets/img/logo-uv.png" alt="Escudo de la Universitat de València">
+          </div>
+          <div class="edu-body">
+            <span class="edu-date" data-i18n="education.masterDate">Sep 2026 — Jul 2027 (en curso)</span>
+            <h3 data-i18n="education.masterTitle">Máster Universitario en Tecnologías Web, Computación en la Nube y Aplicaciones Móviles</h3>
+            <p data-i18n="education.masterPlace">Universitat de València · Valencia, España</p>
+            <p class="edu-note" data-i18n="education.masterNote">Áreas: Tecnologías Web, Computación en la Nube, Desarrollo de Aplicaciones Móviles.</p>
+          </div>
         </div>
       </div>
     </div></div></div>
@@ -673,61 +777,111 @@
         </div>
       </div>
     </div></div></div>
-<div class="app-block"><div class="container"><div class="container">
-      <p class="section-tag" data-reveal data-i18n="education.tag">Academia</p>
-      <h2 class="section-title" data-reveal data-i18n="education.title">Formación académica</h2>
-
-      <div class="projects-timeline-nav" data-cols="2" role="tablist" aria-label="Formación académica">
-        <button class="project-thumb" role="tab" data-target="edu-master" aria-selected="false">
-          <img class="thumb-icon thumb-icon--padded" src="assets/img/logo-uv.png" alt="Logo UV">
-          <div class="thumb-dot"></div>
-          <div class="thumb-label">
-            <strong class="thumb-title" data-i18n="education.masterThumbTitle">Máster en Tecnologías Web</strong>
-            <span class="thumb-date">2026</span>
-          </div>
-        </button>
-        <button class="project-thumb" role="tab" data-target="edu-degree" aria-selected="false">
-          <img class="thumb-icon thumb-icon--padded" src="assets/img/logo-utm.png" alt="Logo UTM">
-          <div class="thumb-dot"></div>
-          <div class="thumb-label">
-            <strong class="thumb-title" data-i18n="education.degreeThumbTitle">Grado en Ing. en Sistemas</strong>
-            <span class="thumb-date">2015</span>
-          </div>
-        </button>
-      </div>
-
-      <div class="project-entry" id="edu-master" role="tabpanel">
-        <div class="edu-card">
-          <div class="edu-logo">
-            <img src="assets/img/logo-uv.png" alt="Escudo de la Universitat de València">
-          </div>
-          <div class="edu-body">
-            <span class="edu-date" data-i18n="education.masterDate">Sep 2026 — Jul 2027 (en curso)</span>
-            <h3 data-i18n="education.masterTitle">Máster Universitario en Tecnologías Web, Computación en la Nube y Aplicaciones Móviles</h3>
-            <p data-i18n="education.masterPlace">Universitat de València · Valencia, España</p>
-            <p class="edu-note" data-i18n="education.masterNote">Áreas: Tecnologías Web, Computación en la Nube, Desarrollo de Aplicaciones Móviles.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-entry" id="edu-degree" role="tabpanel">
-        <div class="edu-card">
-          <div class="edu-logo edu-logo-utm">
-            <img src="assets/img/logo-utm.png" alt="Escudo de la Universidad Técnica de Manabí">
-          </div>
-          <div class="edu-body">
-            <span class="edu-date" data-i18n="education.degreeDate">Oct 2015 — Ago 2023</span>
-            <h3 data-i18n="education.degreeTitle">Grado en Ingeniería en Sistemas Informáticos</h3>
-            <p data-i18n="education.degreePlace">Universidad Técnica de Manabí · Portoviejo, Ecuador</p>
-            <p class="edu-note" data-i18n="education.degreeNote">Proyecto de titulación: app móvil colaborativa de comunicación aumentada para inclusión auditiva (Android SDK en Java, Firebase Cloud, Machine Learning).</p>
-          </div>
-        </div>
-      </div>
-    </div></div></div>
       </div>
     </section>
     <section class="screen" id="habilidades">
       <div class="screen-scroll">
+<div class="app-block"><div class="container"><div class="container">
+      <p class="section-tag" data-reveal data-i18n="certifications.tag">Credenciales</p>
+      <h2 class="section-title" data-reveal data-i18n="certifications.title">Certificaciones</h2>
+
+      <div class="cert-timeline">
+        <div class="cert-card" data-reveal>
+          <span class="cert-seg" aria-hidden="true"><span class="cert-seg-fill"></span></span>
+          <span class="cert-dot" aria-hidden="true"></span>
+          <div class="cert-icon cert-icon-platzi"><img src="assets/img/logo-platzi.png" alt="Logo de Platzi"></div>
+          <h3 data-i18n="certifications.cert1Title">Curso de Flutter</h3>
+          <p data-i18n="certifications.cert1Meta">Platzi · feb 2023</p>
+          <a class="cert-link" href="https://platzi.com/p/marior8488/curso/1386-flutter/diploma/detalle/" target="_blank" rel="noopener">
+            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+          </a>
+        </div>
+        <div class="cert-card" data-reveal>
+          <span class="cert-seg" aria-hidden="true"><span class="cert-seg-fill"></span></span>
+          <span class="cert-dot" aria-hidden="true"></span>
+          <div class="cert-icon cert-icon-platzi"><img src="assets/img/logo-platzi.png" alt="Logo de Platzi"></div>
+          <h3 data-i18n="certifications.cert2Title">Curso de Bases Técnicas de Android</h3>
+          <p data-i18n="certifications.cert2Meta">Platzi · mar 2023</p>
+          <a class="cert-link" href="https://platzi.com/p/marior8488/curso/1264-tecnico-android/diploma/detalle/" target="_blank" rel="noopener">
+            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+          </a>
+        </div>
+        <div class="cert-card" data-reveal>
+          <span class="cert-seg" aria-hidden="true"><span class="cert-seg-fill"></span></span>
+          <span class="cert-dot" aria-hidden="true"></span>
+          <div class="cert-icon cert-icon-platzi"><img src="assets/img/logo-platzi.png" alt="Logo de Platzi"></div>
+          <h3 data-i18n="certifications.cert3Title">Curso de Diseño de Interfaces con Android Studio</h3>
+          <p data-i18n="certifications.cert3Meta">Platzi · mar 2023</p>
+          <a class="cert-link" href="https://platzi.com/p/marior8488/curso/1825-interfaces-android/diploma/detalle/" target="_blank" rel="noopener">
+            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+          </a>
+        </div>
+        <div class="cert-card" data-reveal>
+          <span class="cert-seg" aria-hidden="true"><span class="cert-seg-fill"></span></span>
+          <span class="cert-dot" aria-hidden="true"></span>
+          <div class="cert-icon cert-icon-samsung"><img src="assets/img/logo-samsung.png" alt="Logo de Samsung"></div>
+          <h3 data-i18n="certifications.cert6Title">Samsung Knox Associate</h3>
+          <p data-i18n="certifications.cert6Meta">Samsung · ago 2024</p>
+          <a class="cert-link" href="https://www.credly.com/badges/76de2272-f3a6-4fcb-8916-1176877b961a/linked_in_profile" target="_blank" rel="noopener">
+            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+          </a>
+        </div>
+        <div class="cert-card" data-reveal>
+          <span class="cert-seg" aria-hidden="true"><span class="cert-seg-fill"></span></span>
+          <span class="cert-dot" aria-hidden="true"></span>
+          <div class="cert-icon cert-icon-samsung"><img src="assets/img/logo-samsung.png" alt="Logo de Samsung"></div>
+          <h3 data-i18n="certifications.cert7Title">Samsung Knox Professional</h3>
+          <p data-i18n="certifications.cert7Meta">Samsung · sep 2024</p>
+          <a class="cert-link" href="https://www.credly.com/badges/6e21e23b-07ae-43e7-bd4c-51c84db1bb3d/linked_in_profile" target="_blank" rel="noopener">
+            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+          </a>
+        </div>
+        <div class="cert-card" data-reveal>
+          <span class="cert-seg" aria-hidden="true"><span class="cert-seg-fill"></span></span>
+          <span class="cert-dot" aria-hidden="true"></span>
+          <div class="cert-icon cert-icon-android"><img src="assets/img/logo-android.png" alt="Logo de Android"></div>
+          <h3 data-i18n="certifications.cert4Title">Android Enterprise Associate</h3>
+          <p data-i18n="certifications.cert4Meta">Android · sep 2024</p>
+          <a class="cert-link" href="https://androidenterprise.exceedlms.com/student/authentication/unauthorized" target="_blank" rel="noopener">
+            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+          </a>
+        </div>
+        <div class="cert-card" data-reveal>
+          <span class="cert-seg" aria-hidden="true"><span class="cert-seg-fill"></span></span>
+          <span class="cert-dot" aria-hidden="true"></span>
+          <div class="cert-icon cert-icon-android"><img src="assets/img/logo-android.png" alt="Logo de Android"></div>
+          <h3 data-i18n="certifications.cert5Title">Android Enterprise Professional</h3>
+          <p data-i18n="certifications.cert5Meta">Android · dic 2024</p>
+          <a class="cert-link" href="https://androidenterprise.exceedlms.com/student/award/w1sjNy6Vce2t9cTuU3igLTtN" target="_blank" rel="noopener">
+            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div></div></div>
+<div class="app-block"><div class="container"><div class="container">
+      <p class="section-tag" data-reveal data-i18n="skills.langTag">Comunicación</p>
+      <h2 class="section-title" data-reveal data-i18n="skills.langTitle">Idiomas</h2>
+
+      <div class="languages" data-reveal>
+        <div class="lang-row">
+          <span class="lang-name" data-i18n="skills.langSpanish">Español</span>
+          <div class="lang-bar"><div class="lang-fill" style="--fill:100%"></div></div>
+          <span class="lang-level" data-i18n="skills.langNative">Nativo</span>
+        </div>
+        <div class="lang-row">
+          <span class="lang-name" data-i18n="skills.langEnglish">Inglés</span>
+          <div class="lang-bar"><div class="lang-fill" style="--fill:75%"></div></div>
+          <span class="lang-level">B2</span>
+        </div>
+      </div>
+    </div></div></div>
 <div class="app-block"><div class="container"><div class="container">
       <p class="section-tag" data-reveal data-i18n="skills.tag">Stack</p>
       <h2 class="section-title" data-reveal data-i18n="skills.title">Competencias técnicas</h2>
@@ -808,89 +962,6 @@
           </div>
         </div>
 
-        <div class="languages" data-reveal>
-          <h3 data-i18n="skills.langTitle">Idiomas</h3>
-          <div class="lang-row">
-            <span class="lang-name" data-i18n="skills.langSpanish">Español</span>
-            <div class="lang-bar"><div class="lang-fill" style="--fill:100%"></div></div>
-            <span class="lang-level" data-i18n="skills.langNative">Nativo</span>
-          </div>
-          <div class="lang-row">
-            <span class="lang-name" data-i18n="skills.langEnglish">Inglés</span>
-            <div class="lang-bar"><div class="lang-fill" style="--fill:75%"></div></div>
-            <span class="lang-level">B2</span>
-          </div>
-        </div>
-      </div>
-    </div></div></div>
-<div class="app-block"><div class="container"><div class="container">
-      <p class="section-tag" data-reveal data-i18n="certifications.tag">Credenciales</p>
-      <h2 class="section-title" data-reveal data-i18n="certifications.title">Certificaciones</h2>
-
-      <div class="cert-grid">
-        <div class="cert-card" data-reveal>
-          <div class="cert-icon cert-icon-platzi"><img src="assets/img/logo-platzi.png" alt="Logo de Platzi"></div>
-          <h3 data-i18n="certifications.cert1Title">Curso de Flutter</h3>
-          <p data-i18n="certifications.cert1Meta">Platzi · feb 2023</p>
-          <a class="cert-link" href="https://platzi.com/p/marior8488/curso/1386-flutter/diploma/detalle/" target="_blank" rel="noopener">
-            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
-          </a>
-        </div>
-        <div class="cert-card" data-reveal>
-          <div class="cert-icon cert-icon-platzi"><img src="assets/img/logo-platzi.png" alt="Logo de Platzi"></div>
-          <h3 data-i18n="certifications.cert2Title">Curso de Bases Técnicas de Android</h3>
-          <p data-i18n="certifications.cert2Meta">Platzi · mar 2023</p>
-          <a class="cert-link" href="https://platzi.com/p/marior8488/curso/1264-tecnico-android/diploma/detalle/" target="_blank" rel="noopener">
-            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
-          </a>
-        </div>
-        <div class="cert-card" data-reveal>
-          <div class="cert-icon cert-icon-platzi"><img src="assets/img/logo-platzi.png" alt="Logo de Platzi"></div>
-          <h3 data-i18n="certifications.cert3Title">Curso de Diseño de Interfaces con Android Studio</h3>
-          <p data-i18n="certifications.cert3Meta">Platzi · mar 2023</p>
-          <a class="cert-link" href="https://platzi.com/p/marior8488/curso/1825-interfaces-android/diploma/detalle/" target="_blank" rel="noopener">
-            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
-          </a>
-        </div>
-        <div class="cert-card" data-reveal>
-          <div class="cert-icon cert-icon-android"><img src="assets/img/logo-android.png" alt="Logo de Android"></div>
-          <h3 data-i18n="certifications.cert4Title">Android Enterprise Associate</h3>
-          <p data-i18n="certifications.cert4Meta">Android · sep 2024</p>
-          <a class="cert-link" href="https://androidenterprise.exceedlms.com/student/authentication/unauthorized" target="_blank" rel="noopener">
-            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
-          </a>
-        </div>
-        <div class="cert-card" data-reveal>
-          <div class="cert-icon cert-icon-android"><img src="assets/img/logo-android.png" alt="Logo de Android"></div>
-          <h3 data-i18n="certifications.cert5Title">Android Enterprise Professional</h3>
-          <p data-i18n="certifications.cert5Meta">Android · dic 2024</p>
-          <a class="cert-link" href="https://androidenterprise.exceedlms.com/student/award/w1sjNy6Vce2t9cTuU3igLTtN" target="_blank" rel="noopener">
-            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
-          </a>
-        </div>
-        <div class="cert-card" data-reveal>
-          <div class="cert-icon cert-icon-samsung"><img src="assets/img/logo-samsung.png" alt="Logo de Samsung"></div>
-          <h3 data-i18n="certifications.cert6Title">Samsung Knox Associate</h3>
-          <p data-i18n="certifications.cert6Meta">Samsung · ago 2024</p>
-          <a class="cert-link" href="https://www.credly.com/badges/76de2272-f3a6-4fcb-8916-1176877b961a/linked_in_profile" target="_blank" rel="noopener">
-            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
-          </a>
-        </div>
-        <div class="cert-card" data-reveal>
-          <div class="cert-icon cert-icon-samsung"><img src="assets/img/logo-samsung.png" alt="Logo de Samsung"></div>
-          <h3 data-i18n="certifications.cert7Title">Samsung Knox Professional</h3>
-          <p data-i18n="certifications.cert7Meta">Samsung · sep 2024</p>
-          <a class="cert-link" href="https://www.credly.com/badges/6e21e23b-07ae-43e7-bd4c-51c84db1bb3d/linked_in_profile" target="_blank" rel="noopener">
-            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
-          </a>
-        </div>
       </div>
     </div></div></div>
       </div>
@@ -949,7 +1020,7 @@
       <button class="tab" data-tab="inicio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span data-i18n="nav.home">Inicio</span></button>
       <button class="tab" data-tab="proyecto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-i18n="nav.project">Proyectos</span></button>
       <button class="tab" data-tab="experiencia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg><span data-i18n="nav.experience">Experiencia</span></button>
-      <button class="tab" data-tab="habilidades"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg><span data-i18n="nav.skills">Habilidades</span></button>
+      <button class="tab" data-tab="habilidades"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg><span data-i18n="nav.skills">Competencias</span></button>
       <button class="tab" data-tab="contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><span data-i18n="nav.contact">Contacto</span></button>
     </nav>
 
@@ -959,12 +1030,33 @@
     </button>
 
     <!-- Vista de ejemplo de cada app de la pantalla de inicio -->
+    <!-- Guía inicial del escritorio -->
+    <div class="tour" id="tour" aria-hidden="true" role="dialog" aria-modal="true" data-i18n-attr="aria-label:tour.aria">
+      <div class="tour-spot" id="tourSpot" aria-hidden="true"></div>
+      <div class="tour-card" id="tourCard">
+        <p class="tour-kicker" id="tourKicker"></p>
+        <h3 class="tour-title" id="tourTitle"></h3>
+        <p class="tour-text" id="tourText"></p>
+        <div class="tour-foot">
+          <div class="tour-dots" id="tourDots" aria-hidden="true"></div>
+          <div class="tour-actions">
+            <button class="tour-skip" type="button" id="tourSkip"></button>
+            <button class="tour-next" type="button" id="tourNext"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <section class="mockapp" id="mockApp" aria-hidden="true">
       <header class="mock-bar">
         <button class="mock-back" id="mockBack" type="button" data-i18n-attr="aria-label:launcher.homeButton;title:launcher.homeButton">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
         <span class="mock-title" id="mockTitle"></span>
+        <div class="mock-actions">
+          <button class="icon-btn mock-chip" type="button" data-proxy="langToggle"></button>
+          <button class="icon-btn mock-chip" type="button" data-proxy="themeToggle"></button>
+        </div>
       </header>
       <div class="mock-body" id="mockBody"></div>
     </section>
@@ -988,11 +1080,18 @@
           <span class="app-ico"><img src="assets/img/profile.jpg" alt=""></span>
           <span class="app-name" data-i18n="launcher.app">Mi Portafolio</span>
         </button>
-        <button class="app-icon is-dummy" type="button" data-mock="flutter"><span class="app-ico d1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 2 8 12 14 22 8 12 2"/><polyline points="2 14 12 20 22 14"/></svg></span><span class="app-name" data-i18n="launcher.flutter">Flutter</span></button>
-        <button class="app-icon is-dummy" type="button" data-mock="reactnative"><span class="app-ico d2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span><span class="app-name" data-i18n="launcher.reactnative">React Native</span></button>
-        <button class="app-icon is-dummy" type="button" data-mock="android"><span class="app-ico d3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="9" width="14" height="10" rx="3"/><line x1="8" y1="4" x2="9.5" y2="7"/><line x1="16" y1="4" x2="14.5" y2="7"/><line x1="4" y1="12" x2="4" y2="16"/><line x1="20" y1="12" x2="20" y2="16"/><circle cx="9" cy="13.5" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="13.5" r="1" fill="currentColor" stroke="none"/></svg></span><span class="app-name" data-i18n="launcher.android">Android</span></button>
-        <button class="app-icon is-dummy" type="button" data-mock="ios"><span class="app-ico d4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="3"/><line x1="10" y1="19" x2="14" y2="19"/></svg></span><span class="app-name" data-i18n="launcher.ios">iOS</span></button>
-        <button class="app-icon is-dummy" type="button" data-mock="edgeai"><span class="app-ico d5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="1.5"/><line x1="7" y1="2" x2="7" y2="5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="17" y1="2" x2="17" y2="5"/><line x1="7" y1="19" x2="7" y2="22"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="17" y1="19" x2="17" y2="22"/><line x1="2" y1="7" x2="5" y2="7"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="2" y1="17" x2="5" y2="17"/><line x1="19" y1="7" x2="22" y2="7"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="19" y1="17" x2="22" y2="17"/></svg></span><span class="app-name" data-i18n="launcher.edgeai">Edge AI</span></button>
+        <button class="app-icon" type="button" data-mock="amobile">
+          <span class="app-ico app-ico-shot" data-logo="amobile"><img src="assets/img/icon-amobile.png" alt=""></span>
+          <span class="app-name">AMobile 7</span>
+        </button>
+        <button class="app-icon" type="button" data-mock="liftxto">
+          <span class="app-ico app-ico-shot" data-logo="liftxto"><img src="assets/img/icon-liftxto.png" alt=""></span>
+          <span class="app-name">Lift.xto</span>
+        </button>
+        <button class="app-icon" type="button" data-mock="slassist">
+          <span class="app-ico app-ico-shot" data-logo="tesis"><img src="assets/img/icon-tesis.png" alt=""></span>
+          <span class="app-name">SL Assist</span>
+        </button>
       </div>
     </section>
   </div>

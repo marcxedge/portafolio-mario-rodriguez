@@ -20,7 +20,62 @@ document.addEventListener('DOMContentLoaded', () => {
   initGalleryModal();
   initVerMas();
   initProjectNav();
+  initTimelineBuild();
+  initCertProgress();
 });
+
+/* Construcción del timeline — la línea se dibuja y los puntos aparecen en orden.
+   Se dispara cuando la sección entra en pantalla y se repite al volver a ella,
+   tanto en la web normal como en las pestañas del móvil simulado. */
+function initTimelineBuild() {
+  const navs = Array.from(document.querySelectorAll('.projects-timeline-nav'));
+  if (!navs.length) return;
+
+  navs.forEach(nav => {
+    nav.querySelectorAll('.project-thumb').forEach((t, i) => t.style.setProperty('--i', i));
+  });
+
+  // Se anima una sola vez por carga de página: al volver a la sección ya no se repite
+  const play = (nav) => {
+    if (nav.dataset.played === '1') return;
+    nav.dataset.played = '1';
+    nav.classList.remove('is-building');
+    void nav.offsetWidth;                       // reinicia la animación
+    nav.classList.add('is-building');
+
+    const entry = nav.parentElement.querySelector('.project-entry.is-active');
+    if (entry) {
+      entry.classList.remove('is-entering');
+      void entry.offsetWidth;
+      entry.classList.add('is-entering');
+    }
+
+    const total = 900 + nav.querySelectorAll('.project-thumb').length * 110;
+    setTimeout(() => {
+      nav.classList.remove('is-building');
+      if (entry) entry.classList.remove('is-entering');
+    }, total);
+  };
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((items) => {
+      items.forEach(e => {
+        if (!e.isIntersecting) return;
+        play(e.target);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.35 });
+    navs.forEach(n => io.observe(n));
+  }
+
+  // Dentro del móvil simulado las secciones se ocultan con display, así que el
+  // observer no siempre dispara: se lanza al abrir la pestaña por primera vez.
+  document.addEventListener('app:screenchange', () => {
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.screen.is-active .projects-timeline-nav').forEach(play);
+    });
+  });
+}
 
 /* Timeline nav — clicking a thumb shows the full entry; works for all sections */
 function initProjectNav() {
@@ -43,8 +98,83 @@ function initProjectNav() {
     };
 
     thumbs.forEach(t => t.addEventListener('click', () => activate(t)));
+
+    // Un role="tablist" debe moverse con las flechas; se añade Inicio/Fin.
+    const step = (dir) => {
+      const i = thumbs.findIndex(t => t.classList.contains('is-active'));
+      const next = thumbs[Math.min(thumbs.length - 1, Math.max(0, i + dir))];
+      if (next && next !== thumbs[i]) { activate(next); next.focus(); }
+    };
+    nav.addEventListener('keydown', (e) => {
+      const keys = { ArrowLeft: -1, ArrowRight: 1 };
+      if (e.key in keys) { e.preventDefault(); step(keys[e.key]); }
+      else if (e.key === 'Home') { e.preventDefault(); activate(thumbs[0]); thumbs[0].focus(); }
+      else if (e.key === 'End') { e.preventDefault(); activate(thumbs.at(-1)); thumbs.at(-1).focus(); }
+    });
+
+    // Deslizar sobre la entrada abierta pasa a la anterior o la siguiente
+    let x0 = null, y0 = null;
+    container.addEventListener('touchstart', (e) => {
+      // la galería ya se desplaza en horizontal: ahí el gesto no es nuestro
+      if (e.touches.length !== 1 || e.target.closest('.project-gallery-wrap, .cert-timeline')) return;
+      x0 = e.touches[0].clientX; y0 = e.touches[0].clientY;
+    }, { passive: true });
+    container.addEventListener('touchend', (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      const dy = e.changedTouches[0].clientY - y0;
+      // solo gestos claramente horizontales, para no robarle el scroll vertical
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.8) step(dx < 0 ? 1 : -1);
+      x0 = y0 = null;
+    }, { passive: true });
+
     if (thumbs[0]) activate(thumbs[0]);
   });
+}
+
+/* Certificaciones: la línea se llena según el desplazamiento del carril y cada
+   punto se enciende al pasar por él. Funciona en ambos sentidos porque todo se
+   recalcula en cada scroll a partir de la posición actual. */
+function initCertProgress() {
+  const rail = document.querySelector('.cert-timeline');
+  if (!rail) return;
+  const cards = Array.from(rail.querySelectorAll('.cert-card'));
+  if (!cards.length) return;
+
+  let pedido = false;
+  const update = () => {
+    pedido = false;
+    const r = rail.getBoundingClientRect();
+    // el cabezal viaja por el centro del carril visible
+    const cabezal = rail.scrollLeft + rail.clientWidth / 2;
+    const centros = cards.map((c) => {
+      const cr = c.getBoundingClientRect();
+      return cr.left - r.left + rail.scrollLeft + cr.width / 2;
+    });
+
+    const anchoTotal = centros.at(-1) - centros[0] || 1;
+    cards.forEach((card, i) => {
+      card.classList.toggle('is-passed', cabezal >= centros[i]);
+      const sig = centros[i + 1];
+      if (sig === undefined) return;
+      const frac = (cabezal - centros[i]) / (sig - centros[i]);
+      card.style.setProperty('--seg', Math.min(1, Math.max(0, frac)).toFixed(3));
+      // el degradado es uno solo a lo largo de toda la línea, no por tramo
+      card.style.setProperty('--rail-w', `${anchoTotal}px`);
+      card.style.setProperty('--seg-x', `${centros[i] - centros[0]}px`);
+    });
+  };
+  const pedir = () => {
+    if (pedido) return;
+    pedido = true;
+    requestAnimationFrame(update);
+  };
+
+  rail.addEventListener('scroll', pedir, { passive: true });
+  window.addEventListener('resize', pedir);
+  document.addEventListener('app:screenchange', pedir);
+  if ('ResizeObserver' in window) new ResizeObserver(pedir).observe(rail);
+  update();
 }
 
 /* "Ver más / Ver menos" toggle on project descriptions */

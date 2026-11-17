@@ -11,6 +11,18 @@ const I18N_TRANSLATIONS = {
     appbar: {
       brand: 'Mi Portafolio'
     },
+    tour: {
+      aria: 'Guía de la pantalla de inicio',
+      next: 'Siguiente', skip: 'Saltar', done: 'Entendido',
+      welcomeTitle: 'Bienvenido a mi escritorio',
+      welcomeText: 'Monté mi portafolio como si fuera un móvil, porque es lo que construyo todos los días. Deja que te enseñe qué hay en esta pantalla.',
+      portfolioTitle: 'Mi Portafolio',
+      portfolioText: 'La app principal. Dentro están mi perfil, los proyectos, la experiencia, la formación y las certificaciones, cada bloque en una línea de tiempo que puedes recorrer punto a punto.',
+      appsTitle: 'Mis apps',
+      appsText: 'AMobile 7, Lift.xto y SL Assist: las aplicaciones que he desarrollado, aquí como si estuvieran instaladas. Toca cualquiera para abrir su ficha completa sin salir del escritorio.',
+      homeTitle: 'El botón lateral',
+      homeText: 'A la derecha del marco está el botón de inicio: vuelve a esta pantalla desde donde estés, igual que en un teléfono de verdad. Ya está, toca la app que quieras para empezar.'
+    },
     launcher: {
       screen: 'Pantalla de inicio del dispositivo',
       app: 'Mi Portafolio',
@@ -24,7 +36,7 @@ const I18N_TRANSLATIONS = {
       opening: 'Abriendo Mi Portafolio'
     },
     nav: {
-      home: 'Inicio', about: 'Sobre mí', experience: 'Experiencia', skills: 'Habilidades',
+      home: 'Inicio', about: 'Sobre mí', experience: 'Experiencia', skills: 'Competencias',
       project: 'Proyectos', certifications: 'Certificaciones', volunteering: 'Voluntariado',
       contact: 'Contacto', downloadCV: 'Descargar CV'
     },
@@ -53,6 +65,7 @@ const I18N_TRANSLATIONS = {
     },
     experience: {
       tag: 'Trayectoria', title: 'Experiencia profesional',
+      intro: 'Así ha sido mi camino profesional, de investigar tecnología a liderar el equipo móvil. Toca cada punto para ver qué construí en cada etapa.',
       job1Date: 'Mar 2025 — Sep 2026', job1Title: 'Líder de Equipo Móvil', job1Company: 'Altura S.A. · Manta, Manabí, Ecuador',
       job1Bullet1: 'Lideré el equipo que construyó la app de principio a fin — arquitectura, código y publicación.',
       job1Bullet2: 'Conecté drones reales a una app móvil (SDK de DJI).',
@@ -73,33 +86,36 @@ const I18N_TRANSLATIONS = {
       mobileTitle: 'Desarrollo Móvil', aiTitle: 'IA & Integración', mlMobile: 'Machine Learning Móvil', djiSdk: 'SDK DJI (Drones)',
       frontendTitle: 'Frontend Web', backendTitle: 'Backend & BD', methodsTitle: 'Metodologías', toolsTitle: 'Herramientas',
       softTitle: 'Competencias blandas', soft1: 'Liderazgo', soft2: 'Resolución de problemas', soft3: 'Aprendizaje continuo', soft4: 'Proactividad',
-      langTitle: 'Idiomas', langSpanish: 'Español', langNative: 'Nativo',
+      langTag: 'Comunicación', langTitle: 'Idiomas', langSpanish: 'Español', langNative: 'Nativo',
       langEnglish: 'Inglés'
     },
     education: {
       tag: 'Academia', title: 'Formación académica',
+      intro: 'Toda la base técnica viene de aquí: del grado en Manabí al máster en Valencia. Recorre la línea para ver cada etapa.',
       masterDate: 'Sep 2026 — Jul 2027 (en curso)', masterTitle: 'Máster Universitario en Tecnologías Web, Computación en la Nube y Aplicaciones Móviles',
       masterPlace: 'Universitat de València · Valencia, España',
       masterNote: 'Áreas: Tecnologías Web, Computación en la Nube, Desarrollo de Aplicaciones Móviles.',
       degreeDate: 'Oct 2015 — Ago 2023', degreeTitle: 'Grado en Ingeniería en Sistemas Informáticos',
       degreePlace: 'Universidad Técnica de Manabí · Portoviejo, Ecuador',
       degreeNote: 'Proyecto de titulación: app móvil colaborativa de comunicación aumentada para inclusión auditiva (Android SDK en Java, Firebase Cloud, Machine Learning).',
-      masterThumbTitle: 'Máster en Tecnologías Web',
+      masterThumbTitle: 'Máster en TWCAM',
       degreeThumbTitle: 'Grado en Ing. en Sistemas'
     },
     projectsSection: {
-      tag: 'Proyectos', title: 'Proyectos destacados'
+      tag: 'Proyectos', title: 'Proyectos destacados',
+      intro: 'Estos son los productos que he construido, desde el proyecto de grado hasta la app que hoy usan equipos en campo. Recorre la línea para verlos.'
     },
     project1: {
-      tag: 'Proyecto final de grado',
+      tag: 'Proyecto de grado',
       date: 'Jul 2022 — Ago 2023', affiliation: 'Asociado con Universidad Técnica de Manabí',
-      thumbTitle: 'SL Assist — Asistente de lenguaje de señas',
+      thumbTitle: 'SL Assist',
       cardTitle: 'SL Assist — Asistente de lenguaje de señas',
-      description: 'Las personas con discapacidad auditiva enfrentan barreras de comunicación constantes. Esta app surgió para derribar una de ellas: convertir texto y voz a lenguaje de señas en tiempo real, directo desde el móvil.',
+      description: 'Prototipo académico desarrollado como proyecto de grado, orientado a la inclusión de personas con discapacidad auditiva. La idea era derribar una de sus barreras de comunicación: convertir texto y voz a lenguaje de señas en tiempo real, directo desde el móvil. Llegó a nivel de prueba de concepto funcional, no de producto publicado.',
       point1: 'Convierte lo que escribes o dices a lenguaje de señas al instante, sin internet.',
       point2: 'Un diccionario visual del alfabeto de señas para aprender y consultar en cualquier momento.',
       point3: 'Reconoce las señas que haces con la cámara y las convierte en texto — comunicación en ambas direcciones.',
       tagAccessibility: 'Accesibilidad',
+      tagPrototype: 'Prototipo',
       galleryTitle: 'Capturas de la aplicación',
       shot1Title: 'Pantalla de inicio',
       shot1Desc: 'Punto de entrada de la app: desde aquí se accede al asistente de reconocimiento de señas y voz, al diccionario visual del abecedario, y se puede cambiar el idioma principal.',
@@ -123,7 +139,7 @@ const I18N_TRANSLATIONS = {
     project2: {
       tag: 'Proyecto personal',
       date: 'Abr 2026 — Presente', affiliation: 'Proyecto personal, publicado en GitHub',
-      thumbTitle: 'Lift.xto — App de seguimiento de gimnasio',
+      thumbTitle: 'Lift.xto',
       cardTitle: 'Lift.xto — App de seguimiento de gimnasio',
       description: 'Nació de mi propia frustración con las apps de gym existentes: o eran demasiado complicadas o perdías todo sin internet. La construí para resolver exactamente eso.',
       point1: 'Nunca pierdes tu historial — funciona sin internet y se sincroniza sola cuando hay conexión.',
@@ -163,14 +179,28 @@ const I18N_TRANSLATIONS = {
     project3: {
       tag: 'Proyecto profesional',
       date: 'Abr 2026 — Sep 2026', affiliation: 'Altura S.A. · Líder de Equipo Móvil / Desarrollador Móvil',
-      thumbTitle: 'AMobile 7 — App para equipos en campo',
+      thumbTitle: 'AMobile 7',
       cardTitle: 'AMobile 7 — App para equipos en campo',
       description: 'El reto era que los equipos en campo pudieran trabajar en zonas sin cobertura sin perder productividad. AMobile 7 resuelve eso: las órdenes llegan al móvil, se gestionan sin internet y los resultados se sincronizan solos al volver la señal.',
       point1: 'Los equipos trabajan igual con o sin internet — cero interrupciones por falta de señal.',
       point2: 'La cámara del móvil se convierte en herramienta de trabajo: lee texto, identifica objetos y ubica en el mapa sin salir de la app.',
       point3: 'Un asistente de IA en el bolsillo que responde preguntas sobre las tareas del día — sin necesidad de llamar a la oficina.',
       storePlayTop: 'Disponible en',
-      storeAppleTop: 'Disponible en el'
+      storeAppleTop: 'Disponible en el',
+      shot1Title: 'Bandeja y mapa de tareas',
+      shot1Desc: 'Las tareas asignadas sobre el mapa, agrupadas por proceso y con su estado.',
+      shot2Title: 'GAIA — consultas rápidas',
+      shot2Desc: 'Asistente integrado: pendientes, sincronización y tareas del día en lenguaje natural.',
+      shot3Title: 'Ruta hacia la tarea',
+      shot3Desc: 'Traza la ruta hasta el punto de la orden, en tema claro u oscuro.',
+      shot4Title: 'Navegación en curso',
+      shot4Desc: 'Seguimiento GPS en tiempo real mientras el técnico se desplaza.',
+      shot5Title: 'Formulario dinámico',
+      shot5Desc: 'Formularios configurables por proceso, con adjuntos y captura desde cámara.',
+      shot6Title: 'Dashboard de gestión',
+      shot6Desc: 'Asignadas, por sincronizar y sincronizadas, con fotos y vídeos del día.',
+      shot7Title: 'Lectura OCR del medidor',
+      shot7Desc: 'El modelo on-device lee el medidor y devuelve el valor listo para validar.'
     },
     certifications: {
       tag: 'Credenciales', title: 'Certificaciones',
@@ -215,6 +245,18 @@ const I18N_TRANSLATIONS = {
     appbar: {
       brand: 'My Portfolio'
     },
+    tour: {
+      aria: 'Home screen guide',
+      next: 'Next', skip: 'Skip', done: 'Got it',
+      welcomeTitle: 'Welcome to my home screen',
+      welcomeText: 'I built my portfolio as a phone, because that is what I build every day. Let me show you what is on this screen.',
+      portfolioTitle: 'My Portfolio',
+      portfolioText: 'The main app. Inside are my profile, projects, experience, education and certifications, each one on a timeline you can walk through point by point.',
+      appsTitle: 'My apps',
+      appsText: 'AMobile 7, Lift.xto and SL Assist: the apps I have built, sitting here as if installed. Tap any of them to open its full case without leaving the home screen.',
+      homeTitle: 'The side button',
+      homeText: 'On the right edge of the frame there is a home button: it brings you back to this screen from anywhere, just like on a real phone. That is it — tap whichever app you like to start.'
+    },
     launcher: {
       screen: 'Device home screen',
       app: 'My Portfolio',
@@ -228,7 +270,7 @@ const I18N_TRANSLATIONS = {
       opening: 'Opening My Portfolio'
     },
     nav: {
-      home: 'Home', about: 'About', experience: 'Experience', skills: 'Skills',
+      home: 'Home', about: 'About', experience: 'Experience', skills: 'Expertise',
       project: 'Projects', certifications: 'Certifications', volunteering: 'Volunteering',
       contact: 'Contact', downloadCV: 'Download CV'
     },
@@ -257,6 +299,7 @@ const I18N_TRANSLATIONS = {
     },
     experience: {
       tag: 'Career Path', title: 'Professional Experience',
+      intro: 'This is how my career has unfolded, from researching technology to leading the mobile team. Tap each point to see what I built at every stage.',
       job1Date: 'Mar 2025 — Sep 2026', job1Title: 'Mobile Team Lead', job1Company: 'Altura S.A. · Manta, Manabí, Ecuador',
       job1Bullet1: 'Led the team that built the app from scratch — architecture, code, and release.',
       job1Bullet2: 'Connected real drones to a mobile app (DJI SDK).',
@@ -277,33 +320,36 @@ const I18N_TRANSLATIONS = {
       mobileTitle: 'Mobile Development', aiTitle: 'AI & Integration', mlMobile: 'Mobile Machine Learning', djiSdk: 'DJI SDK Integration (Drones)',
       frontendTitle: 'Frontend Web', backendTitle: 'Backend & DB', methodsTitle: 'Methodologies', toolsTitle: 'Tools',
       softTitle: 'Soft Skills', soft1: 'Leadership', soft2: 'Problem Solving', soft3: 'Continuous Learning', soft4: 'Proactivity',
-      langTitle: 'Languages', langSpanish: 'Spanish', langNative: 'Native',
+      langTag: 'Communication', langTitle: 'Languages', langSpanish: 'Spanish', langNative: 'Native',
       langEnglish: 'English'
     },
     education: {
       tag: 'Academic Background', title: 'Education',
+      intro: 'Everything technical starts here: from the degree in Manabí to the master\'s in Valencia. Follow the line to see each stage.',
       masterDate: 'Sep 2026 — Jul 2027 (in progress)', masterTitle: "Master's Degree in Web Technologies, Cloud Computing and Mobile Applications",
       masterPlace: 'Universitat de València · Valencia, Spain',
       masterNote: 'Focus areas: Web Technologies, Cloud Computing, Mobile Application Development.',
       degreeDate: 'Oct 2015 — Aug 2023', degreeTitle: "Bachelor's Degree in Computer Systems Engineering",
       degreePlace: 'Universidad Técnica de Manabí · Portoviejo, Ecuador',
       degreeNote: 'Thesis: collaborative mobile app for augmented communication for hearing inclusion (Android SDK in Java, Firebase Cloud, Machine Learning).',
-      masterThumbTitle: "Master's in Web Tech",
+      masterThumbTitle: "Master's in TWCAM",
       degreeThumbTitle: "Bachelor's in CS Eng."
     },
     projectsSection: {
-      tag: 'Projects', title: 'Featured projects'
+      tag: 'Projects', title: 'Featured projects',
+      intro: 'These are the products I have built, from my degree project to the app field teams use today. Follow the line to go through them.'
     },
     project1: {
-      tag: 'Final Degree Project',
+      tag: 'Degree Project',
       date: 'Jul 2022 — Aug 2023', affiliation: 'Associated with Universidad Técnica de Manabí',
-      thumbTitle: 'SL Assist — Sign Language Assistant',
+      thumbTitle: 'SL Assist',
       cardTitle: 'SL Assist — Sign Language Assistant',
-      description: 'People with hearing impairments face constant communication barriers. This app was built to break down one of them: converting text and voice to sign language in real time, right on a phone.',
+      description: 'Academic prototype built as my degree project, aimed at the inclusion of people with hearing impairments. The goal was to break down one of their communication barriers: converting text and voice to sign language in real time, right on a phone. It reached a working proof of concept, not a shipped product.',
       point1: 'Converts what you type or say to sign language instantly, offline.',
       point2: 'A visual dictionary of the sign alphabet to learn and reference anytime.',
       point3: 'Recognizes signs through the camera and converts them to text — two-way communication.',
       tagAccessibility: 'Accessibility',
+      tagPrototype: 'Prototype',
       galleryTitle: 'App screenshots',
       shot1Title: 'Home screen',
       shot1Desc: "The app's entry point: from here users launch the sign-language and voice recognition assistant, browse the visual sign-language dictionary, or switch the app's language.",
@@ -327,7 +373,7 @@ const I18N_TRANSLATIONS = {
     project2: {
       tag: 'Personal project',
       date: 'Apr 2026 — Present', affiliation: 'Personal project, published on GitHub',
-      thumbTitle: 'Lift.xto — Gym Tracking App',
+      thumbTitle: 'Lift.xto',
       cardTitle: 'Lift.xto — Gym Tracking App',
       description: "Born from my own frustration with existing gym apps: either too complicated or you'd lose everything without internet. I built it to fix exactly that.",
       point1: 'Never lose your history — works offline and syncs automatically when connected.',
@@ -367,14 +413,28 @@ const I18N_TRANSLATIONS = {
     project3: {
       tag: 'Professional project',
       date: 'Apr 2026 — Sep 2026', affiliation: 'Altura S.A. · Mobile Team Lead / Mobile Developer',
-      thumbTitle: 'AMobile 7 — App for Field Teams',
+      thumbTitle: 'AMobile 7',
       cardTitle: 'AMobile 7 — App for Field Teams',
       description: 'The challenge: let field teams work in areas with no coverage without losing productivity. AMobile 7 solves that — work orders arrive on the phone, managed offline, results sync automatically when signal returns.',
       point1: 'Teams work the same with or without internet — zero interruptions from poor signal.',
       point2: "The phone's camera becomes a work tool: reads text, identifies objects, and maps locations — all inside the app.",
       point3: 'An AI assistant in your pocket that answers questions about the day\'s tasks — no need to call the office.',
       storePlayTop: 'Get it on',
-      storeAppleTop: 'Download on the'
+      storeAppleTop: 'Download on the',
+      shot1Title: 'Task inbox and map',
+      shot1Desc: 'Assigned tasks on the map, grouped by process and showing their status.',
+      shot2Title: 'GAIA — quick queries',
+      shot2Desc: 'Built-in assistant: pending work, sync state and the day\'s tasks in plain language.',
+      shot3Title: 'Route to the task',
+      shot3Desc: 'Draws the route to the work order, in light or dark theme.',
+      shot4Title: 'Turn-by-turn navigation',
+      shot4Desc: 'Real-time GPS tracking while the technician is on the move.',
+      shot5Title: 'Dynamic form',
+      shot5Desc: 'Per-process configurable forms, with attachments and in-app camera capture.',
+      shot6Title: 'Management dashboard',
+      shot6Desc: 'Assigned, pending sync and synced, plus the photos and videos of the day.',
+      shot7Title: 'Meter OCR reading',
+      shot7Desc: 'The on-device model reads the meter and returns the value ready to validate.'
     },
     certifications: {
       tag: 'Credentials', title: 'Certifications',

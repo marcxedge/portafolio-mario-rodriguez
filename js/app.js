@@ -42,22 +42,6 @@ function initStatusBar() {
   document.addEventListener('i18n:changed', update);
 }
 
-/* Splash screen: plays on load and whenever the app is opened from the home screen */
-let splashTimer;
-function playSplash() {
-  const splash = document.getElementById('splash');
-  if (!splash) return;
-  clearTimeout(splashTimer);
-  splash.classList.remove('is-done');
-  // restart the entrance and loading animations
-  splash.querySelectorAll('img, .splash-name, .splash-bar > span').forEach((el) => {
-    el.style.animation = 'none';
-    void el.offsetWidth;
-    el.style.animation = '';
-  });
-  splashTimer = setTimeout(() => splash.classList.add('is-done'), 2000);
-}
-
 /* Floating button: scrolls the active screen back to its top */
 function initToTop() {
   const btn = document.getElementById('toTop');
@@ -124,30 +108,25 @@ function initLauncher() {
   };
 
   homeBtn.addEventListener('click', () => setHome(!device.classList.contains('is-home')));
-  // Opening the portfolio: short "Abriendo Mi Portafolio" notice, then the splash screen
-  const opening = document.getElementById('launcherOpening');
+  // Abrir el portafolio: solo el pulso del icono, la app entra sin pantalla de carga
   let openTimer;
   const openPortfolio = () => {
     if (openTimer) return;
-    // simulate a tap on the app icon first, then show the notice
     const icon = document.querySelector('[data-open-app]');
     icon?.classList.remove('is-tapped');
     void icon?.offsetWidth;
     icon?.classList.add('is-tapped');
+    // sin aviso de apertura ni splash: la app entra directa
+    setHome(false);
     openTimer = setTimeout(() => {
-      opening?.classList.add('is-visible');
-      openTimer = setTimeout(() => {
-        opening?.classList.remove('is-visible');
-        icon?.classList.remove('is-tapped');
-        openTimer = null;
-        setHome(false);
-        playSplash();
-      }, 1000);
-    }, 500);
+      icon?.classList.remove('is-tapped');
+      openTimer = null;
+    }, 450);
   };
   document.querySelectorAll('[data-open-app]').forEach((btn) => {
     btn.addEventListener('click', openPortfolio);
   });
+  document.getElementById('appbarBack')?.addEventListener('click', () => setHome(true));
   document.addEventListener('i18n:changed', updateClock);
 
   // Real battery level when the browser exposes it (Chromium on laptops and Android); otherwise the static 100%
@@ -199,14 +178,138 @@ function initLauncher() {
   document.addEventListener('i18n:changed', syncProxies);
   syncProxies();
 
-  // On load the device shows its home screen; after a short pause it opens the portfolio app (with its splash)
+  // Al cargar, el dispositivo muestra su escritorio; la guía llega tras el encendido
   setHome(true);
-  // The automatic opening is cancelled as soon as the user touches the home screen.
-  // Waits for the boot screen to finish so this sequence's own timings stay as they were before.
-  const autoOpenTimer = setTimeout(openPortfolio, BOOT_DURATION);
-  const cancelAutoOpen = () => clearTimeout(autoOpenTimer);
-  launcher.addEventListener('pointerdown', cancelAutoOpen, { once: true });
-  launcher.addEventListener('click', cancelAutoOpen, { once: true });
+  // En vez de abrir el portafolio solo, se presenta el escritorio con una guía
+  // y al terminar se deja al visitante en el escritorio para que elija.
+  setTimeout(() => initTour(), BOOT_DURATION);
+}
+
+/* Guía inicial: presenta el escritorio y cada app antes de abrir el portafolio.
+   El foco se coloca sobre el elemento real de cada paso, así que sigue al
+   diseño aunque cambien los iconos o el orden de la rejilla. */
+const TOUR_STORAGE_KEY = 'mr-tour-seen';
+
+/* La guía es para la primera visita. Con ?tour=1 se fuerza, para poder verla
+   de nuevo sin tener que borrar el almacenamiento del navegador. */
+function tourYaVista() {
+  try {
+    if (new URLSearchParams(window.location.search).get('tour') === '1') return false;
+    return localStorage.getItem(TOUR_STORAGE_KEY) === '1';
+  } catch { return false; }
+}
+function marcarTourVista() {
+  try { localStorage.setItem(TOUR_STORAGE_KEY, '1'); } catch { /* modo privado */ }
+}
+
+function initTour(onFinish = () => {}) {
+  const tour = document.getElementById('tour');
+  const device = document.querySelector('.device');
+  if (!tour || !device || tourYaVista()) { onFinish(); return; }
+
+  const spot = document.getElementById('tourSpot');
+  const card = document.getElementById('tourCard');
+  const dots = document.getElementById('tourDots');
+  const kicker = document.getElementById('tourKicker');
+  const titleEl = document.getElementById('tourTitle');
+  const textEl = document.getElementById('tourText');
+  const skip = document.getElementById('tourSkip');
+  const next = document.getElementById('tourNext');
+  const en = () => document.documentElement.lang === 'en';
+  const t = (key) => (window.I18N ? window.I18N.get(en() ? 'en' : 'es', key) : '');
+
+  const steps = [
+    { key: 'welcome', targets: [] },
+    { key: 'portfolio', targets: ['[data-open-app]'] },
+    { key: 'apps', targets: ['[data-mock="amobile"]', '[data-mock="liftxto"]', '[data-mock="slassist"]'] },
+    { key: 'home', targets: ['#homeBtn'] },
+  ];
+  let i = 0;
+
+  // Rectángulo que engloba todos los elementos del paso, en coordenadas del marco
+  const union = (sels) => {
+    const rects = sels
+      .map((sel) => document.querySelector(sel))
+      .filter(Boolean)
+      .map((n) => n.getBoundingClientRect())
+      .filter((r) => r.width && r.height);
+    if (!rects.length) return null;
+    const d = device.getBoundingClientRect();
+    const box = {
+      top: Math.min(...rects.map((r) => r.top)),
+      left: Math.min(...rects.map((r) => r.left)),
+      right: Math.max(...rects.map((r) => r.right)),
+      bottom: Math.max(...rects.map((r) => r.bottom)),
+    };
+    const pad = 10;
+    return {
+      top: box.top - d.top - device.clientTop - pad,
+      left: box.left - d.left - device.clientLeft - pad,
+      width: box.right - box.left + pad * 2,
+      height: box.bottom - box.top + pad * 2,
+    };
+  };
+
+  const render = () => {
+    const step = steps[i];
+    kicker.textContent = `${i + 1} / ${steps.length}`;
+    titleEl.textContent = t(`tour.${step.key}Title`);
+    textEl.textContent = t(`tour.${step.key}Text`);
+    next.textContent = i === steps.length - 1 ? t('tour.done') : t('tour.next');
+    skip.textContent = t('tour.skip');
+    dots.innerHTML = steps.map((_, n) => `<span class="${n === i ? 'is-on' : ''}"></span>`).join('');
+
+    const r = union(step.targets);
+    if (!r) {
+      spot.classList.remove('has-target');
+      spot.style.cssText = 'top:50%;left:50%;width:0;height:0;';
+      card.style.top = '50%';
+      card.style.transform = 'translate(-50%, -50%)';
+      return;
+    }
+    spot.classList.add('has-target');
+    spot.style.cssText = `top:${r.top}px;left:${r.left}px;width:${r.width}px;height:${r.height}px;`;
+
+    // La tarjeta se coloca donde quepa: debajo del foco o, si no, encima
+    const alto = card.offsetHeight || 190;
+    const libreAbajo = device.clientHeight - (r.top + r.height);
+    if (libreAbajo > alto + 28) {
+      card.style.top = `${r.top + r.height + 18}px`;
+      card.style.transform = 'translate(-50%, 0)';
+    } else {
+      card.style.top = `${Math.max(16, r.top - alto - 18)}px`;
+      card.style.transform = 'translate(-50%, 0)';
+    }
+  };
+
+  const end = () => {
+    marcarTourVista();
+    tour.classList.remove('is-open');
+    tour.setAttribute('aria-hidden', 'true');
+    window.removeEventListener('resize', render);
+    document.removeEventListener('i18n:changed', render);
+    document.removeEventListener('keydown', onKey);
+    onFinish();
+  };
+  const avanzar = () => { if (i < steps.length - 1) { i += 1; render(); } else end(); };
+  const onKey = (e) => {
+    if (e.key === 'Escape') end();
+    else if (e.key === 'ArrowRight' || e.key === 'Enter') avanzar();
+    else if (e.key === 'ArrowLeft' && i > 0) { i -= 1; render(); }
+  };
+
+  next.addEventListener('click', avanzar);
+  skip.addEventListener('click', end);
+  // tocar el fondo también avanza, como en los tutoriales de las apps
+  tour.addEventListener('click', (e) => { if (e.target === tour || e.target === spot) avanzar(); });
+  window.addEventListener('resize', render);
+  document.addEventListener('i18n:changed', render);
+  document.addEventListener('keydown', onKey);
+
+  tour.classList.add('is-open');
+  tour.setAttribute('aria-hidden', 'false');
+  render();
+  requestAnimationFrame(render);   // segunda pasada: ya con la altura real de la tarjeta
 }
 
 function initAppTabs() {
@@ -271,6 +374,48 @@ function initMockApps() {
   // Each sample app opens with a short note on why that technology is part of the stack,
   // the tools around it, and a small interactive demo of it.
   const tagsHtml = (list) => `<div class="tags">${list.map((t) => `<span class="tag">${t}</span>`).join('')}</div>`;
+
+  /* Apps propias del escritorio: cada una abre la misma ficha que muestra el
+     timeline del portafolio. Se clona el DOM de la entrada real en lugar de
+     reescribir el contenido, así la réplica no se desincroniza al cambiar
+     textos o idioma. */
+  const PROJECT_APPS = {
+    amobile: { entry: 'project-amobile', thumb: 'project-amobile' },
+    liftxto: { entry: 'project-liftxto', thumb: 'project-liftxto' },
+    slassist: { entry: 'project-tesis', thumb: 'project-tesis' },
+  };
+
+  const projectView = (key) => (el) => {
+    const { entry, thumb } = PROJECT_APPS[key];
+    const src = document.querySelector(`#${entry} .project-card`);
+    if (!src) return null;
+
+    const copy = src.cloneNode(true);
+    copy.querySelectorAll('[id]').forEach((n) => n.removeAttribute('id'));
+    // controles atados por JS al cargar la página: en el clon no responderían
+    copy.querySelectorAll('.gallery-nav, .btn-ver-mas').forEach((n) => n.remove());
+    copy.querySelectorAll('.project-desc-wrap').forEach((n) => n.classList.add('is-expanded'));
+    copy.querySelectorAll('[data-reveal]').forEach((n) => n.removeAttribute('data-reveal'));
+
+    el.classList.add('mock-project');
+    el.appendChild(copy);
+
+    // Pie: saltar a la ficha dentro del portafolio
+    const jump = document.createElement('button');
+    jump.type = 'button';
+    jump.className = 'mock-jump';
+    jump.textContent = en() ? 'Open in the portfolio' : 'Ver en el portafolio';
+    jump.addEventListener('click', () => {
+      close();
+      document.querySelector('[data-open-app]')?.click();
+      setTimeout(() => {
+        document.querySelector('[data-tab="proyecto"]')?.click();
+        document.querySelector(`[data-target="${thumb}"]`)?.click();
+      }, 60);
+    });
+    el.appendChild(jump);
+    return null;
+  };
 
   const views = {
     flutter(el) {
@@ -466,6 +611,8 @@ function initMockApps() {
     },
   };
 
+  Object.keys(PROJECT_APPS).forEach((k) => { views[k] = projectView(k); });
+
   const close = () => {
     if (cleanup) cleanup();
     cleanup = null;
@@ -483,7 +630,9 @@ function initMockApps() {
     if (cleanup) cleanup();
     cleanup = null;
     title.textContent = name.textContent;
-    title.setAttribute('data-i18n', name.getAttribute('data-i18n'));
+    const i18nKey = name.getAttribute('data-i18n');
+    if (i18nKey) title.setAttribute('data-i18n', i18nKey);
+    else title.removeAttribute('data-i18n');
     body.className = 'mock-body';
     body.innerHTML = '';
     cleanup = views[key](body) || null;

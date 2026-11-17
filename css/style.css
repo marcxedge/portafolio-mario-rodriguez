@@ -565,10 +565,10 @@ img { max-width: 100%; display: block; }
   padding: 8px;
   border-radius: 14px;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--logo-altura);
   box-shadow: var(--shadow);
 }
-.company-logo-pardux { background: #0c0c0c; }
+.company-logo-pardux { background: var(--logo-pardux); }
 .company-logo img {
   width: 100%; height: 100%;
   object-fit: contain;
@@ -708,10 +708,10 @@ img { max-width: 100%; display: block; }
   padding: 8px;
   border-radius: 16px;
   overflow: hidden;
-  background: #002c52;
+  background: var(--logo-uv);
   box-shadow: var(--shadow);
 }
-.edu-logo-utm { background: #139648; }
+.edu-logo-utm { background: var(--logo-utm); }
 .edu-logo img {
   width: 100%; height: 100%;
   object-fit: contain;
@@ -803,7 +803,7 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 4px 16px rgba(0,0,0,0.3);
   transition: transform 0.25s var(--ease), box-shadow 0.25s;
 }
-.thumb-icon--padded { object-fit: contain; padding: 7px; background: #fff; }
+.thumb-icon--padded { object-fit: contain; padding: 7px; background: var(--logo-app); }
 .project-thumb.is-active .thumb-icon {
   transform: scale(1.08);
   box-shadow: 0 6px 22px rgba(59,130,246,0.4);
@@ -893,7 +893,7 @@ img { max-width: 100%; display: block; }
 .project-app-icon--padded {
   object-fit: contain;
   padding: 10px;
-  background: #ffffff;
+  background: var(--logo-app);
 }
 .project-header-content { flex: 1; min-width: 0; }
 .project-header-top {
@@ -1084,7 +1084,7 @@ img { max-width: 100%; display: block; }
   padding: 8px;
   border-radius: 14px;
   overflow: hidden;
-  background: #0099d8;
+  background: var(--logo-jci);
   box-shadow: var(--shadow);
 }
 .volunteer-logo img {
@@ -1398,3 +1398,158 @@ img { max-width: 100%; display: block; }
     scroll-behavior: auto !important;
   }
 }
+
+/* ===== Color de fondo de cada logo =====
+   Muestreado del propio archivo de imagen, para que el padding del contenedor
+   nunca contraste con el fondo del logo. Se usan tanto en los thumbs del
+   timeline como en las tarjetas de experiencia, formación y voluntariado. */
+:root {
+  --logo-altura: #ffffff;
+  --logo-pardux: #0c0c0c;
+  --logo-utm:    #139648;
+  --logo-uv:     #002c52;
+  --logo-jci:    #0097d8;
+  --logo-app:    #ffffff;
+  --logo-liftxto: #1e3a8a;   /* el icono es transparente: color tomado de su propio fondo */
+}
+
+/* Thumbs del timeline: el fondo se elige por el archivo, sin tocar el HTML */
+.thumb-icon--padded[src$="logo-altura.png"]  { background: var(--logo-altura); }
+.thumb-icon--padded[src$="logo-pardux.png"]  { background: var(--logo-pardux); }
+.thumb-icon--padded[src$="logo-utm.png"]     { background: var(--logo-utm); }
+.thumb-icon--padded[src$="logo-uv.png"]      { background: var(--logo-uv); }
+.thumb-icon--padded[src$="logo-jci.png"]     { background: var(--logo-jci); }
+.thumb-icon--padded[src$="icon-tesis.png"]   { background: var(--logo-app); }
+.thumb-icon--padded[src$="icon-amobile.png"] { background: var(--logo-app); }
+
+/* ===== Texto introductorio de cada timeline ===== */
+.timeline-intro {
+  max-width: 62ch;
+  margin: -6px 0 26px;
+  color: var(--text-mute);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+/* ===== Construcción del timeline =====
+   Al entrar en la sección la línea se dibuja de izquierda a derecha y los
+   puntos van apareciendo en orden. Se usa `animation` sin fill-mode final
+   (backwards) para que, al terminar, cada elemento vuelva a su estado normal
+   de CSS — así no se pisa el opacity de los thumbs inactivos. */
+@keyframes tl-line-draw {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes tl-thumb-in {
+  from { opacity: 0; transform: translateY(14px); }
+  60%  { opacity: 1; }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes tl-dot-pop {
+  from { transform: scale(0); }
+  70%  { transform: scale(1.4); }
+  to   { transform: scale(1); }
+}
+@keyframes tl-entry-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.projects-timeline-nav.is-building::before {
+  transform-origin: left center;
+  animation: tl-line-draw 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+.projects-timeline-nav.is-building .project-thumb {
+  animation: tl-thumb-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(0.15s + var(--i, 0) * 0.11s);
+}
+.projects-timeline-nav.is-building .thumb-dot {
+  animation: tl-dot-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  animation-delay: calc(0.22s + var(--i, 0) * 0.11s);
+}
+.project-entry.is-entering {
+  animation: tl-entry-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: 0.45s;
+}
+
+/* ===== Certificaciones en línea de tiempo =====
+   Carril horizontal con scroll-snap: en escritorio se ven varias a la vez y
+   en móvil se recorre con el dedo, sin cambiar de componente entre tamaños.
+   El punto y el tramo de línea son pseudo-elementos de cada tarjeta, así que
+   se desplazan con el contenido sin cálculos de posición. */
+.cert-timeline {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  padding: 34px 2px 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.cert-timeline::-webkit-scrollbar { height: 6px; }
+.cert-timeline::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+
+.cert-timeline .cert-card {
+  position: relative;
+  flex: 0 0 236px;
+  scroll-snap-align: center;
+  overflow: visible;
+}
+/* Punto y línea con el mismo lenguaje visual que los timelines de proyectos
+   y experiencia: punto apagado que se enciende con halo de acento, y relleno
+   en degradado accent → accent-2 con el mismo brillo. */
+.cert-dot {
+  position: absolute;
+  top: -23px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border-radius: 50%;
+  background: var(--border);
+  border: 2px solid var(--bg);
+  box-sizing: border-box;
+  z-index: 1;
+  transition: background 0.25s, box-shadow 0.25s,
+              transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.cert-card.is-passed .cert-dot {
+  background: var(--accent);
+  box-shadow: 0 0 8px 2px var(--accent);
+  transform: scale(1.35);
+}
+/* Tramo hasta el punto siguiente */
+.cert-seg {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  width: calc(100% + 18px);
+  height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.cert-card:last-child .cert-seg { display: none; }
+.cert-seg-fill {
+  display: block;
+  height: 100%;
+  width: calc(var(--seg, 0) * 100%);
+  border-radius: 2px;
+  /* el degradado se dibuja sobre el ancho total del carril y se desplaza según
+     la posición del tramo, para que la línea entera forme un solo degradado */
+  background-image: linear-gradient(to right, var(--accent), var(--accent-2));
+  background-size: var(--rail-w, 1200px) 100%;
+  background-position: calc(-1 * var(--seg-x, 0px)) 0;
+  box-shadow: 0 0 8px 1px var(--accent), 0 0 18px 2px rgba(99, 102, 241, 0.5);
+}
+/* El salto del hover rompería la continuidad de la línea */
+.cert-timeline .cert-card:hover { transform: none; border-color: var(--accent); box-shadow: var(--shadow); }
+
+/* Lift.xto: el PNG tiene las esquinas transparentes, así que sin fondo propio
+   asomaría el color de la superficie bajo el icono. */
+.thumb-icon[src$="icon-liftxto.png"],
+.project-app-icon[src$="icon-liftxto.png"] { background: var(--logo-liftxto); }
+
+/* Idiomas pasa a bloque propio: ya no comparte rejilla con competencias blandas */
+.skills-bottom:has(> :only-child) { grid-template-columns: 1fr; }

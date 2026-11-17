@@ -178,7 +178,8 @@ body { background: #0f1528; }
 .screen .skills-bottom { grid-template-columns: minmax(0, 1fr); gap: 10px; }
 .screen .soft-skills, .screen .languages { padding: 18px; }
 .screen .lang-row { grid-template-columns: 110px minmax(0, 1fr) 40px; }
-.screen .cert-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
+.screen .cert-timeline { gap: 12px; padding: 30px 0 10px; }
+.screen .cert-timeline .cert-card { flex-basis: 178px; }
 .screen .cert-card { padding: 16px 12px; }
 .screen .cert-card:hover { transform: none; }
 .screen .cert-card h3 { font-size: 0.8rem; }
@@ -389,7 +390,7 @@ body { background: #0f1528; }
   .screen .edu-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .screen .skills-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .screen .skills-bottom { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .screen .cert-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .screen .cert-timeline .cert-card { flex-basis: 200px; }
   .screen .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .screen .gallery-item { flex-basis: 150px; width: 150px; }
   .screen .volunteer-card { max-width: none; }
@@ -871,3 +872,204 @@ body { background: #0f1528; }
 .device [data-reveal],
 .device [data-reveal].in-view { opacity: 1 !important; transform: none !important; transition: none !important; }
 .device .lang-fill { width: var(--fill) !important; transition: none !important; }
+
+/* Proyectos y trayectoria: el contenido va a ras de pantalla (sin el margen
+   lateral del .container) para que las tarjetas y el timeline respiren más.
+   Los encabezados conservan el margen para no quedar pegados al borde. */
+#proyecto .container,
+#experiencia .container { padding: 0; }
+
+#proyecto > .screen-scroll > .app-block > .container > .container > .section-tag,
+#proyecto > .screen-scroll > .app-block > .container > .container > .section-title,
+#experiencia > .screen-scroll > .app-block > .container > .container > .section-tag,
+#experiencia > .screen-scroll > .app-block > .container > .container > .section-title {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+/* Entradas del timeline (proyecto / experiencia / formación / voluntariado):
+   se quita el contenedor de color — fondo, borde y radio — para que el
+   contenido se lea directo sobre la pantalla y use todo el ancho. */
+#proyecto .project-card,
+#experiencia .timeline-card,
+#experiencia .edu-card,
+#experiencia .volunteer-card {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 4px 16px 16px;
+}
+
+/* El acento de formación pasa del borde izquierdo de la tarjeta a la fecha */
+#experiencia .edu-card { border-left: 0; }
+
+/* Sin tarjeta no hay a qué aplicar el hover ni el halo de fondo */
+#proyecto .project-card:hover,
+#experiencia .timeline-card:hover,
+#experiencia .edu-card:hover,
+#experiencia .volunteer-card:hover { transform: none; border-color: transparent; }
+#proyecto .project-glow { display: none; }
+
+/* La galería ya no necesita sangrar hacia los bordes de una tarjeta */
+#proyecto .project-gallery-wrap { margin: 0 -16px; padding: 0 16px; }
+
+/* Intro del timeline dentro del móvil simulado */
+.screen .timeline-intro { font-size: 0.86rem; line-height: 1.6; margin: -2px 0 20px; }
+#proyecto .timeline-intro,
+#experiencia .timeline-intro { padding-left: 18px; padding-right: 18px; }
+
+/* Iconos de mis apps en el escritorio: el relleno alrededor del logo toma el
+   color de fondo del propio archivo, igual que en los thumbs del timeline. */
+.app-ico-shot { background: var(--logo-app); }
+.app-ico-shot img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+.app-ico-shot[data-logo="liftxto"] { background: var(--logo-liftxto); }
+.app-ico-shot[data-logo="liftxto"] img { padding: 0; }
+
+/* App propia abierta desde el escritorio: réplica de la ficha del portafolio */
+.mock-body.mock-project { padding: 0 0 20px; }
+.mock-project .project-card {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 16px 16px 4px;
+}
+.mock-project .project-gallery-wrap { margin: 0 -16px; padding: 0 16px; }
+.mock-jump {
+  display: block;
+  margin: 18px auto 0;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.mock-jump:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== Guía inicial del escritorio =====
+   El foco es un rectángulo con una sombra enorme: todo lo que queda fuera se
+   oscurece sin necesidad de máscaras SVG ni de una capa aparte. */
+.tour {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s var(--ease), visibility 0.35s;
+}
+.tour.is-open { opacity: 1; visibility: visible; }
+
+.tour-spot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 26px;
+  box-shadow: 0 0 0 9999px rgba(3, 6, 20, 0.82);
+  transition: top 0.45s var(--ease), left 0.45s var(--ease),
+              width 0.45s var(--ease), height 0.45s var(--ease),
+              border-radius 0.3s var(--ease);
+  pointer-events: none;
+}
+.tour-spot::after {                    /* aro luminoso alrededor del elemento */
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: inherit;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 16px 2px var(--accent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tour-spot.has-target::after { opacity: 1; }
+
+.tour-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(360px, calc(100% - 36px));
+  padding: 20px 20px 16px;
+  border-radius: 22px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.8);
+  transition: top 0.45s var(--ease), transform 0.45s var(--ease);
+}
+.tour-kicker {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.tour-title { font-size: 1.08rem; margin-bottom: 8px; }
+.tour-text { font-size: 0.88rem; line-height: 1.6; color: var(--text-mute); }
+.tour-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+.tour-dots { display: flex; gap: 6px; }
+.tour-dots span {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: width 0.3s, background 0.3s;
+}
+.tour-dots span.is-on { width: 18px; border-radius: 999px; background: var(--accent); }
+.tour-actions { display: flex; align-items: center; gap: 8px; }
+.tour-skip {
+  border: 0;
+  background: none;
+  color: var(--text-mute);
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 8px 6px;
+}
+.tour-skip:hover { color: var(--text); }
+.tour-next {
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 18px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tour-next:active { transform: scale(0.96); }
+
+/* Botón de volver al escritorio en la barra del portafolio */
+.appbar-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-right: 10px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, transform 0.15s;
+}
+.appbar-back svg { width: 18px; height: 18px; }
+.appbar-back:hover { border-color: var(--accent); color: var(--accent); }
+.appbar-back:active { transform: scale(0.92); }
+/* Con tres hijos, space-between separaría también marca y botón de volver */
+.appbar .appbar-brand { margin-right: auto; }
+
+/* Idioma y tema también dentro de las apps del escritorio */
+.mock-bar .mock-title { margin-right: auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mock-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.mock-chip { position: relative; width: 34px; height: 34px; font-size: 0.72rem; font-weight: 700; font-family: 'Roboto', sans-serif; }
+.mock-chip svg { width: 17px; height: 17px; }
