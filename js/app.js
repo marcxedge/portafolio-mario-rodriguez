@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatusBar();
   initMockApps();
   initDragScroll();
+  initPullToRefresh();
 });
 
 /* Boot screen: plays once on the initial page load, simulating the device powering on.
@@ -310,6 +311,81 @@ function initTour(onFinish = () => {}) {
   tour.setAttribute('aria-hidden', 'false');
   render();
   requestAnimationFrame(render);   // segunda pasada: ya con la altura real de la tarjeta
+}
+
+/* Tirar para recargar.
+   El marco usa `html, body { overflow: hidden }` y todo el desplazamiento
+   ocurre dentro de .screen-scroll, así que el navegador móvil no tiene un
+   contenedor raíz al que aplicar su propio gesto de recarga. Se reimplementa
+   aquí para devolverlo sin renunciar a la maqueta de dispositivo. */
+function initPullToRefresh() {
+  const señal = document.getElementById('pullRefresh');
+  if (!señal) return;
+
+  const UMBRAL = 72;          // px de arrastre necesarios para recargar
+  const TOPE = 110;           // hasta dónde sigue al dedo
+  let scroller = null;
+  let x0 = 0;
+  let y0 = 0;
+  let d = 0;
+  let activo = false;
+
+  const colocar = (px) => {
+    señal.style.transform = `translate(-50%, ${px}px) rotate(${px * 3}deg)`;
+    señal.style.opacity = Math.min(1, px / UMBRAL).toFixed(2);
+  };
+  const soltar = () => {
+    señal.classList.remove('is-dragging');
+    señal.style.transform = '';
+    señal.style.opacity = '';
+    scroller = null;
+    activo = false;
+    d = 0;
+  };
+
+  document.addEventListener('touchstart', (e) => {
+    if (e.touches.length !== 1) return;
+    const sc = e.target.closest('.screen-scroll, .mock-body');
+    if (!sc || sc.scrollTop > 0) { scroller = null; return; }
+    scroller = sc;
+    x0 = e.touches[0].clientX;
+    y0 = e.touches[0].clientY;
+    d = 0;
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    if (!scroller) return;
+    const dy = e.touches[0].clientY - y0;
+    const dx = e.touches[0].clientX - x0;
+
+    // el gesto es nuestro solo si es claramente vertical, hacia abajo y desde arriba del todo
+    if (!activo) {
+      if (dy <= 10 || Math.abs(dy) < Math.abs(dx) * 1.5 || scroller.scrollTop > 0) {
+        if (dy < 0 || Math.abs(dx) > Math.abs(dy)) scroller = null;
+        return;
+      }
+      activo = true;
+      señal.classList.add('is-dragging');
+    }
+
+    e.preventDefault();                       // sin esto el contenedor rebota
+    d = Math.min(TOPE, (dy - 10) * 0.55);
+    colocar(d);
+    señal.classList.toggle('is-ready', d >= UMBRAL);
+  }, { passive: false });
+
+  const fin = () => {
+    if (!activo) { soltar(); return; }
+    if (d >= UMBRAL) {
+      señal.classList.add('is-loading');
+      colocar(UMBRAL);
+      setTimeout(() => window.location.reload(), 220);
+      return;
+    }
+    soltar();
+  };
+  document.addEventListener('touchend', fin, { passive: true });
+  document.addEventListener('touchcancel', fin, { passive: true });
 }
 
 function initAppTabs() {

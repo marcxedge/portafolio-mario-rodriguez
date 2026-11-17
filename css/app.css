@@ -1276,3 +1276,33 @@ body { background: #0f1528; }
 /* Descargar CV sale de la barra superior y vive entre las llamadas del inicio */
 .btn-cv { white-space: nowrap; }
 .screen .hero-cta { flex-wrap: wrap; gap: 10px; }
+
+/* Tirar para recargar: el navegador no puede hacerlo porque el documento no
+   desplaza, así que el indicador es nuestro y vive dentro del marco. */
+.pull-refresh {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  z-index: 55;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 26px -12px rgba(0, 0, 0, 0.7);
+  color: var(--accent);
+  opacity: 0;
+  transform: translate(-50%, 0);
+  pointer-events: none;
+  transition: transform 0.3s var(--ease), opacity 0.3s;
+}
+.pull-refresh.is-dragging { transition: none; }
+.pull-refresh svg { width: 18px; height: 18px; }
+.pull-refresh.is-ready { border-color: var(--accent); box-shadow: 0 0 12px 1px var(--accent); }
+.pull-refresh.is-loading { animation: pull-spin 0.7s linear infinite; }
+@keyframes pull-spin {
+  from { transform: translate(-50%, 72px) rotate(0deg); }
+  to { transform: translate(-50%, 72px) rotate(360deg); }
+}
