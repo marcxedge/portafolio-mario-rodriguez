@@ -23,6 +23,42 @@ const I18N_TRANSLATIONS = {
       homeTitle: 'El botón lateral',
       homeText: 'A la derecha del marco está el botón de inicio: vuelve a esta pantalla desde donde estés, igual que en un teléfono de verdad. Ya está, toca la app que quieras para empezar.'
     },
+    quest: {
+      aria: 'Recorrido del perfil',
+      title: 'Tu recorrido',
+      lead: 'Ocho cosas que puedes descubrir aquí dentro. No hace falta completarlas para leerlo todo: son el camino corto a lo que vale la pena ver.',
+      reset: 'Empezar de nuevo',
+      off: 'Desactivar recorrido',
+      on: 'Activar recorrido',
+      doneTitle: 'Recorrido completo',
+      doneText: 'Ya has visto cómo trabajo: apps en producción, modelos que corren en el dispositivo y un proyecto que nació para que alguien pudiera comunicarse. Si encaja con lo que buscáis, hablemos.',
+      doneCta: 'Escríbeme',
+      doneTextImpact: 'Ya has visto el recorrido: empezó con una app para que alguien pudiera comunicarse y siguió con producto real, modelos que corren en el dispositivo y equipos a los que he dirigido. Si construís algo que se mide por lo que cambia en quien lo usa, hablemos.',
+      desktopTitle: 'Abrir una de mis apps',
+      desktopHint: 'En el escritorio hay tres apps mías instaladas.',
+      desktopInsight: 'AMobile 7, Lift.xto y SL Assist: tres productos reales, de cliente, personal y académico.',
+      projectTitle: 'Entrar en un proyecto',
+      projectHint: 'Toca un punto de la línea de proyectos.',
+      projectInsight: 'Cada proyecto se abre con su contexto, sus decisiones técnicas y sus capturas reales.',
+      galleryTitle: 'Ver una captura de cerca',
+      galleryHint: 'Abre una imagen de cualquier galería.',
+      galleryInsight: 'Son capturas de las apps funcionando, con los datos sensibles difuminados a propósito.',
+      careerTitle: 'Recorrer la trayectoria',
+      careerHint: 'Llega hasta el final de la línea de experiencia.',
+      careerInsight: 'De investigación y desarrollo en 2020 a liderar el equipo móvil: seis años en la misma dirección.',
+      certsTitle: 'Llegar al final de las credenciales',
+      certsHint: 'Desplaza el carril de certificaciones hasta el final.',
+      certsInsight: 'Siete certificaciones entre 2023 y 2024, de Flutter a gestión de dispositivos corporativos.',
+      langTitle: 'Cambiar de idioma',
+      langHint: 'El botón EN/ES de la barra superior.',
+      langInsight: 'Todo el portafolio está en español e inglés, con un sistema propio de traducción sin recargar la página.',
+      themeTitle: 'Cambiar el tema',
+      themeHint: 'El botón de sol y luna.',
+      themeInsight: 'Tema claro y oscuro en toda la interfaz, incluidos los gráficos y las líneas de tiempo.',
+      contactTitle: 'Llegar al contacto',
+      contactHint: 'La última pestaña de abajo.',
+      contactInsight: 'Estoy en Valencia y disponible para trabajar hasta 30 h a la semana.'
+    },
     launcher: {
       screen: 'Pantalla de inicio del dispositivo',
       app: 'Mi Portafolio',
@@ -56,7 +92,7 @@ const I18N_TRANSLATIONS = {
     },
     about: {
       tag: 'Sobre mí', title: 'Perfil profesional',
-      text: 'Desarrollador Móvil con 4 años construyendo apps para <strong>Android e iOS</strong> que se publican, se usan y funcionan incluso sin internet. He liderado equipos técnicos y entregado soluciones a empresas de <strong>sectores como energía, gobierno, tecnología y consumo masivo</strong> — desde prototipos hasta apps publicadas en las tiendas oficiales.<br><br>Originario de Ecuador, ahora en Valencia cursando un Máster en tecnologías web, nube y móvil en la <strong>Universitat de València</strong>.',
+      text: 'Desarrollador Móvil con 4 años construyendo apps para <strong>Android e iOS</strong> que se publican, se usan y funcionan incluso sin internet. He liderado equipos técnicos y entregado soluciones a empresas de <strong>sectores como energía, gobierno, tecnología y consumo masivo</strong> — desde prototipos hasta apps publicadas en las tiendas oficiales.<br><br>Originario de Ecuador, ahora en Valencia cursando un Máster en tecnologías web, nube y móvil en la <strong>Universitat de València</strong>.<br><br>Crecí jugando a videojuegos y sigo siendo jugador. De ahí me llevo algo que uso al construir producto: <strong>un buen juego te enseña a jugarlo sin explicártelo</strong>, te da una señal de avance y una razón para volver. Es la misma pregunta que me hago en cada app.',
       statYears: 'Años de experiencia', statCerts: 'Certificaciones', statSdk: 'Apps en producción', statCompanies: 'Clientes destacados',
       value1Title: 'Apps móviles', value1Text: 'Apps nativas y multiplataforma de principio a fin.',
       value2Title: 'Hardware & SDKs', value2Text: 'Integración de hardware: drones, sensores e IoT.',
@@ -103,7 +139,8 @@ const I18N_TRANSLATIONS = {
     },
     projectsSection: {
       tag: 'Proyectos', title: 'Proyectos destacados',
-      intro: 'Estos son los productos que he construido, desde el proyecto de grado hasta la app que hoy usan equipos en campo. Recorre la línea para verlos.'
+      intro: 'Estos son los productos que he construido, desde el proyecto de grado hasta la app que hoy usan equipos en campo. Recorre la línea para verlos.',
+      introImpact: 'Empiezo por el proyecto que explica por qué hago esto: una app para que una persona sorda pudiera comunicarse. Después, lo que vino construyendo el oficio.'
     },
     project1: {
       tag: 'Proyecto de grado',
@@ -222,7 +259,7 @@ const I18N_TRANSLATIONS = {
       intro: 'Cuando no estoy programando, me encontrarás entrenando, jugando o siguiendo el deporte —sobre todo fútbol—, metido de lleno en algún videojuego, o —por encima de todo— compartiendo tiempo de calidad con mi familia y amigos. Soy una persona muy sociable, y creo que esas conexiones importan tanto como cualquier línea de código.',
       gymTitle: 'Gimnasio', gymText: 'Entrenar con constancia me mantiene enfocado, disciplinado y con la energía a tope para cada reto.',
       footballTitle: 'Fútbol y deportes', footballText: 'El deporte me apasiona en general, sobre todo el fútbol: lo disfruto tanto jugándolo como siguiéndolo como hincha.',
-      gamingTitle: 'Videojuegos', gamingText: 'Mi forma favorita de desconectar y ejercitar la estrategia y la creatividad.',
+      gamingTitle: 'Videojuegos', gamingText: 'Mi afición de siempre, y donde aprendí a mirar el diseño de la progresión: cómo un juego te enseña, te mide y te sostiene el interés sin un manual.',
       familyTitle: 'Familia y amigos', familyText: 'Tiempo de calidad con la gente que quiero — lo que más valoro.',
       musicTitle: 'Música', musicText: 'La música me acompaña tanto como el código: la disfruto escuchándola y tocándola, con la guitarra y el bajo como mis instrumentos de cabecera. Escucho de todos los géneros, pero el Rock y el Metal son mi verdadera pasión.'
     },
@@ -257,6 +294,42 @@ const I18N_TRANSLATIONS = {
       homeTitle: 'The side button',
       homeText: 'On the right edge of the frame there is a home button: it brings you back to this screen from anywhere, just like on a real phone. That is it — tap whichever app you like to start.'
     },
+    quest: {
+      aria: 'Profile walkthrough',
+      title: 'Your walkthrough',
+      lead: 'Eight things worth finding in here. You do not need to complete them to read everything: they are the short path to what matters.',
+      reset: 'Start over',
+      off: 'Turn walkthrough off',
+      on: 'Turn walkthrough on',
+      doneTitle: 'Walkthrough complete',
+      doneText: 'You have seen how I work: apps in production, models running on the device, and a project born so that someone could communicate. If that fits what you are looking for, let us talk.',
+      doneCta: 'Get in touch',
+      doneTextImpact: 'You have seen the path: it started with an app so that someone could communicate, and went on through real products, models running on the device and teams I have led. If you build something measured by what it changes in its user, let us talk.',
+      desktopTitle: 'Open one of my apps',
+      desktopHint: 'There are three of my apps on the home screen.',
+      desktopInsight: 'AMobile 7, Lift.xto and SL Assist: a client product, a personal one and an academic one.',
+      projectTitle: 'Open a project',
+      projectHint: 'Tap a point on the project timeline.',
+      projectInsight: 'Each project opens with its context, its technical decisions and real screenshots.',
+      galleryTitle: 'Look at a screenshot',
+      galleryHint: 'Open an image from any gallery.',
+      galleryInsight: 'These are the apps running, with sensitive data deliberately blurred.',
+      careerTitle: 'Walk the career line',
+      careerHint: 'Reach the end of the experience timeline.',
+      careerInsight: 'From R&D in 2020 to leading the mobile team: six years in the same direction.',
+      certsTitle: 'Reach the end of the credentials',
+      certsHint: 'Scroll the certifications rail to the end.',
+      certsInsight: 'Seven certifications between 2023 and 2024, from Flutter to enterprise device management.',
+      langTitle: 'Switch language',
+      langHint: 'The EN/ES button in the top bar.',
+      langInsight: 'The whole portfolio is in Spanish and English, with a custom translation system and no page reload.',
+      themeTitle: 'Switch the theme',
+      themeHint: 'The sun and moon button.',
+      themeInsight: 'Light and dark themes across the interface, timelines and charts included.',
+      contactTitle: 'Reach the contact screen',
+      contactHint: 'The last tab at the bottom.',
+      contactInsight: 'I am based in Valencia and available for up to 30 hours a week.'
+    },
     launcher: {
       screen: 'Device home screen',
       app: 'My Portfolio',
@@ -290,7 +363,7 @@ const I18N_TRANSLATIONS = {
     },
     about: {
       tag: 'About me', title: 'Professional Profile',
-      text: "Mobile Developer with 4 years building <strong>Android and iOS apps</strong> that ship, get used, and work offline. Led technical teams and delivered solutions to companies in <strong>sectors like energy, government, technology, and consumer goods</strong> — from prototypes to apps published on the official stores.<br><br>From Ecuador, now in Valencia completing a Master's in web, cloud, and mobile development at <strong>Universitat de València</strong>.",
+      text: "Mobile Developer with 4 years building <strong>Android and iOS apps</strong> that ship, get used, and work offline. Led technical teams and delivered solutions to companies in <strong>sectors like energy, government, technology, and consumer goods</strong> — from prototypes to apps published on the official stores.<br><br>From Ecuador, now in Valencia completing a Master's in web, cloud, and mobile development at <strong>Universitat de València</strong>.<br><br>I grew up playing video games and still play. That is where something I use in product work comes from: <strong>a good game teaches you how to play it without explaining itself</strong>, gives you a sense of progress and a reason to come back. It is the same question I ask of every app I build.",
       statYears: 'Years of experience', statCerts: 'Certifications', statSdk: 'Production apps', statCompanies: 'Key clients',
       value1Title: 'Mobile Apps', value1Text: 'Native and cross-platform apps, end to end.',
       value2Title: 'Hardware & SDKs', value2Text: 'Hardware integration: drones, sensors, IoT.',
@@ -337,7 +410,8 @@ const I18N_TRANSLATIONS = {
     },
     projectsSection: {
       tag: 'Projects', title: 'Featured projects',
-      intro: 'These are the products I have built, from my degree project to the app field teams use today. Follow the line to go through them.'
+      intro: 'These are the products I have built, from my degree project to the app field teams use today. Follow the line to go through them.',
+      introImpact: 'I start with the project that explains why I do this: an app so that a deaf person could communicate. Then what built the craft around it.'
     },
     project1: {
       tag: 'Degree Project',
@@ -456,7 +530,7 @@ const I18N_TRANSLATIONS = {
       intro: "When I'm not coding, you'll find me training, playing or following sports — football above all —, deep into a video game, or — above everything — spending quality time with my family and friends. I'm a very sociable person, and I believe those connections matter just as much as any line of code.",
       gymTitle: 'Gym', gymText: 'Training consistently keeps me focused, disciplined, and full of energy for every challenge.',
       footballTitle: 'Football & sports', footballText: "I'm passionate about sports in general, football above all: I enjoy both playing it and following it as a fan.",
-      gamingTitle: 'Video games', gamingText: 'My favorite way to unwind and exercise strategy and creativity.',
+      gamingTitle: 'Video games', gamingText: 'My lifelong hobby, and where I learned to look at progression design: how a game teaches you, measures you and holds your attention with no manual.',
       familyTitle: 'Family & friends', familyText: 'Quality time with the people I love — what I value most.',
       musicTitle: 'Music', musicText: "Music is as much a part of my life as code: I enjoy both listening to it and playing it, with guitar and bass as my go-to instruments. I listen to every genre, but Rock and Metal are my true passion."
     },

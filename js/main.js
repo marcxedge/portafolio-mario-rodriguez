@@ -97,7 +97,15 @@ function initProjectNav() {
       nav.dataset.active = thumbs.indexOf(thumb);
     };
 
-    thumbs.forEach(t => t.addEventListener('click', () => activate(t)));
+    thumbs.forEach(t => t.addEventListener('click', () => {
+      activate(t);
+      // capa de recorrido: proyecto abierto y trayectoria recorrida hasta el final
+      const seccion = nav.closest('.screen')?.id;
+      if (seccion === 'proyecto') window.questComplete?.('project');
+      if (nav.getAttribute('aria-label') === 'Experiencia laboral' && t === thumbs.at(-1)) {
+        window.questComplete?.('career');
+      }
+    }));
 
     // Un role="tablist" debe moverse con las flechas; se añade Inicio/Fin.
     const step = (dir) => {
@@ -272,7 +280,7 @@ function initGalleryModal() {
     document.body.style.overflow = '';
   };
 
-  allItems.forEach((item) => item.addEventListener('click', () => open(item)));
+  allItems.forEach((item) => item.addEventListener('click', () => { open(item); window.questComplete?.('gallery'); }));
   closeBtn.addEventListener('click', close);
   backdrop.addEventListener('click', close);
   prevBtn.addEventListener('click', () => render(current - 1));

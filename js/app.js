@@ -182,7 +182,7 @@ function initLauncher() {
   setHome(true);
   // En vez de abrir el portafolio solo, se presenta el escritorio con una guía
   // y al terminar se deja al visitante en el escritorio para que elija.
-  setTimeout(() => initTour(), BOOT_DURATION);
+  setTimeout(() => initTour(() => initQuest()), BOOT_DURATION);
 }
 
 /* Guía inicial: presenta el escritorio y cada app antes de abrir el portafolio.

@@ -46,7 +46,7 @@
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-        <a href="assets/CV_Mario_Rodriguez_ES.pdf" id="cvDownload" class="btn btn-primary btn-sm" data-i18n="nav.downloadCV" download>Descargar CV</a>
+        <button class="quest-ring" type="button" data-quest-ring aria-label="Recorrido"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="quest-ring-bg" cx="18" cy="18" r="15"/><circle class="quest-ring-fg" cx="18" cy="18" r="15"/></svg><span class="quest-ring-count" data-quest-count>0</span></button>
       </div>
     </header>
     <main class="screens">
@@ -80,6 +80,7 @@
         <div class="hero-cta">
           <a href="#contacto" class="btn btn-primary"><span data-i18n="hero.ctaPrimary">Hablemos</span> <span aria-hidden="true">→</span></a>
           <a href="#experiencia" class="btn btn-ghost" data-i18n="hero.ctaSecondary">Ver experiencia</a>
+          <a href="assets/CV_Mario_Rodriguez_ES.pdf" id="cvDownload" class="btn btn-ghost btn-cv" data-i18n="nav.downloadCV" download>Descargar CV</a>
         </div>
 
         <div class="hero-social">
@@ -121,6 +122,10 @@
           <br><br>
           Originario de Ecuador, actualmente cursando el Máster en Tecnologías Web, Computación en la Nube
           y Aplicaciones Móviles en la Universitat de València (Burjassot, España).
+          <br><br>
+          Crecí jugando a videojuegos y sigo siendo jugador. De ahí me llevo algo que uso al construir
+          producto: <strong>un buen juego te enseña a jugarlo sin explicártelo</strong>, te da una señal
+          de avance y una razón para volver. Es la misma pregunta que me hago en cada app.
         </p>
 
         <div class="stats" data-reveal>
@@ -185,7 +190,7 @@
         <div class="value-card" data-reveal>
           <div class="value-icon">🎮</div>
           <h3 data-i18n="hobbies.gamingTitle">Videojuegos</h3>
-          <p data-i18n="hobbies.gamingText">Mi forma favorita de desconectar y ejercitar la estrategia y la creatividad.</p>
+          <p data-i18n="hobbies.gamingText">Mi afición de siempre, y donde aprendí a mirar el diseño de la progresión: cómo un juego te enseña, te mide y te sostiene el interés sin un manual.</p>
         </div>
         <div class="value-card" data-reveal>
           <div class="value-icon">👨‍👩‍👧‍👦</div>
@@ -1047,6 +1052,32 @@
       </div>
     </div>
 
+    <!-- Capa de recorrido -->
+    <div class="quest-panel" id="questPanel" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="quest-sheet">
+        <header class="quest-head">
+          <h3 id="questTitle"></h3>
+          <button class="quest-close" id="questClose" type="button" aria-label="Cerrar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </header>
+        <p class="quest-lead" id="questLead"></p>
+        <div class="quest-bar"><span id="questBarFill"></span></div>
+        <p class="quest-progress" id="questProgressText"></p>
+        <ul class="quest-list" id="questList"></ul>
+        <div class="quest-done" id="questDone" hidden>
+          <strong data-quest-done-title></strong>
+          <p data-quest-done-text></p>
+          <a class="quest-cta" href="#contacto" data-quest-done-cta></a>
+        </div>
+        <div class="quest-foot">
+          <button class="quest-link" id="questReset" type="button"></button>
+          <button class="quest-link" id="questOff" type="button"></button>
+        </div>
+      </div>
+    </div>
+    <div class="quest-toast" id="questToast" role="status" aria-live="polite"></div>
+
     <section class="mockapp" id="mockApp" aria-hidden="true">
       <header class="mock-bar">
         <button class="mock-back" id="mockBack" type="button" data-i18n-attr="aria-label:launcher.homeButton;title:launcher.homeButton">
@@ -1056,6 +1087,7 @@
         <div class="mock-actions">
           <button class="icon-btn mock-chip" type="button" data-proxy="langToggle"></button>
           <button class="icon-btn mock-chip" type="button" data-proxy="themeToggle"></button>
+          <button class="quest-ring" type="button" data-quest-ring aria-label="Recorrido"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="quest-ring-bg" cx="18" cy="18" r="15"/><circle class="quest-ring-fg" cx="18" cy="18" r="15"/></svg><span class="quest-ring-count" data-quest-count>0</span></button>
         </div>
       </header>
       <div class="mock-body" id="mockBody"></div>
@@ -1072,6 +1104,7 @@
       <div class="launcher-tools">
         <button class="launcher-chip" type="button" data-proxy="langToggle"></button>
         <button class="launcher-chip" type="button" data-proxy="themeToggle"></button>
+        <button class="quest-ring" type="button" data-quest-ring aria-label="Recorrido"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="quest-ring-bg" cx="18" cy="18" r="15"/><circle class="quest-ring-fg" cx="18" cy="18" r="15"/></svg><span class="quest-ring-count" data-quest-count>0</span></button>
       </div>
       <div class="launcher-toast" id="launcherToast" role="status" aria-live="polite" data-i18n="launcher.unavailable">App no disponible</div>
       <div class="launcher-toast" id="launcherOpening" role="status" aria-live="polite" data-i18n="launcher.opening">Abriendo Mi Portafolio</div>
@@ -1080,6 +1113,10 @@
           <span class="app-ico"><img src="assets/img/profile.jpg" alt=""></span>
           <span class="app-name" data-i18n="launcher.app">Mi Portafolio</span>
         </button>
+        <button class="app-icon" type="button" data-mock="slassist">
+          <span class="app-ico app-ico-shot" data-logo="tesis"><img src="assets/img/icon-tesis.png" alt=""></span>
+          <span class="app-name">SL Assist</span>
+        </button>
         <button class="app-icon" type="button" data-mock="amobile">
           <span class="app-ico app-ico-shot" data-logo="amobile"><img src="assets/img/icon-amobile.png" alt=""></span>
           <span class="app-name">AMobile 7</span>
@@ -1087,10 +1124,6 @@
         <button class="app-icon" type="button" data-mock="liftxto">
           <span class="app-ico app-ico-shot" data-logo="liftxto"><img src="assets/img/icon-liftxto.png" alt=""></span>
           <span class="app-name">Lift.xto</span>
-        </button>
-        <button class="app-icon" type="button" data-mock="slassist">
-          <span class="app-ico app-ico-shot" data-logo="tesis"><img src="assets/img/icon-tesis.png" alt=""></span>
-          <span class="app-name">SL Assist</span>
         </button>
       </div>
     </section>
@@ -1131,5 +1164,6 @@
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 <script src="js/app.js"></script>
+<script src="js/quest.js"></script>
 </body>
 </html>

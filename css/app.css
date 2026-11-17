@@ -1073,3 +1073,206 @@ body { background: #0f1528; }
 .mock-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .mock-chip { position: relative; width: 34px; height: 34px; font-size: 0.72rem; font-weight: 700; font-family: 'Roboto', sans-serif; }
 .mock-chip svg { width: 17px; height: 17px; }
+
+/* ===== Capa de recorrido: anillo, panel de misiones y avisos ===== */
+.quest-ring {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--accent);
+  cursor: pointer;
+}
+.quest-ring svg { width: 34px; height: 34px; transform: rotate(-90deg); }
+.quest-ring circle { fill: none; stroke-width: 3; }
+.quest-ring-bg { stroke: var(--border); }
+.quest-ring-fg {
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-dasharray: 94.25;                      /* 2πr con r=15 */
+  stroke-dashoffset: calc(94.25 - 94.25 * var(--quest-p, 0));
+  transition: stroke-dashoffset 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.quest-ring-count {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.quest-ring.is-complete .quest-ring-fg { stroke: var(--accent-2, var(--accent)); }
+.quest-ring.is-complete { animation: quest-pulse 1.4s ease-out 2; }
+@keyframes quest-pulse {
+  0%, 100% { transform: scale(1); }
+  40% { transform: scale(1.12); }
+}
+
+.quest-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(3, 6, 20, 0.72);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s var(--ease), visibility 0.3s;
+}
+.quest-panel.is-open { opacity: 1; visibility: visible; }
+.quest-sheet {
+  width: 100%;
+  max-height: 86%;
+  overflow-y: auto;
+  padding: 18px 18px 22px;
+  border-radius: 26px 26px 0 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-bottom: 0;
+  transform: translateY(14px);
+  transition: transform 0.35s var(--ease);
+  scrollbar-width: none;
+}
+.quest-sheet::-webkit-scrollbar { display: none; }
+.quest-panel.is-open .quest-sheet { transform: none; }
+.quest-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.quest-head h3 { font-size: 1.05rem; }
+.quest-close {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  display: grid; place-items: center;
+  cursor: pointer;
+}
+.quest-close svg { width: 16px; height: 16px; }
+.quest-lead { margin-top: 6px; font-size: 0.84rem; line-height: 1.55; color: var(--text-mute); }
+.quest-bar {
+  margin-top: 14px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+.quest-bar > span {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--accent), var(--accent-2));
+  box-shadow: 0 0 10px 1px var(--accent);
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.quest-progress { margin-top: 6px; font-size: 0.74rem; font-weight: 700; color: var(--accent); }
+
+.quest-list { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.quest-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  opacity: 0.62;
+  transition: opacity 0.3s, border-color 0.3s;
+}
+.quest-item.is-done { opacity: 1; border-color: var(--accent); }
+.quest-item-icon {
+  width: 34px; height: 34px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  display: grid; place-items: center;
+  background: var(--border);
+  color: var(--text-mute);
+  transition: background 0.3s, color 0.3s;
+}
+.quest-item.is-done .quest-item-icon { background: var(--accent); color: #fff; }
+.quest-item-icon svg { width: 17px; height: 17px; }
+.quest-item-body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.quest-item-body strong { font-size: 0.86rem; }
+.quest-item-text { font-size: 0.78rem; line-height: 1.5; color: var(--text-mute); }
+
+.quest-done {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+  text-align: center;
+}
+.quest-done strong { display: block; font-size: 0.95rem; margin-bottom: 6px; }
+.quest-done p { font-size: 0.82rem; line-height: 1.55; color: var(--text-mute); }
+.quest-cta {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 9px 20px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.quest-foot { display: flex; justify-content: space-between; gap: 12px; margin-top: 18px; }
+.quest-link {
+  border: 0;
+  background: none;
+  color: var(--text-mute);
+  font-size: 0.76rem;
+  cursor: pointer;
+  padding: 6px 2px;
+}
+.quest-link:hover { color: var(--accent); }
+
+.quest-toast {
+  position: absolute;
+  left: 50%;
+  bottom: 86px;
+  z-index: 65;
+  width: min(330px, calc(100% - 32px));
+  transform: translate(-50%, 16px);
+  display: flex;
+  gap: 11px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  box-shadow: 0 18px 44px -18px rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0.3s;
+}
+.quest-toast.is-visible { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.quest-toast-icon {
+  width: 26px; height: 26px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--accent);
+  color: #fff;
+}
+.quest-toast-icon svg { width: 15px; height: 15px; }
+.quest-toast-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.quest-toast-body strong { font-size: 0.82rem; }
+.quest-toast-body span { font-size: 0.76rem; line-height: 1.45; color: var(--text-mute); }
+
+/* Anillo de recorrido en el escritorio: a juego con los chips de idioma y tema */
+.launcher-tools .quest-ring {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.launcher-tools .quest-ring svg { width: 30px; height: 30px; margin: 2px; }
+.launcher-tools .quest-ring-count { font-size: 0.68rem; }
+
+/* Descargar CV sale de la barra superior y vive entre las llamadas del inicio */
+.btn-cv { white-space: nowrap; }
+.screen .hero-cta { flex-wrap: wrap; gap: 10px; }
