@@ -25,7 +25,7 @@
     <div class="boot-screen" id="bootScreen" aria-hidden="true"><span class="boot-dot"></span></div>
     <!-- Splash screen: shown when the app opens, then fades out -->
     <div class="splash is-done" id="splash" aria-hidden="true">
-      <img src="assets/img/profile.jpg" alt="">
+      <img src="assets/img/profile.webp" alt="">
       <span class="splash-name" data-i18n="appbar.brand">Mi Portafolio</span>
       <span class="splash-bar"><span></span></span>
     </div>
@@ -46,7 +46,7 @@
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-        <button class="quest-ring" type="button" data-quest-ring aria-label="Recorrido"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="quest-ring-bg" cx="18" cy="18" r="15"/><circle class="quest-ring-fg" cx="18" cy="18" r="15"/></svg><span class="quest-ring-count" data-quest-count>0</span></button>
+        <a href="assets/CV_Mario_Rodriguez_ES.pdf" id="cvDownload" class="btn btn-primary btn-sm" data-i18n="nav.downloadCV" download>Descargar CV</a>
       </div>
     </header>
     <main class="screens">
@@ -79,8 +79,7 @@
 
         <div class="hero-cta">
           <a href="#contacto" class="btn btn-primary"><span data-i18n="hero.ctaPrimary">Hablemos</span> <span aria-hidden="true">→</span></a>
-          <a href="#experiencia" class="btn btn-ghost" data-i18n="hero.ctaSecondary">Ver experiencia</a>
-          <a href="assets/CV_Mario_Rodriguez_ES.pdf" id="cvDownload" class="btn btn-ghost btn-cv" data-i18n="nav.downloadCV" download>Descargar CV</a>
+          <a href="#experiencia" class="btn btn-ghost" data-i18n="hero.ctaSecondary">Ver trayectoria</a>
         </div>
 
         <div class="hero-social">
@@ -99,7 +98,7 @@
       <div class="hero-visual" data-reveal>
         <div class="photo-frame">
           <div class="photo-ring"></div>
-          <img src="assets/img/profile.jpg" alt="Foto de Mario Antonio Rodríguez Cedeño" data-i18n-attr="alt:hero.photoAlt" class="photo">
+          <img src="assets/img/profile.webp" alt="Foto de Mario Antonio Rodríguez Cedeño" data-i18n-attr="alt:hero.photoAlt" class="photo">
           <div class="photo-chip chip-flutter">Flutter</div>
           <div class="photo-chip chip-ai">Edge AI</div>
           <div class="photo-chip chip-android">Android</div>
@@ -599,7 +598,7 @@
     <section class="screen" id="experiencia">
       <div class="screen-scroll">
 <div class="app-block"><div class="container"><div class="container">
-      <p class="section-tag" data-reveal data-i18n="experience.tag">Trayectoria</p>
+      <p class="section-tag" data-reveal data-i18n="experience.tag">Empleo</p>
       <h2 class="section-title" data-reveal data-i18n="experience.title">Experiencia profesional</h2>
 
       <p class="timeline-intro" data-i18n="experience.intro">Así ha sido mi camino profesional, de investigar tecnología a liderar el equipo móvil. Toca cada punto para ver qué construí en cada etapa.</p>
@@ -792,8 +791,6 @@
 
       <div class="cert-timeline">
         <div class="cert-card" data-reveal>
-          <span class="cert-seg" aria-hidden="true"><span class="cert-seg-fill"></span></span>
-          <span class="cert-dot" aria-hidden="true"></span>
           <div class="cert-icon cert-icon-platzi"><img src="assets/img/logo-platzi.png" alt="Logo de Platzi"></div>
           <h3 data-i18n="certifications.cert1Title">Curso de Flutter</h3>
           <p data-i18n="certifications.cert1Meta">Platzi · feb 2023</p>
@@ -803,8 +800,6 @@
           </a>
         </div>
         <div class="cert-card" data-reveal>
-          <span class="cert-seg" aria-hidden="true"><span class="cert-seg-fill"></span></span>
-          <span class="cert-dot" aria-hidden="true"></span>
           <div class="cert-icon cert-icon-platzi"><img src="assets/img/logo-platzi.png" alt="Logo de Platzi"></div>
           <h3 data-i18n="certifications.cert2Title">Curso de Bases Técnicas de Android</h3>
           <p data-i18n="certifications.cert2Meta">Platzi · mar 2023</p>
@@ -814,8 +809,6 @@
           </a>
         </div>
         <div class="cert-card" data-reveal>
-          <span class="cert-seg" aria-hidden="true"><span class="cert-seg-fill"></span></span>
-          <span class="cert-dot" aria-hidden="true"></span>
           <div class="cert-icon cert-icon-platzi"><img src="assets/img/logo-platzi.png" alt="Logo de Platzi"></div>
           <h3 data-i18n="certifications.cert3Title">Curso de Diseño de Interfaces con Android Studio</h3>
           <p data-i18n="certifications.cert3Meta">Platzi · mar 2023</p>
@@ -825,8 +818,6 @@
           </a>
         </div>
         <div class="cert-card" data-reveal>
-          <span class="cert-seg" aria-hidden="true"><span class="cert-seg-fill"></span></span>
-          <span class="cert-dot" aria-hidden="true"></span>
           <div class="cert-icon cert-icon-samsung"><img src="assets/img/logo-samsung.png" alt="Logo de Samsung"></div>
           <h3 data-i18n="certifications.cert6Title">Samsung Knox Associate</h3>
           <p data-i18n="certifications.cert6Meta">Samsung · ago 2024</p>
@@ -836,8 +827,6 @@
           </a>
         </div>
         <div class="cert-card" data-reveal>
-          <span class="cert-seg" aria-hidden="true"><span class="cert-seg-fill"></span></span>
-          <span class="cert-dot" aria-hidden="true"></span>
           <div class="cert-icon cert-icon-samsung"><img src="assets/img/logo-samsung.png" alt="Logo de Samsung"></div>
           <h3 data-i18n="certifications.cert7Title">Samsung Knox Professional</h3>
           <p data-i18n="certifications.cert7Meta">Samsung · sep 2024</p>
@@ -847,8 +836,6 @@
           </a>
         </div>
         <div class="cert-card" data-reveal>
-          <span class="cert-seg" aria-hidden="true"><span class="cert-seg-fill"></span></span>
-          <span class="cert-dot" aria-hidden="true"></span>
           <div class="cert-icon cert-icon-android"><img src="assets/img/logo-android.png" alt="Logo de Android"></div>
           <h3 data-i18n="certifications.cert4Title">Android Enterprise Associate</h3>
           <p data-i18n="certifications.cert4Meta">Android · sep 2024</p>
@@ -858,8 +845,6 @@
           </a>
         </div>
         <div class="cert-card" data-reveal>
-          <span class="cert-seg" aria-hidden="true"><span class="cert-seg-fill"></span></span>
-          <span class="cert-dot" aria-hidden="true"></span>
           <div class="cert-icon cert-icon-android"><img src="assets/img/logo-android.png" alt="Logo de Android"></div>
           <h3 data-i18n="certifications.cert5Title">Android Enterprise Professional</h3>
           <p data-i18n="certifications.cert5Meta">Android · dic 2024</p>
@@ -1024,7 +1009,7 @@
     <nav class="tabbar" aria-label="Navegación">
       <button class="tab" data-tab="inicio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span data-i18n="nav.home">Inicio</span></button>
       <button class="tab" data-tab="proyecto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-i18n="nav.project">Proyectos</span></button>
-      <button class="tab" data-tab="experiencia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg><span data-i18n="nav.experience">Experiencia</span></button>
+      <button class="tab" data-tab="experiencia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg><span data-i18n="nav.experience">Trayectoria</span></button>
       <button class="tab" data-tab="habilidades"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg><span data-i18n="nav.skills">Competencias</span></button>
       <button class="tab" data-tab="contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><span data-i18n="nav.contact">Contacto</span></button>
     </nav>
@@ -1058,32 +1043,6 @@
       </svg>
     </div>
 
-    <!-- Capa de recorrido -->
-    <div class="quest-panel" id="questPanel" aria-hidden="true" role="dialog" aria-modal="true">
-      <div class="quest-sheet">
-        <header class="quest-head">
-          <h3 id="questTitle"></h3>
-          <button class="quest-close" id="questClose" type="button" aria-label="Cerrar">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
-          </button>
-        </header>
-        <p class="quest-lead" id="questLead"></p>
-        <div class="quest-bar"><span id="questBarFill"></span></div>
-        <p class="quest-progress" id="questProgressText"></p>
-        <ul class="quest-list" id="questList"></ul>
-        <div class="quest-done" id="questDone" hidden>
-          <strong data-quest-done-title></strong>
-          <p data-quest-done-text></p>
-          <a class="quest-cta" href="#contacto" data-quest-done-cta></a>
-        </div>
-        <div class="quest-foot">
-          <button class="quest-link" id="questReset" type="button"></button>
-          <button class="quest-link" id="questOff" type="button"></button>
-        </div>
-      </div>
-    </div>
-    <div class="quest-toast" id="questToast" role="status" aria-live="polite"></div>
-
     <section class="mockapp" id="mockApp" aria-hidden="true">
       <header class="mock-bar">
         <button class="mock-back" id="mockBack" type="button" data-i18n-attr="aria-label:launcher.homeButton;title:launcher.homeButton">
@@ -1093,7 +1052,6 @@
         <div class="mock-actions">
           <button class="icon-btn mock-chip" type="button" data-proxy="langToggle"></button>
           <button class="icon-btn mock-chip" type="button" data-proxy="themeToggle"></button>
-          <button class="quest-ring" type="button" data-quest-ring aria-label="Recorrido"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="quest-ring-bg" cx="18" cy="18" r="15"/><circle class="quest-ring-fg" cx="18" cy="18" r="15"/></svg><span class="quest-ring-count" data-quest-count>0</span></button>
         </div>
       </header>
       <div class="mock-body" id="mockBody"></div>
@@ -1110,13 +1068,12 @@
       <div class="launcher-tools">
         <button class="launcher-chip" type="button" data-proxy="langToggle"></button>
         <button class="launcher-chip" type="button" data-proxy="themeToggle"></button>
-        <button class="quest-ring" type="button" data-quest-ring aria-label="Recorrido"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="quest-ring-bg" cx="18" cy="18" r="15"/><circle class="quest-ring-fg" cx="18" cy="18" r="15"/></svg><span class="quest-ring-count" data-quest-count>0</span></button>
       </div>
       <div class="launcher-toast" id="launcherToast" role="status" aria-live="polite" data-i18n="launcher.unavailable">App no disponible</div>
       <div class="launcher-toast" id="launcherOpening" role="status" aria-live="polite" data-i18n="launcher.opening">Abriendo Mi Portafolio</div>
       <div class="launcher-grid">
         <button class="app-icon" type="button" data-open-app>
-          <span class="app-ico"><img src="assets/img/profile.jpg" alt=""></span>
+          <span class="app-ico"><img src="assets/img/profile.webp" alt=""></span>
           <span class="app-name" data-i18n="launcher.app">Mi Portafolio</span>
         </button>
         <button class="app-icon" type="button" data-mock="slassist">
@@ -1170,6 +1127,5 @@
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 <script src="js/app.js"></script>
-<script src="js/quest.js"></script>
 </body>
 </html>

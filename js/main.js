@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initVerMas();
   initProjectNav();
   initTimelineBuild();
-  initCertProgress();
+  initAudience();
 });
 
 /* Construcción del timeline — la línea se dibuja y los puntos aparecen en orden.
@@ -97,15 +97,7 @@ function initProjectNav() {
       nav.dataset.active = thumbs.indexOf(thumb);
     };
 
-    thumbs.forEach(t => t.addEventListener('click', () => {
-      activate(t);
-      // capa de recorrido: proyecto abierto y trayectoria recorrida hasta el final
-      const seccion = nav.closest('.screen')?.id;
-      if (seccion === 'proyecto') window.questComplete?.('project');
-      if (nav.getAttribute('aria-label') === 'Experiencia laboral' && t === thumbs.at(-1)) {
-        window.questComplete?.('career');
-      }
-    }));
+    thumbs.forEach(t => t.addEventListener('click', () => activate(t)));
 
     // Un role="tablist" debe moverse con las flechas; se añade Inicio/Fin.
     const step = (dir) => {
@@ -138,51 +130,6 @@ function initProjectNav() {
 
     if (thumbs[0]) activate(thumbs[0]);
   });
-}
-
-/* Certificaciones: la línea se llena según el desplazamiento del carril y cada
-   punto se enciende al pasar por él. Funciona en ambos sentidos porque todo se
-   recalcula en cada scroll a partir de la posición actual. */
-function initCertProgress() {
-  const rail = document.querySelector('.cert-timeline');
-  if (!rail) return;
-  const cards = Array.from(rail.querySelectorAll('.cert-card'));
-  if (!cards.length) return;
-
-  let pedido = false;
-  const update = () => {
-    pedido = false;
-    const r = rail.getBoundingClientRect();
-    // el cabezal viaja por el centro del carril visible
-    const cabezal = rail.scrollLeft + rail.clientWidth / 2;
-    const centros = cards.map((c) => {
-      const cr = c.getBoundingClientRect();
-      return cr.left - r.left + rail.scrollLeft + cr.width / 2;
-    });
-
-    const anchoTotal = centros.at(-1) - centros[0] || 1;
-    cards.forEach((card, i) => {
-      card.classList.toggle('is-passed', cabezal >= centros[i]);
-      const sig = centros[i + 1];
-      if (sig === undefined) return;
-      const frac = (cabezal - centros[i]) / (sig - centros[i]);
-      card.style.setProperty('--seg', Math.min(1, Math.max(0, frac)).toFixed(3));
-      // el degradado es uno solo a lo largo de toda la línea, no por tramo
-      card.style.setProperty('--rail-w', `${anchoTotal}px`);
-      card.style.setProperty('--seg-x', `${centros[i] - centros[0]}px`);
-    });
-  };
-  const pedir = () => {
-    if (pedido) return;
-    pedido = true;
-    requestAnimationFrame(update);
-  };
-
-  rail.addEventListener('scroll', pedir, { passive: true });
-  window.addEventListener('resize', pedir);
-  document.addEventListener('app:screenchange', pedir);
-  if ('ResizeObserver' in window) new ResizeObserver(pedir).observe(rail);
-  update();
 }
 
 /* "Ver más / Ver menos" toggle on project descriptions */
@@ -280,7 +227,7 @@ function initGalleryModal() {
     document.body.style.overflow = '';
   };
 
-  allItems.forEach((item) => item.addEventListener('click', () => { open(item); window.questComplete?.('gallery'); }));
+  allItems.forEach((item) => item.addEventListener('click', () => open(item)));
   closeBtn.addEventListener('click', close);
   backdrop.addEventListener('click', close);
   prevBtn.addEventListener('click', () => render(current - 1));
@@ -547,4 +494,33 @@ function initSmoothAnchors() {
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
+}
+
+/* Adaptación por candidatura: ?for=impacto reordena el énfasis sin cambiar
+   ningún hecho. SL Assist pasa al frente y los textos de entrada y de cierre
+   hablan de propósito. Sin parámetro, el portafolio se comporta como siempre. */
+function initAudience() {
+  let perfil = null;
+  try { perfil = new URLSearchParams(window.location.search).get('for'); } catch { return; }
+  if (perfil !== 'impacto' && perfil !== 'impact') return;
+
+  document.documentElement.dataset.audience = 'impacto';
+
+  // SL Assist primero en la línea de proyectos, y abierto por defecto
+  const nav = document.querySelector('#proyecto .projects-timeline-nav');
+  const tesis = nav?.querySelector('[data-target="project-tesis"]');
+  if (nav && tesis) {
+    nav.prepend(tesis);
+    nav.querySelectorAll('.project-thumb').forEach((t, i) => t.style.setProperty('--i', i));
+    tesis.click();
+  }
+
+  // Textos con otro énfasis, declarados en i18n como variantes
+  const cambiar = () => {
+    const intro = document.querySelector('#proyecto .timeline-intro');
+    if (intro) intro.setAttribute('data-i18n', 'projectsSection.introImpact');
+    if (window.I18N) window.I18N.apply(document.documentElement.lang || 'es');
+  };
+  cambiar();
+  document.addEventListener('i18n:changed', cambiar);
 }

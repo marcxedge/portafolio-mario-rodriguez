@@ -16,6 +16,7 @@ body { background: #0f1528; }
 }
 
 .device {
+  --screen-pad: 22px;
   position: relative;
   width: min(2000px, calc(100vw - 40px));
   height: calc(100dvh - 24px);
@@ -77,7 +78,10 @@ body { background: #0f1528; }
   .screen-scroll.is-dragging, .mock-body.is-dragging { cursor: grabbing; user-select: none; }
 }
 
-.screen .container { max-width: none; padding: 0 18px; }
+.screen .container { max-width: none; padding: 0 var(--screen-pad); }
+/* El marcado anida un .container dentro de otro: el de dentro no vuelve a
+   aplicar el margen, para que todas las pantallas midan exactamente igual. */
+.screen .container .container { padding-inline: 0; }
 .app-block { padding: 26px 0; border-bottom: 1px solid var(--border); }
 .app-block:last-child { border-bottom: 0; }
 
@@ -86,7 +90,7 @@ body { background: #0f1528; }
 
 /* Hero */
 .screen .hero { min-height: auto; padding: 22px 0 10px; display: block; overflow: hidden; position: relative; }
-.screen .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 24px; text-align: center; padding: 0 18px; }
+.screen .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 24px; text-align: center; padding: 0 var(--screen-pad); }
 .screen .hero-title { font-size: 1.9rem; }
 .screen .hero-desc { margin-left: auto; margin-right: auto; font-size: 0.92rem; }
 .screen .hero-badge { font-size: 0.72rem; margin-bottom: 22px; }
@@ -178,7 +182,7 @@ body { background: #0f1528; }
 .screen .skills-bottom { grid-template-columns: minmax(0, 1fr); gap: 10px; }
 .screen .soft-skills, .screen .languages { padding: 18px; }
 .screen .lang-row { grid-template-columns: 110px minmax(0, 1fr) 40px; }
-.screen .cert-timeline { gap: 12px; padding: 30px 0 10px; }
+.screen .cert-timeline { gap: 12px; padding-block: 4px 10px; }
 .screen .cert-timeline .cert-card { flex-basis: 178px; }
 .screen .cert-card { padding: 16px 12px; }
 .screen .cert-card:hover { transform: none; }
@@ -321,12 +325,17 @@ body { background: #0f1528; }
 }
 .launcher-chip svg { width: 18px; height: 18px; }
 .launcher-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* Columnas que se calculan solas según el ancho disponible: el bloque entero
+   queda centrado, pero los iconos se colocan de izquierda a derecha, así que
+   una segunda fila incompleta empieza en la primera columna, como en un móvil. */
 .launcher-grid {
   margin: auto;
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(6, 104px);
+  grid-template-columns: repeat(auto-fit, clamp(68px, 17vw, 104px));
   justify-content: center;
-  gap: 32px 40px;
+  align-content: center;
+  gap: 28px clamp(14px, 4vw, 40px);
 }
 .app-icon {
   display: flex;
@@ -362,8 +371,8 @@ body { background: #0f1528; }
 }
 .launcher-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
 .app-ico {
-  width: 84px;
-  height: 84px;
+  width: min(84px, 100%);
+  aspect-ratio: 1;
   border-radius: 22px;
   overflow: hidden;
   display: grid;
@@ -383,7 +392,8 @@ body { background: #0f1528; }
 
 /* Tablet landscape: wider content, two columns where there is room */
 @media (min-width: 700px) {
-  .screen .container { max-width: 1400px; margin: 0 auto; padding: 0 48px; }
+  .device { --screen-pad: 52px; }
+  .screen .container { max-width: 1400px; margin: 0 auto; }
   .screen .hero-inner { max-width: 1400px; margin: 0 auto; }
   .screen .about-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
   .screen .values-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -403,6 +413,7 @@ body { background: #0f1528; }
 
 /* Phones: the app fills the whole screen */
 @media (max-width: 700px) and (orientation: portrait) {
+  .device { --screen-pad: 18px; }
   .stage { padding: 8px; }
   .appbar { padding: 12px; gap: 6px; }
   .appbar-brand { font-size: 0.9rem; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
@@ -418,8 +429,8 @@ body { background: #0f1528; }
   }
   /* Home screen fits the phone: 4 columns of smaller icons */
   .launcher { padding: 24px 16px 36px; }
-  .launcher-grid { grid-template-columns: repeat(4, 68px); gap: 24px 12px; }
-  .app-ico { width: 60px; height: 60px; border-radius: 16px; }
+  .launcher-grid { gap: 22px clamp(10px, 3vw, 18px); }
+  .app-ico { width: min(60px, 100%); border-radius: 16px; }
   .app-ico svg { width: 30px; height: 30px; }
   .app-name { font-size: 0.7rem; }
   /* Projects on portrait phone */
@@ -561,7 +572,9 @@ body { background: #0f1528; }
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.16), rgba(124, 92, 255, 0.16));
     border: 1px solid var(--border);
     border-radius: 28px;
-    padding: 32px 36px;
+    /* el panel arranca en el margen común y su relleno es el suyo propio */
+    margin-inline: var(--screen-pad);
+    padding: 30px 26px;
   }
 }
 
@@ -694,7 +707,7 @@ body { background: #0f1528; }
 .launcher { padding: 56px 28px 56px; }
 .launcher-tools { position: absolute; top: 12px; left: 20px; margin: 0; }
 .launcher-time { font-size: 3.4rem; font-weight: 500; line-height: 1; letter-spacing: -0.02em; margin-top: 6px; }
-.launcher-grid { margin: auto 0 0; }
+.launcher-grid { margin: auto auto 0; }
 @media (max-width: 700px) and (orientation: portrait) {
   .launcher { padding: 56px 16px 36px; }
   .launcher-time { font-size: 2.8rem; }
@@ -713,7 +726,7 @@ body { background: #0f1528; }
 @media (max-width: 700px) and (orientation: portrait) {
   .launcher { padding: 56px 8px 36px; }
   .launcher-time { font-size: 4.2rem; margin-top: 24px; }
-  .launcher-grid { grid-template-columns: repeat(4, 72px); justify-content: space-between; gap: 24px 0; }
+  .launcher-grid { gap: 22px clamp(8px, 3vw, 16px); }
 }
 
 /* Home screen: more side margin for the icons on phones; calmer wallpaper with fewer, fainter symbols */
@@ -726,7 +739,7 @@ body { background: #0f1528; }
 }
 @media (max-width: 700px) and (orientation: portrait) {
   .launcher { padding: 56px 22px 36px; }
-  .launcher-grid { grid-template-columns: repeat(4, 70px); }
+
 }
 
 /* Home screen: date under the clock */
@@ -864,7 +877,7 @@ body { background: #0f1528; }
 
 /* Sections use more of the width: smaller side margins in every mode */
 @media (max-width: 700px) and (orientation: portrait) {
-  .device .screen .container { padding: 0 12px; }
+
   .device .hero-inner { padding: 0 12px; }
 }
 
@@ -872,20 +885,6 @@ body { background: #0f1528; }
 .device [data-reveal],
 .device [data-reveal].in-view { opacity: 1 !important; transform: none !important; transition: none !important; }
 .device .lang-fill { width: var(--fill) !important; transition: none !important; }
-
-/* Proyectos y trayectoria: el contenido va a ras de pantalla (sin el margen
-   lateral del .container) para que las tarjetas y el timeline respiren más.
-   Los encabezados conservan el margen para no quedar pegados al borde. */
-#proyecto .container,
-#experiencia .container { padding: 0; }
-
-#proyecto > .screen-scroll > .app-block > .container > .container > .section-tag,
-#proyecto > .screen-scroll > .app-block > .container > .container > .section-title,
-#experiencia > .screen-scroll > .app-block > .container > .container > .section-tag,
-#experiencia > .screen-scroll > .app-block > .container > .container > .section-title {
-  padding-left: 18px;
-  padding-right: 18px;
-}
 
 /* Entradas del timeline (proyecto / experiencia / formación / voluntariado):
    se quita el contenedor de color — fondo, borde y radio — para que el
@@ -897,7 +896,7 @@ body { background: #0f1528; }
   background: transparent;
   border: 0;
   border-radius: 0;
-  padding: 4px 16px 16px;
+  padding: 4px 0 16px;
 }
 
 /* El acento de formación pasa del borde izquierdo de la tarjeta a la fecha */
@@ -910,13 +909,16 @@ body { background: #0f1528; }
 #experiencia .volunteer-card:hover { transform: none; border-color: transparent; }
 #proyecto .project-glow { display: none; }
 
-/* La galería ya no necesita sangrar hacia los bordes de una tarjeta */
-#proyecto .project-gallery-wrap { margin: 0 -16px; padding: 0 16px; }
+/* Lo que se desplaza en horizontal sí llega al borde de la pantalla, y su
+   primer elemento queda alineado con el texto gracias al relleno interno. */
+.screen .project-gallery-wrap,
+.screen .cert-timeline {
+  margin-inline: calc(-1 * var(--screen-pad));
+  padding-inline: var(--screen-pad);
+}
 
 /* Intro del timeline dentro del móvil simulado */
-.screen .timeline-intro { font-size: 0.86rem; line-height: 1.6; margin: -2px 0 20px; }
-#proyecto .timeline-intro,
-#experiencia .timeline-intro { padding-left: 18px; padding-right: 18px; }
+.screen .timeline-intro { font-size: 0.86rem; line-height: 1.6; margin: -2px 0 20px; max-width: none; }
 
 /* Iconos de mis apps en el escritorio: el relleno alrededor del logo toma el
    color de fondo del propio archivo, igual que en los thumbs del timeline. */
@@ -931,9 +933,8 @@ body { background: #0f1528; }
   background: transparent;
   border: 0;
   border-radius: 0;
-  padding: 16px 16px 4px;
+  padding: 16px var(--screen-pad) 4px;
 }
-.mock-project .project-gallery-wrap { margin: 0 -16px; padding: 0 16px; }
 .mock-jump {
   display: block;
   margin: 18px auto 0;
@@ -1073,209 +1074,6 @@ body { background: #0f1528; }
 .mock-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .mock-chip { position: relative; width: 34px; height: 34px; font-size: 0.72rem; font-weight: 700; font-family: 'Roboto', sans-serif; }
 .mock-chip svg { width: 17px; height: 17px; }
-
-/* ===== Capa de recorrido: anillo, panel de misiones y avisos ===== */
-.quest-ring {
-  position: relative;
-  width: 34px;
-  height: 34px;
-  flex-shrink: 0;
-  border: 0;
-  padding: 0;
-  background: none;
-  color: var(--accent);
-  cursor: pointer;
-}
-.quest-ring svg { width: 34px; height: 34px; transform: rotate(-90deg); }
-.quest-ring circle { fill: none; stroke-width: 3; }
-.quest-ring-bg { stroke: var(--border); }
-.quest-ring-fg {
-  stroke: var(--accent);
-  stroke-linecap: round;
-  stroke-dasharray: 94.25;                      /* 2πr con r=15 */
-  stroke-dashoffset: calc(94.25 - 94.25 * var(--quest-p, 0));
-  transition: stroke-dashoffset 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.quest-ring-count {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--text);
-}
-.quest-ring.is-complete .quest-ring-fg { stroke: var(--accent-2, var(--accent)); }
-.quest-ring.is-complete { animation: quest-pulse 1.4s ease-out 2; }
-@keyframes quest-pulse {
-  0%, 100% { transform: scale(1); }
-  40% { transform: scale(1.12); }
-}
-
-.quest-panel {
-  position: absolute;
-  inset: 0;
-  z-index: 70;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  background: rgba(3, 6, 20, 0.72);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s var(--ease), visibility 0.3s;
-}
-.quest-panel.is-open { opacity: 1; visibility: visible; }
-.quest-sheet {
-  width: 100%;
-  max-height: 86%;
-  overflow-y: auto;
-  padding: 18px 18px 22px;
-  border-radius: 26px 26px 0 0;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-bottom: 0;
-  transform: translateY(14px);
-  transition: transform 0.35s var(--ease);
-  scrollbar-width: none;
-}
-.quest-sheet::-webkit-scrollbar { display: none; }
-.quest-panel.is-open .quest-sheet { transform: none; }
-.quest-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.quest-head h3 { font-size: 1.05rem; }
-.quest-close {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--surface-2);
-  color: var(--text);
-  display: grid; place-items: center;
-  cursor: pointer;
-}
-.quest-close svg { width: 16px; height: 16px; }
-.quest-lead { margin-top: 6px; font-size: 0.84rem; line-height: 1.55; color: var(--text-mute); }
-.quest-bar {
-  margin-top: 14px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--border);
-  overflow: hidden;
-}
-.quest-bar > span {
-  display: block;
-  height: 100%;
-  width: 0;
-  border-radius: 999px;
-  background: linear-gradient(to right, var(--accent), var(--accent-2));
-  box-shadow: 0 0 10px 1px var(--accent);
-  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.quest-progress { margin-top: 6px; font-size: 0.74rem; font-weight: 700; color: var(--accent); }
-
-.quest-list { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-.quest-item {
-  display: flex;
-  gap: 12px;
-  padding: 12px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  background: var(--surface-2);
-  opacity: 0.62;
-  transition: opacity 0.3s, border-color 0.3s;
-}
-.quest-item.is-done { opacity: 1; border-color: var(--accent); }
-.quest-item-icon {
-  width: 34px; height: 34px;
-  flex-shrink: 0;
-  border-radius: 11px;
-  display: grid; place-items: center;
-  background: var(--border);
-  color: var(--text-mute);
-  transition: background 0.3s, color 0.3s;
-}
-.quest-item.is-done .quest-item-icon { background: var(--accent); color: #fff; }
-.quest-item-icon svg { width: 17px; height: 17px; }
-.quest-item-body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-.quest-item-body strong { font-size: 0.86rem; }
-.quest-item-text { font-size: 0.78rem; line-height: 1.5; color: var(--text-mute); }
-
-.quest-done {
-  margin-top: 16px;
-  padding: 16px;
-  border-radius: 18px;
-  border: 1px solid var(--accent);
-  background: var(--accent-soft);
-  text-align: center;
-}
-.quest-done strong { display: block; font-size: 0.95rem; margin-bottom: 6px; }
-.quest-done p { font-size: 0.82rem; line-height: 1.55; color: var(--text-mute); }
-.quest-cta {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 9px 20px;
-  border-radius: 999px;
-  background: var(--accent);
-  color: #fff;
-  font-size: 0.82rem;
-  font-weight: 700;
-  text-decoration: none;
-}
-.quest-foot { display: flex; justify-content: space-between; gap: 12px; margin-top: 18px; }
-.quest-link {
-  border: 0;
-  background: none;
-  color: var(--text-mute);
-  font-size: 0.76rem;
-  cursor: pointer;
-  padding: 6px 2px;
-}
-.quest-link:hover { color: var(--accent); }
-
-.quest-toast {
-  position: absolute;
-  left: 50%;
-  bottom: 86px;
-  z-index: 65;
-  width: min(330px, calc(100% - 32px));
-  transform: translate(-50%, 16px);
-  display: flex;
-  gap: 11px;
-  padding: 12px 14px;
-  border-radius: 16px;
-  background: var(--surface);
-  border: 1px solid var(--accent);
-  box-shadow: 0 18px 44px -18px rgba(0, 0, 0, 0.75);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0.3s;
-}
-.quest-toast.is-visible { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
-.quest-toast-icon {
-  width: 26px; height: 26px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  display: grid; place-items: center;
-  background: var(--accent);
-  color: #fff;
-}
-.quest-toast-icon svg { width: 15px; height: 15px; }
-.quest-toast-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.quest-toast-body strong { font-size: 0.82rem; }
-.quest-toast-body span { font-size: 0.76rem; line-height: 1.45; color: var(--text-mute); }
-
-/* Anillo de recorrido en el escritorio: a juego con los chips de idioma y tema */
-.launcher-tools .quest-ring {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--surface);
-}
-.launcher-tools .quest-ring svg { width: 30px; height: 30px; margin: 2px; }
-.launcher-tools .quest-ring-count { font-size: 0.68rem; }
-
-/* Descargar CV sale de la barra superior y vive entre las llamadas del inicio */
-.btn-cv { white-space: nowrap; }
-.screen .hero-cta { flex-wrap: wrap; gap: 10px; }
 
 /* Tirar para recargar: el navegador no puede hacerlo porque el documento no
    desplaza, así que el indicador es nuestro y vive dentro del marco. */

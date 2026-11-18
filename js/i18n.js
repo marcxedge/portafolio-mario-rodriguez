@@ -23,42 +23,6 @@ const I18N_TRANSLATIONS = {
       homeTitle: 'El botón lateral',
       homeText: 'A la derecha del marco está el botón de inicio: vuelve a esta pantalla desde donde estés, igual que en un teléfono de verdad. Ya está, toca la app que quieras para empezar.'
     },
-    quest: {
-      aria: 'Recorrido del perfil',
-      title: 'Tu recorrido',
-      lead: 'Ocho cosas que puedes descubrir aquí dentro. No hace falta completarlas para leerlo todo: son el camino corto a lo que vale la pena ver.',
-      reset: 'Empezar de nuevo',
-      off: 'Desactivar recorrido',
-      on: 'Activar recorrido',
-      doneTitle: 'Recorrido completo',
-      doneText: 'Ya has visto cómo trabajo: apps en producción, modelos que corren en el dispositivo y un proyecto que nació para que alguien pudiera comunicarse. Si encaja con lo que están buscando, hablemos.',
-      doneCta: 'Escríbeme',
-      doneTextImpact: 'Ya has visto el recorrido: empezó con una app para que alguien pudiera comunicarse y siguió con producto real, modelos que corren en el dispositivo y equipos a los que he dirigido. Si lo que construyen se mide por lo que cambia en quien lo usa, hablemos.',
-      desktopTitle: 'Abrir una de mis apps',
-      desktopHint: 'En el escritorio hay tres apps mías instaladas.',
-      desktopInsight: 'AMobile 7, Lift.xto y SL Assist: tres productos reales, de cliente, personal y académico.',
-      projectTitle: 'Entrar en un proyecto',
-      projectHint: 'Toca un punto de la línea de proyectos.',
-      projectInsight: 'Cada proyecto se abre con su contexto, sus decisiones técnicas y sus capturas reales.',
-      galleryTitle: 'Ver una captura de cerca',
-      galleryHint: 'Abre una imagen de cualquier galería.',
-      galleryInsight: 'Son capturas de las apps funcionando, con los datos sensibles difuminados a propósito.',
-      careerTitle: 'Recorrer la trayectoria',
-      careerHint: 'Llega hasta el final de la línea de experiencia.',
-      careerInsight: 'De investigación y desarrollo en 2020 a liderar el equipo móvil: seis años en la misma dirección.',
-      certsTitle: 'Llegar al final de las credenciales',
-      certsHint: 'Desplaza el carril de certificaciones hasta el final.',
-      certsInsight: 'Siete certificaciones entre 2023 y 2024, de Flutter a gestión de dispositivos corporativos.',
-      langTitle: 'Cambiar de idioma',
-      langHint: 'El botón EN/ES de la barra superior.',
-      langInsight: 'Todo el portafolio está en español e inglés, con un sistema propio de traducción sin recargar la página.',
-      themeTitle: 'Cambiar el tema',
-      themeHint: 'El botón de sol y luna.',
-      themeInsight: 'Tema claro y oscuro en toda la interfaz, incluidos los gráficos y las líneas de tiempo.',
-      contactTitle: 'Llegar al contacto',
-      contactHint: 'La última pestaña de abajo.',
-      contactInsight: 'Estoy en Valencia y disponible para trabajar hasta 30 h a la semana.'
-    },
     launcher: {
       screen: 'Pantalla de inicio del dispositivo',
       app: 'Mi Portafolio',
@@ -72,7 +36,7 @@ const I18N_TRANSLATIONS = {
       opening: 'Abriendo Mi Portafolio'
     },
     nav: {
-      home: 'Inicio', about: 'Sobre mí', experience: 'Experiencia', skills: 'Competencias',
+      home: 'Inicio', about: 'Sobre mí', experience: 'Trayectoria', skills: 'Competencias',
       project: 'Proyectos', certifications: 'Certificaciones', volunteering: 'Voluntariado',
       contact: 'Contacto', downloadCV: 'Descargar CV'
     },
@@ -86,7 +50,7 @@ const I18N_TRANSLATIONS = {
       greeting: 'Hola, soy', role: 'Desarrollador Móvil',
       description: 'Construyo apps para Android e iOS que se publican, se usan y funcionan incluso sin internet. 4 años, 3 apps en producción para empresas de sectores como energía, tecnología y consumo masivo.',
       badge: 'Disponible para trabajar · hasta 30 h/semana (estancia por estudios) · Valencia, España',
-      ctaPrimary: 'Hablemos', ctaSecondary: 'Ver experiencia',
+      ctaPrimary: 'Hablemos', ctaSecondary: 'Ver trayectoria',
       photoAlt: 'Foto de Mario Antonio Rodríguez Cedeño',
       typedWords: ['Flutter.', 'React Native.', 'Android.', 'Edge AI.', 'Kotlin.']
     },
@@ -100,7 +64,7 @@ const I18N_TRANSLATIONS = {
       value4Title: 'Despliegue', value4Text: 'Publicación en Google Play y App Store.'
     },
     experience: {
-      tag: 'Trayectoria', title: 'Experiencia profesional',
+      tag: 'Empleo', title: 'Experiencia profesional',
       intro: 'Así ha sido mi camino profesional, de investigar tecnología a liderar el equipo móvil. Toca cada punto para ver qué construí en cada etapa.',
       job1Date: 'Mar 2025 — Sep 2026', job1Title: 'Líder de Equipo Móvil', job1Company: 'Altura S.A. · Manta, Manabí, Ecuador',
       job1Bullet1: 'Lideré el equipo que construyó la app de principio a fin — arquitectura, código y publicación.',
@@ -294,42 +258,6 @@ const I18N_TRANSLATIONS = {
       homeTitle: 'The side button',
       homeText: 'On the right edge of the frame there is a home button: it brings you back to this screen from anywhere, just like on a real phone. That is it — tap whichever app you like to start.'
     },
-    quest: {
-      aria: 'Profile walkthrough',
-      title: 'Your walkthrough',
-      lead: 'Eight things worth finding in here. You do not need to complete them to read everything: they are the short path to what matters.',
-      reset: 'Start over',
-      off: 'Turn walkthrough off',
-      on: 'Turn walkthrough on',
-      doneTitle: 'Walkthrough complete',
-      doneText: 'You have seen how I work: apps in production, models running on the device, and a project born so that someone could communicate. If that fits what you are looking for, let us talk.',
-      doneCta: 'Get in touch',
-      doneTextImpact: 'You have seen the path: it started with an app so that someone could communicate, and went on through real products, models running on the device and teams I have led. If you build something measured by what it changes in its user, let us talk.',
-      desktopTitle: 'Open one of my apps',
-      desktopHint: 'There are three of my apps on the home screen.',
-      desktopInsight: 'AMobile 7, Lift.xto and SL Assist: a client product, a personal one and an academic one.',
-      projectTitle: 'Open a project',
-      projectHint: 'Tap a point on the project timeline.',
-      projectInsight: 'Each project opens with its context, its technical decisions and real screenshots.',
-      galleryTitle: 'Look at a screenshot',
-      galleryHint: 'Open an image from any gallery.',
-      galleryInsight: 'These are the apps running, with sensitive data deliberately blurred.',
-      careerTitle: 'Walk the career line',
-      careerHint: 'Reach the end of the experience timeline.',
-      careerInsight: 'From R&D in 2020 to leading the mobile team: six years in the same direction.',
-      certsTitle: 'Reach the end of the credentials',
-      certsHint: 'Scroll the certifications rail to the end.',
-      certsInsight: 'Seven certifications between 2023 and 2024, from Flutter to enterprise device management.',
-      langTitle: 'Switch language',
-      langHint: 'The EN/ES button in the top bar.',
-      langInsight: 'The whole portfolio is in Spanish and English, with a custom translation system and no page reload.',
-      themeTitle: 'Switch the theme',
-      themeHint: 'The sun and moon button.',
-      themeInsight: 'Light and dark themes across the interface, timelines and charts included.',
-      contactTitle: 'Reach the contact screen',
-      contactHint: 'The last tab at the bottom.',
-      contactInsight: 'I am based in Valencia and available for up to 30 hours a week.'
-    },
     launcher: {
       screen: 'Device home screen',
       app: 'My Portfolio',
@@ -343,7 +271,7 @@ const I18N_TRANSLATIONS = {
       opening: 'Opening My Portfolio'
     },
     nav: {
-      home: 'Home', about: 'About', experience: 'Experience', skills: 'Expertise',
+      home: 'Home', about: 'About', experience: 'Background', skills: 'Expertise',
       project: 'Projects', certifications: 'Certifications', volunteering: 'Volunteering',
       contact: 'Contact', downloadCV: 'Download CV'
     },
@@ -357,7 +285,7 @@ const I18N_TRANSLATIONS = {
       greeting: "Hi, I'm", role: 'Mobile Developer',
       description: 'I build Android & iOS apps that ship, get used, and work even offline. 4 years. 3 apps in production for companies in sectors like energy, technology, and consumer goods.',
       badge: 'Available for work · up to 30 h/week (student residence permit) · Valencia, Spain',
-      ctaPrimary: "Let's talk", ctaSecondary: 'View experience',
+      ctaPrimary: "Let's talk", ctaSecondary: 'View background',
       photoAlt: 'Photo of Mario Antonio Rodríguez Cedeño',
       typedWords: ['Flutter.', 'React Native.', 'Android.', 'Edge AI.', 'Kotlin.']
     },
@@ -371,7 +299,7 @@ const I18N_TRANSLATIONS = {
       value4Title: 'Deployment', value4Text: 'Publishing on Google Play and the App Store.'
     },
     experience: {
-      tag: 'Career Path', title: 'Professional Experience',
+      tag: 'Career', title: 'Professional Experience',
       intro: 'This is how my career has unfolded, from researching technology to leading the mobile team. Tap each point to see what I built at every stage.',
       job1Date: 'Mar 2025 — Sep 2026', job1Title: 'Mobile Team Lead', job1Company: 'Altura S.A. · Manta, Manabí, Ecuador',
       job1Bullet1: 'Led the team that built the app from scratch — architecture, code, and release.',

@@ -1483,12 +1483,12 @@ img { max-width: 100%; display: block; }
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x proximity;
-  padding: 34px 2px 12px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
+  padding: 4px 2px 12px;
+  /* el carril se desplaza, pero sin barra a la vista */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-.cert-timeline::-webkit-scrollbar { height: 6px; }
-.cert-timeline::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+.cert-timeline::-webkit-scrollbar { display: none; }
 
 .cert-timeline .cert-card {
   position: relative;
@@ -1496,55 +1496,8 @@ img { max-width: 100%; display: block; }
   scroll-snap-align: center;
   overflow: visible;
 }
-/* Punto y línea con el mismo lenguaje visual que los timelines de proyectos
-   y experiencia: punto apagado que se enciende con halo de acento, y relleno
-   en degradado accent → accent-2 con el mismo brillo. */
-.cert-dot {
-  position: absolute;
-  top: -23px;
-  left: 50%;
-  width: 12px;
-  height: 12px;
-  margin-left: -6px;
-  border-radius: 50%;
-  background: var(--border);
-  border: 2px solid var(--bg);
-  box-sizing: border-box;
-  z-index: 1;
-  transition: background 0.25s, box-shadow 0.25s,
-              transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.cert-card.is-passed .cert-dot {
-  background: var(--accent);
-  box-shadow: 0 0 8px 2px var(--accent);
-  transform: scale(1.35);
-}
-/* Tramo hasta el punto siguiente */
-.cert-seg {
-  position: absolute;
-  top: -18px;
-  left: 50%;
-  width: calc(100% + 18px);
-  height: 2px;
-  background: var(--border);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.cert-card:last-child .cert-seg { display: none; }
-.cert-seg-fill {
-  display: block;
-  height: 100%;
-  width: calc(var(--seg, 0) * 100%);
-  border-radius: 2px;
-  /* el degradado se dibuja sobre el ancho total del carril y se desplaza según
-     la posición del tramo, para que la línea entera forme un solo degradado */
-  background-image: linear-gradient(to right, var(--accent), var(--accent-2));
-  background-size: var(--rail-w, 1200px) 100%;
-  background-position: calc(-1 * var(--seg-x, 0px)) 0;
-  box-shadow: 0 0 8px 1px var(--accent), 0 0 18px 2px rgba(99, 102, 241, 0.5);
-}
-/* El salto del hover rompería la continuidad de la línea */
-.cert-timeline .cert-card:hover { transform: none; border-color: var(--accent); box-shadow: var(--shadow); }
+/* Ya sin línea que mantener alineada, la tarjeta puede volver a elevarse */
+.cert-timeline .cert-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: var(--shadow); }
 
 /* Lift.xto: el PNG tiene las esquinas transparentes, así que sin fondo propio
    asomaría el color de la superficie bajo el icono. */
@@ -1553,3 +1506,19 @@ img { max-width: 100%; display: block; }
 
 /* Idiomas pasa a bloque propio: ya no comparte rejilla con competencias blandas */
 .skills-bottom:has(> :only-child) { grid-template-columns: 1fr; }
+
+/* ===== Retrato recortado =====
+   La foto va sin fondo propio: el color lo pone el tema, así que encaja igual
+   en claro y en oscuro en lugar de arrastrar un rectángulo blanco. */
+:root {
+  /* el azul de la foto original del portafolio, muestreado del archivo */
+  --photo-bg: #11184e;
+  --photo-bg-flat: #11184e;
+}
+:root[data-theme="light"] {
+  --photo-bg: linear-gradient(170deg, #eaf0fc 0%, #d6e0f4 100%);
+  --photo-bg-flat: #e4ebf9;
+}
+.photo { background: var(--photo-bg); }
+/* El icono del escritorio y el de la pantalla de carga usan la misma foto */
+img[src$="profile.webp"] { background: var(--photo-bg-flat); }
