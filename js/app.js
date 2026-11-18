@@ -540,7 +540,7 @@ function initMockApps() {
     let lang = en() ? 'en' : 'es';
     const pintar = () => {
       el.querySelector('[data-cv-img]').src = vistas[lang];
-      marco.src = `${rutas[lang]}#toolbar=0&navpanes=0&view=Fit`;
+      marco.src = `${rutas[lang]}#toolbar=0&navpanes=0&view=FitH`;
       comprobar(rutas[lang]);
       const dl = el.querySelector('[data-cv-dl]');
       dl.href = rutas[lang];

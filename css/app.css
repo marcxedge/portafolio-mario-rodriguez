@@ -1166,14 +1166,15 @@ body { background: #0f1528; }
 .cv-doc.is-fallback iframe { display: none; }
 
 @media (min-width: 820px) {
-  .cv-doc { overflow: hidden; }
+  .cv-doc { overflow: hidden; padding: 0; }
   .cv-doc:not(.is-fallback) img { display: none; }
+  /* Como en Drive: el documento ocupa todo el visor, ajustado al ancho, y se
+     desplaza en vertical. El zoom con Ctrl+rueda o pellizco lo gestiona el
+     visor del navegador dentro del marco, sin afectar al resto de la página. */
   .cv-doc:not(.is-fallback) iframe {
     display: block;
+    width: 100%;
     height: 100%;
-    width: auto;
-    aspect-ratio: 1 / 1.414;   /* A4: el visor deja de deformar la página */
-    max-width: 100%;
   }
 }
 
