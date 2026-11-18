@@ -493,6 +493,67 @@ function initMockApps() {
     return null;
   };
 
+  /* "Mi CV": visor al estilo Drive, con una barrita propia de idioma y descarga
+     sobre el documento. El PDF incrustado solo se usa donde el navegador lo sabe
+     mostrar; en móvil se enseña la vista previa en imagen, que funciona en iOS. */
+  const cvView = (el) => {
+    const en = () => document.documentElement.lang === 'en';
+    const t = (k) => (window.I18N ? window.I18N.get(en() ? 'en' : 'es', k) : '');
+    const rutas = { es: 'assets/CV_Mario_Rodriguez_ES.pdf', en: 'assets/CV_Mario_Rodriguez_EN.pdf' };
+    const vistas = { es: 'assets/img/cv-es.webp', en: 'assets/img/cv-en.webp' };
+
+    el.classList.add('mock-drive');
+    el.innerHTML = `
+      <div class="cv-bar">
+        <div class="cv-langs" role="group">
+          <button type="button" class="cv-lang" data-cv-lang="es">ES</button>
+          <button type="button" class="cv-lang" data-cv-lang="en">EN</button>
+        </div>
+        <a class="cv-dl" data-cv-dl download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/>
+          </svg><span></span>
+        </a>
+      </div>
+      <div class="cv-doc">
+        <img data-cv-img alt="">
+        <iframe data-cv-frame title="CV" loading="lazy"></iframe>
+      </div>`;
+
+    // el idioma se elige en la barrita del visor, así que el chip de la barra
+    // de la app sobra mientras Mi CV está abierta
+    const chipIdioma = document.querySelector('.mock-bar [data-proxy="langToggle"]');
+    if (chipIdioma) chipIdioma.style.display = 'none';
+
+    let lang = en() ? 'en' : 'es';
+    const pintar = () => {
+      el.querySelector('[data-cv-img]').src = vistas[lang];
+      el.querySelector('[data-cv-frame]').src = `${rutas[lang]}#toolbar=0&navpanes=0&view=Fit`;
+      const dl = el.querySelector('[data-cv-dl]');
+      dl.href = rutas[lang];
+      dl.querySelector('span').textContent = t('cv.download');
+      el.querySelectorAll('[data-cv-lang]').forEach((b) =>
+        b.classList.toggle('is-active', b.dataset.cvLang === lang));
+    };
+    pintar();
+
+    // el interruptor cambia el idioma de todo el portafolio, no solo del visor
+    el.querySelectorAll('[data-cv-lang]').forEach((b) =>
+      b.addEventListener('click', () => {
+        lang = b.dataset.cvLang;
+        if (window.I18N) window.I18N.apply(lang);   // dispara i18n:changed y repinta
+        else pintar();
+      }));
+
+    // si se cambia el idioma del portafolio, el visor lo sigue
+    const seguir = () => { lang = en() ? 'en' : 'es'; pintar(); };
+    document.addEventListener('i18n:changed', seguir);
+    return () => {
+      document.removeEventListener('i18n:changed', seguir);
+      if (chipIdioma) chipIdioma.style.display = '';
+    };
+  };
+
   const views = {
     flutter(el) {
       el.innerHTML = `
@@ -688,6 +749,7 @@ function initMockApps() {
   };
 
   Object.keys(PROJECT_APPS).forEach((k) => { views[k] = projectView(k); });
+  views.cv = cvView;
 
   const close = () => {
     if (cleanup) cleanup();

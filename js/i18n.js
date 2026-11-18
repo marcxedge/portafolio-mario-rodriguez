@@ -23,9 +23,15 @@ const I18N_TRANSLATIONS = {
       homeTitle: 'El botón lateral',
       homeText: 'A la derecha del marco está el botón de inicio: vuelve a esta pantalla desde donde estés, igual que en un teléfono de verdad. Ya está, toca la app que quieras para empezar.'
     },
+    cv: {
+      root: 'Mi unidad',
+      meta: 'PDF · 1 página · actualizado en noviembre de 2026',
+      open: 'Abrir',
+      download: 'Descargar'
+    },
     launcher: {
       screen: 'Pantalla de inicio del dispositivo',
-      app: 'Mi Portafolio',
+      app: 'Mi Portafolio', cv: 'Mi CV',
       homeButton: 'Ir a la pantalla de inicio',
       flutter: 'Flutter',
       reactnative: 'React Native',
@@ -258,9 +264,15 @@ const I18N_TRANSLATIONS = {
       homeTitle: 'The side button',
       homeText: 'On the right edge of the frame there is a home button: it brings you back to this screen from anywhere, just like on a real phone. That is it — tap whichever app you like to start.'
     },
+    cv: {
+      root: 'My Drive',
+      meta: 'PDF · 1 page · updated November 2026',
+      open: 'Open',
+      download: 'Download'
+    },
     launcher: {
       screen: 'Device home screen',
-      app: 'My Portfolio',
+      app: 'My Portfolio', cv: 'My CV',
       homeButton: 'Go to the home screen',
       flutter: 'Flutter',
       reactnative: 'React Native',
