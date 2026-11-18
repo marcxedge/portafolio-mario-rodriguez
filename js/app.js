@@ -525,10 +525,23 @@ function initMockApps() {
     const chipIdioma = document.querySelector('.mock-bar [data-proxy="langToggle"]');
     if (chipIdioma) chipIdioma.style.display = 'none';
 
+    /* Red de seguridad: un bloqueador de contenido puede cortar el PDF y dejar
+       el marco vacío sin avisar. El evento de carga no sirve para detectarlo,
+       porque el navegador da por cargada su propia página de error: se comprueba
+       con una petición al archivo y, si no llega, manda la vista en imagen. */
+    const doc = el.querySelector('.cv-doc');
+    const marco = el.querySelector('[data-cv-frame]');
+    const comprobar = (ruta) => {
+      fetch(ruta, { method: 'HEAD', cache: 'no-store' })
+        .then((r) => { if (!r.ok) throw new Error(r.status); doc.classList.remove('is-fallback'); })
+        .catch(() => doc.classList.add('is-fallback'));
+    };
+
     let lang = en() ? 'en' : 'es';
     const pintar = () => {
       el.querySelector('[data-cv-img]').src = vistas[lang];
-      el.querySelector('[data-cv-frame]').src = `${rutas[lang]}#toolbar=0&navpanes=0&view=Fit`;
+      marco.src = `${rutas[lang]}#toolbar=0&navpanes=0&view=Fit`;
+      comprobar(rutas[lang]);
       const dl = el.querySelector('[data-cv-dl]');
       dl.href = rutas[lang];
       dl.querySelector('span').textContent = t('cv.download');
