@@ -937,6 +937,19 @@ img { max-width: 100%; display: block; }
 }
 .project-org svg { width: 16px; height: 16px; flex-shrink: 0; }
 
+/* Correo del coautor: separado del nombre, en el acento, para que se lea
+   como un contacto y no como parte del crédito. */
+.coauthor-line { display: inline; }
+.coauthor-mail {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  overflow-wrap: anywhere;
+}
+.coauthor-mail::before { content: "\00b7"; margin: 0 7px; color: var(--text-mute); }
+.coauthor-mail:hover { border-bottom-color: currentColor; }
+
 /* Tira de tecnologías bajo el título del proyecto: logos pequeños que abren
    el detalle de para qué sirvió cada una. */
 .tech-strip {
