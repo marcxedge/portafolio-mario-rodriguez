@@ -35,7 +35,7 @@ const I18N_TRANSLATIONS = {
     },
     launcher: {
       screen: 'Pantalla de inicio del dispositivo',
-      app: 'Mi Portafolio', cv: 'Mi CV', tesis: 'Tesis',
+      app: 'Mi Portafolio', cv: 'Mi CV', tesis: 'Mi Grado',
       homeButton: 'Ir a la pantalla de inicio',
       flutter: 'Flutter',
       reactnative: 'React Native',
@@ -293,7 +293,7 @@ const I18N_TRANSLATIONS = {
     },
     launcher: {
       screen: 'Device home screen',
-      app: 'My Portfolio', cv: 'My CV', tesis: 'Thesis',
+      app: 'My Portfolio', cv: 'My CV', tesis: 'My Degree',
       homeButton: 'Go to the home screen',
       flutter: 'Flutter',
       reactnative: 'React Native',
