@@ -515,6 +515,12 @@ function initAudience() {
     tesis.click();
   }
 
+  // Unity y Blender al frente de Competencias: es lo que mira un estudio de
+  // juegos serios, aunque en el portafolio general no sea lo principal
+  const rejilla = document.querySelector('#habilidades .skills-grid');
+  const juegos = rejilla?.querySelector('[data-i18n="skills.learningTitle"]')?.closest('.skill-card');
+  if (rejilla && juegos) rejilla.prepend(juegos);
+
   // Textos con otro énfasis, declarados en i18n como variantes
   const cambiar = () => {
     const intro = document.querySelector('#proyecto .timeline-intro');
