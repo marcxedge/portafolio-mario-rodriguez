@@ -261,6 +261,10 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/></svg>
                     <span data-i18n="project1.affiliation">Asociado con Universidad Técnica de Manabí</span>
                   </span>
+                  <span class="project-org">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span data-i18n="project1.coauthor">En coautoría con Bryan Vélez Párraga</span>
+                  </span>
                 </div>
               </div>
               <h3 data-i18n="project1.cardTitle">App de Lenguaje de Señas en Tiempo Real</h3>
@@ -331,6 +335,30 @@
                 <li data-i18n="project1.point2">Un diccionario visual del alfabeto de señas.</li>
                 <li data-i18n="project1.point3">Reconoce señas con la cámara y las convierte en texto.</li>
               </ul>
+
+              <div class="case-study">
+                <h4 class="case-title" data-i18n="project1.caseTitle">Cómo se resolvió</h4>
+
+                <div class="case-block">
+                  <span class="case-label" data-i18n="project1.caseProblemLabel">El problema</span>
+                  <p data-i18n="project1.caseProblem">En Ecuador, el 56% de los niños con discapacidad no asiste a la escuela, según cifras del Ministerio de Educación; de las personas con discapacidad, solo un 11,9% ha accedido a la enseñanza secundaria, frente al 24,2% del resto de la población. El punto de partida no fue la tecnología, sino esa barrera.</p>
+                </div>
+
+                <div class="case-block">
+                  <span class="case-label" data-i18n="project1.caseTechLabel">La decisión técnica</span>
+                  <p data-i18n-html="project1.caseTech">En lugar de clasificar la imagen completa de la cámara, el reconocimiento se apoya en la geometría de la mano: <strong>palm_detection</strong> la ubica en el cuadro y <strong>hand_landmark</strong> extrae sus puntos clave, y el modelo trabaja sobre esos puntos. Eso es lo que permite responder en tiempo real en un móvil de gama media y sostener el reconocimiento con fondos e iluminación distintos. Alrededor: TensorFlow y OpenCV para la visión por computador, Java nativo sobre Android Studio, MySQL para el diccionario del abecedario con sus ilustraciones, y los motores de Text-to-Speech y Speech-to-Text para la vía inversa.</p>
+                </div>
+
+                <div class="case-block">
+                  <span class="case-label" data-i18n="project1.caseTodayLabel">Qué haría distinto hoy</span>
+                  <ul class="case-list">
+                    <li data-i18n="project1.caseToday1">La verificación fue manual, gesto por gesto. Hoy separaría un conjunto de prueba y mediría la precisión letra por letra: sin eso no se sabe dónde falla el modelo, y el trabajo no reporta esa cifra.</li>
+                    <li data-i18n="project1.caseToday2">El diccionario vivía en MySQL, lo que ataba al servidor un contenido que nunca cambia. Iría empaquetado en la app con SQLite.</li>
+                    <li data-i18n="project1.caseToday3">El desarrollo siguió cascada por requisito académico. Reconocer gestos es justo el tipo de problema que pide iterar sobre datos reales desde la primera semana.</li>
+                  </ul>
+                </div>
+              </div>
+
               <button class="btn-ver-mas" type="button">
                 <span class="ver-mas-label" data-i18n="common.verMas">Ver más</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
@@ -346,6 +374,10 @@
           </div>
 
           <div class="project-footer">
+            <a class="cert-link" href="assets/doc/tesis-sl-assist.pdf" target="_blank" rel="noopener">
+              <span data-i18n="project1.docLink">Ver el trabajo de titulación (99 págs.)</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -1093,6 +1125,10 @@
         <button class="app-icon" type="button" data-mock="slassist">
           <span class="app-ico app-ico-shot" data-logo="tesis"><img src="assets/img/icon-tesis.png" alt=""></span>
           <span class="app-name">SL Assist</span>
+        </button>
+        <button class="app-icon" type="button" data-mock="tesis">
+          <span class="app-ico"><img src="assets/img/icon-tesis-doc.svg" alt=""></span>
+          <span class="app-name" data-i18n="launcher.tesis">Tesis</span>
         </button>
         <button class="app-icon" type="button" data-mock="amobile">
           <span class="app-ico app-ico-shot" data-logo="amobile"><img src="assets/img/icon-amobile.png" alt=""></span>

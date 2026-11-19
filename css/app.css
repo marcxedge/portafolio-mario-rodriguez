@@ -1131,6 +1131,30 @@ body { background: #0f1528; }
   transition: background 0.2s, color 0.2s;
 }
 .cv-lang.is-active { background: var(--accent); color: #fff; }
+.cv-meta { font-size: 0.74rem; font-weight: 600; color: var(--text-mute); }
+
+/* Donde el navegador no incrusta PDF solo se ve la portada, y un documento
+   largo necesita una salida: la portada y este aviso lo abren completo. */
+.mock-doc .cv-doc { position: relative; flex-direction: column; align-items: center; justify-content: flex-start; }
+.cv-imglink { display: block; max-width: 100%; }
+.cv-hint {
+  display: block;
+  position: sticky;
+  bottom: 12px;
+  margin: 12px auto 0;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+@media (min-width: 820px) {
+  .cv-doc:not(.is-fallback) .cv-hint,
+  .cv-doc:not(.is-fallback) .cv-imglink { display: none; }
+}
 .cv-dl {
   display: inline-flex; align-items: center; gap: 7px;
   padding: 7px 15px; border-radius: 999px;

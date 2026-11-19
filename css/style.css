@@ -931,7 +931,53 @@ img { max-width: 100%; display: block; }
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.project-desc-wrap:not(.is-expanded) .project-points { display: none; }
+.project-desc-wrap:not(.is-expanded) .project-points,
+.project-desc-wrap:not(.is-expanded) .case-study { display: none; }
+
+/* Caso de estudio: el porqué, la decisión técnica y la lectura crítica del
+   proyecto. Va dentro del "Ver más" para no cargar la ficha de entrada. */
+.case-study {
+  margin: 4px 0 18px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.case-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.case-block + .case-block { margin-top: 14px; }
+.case-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.case-block p { color: var(--text-dim); font-size: 0.92rem; line-height: 1.65; }
+.case-block p strong { color: var(--text); font-weight: 600; }
+.case-list { display: flex; flex-direction: column; gap: 8px; }
+.case-list li {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  padding-left: 16px;
+  position: relative;
+}
+.case-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.6em;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.6;
+}
 
 .project-points { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
 .project-points li {

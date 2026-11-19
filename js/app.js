@@ -567,6 +567,47 @@ function initMockApps() {
     };
   };
 
+  /* "Tesis": el mismo visor de Mi CV, con un solo documento. En la barrita va el
+     dato que importa de un PDF largo —cuántas páginas— y la descarga. */
+  const tesisView = (el) => {
+    const en = () => document.documentElement.lang === 'en';
+    const t = (k) => (window.I18N ? window.I18N.get(en() ? 'en' : 'es', k) : '');
+    const ruta = 'assets/doc/tesis-sl-assist.pdf';
+
+    el.classList.add('mock-drive', 'mock-doc');
+    el.innerHTML = `
+      <div class="cv-bar">
+        <span class="cv-meta" data-tesis-meta></span>
+        <a class="cv-dl" href="${ruta}" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/>
+          </svg><span data-tesis-dl></span>
+        </a>
+      </div>
+      <div class="cv-doc">
+        <a class="cv-imglink" href="${ruta}" target="_blank" rel="noopener">
+          <img data-cv-img src="assets/img/tesis-portada.webp" alt="">
+        </a>
+        <iframe data-cv-frame title="Tesis" loading="lazy" src="${ruta}#toolbar=0&navpanes=0&view=FitH"></iframe>
+        <a class="cv-hint" href="${ruta}" target="_blank" rel="noopener" data-tesis-hint></a>
+      </div>`;
+
+    // mismo salvavidas que en Mi CV: si un bloqueador corta el PDF, se muestra la portada
+    const doc = el.querySelector('.cv-doc');
+    fetch(ruta, { method: 'HEAD', cache: 'no-store' })
+      .then((r) => { if (!r.ok) throw new Error(r.status); doc.classList.remove('is-fallback'); })
+      .catch(() => doc.classList.add('is-fallback'));
+
+    const pintar = () => {
+      el.querySelector('[data-tesis-meta]').textContent = t('tesis.meta');
+      el.querySelector('[data-tesis-dl]').textContent = t('cv.download');
+      el.querySelector('[data-tesis-hint]').textContent = t('tesis.openFull');
+    };
+    pintar();
+    document.addEventListener('i18n:changed', pintar);
+    return () => document.removeEventListener('i18n:changed', pintar);
+  };
+
   const views = {
     flutter(el) {
       el.innerHTML = `
@@ -763,6 +804,7 @@ function initMockApps() {
 
   Object.keys(PROJECT_APPS).forEach((k) => { views[k] = projectView(k); });
   views.cv = cvView;
+  views.tesis = tesisView;
 
   const close = () => {
     if (cleanup) cleanup();
