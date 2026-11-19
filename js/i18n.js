@@ -91,6 +91,8 @@ const I18N_TRANSLATIONS = {
       tag: 'Stack', title: 'Competencias técnicas',
       mobileTitle: 'Desarrollo Móvil', aiTitle: 'IA & Integración', mlMobile: 'Machine Learning Móvil', djiSdk: 'SDK DJI (Drones)',
       frontendTitle: 'Frontend Web', backendTitle: 'Backend & BD', methodsTitle: 'Metodologías', toolsTitle: 'Herramientas',
+      learningTitle: 'Explorando por mi cuenta',
+      learningNote: 'Nivel inicial, aprendido de forma autodidacta por interés en los videojuegos y el 3D.',
       softTitle: 'Competencias blandas', soft1: 'Liderazgo', soft2: 'Resolución de problemas', soft3: 'Aprendizaje continuo', soft4: 'Proactividad',
       langTag: 'Comunicación', langTitle: 'Idiomas', langSpanish: 'Español', langNative: 'Nativo',
       langEnglish: 'Inglés'
@@ -332,6 +334,8 @@ const I18N_TRANSLATIONS = {
       tag: 'Stack', title: 'Technical Skills',
       mobileTitle: 'Mobile Development', aiTitle: 'AI & Integration', mlMobile: 'Mobile Machine Learning', djiSdk: 'DJI SDK Integration (Drones)',
       frontendTitle: 'Frontend Web', backendTitle: 'Backend & DB', methodsTitle: 'Methodologies', toolsTitle: 'Tools',
+      learningTitle: 'Exploring on my own',
+      learningNote: 'Beginner level, self-taught out of interest in video games and 3D.',
       softTitle: 'Soft Skills', soft1: 'Leadership', soft2: 'Problem Solving', soft3: 'Continuous Learning', soft4: 'Proactivity',
       langTag: 'Communication', langTitle: 'Languages', langSpanish: 'Spanish', langNative: 'Native',
       langEnglish: 'English'

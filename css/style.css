@@ -1522,3 +1522,11 @@ img { max-width: 100%; display: block; }
 .photo { background: var(--photo-bg); }
 /* El icono del escritorio y el de la pantalla de carga usan la misma foto */
 img[src$="profile.webp"] { background: var(--photo-bg-flat); }
+
+/* Nota al pie de una tarjeta de habilidades, para matizar el nivel */
+.skill-note {
+  margin-top: 10px;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-mute);
+}
