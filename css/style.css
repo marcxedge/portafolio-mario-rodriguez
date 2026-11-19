@@ -637,6 +637,23 @@ img { max-width: 100%; display: block; }
   transition: transform 0.2s, background 0.2s;
 }
 .tag:hover { transform: translateY(-2px); }
+
+/* Etiquetas del stack: el logo oficial delante del nombre. Va sobre un disco
+   claro para que los logos oscuros se lean igual en tema claro y oscuro. */
+.tag-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding-left: 6px;
+}
+.tag-ico {
+  width: 22px; height: 22px;
+  padding: 3px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
 .tag-outline {
   background: transparent;
   border-color: var(--border);
