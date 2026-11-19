@@ -268,6 +268,10 @@
                 </div>
               </div>
               <h3 data-i18n="project1.cardTitle">App de Lenguaje de Señas en Tiempo Real</h3>
+              <button class="tech-strip" type="button" data-tech="tesis" aria-haspopup="dialog">
+                <span class="tech-strip-icons" aria-hidden="true"></span>
+                <span class="tech-strip-cta" data-i18n="tech.cta">Tecnologías</span>
+              </button>
             </div>
           </div>
 
@@ -401,6 +405,10 @@
                 </div>
               </div>
               <h3 data-i18n="project3.cardTitle">AMobile 7 — App para Equipos en Campo</h3>
+              <button class="tech-strip" type="button" data-tech="amobile" aria-haspopup="dialog">
+                <span class="tech-strip-icons" aria-hidden="true"></span>
+                <span class="tech-strip-cta" data-i18n="tech.cta">Tecnologías</span>
+              </button>
             </div>
           </div>
 
@@ -511,6 +519,10 @@
                 </div>
               </div>
               <h3 data-i18n="project2.cardTitle">Lift.xto — App de Seguimiento de Gimnasio</h3>
+              <button class="tech-strip" type="button" data-tech="liftxto" aria-haspopup="dialog">
+                <span class="tech-strip-icons" aria-hidden="true"></span>
+                <span class="tech-strip-cta" data-i18n="tech.cta">Tecnologías</span>
+              </button>
             </div>
           </div>
 
@@ -1145,6 +1157,21 @@
   <button class="home-btn" type="button" id="homeBtn" aria-pressed="false" data-i18n-attr="aria-label:launcher.homeButton;title:launcher.homeButton">
     <span class="home-btn-ring"></span>
   </button>
+  </div>
+</div>
+
+<!-- ===== TECNOLOGÍAS DEL PROYECTO ===== -->
+<div class="gallery-modal tech-modal" id="techModal" aria-hidden="true">
+  <div class="gallery-modal-backdrop" id="techModalBackdrop"></div>
+  <div class="gallery-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="techModalTitle">
+    <button class="gallery-modal-close" id="techModalClose" data-i18n-attr="aria-label:a11y.closeModal" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="tech-modal-body">
+      <span class="gallery-modal-index" id="techModalKicker"></span>
+      <h3 id="techModalTitle"></h3>
+      <ul class="tech-list" id="techModalList"></ul>
+    </div>
   </div>
 </div>
 

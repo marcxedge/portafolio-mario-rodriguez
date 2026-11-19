@@ -118,6 +118,37 @@ const I18N_TRANSLATIONS = {
       intro: 'Estos son los productos que he construido, desde el proyecto de grado hasta la app que hoy usan equipos en campo. Recorre la línea para verlos.',
       introImpact: 'Empiezo por el proyecto que explica por qué hago esto: una app para que una persona sorda pudiera comunicarse. Después, lo que vino construyendo el oficio.'
     },
+    tech: {
+      cta: 'Tecnologías',
+      title: 'Tecnologías del proyecto',
+      tesis: {
+        nombre: 'SL Assist',
+        java: 'El lenguaje de toda la app, nativa sobre Android Studio.',
+        android: 'Cámara, permisos y los motores de voz del sistema.',
+        tensorflow: 'La red que clasifica cada seña a partir de los puntos de la mano.',
+        opencv: 'Tratamiento del fotograma antes de pasarlo al modelo.',
+        mediapipe: 'Localiza la palma y extrae los puntos clave de la mano; es lo que hace viable el reconocimiento en tiempo real.',
+        mysql: 'El diccionario del abecedario con sus ilustraciones.'
+      },
+      amobile: {
+        nombre: 'AMobile 7',
+        flutter: 'La app actual, para Android e iOS desde un solo código base.',
+        dart: 'El lenguaje de la app, con BLoC para el estado y Dio para la red.',
+        android: 'Módulos nativos en Java: cámara, lectura de texto y sincronización en segundo plano.',
+        sqlite: 'La base local que permite seguir trabajando sin cobertura.',
+        mysql: 'Procedimientos almacenados en el servidor para el rastreo GPS.',
+        tensorflow: 'TensorFlow Lite: inferencia en el propio dispositivo, sin enviar nada a un servidor.',
+        javascript: 'Los formularios dinámicos que se ejecutan dentro del WebView.',
+        css3: 'El sistema de estilos de esos formularios, en tema claro y oscuro.'
+      },
+      liftxto: {
+        nombre: 'Lift.xto',
+        flutter: 'La app completa, construida desde cero.',
+        dart: 'Incluye el mapa muscular anatómico, dibujado con CustomPainter.',
+        sqlite: 'Todo el historial de entrenamientos vive en el dispositivo.',
+        flchart: 'Las gráficas de progreso y de carga por sesión.'
+      }
+    },
     project1: {
       tag: 'Proyecto de grado',
       date: 'Jul 2022 — Ago 2023', affiliation: 'Asociado con Universidad Técnica de Manabí',
@@ -375,6 +406,37 @@ const I18N_TRANSLATIONS = {
       tag: 'Projects', title: 'Featured projects',
       intro: 'These are the products I have built, from my degree project to the app field teams use today. Follow the line to go through them.',
       introImpact: 'I start with the project that explains why I do this: an app so that a deaf person could communicate. Then what built the craft around it.'
+    },
+    tech: {
+      cta: 'Tech stack',
+      title: 'Technologies used',
+      tesis: {
+        nombre: 'SL Assist',
+        java: 'The language behind the whole app, native on Android Studio.',
+        android: "Camera, permissions and the system's speech engines.",
+        tensorflow: 'The network that classifies each sign from the hand key points.',
+        opencv: 'Frame processing before it reaches the model.',
+        mediapipe: 'Locates the palm and extracts the hand key points; it is what makes real-time recognition feasible.',
+        mysql: 'The alphabet dictionary and its illustrations.'
+      },
+      amobile: {
+        nombre: 'AMobile 7',
+        flutter: 'The current app, for Android and iOS from a single codebase.',
+        dart: 'The language of the app, with BLoC for state and Dio for networking.',
+        android: 'Native Java modules: camera, text recognition and background sync.',
+        sqlite: 'The local database that keeps work going with no coverage.',
+        mysql: 'Server-side stored procedures for GPS tracking.',
+        tensorflow: 'TensorFlow Lite: inference on the device itself, nothing sent to a server.',
+        javascript: 'The dynamic forms that run inside the WebView.',
+        css3: 'The styling system for those forms, in light and dark themes.'
+      },
+      liftxto: {
+        nombre: 'Lift.xto',
+        flutter: 'The entire app, built from scratch.',
+        dart: 'Includes the anatomical muscle map, drawn with CustomPainter.',
+        sqlite: 'The full training history lives on the device.',
+        flchart: 'The progress and per-session volume charts.'
+      }
     },
     project1: {
       tag: 'Degree Project',

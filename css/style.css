@@ -937,6 +937,65 @@ img { max-width: 100%; display: block; }
 }
 .project-org svg { width: 16px; height: 16px; flex-shrink: 0; }
 
+/* Tira de tecnologías bajo el título del proyecto: logos pequeños que abren
+   el detalle de para qué sirvió cada una. */
+.tech-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 6px 14px 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+.tech-strip:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.tech-strip-icons { display: inline-flex; align-items: center; }
+.tech-strip-icons .tech-ico { margin-right: -7px; }
+.tech-strip-icons .tech-ico:last-child { margin-right: 0; }
+.tech-strip-cta {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.tech-ico {
+  width: 26px; height: 26px;
+  padding: 4px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.tech-ico-mas { background: var(--text-mute); font-size: 0.68rem; }
+.tech-ico-letra {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* Detalle de tecnologías */
+.tech-modal .gallery-modal-dialog { max-width: 560px; display: block; }
+.tech-modal-body { max-height: 74vh; overflow-y: auto; }
+.tech-modal-body h3 { font-size: 1.25rem; margin-bottom: 18px; }
+.tech-list { display: flex; flex-direction: column; gap: 16px; }
+.tech-item { display: flex; gap: 14px; align-items: flex-start; }
+.tech-item .tech-ico { width: 34px; height: 34px; padding: 6px; }
+.tech-item strong { display: block; font-size: 0.95rem; margin-bottom: 3px; }
+.tech-item p { color: var(--text-dim); font-size: 0.88rem; line-height: 1.55; }
+
 /* Body: description + points + tags */
 .project-body { position: relative; z-index: 1; margin-top: 24px; }
 

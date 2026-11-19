@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGalleryModal();
   initVerMas();
   initProjectNav();
+  initTechStrips();
   initTimelineBuild();
   initAudience();
 });
@@ -529,4 +530,97 @@ function initAudience() {
   };
   cambiar();
   document.addEventListener('i18n:changed', cambiar);
+}
+
+/* Tecnologías de cada proyecto: una tira de logos bajo el título que abre el
+   detalle de para qué se usó cada una. Los logos son los oficiales de Devicon;
+   lo que no tiene logo propio (MediaPipe, fl_chart) se muestra como inicial. */
+const TECH_PROYECTOS = {
+  tesis: ['java', 'android', 'tensorflow', 'opencv', 'mediapipe', 'mysql'],
+  amobile: ['flutter', 'dart', 'android', 'sqlite', 'mysql', 'tensorflow', 'javascript', 'css3'],
+  liftxto: ['flutter', 'dart', 'sqlite', 'flchart'],
+};
+
+const TECH_LOGOS = {
+  java: 'java', android: 'android', tensorflow: 'tensorflow', opencv: 'opencv',
+  mysql: 'mysql', flutter: 'flutter', dart: 'dart', sqlite: 'sqlite',
+  javascript: 'javascript', css3: 'css3',
+};
+
+const TECH_NOMBRES = {
+  java: 'Java', android: 'Android SDK', tensorflow: 'TensorFlow', opencv: 'OpenCV',
+  mediapipe: 'MediaPipe', mysql: 'MySQL', flutter: 'Flutter', dart: 'Dart',
+  sqlite: 'SQLite', javascript: 'JavaScript', css3: 'CSS', flchart: 'fl_chart',
+};
+
+function techIcono(id) {
+  const logo = TECH_LOGOS[id];
+  if (logo) {
+    return `<img class="tech-ico" src="assets/img/stack/${logo}.svg" alt="" loading="lazy">`;
+  }
+  return `<span class="tech-ico tech-ico-letra">${TECH_NOMBRES[id].charAt(0)}</span>`;
+}
+
+function initTechStrips() {
+  const tiras = document.querySelectorAll('.tech-strip');
+  if (!tiras.length) return;
+
+  tiras.forEach((tira) => {
+    const lista = TECH_PROYECTOS[tira.dataset.tech];
+    if (!lista) return;
+    // en móvil una tira de ocho logos no cabe: se muestran cinco y el resto
+    // se resume en un contador; el detalle completo está en la alerta
+    const TOPE = 5;
+    const vistos = lista.slice(0, TOPE).map(techIcono);
+    if (lista.length > TOPE) {
+      vistos.push(`<span class="tech-ico tech-ico-letra tech-ico-mas">+${lista.length - TOPE}</span>`);
+    }
+    tira.querySelector('.tech-strip-icons').innerHTML = vistos.join('');
+  });
+
+  const modal = document.getElementById('techModal');
+  if (!modal) return;
+  const titulo = document.getElementById('techModalTitle');
+  const kicker = document.getElementById('techModalKicker');
+  const items = document.getElementById('techModalList');
+  const t = (k) => (window.I18N ? window.I18N.get(document.documentElement.lang === 'en' ? 'en' : 'es', k) : '');
+
+  const cerrar = () => {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+  };
+
+  const abrir = (clave) => {
+    const lista = TECH_PROYECTOS[clave];
+    if (!lista) return;
+    kicker.textContent = t(`tech.${clave}.nombre`);
+    titulo.textContent = t('tech.title');
+    items.innerHTML = lista.map((id) => `
+      <li class="tech-item">
+        ${techIcono(id)}
+        <div>
+          <strong>${TECH_NOMBRES[id]}</strong>
+          <p>${t(`tech.${clave}.${id}`)}</p>
+        </div>
+      </li>`).join('');
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.getElementById('techModalClose')?.focus();
+  };
+
+  // delegado: la ficha se clona dentro de las apps del escritorio, y así la
+  // copia responde igual sin volver a atar nada
+  document.addEventListener('click', (e) => {
+    const tira = e.target.closest('.tech-strip');
+    if (!tira) return;
+    e.preventDefault();
+    e.stopPropagation();
+    abrir(tira.dataset.tech);
+  });
+
+  document.getElementById('techModalClose')?.addEventListener('click', cerrar);
+  document.getElementById('techModalBackdrop')?.addEventListener('click', cerrar);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) cerrar();
+  });
 }
